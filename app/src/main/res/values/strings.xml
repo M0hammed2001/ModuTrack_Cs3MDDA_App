@@ -11,4 +11,5 @@
     <string name="menu_module">Module Information</string>
     <string name="menu_Setting">Settings</string>
     <string name="menu_train">Train Information</string>
+    <string name="Train_service_button">Train Information</string>
 </resources>

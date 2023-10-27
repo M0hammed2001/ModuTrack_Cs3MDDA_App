@@ -10,9 +10,9 @@
             android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainFragment"
             android:label="@string/menu_train"
             tools:layout="@layout/fragment_train">
-            <action
-            android:id="@+id/action_Trainservices_to_Mapfragment"
-            app:destination="@id/nav_map" />
+    <action
+        android:id="@+id/action_Trainservices_to_Mapfragment"
+        app:destination="@id/nav_map" />
     </fragment>
 
     <fragment
@@ -62,7 +62,7 @@
 <!--    </fragment>-->
 
 <!--    <fragment-->
-<!--        android:id="@+id/nav_module"-->
+<!--        android:id="@+id/nav_m"-->
 <!--        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Map.MapFragment"-->
 <!--        android:label="@string/menu_module"-->
 <!--        tools:layout="@layout/fragment_map" />-->
