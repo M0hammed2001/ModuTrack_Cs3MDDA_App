@@ -63,6 +63,7 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                 itemView.setOnClickListener(this);
                 TraindestinationView = itemView.findViewById(R.id.username);
                 this.mAdapter = adapter;
+
             }
 
             @Override
