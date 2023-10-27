@@ -10,9 +10,9 @@
             android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainFragment"
             android:label="@string/menu_train"
             tools:layout="@layout/fragment_train">
-    <action
-        android:id="@+id/action_Trainservices_to_Mapfragment"
-        app:destination="@id/nav_map" />
+            <action
+            android:id="@+id/action_Trainservices_to_Mapfragment"
+            app:destination="@id/nav_map" />
     </fragment>
 
     <fragment
