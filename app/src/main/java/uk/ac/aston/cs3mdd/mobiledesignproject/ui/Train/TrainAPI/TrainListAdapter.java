@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import java.util.List;
 
@@ -69,6 +71,9 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
             @Override
             public void onClick(View view) {
                 Log.i("MS", "You Selected " + trainService.toString());
+//                .ActionFirstFragmentToSecondFragment action = MapFragmentDirections.actionFirstFragmentToSecondFragment(trainService);
+//                    Navigation.findNavController(view).navigate(action);
+
             }
         }
 
