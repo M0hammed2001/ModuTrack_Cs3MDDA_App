@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import java.util.List;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
@@ -63,18 +62,19 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
 
             public TrainViewHolder(@NonNull View itemView, TrainListAdapter adapter) {
                 super(itemView);
-
+                itemView.setOnClickListener(this);
                 TraindestinationView = itemView.findViewById(R.id.username);
                 this.mAdapter = adapter;
-                itemView.setOnClickListener(this);
+
             }
 
             @Override
             public void onClick(View view) {
 //                Log.i("MS", "You Selected " + trainService.toString());
-                TrainFragmentDirections.ActionTrainservicesToMapfragment action =
-                        TrainFragmentDirections.actionTrainservicesToMapfragment(trainService);
-                    Navigation.findNavController(view).navigate(action);
+                TrainFragmentDirections.ActionTrainservicesToMapTrainfragment action =
+                        TrainFragmentDirections.actionTrainservicesToMapTrainfragment(trainService);
+                                Navigation.findNavController(view).navigate(action);
+
 
             }
         }

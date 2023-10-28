@@ -6,66 +6,46 @@
     app:startDestination="@+id/nav_train">
 
     <fragment
-            android:id="@+id/nav_train"
-            android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainFragment"
-            android:label="@string/menu_train"
-            tools:layout="@layout/fragment_train">
-    <action
-        android:id="@+id/action_Trainservices_to_Mapfragment"
-        app:destination="@id/nav_map" />
-    </fragment>
-
-    <fragment
-            android:id="@+id/nav_map"
-            android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment"
-            android:label="@string/menu_map"
-            tools:layout="@layout/fragment_module">
-            <action
-                android:id="@+id/action_Mapfragment_to_Trainservices"
-                app:destination="@id/nav_train" />
-            <argument
-                android:name="Train"
-                app:argType="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService" />
-    </fragment>
-
-
-    <fragment
-        android:id="@+id/nav_module"
-        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment"
-        android:label="@string/menu_module"
-        tools:layout="@layout/fragment_module">
+        android:id="@+id/nav_train"
+        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainFragment"
+        android:label="@string/menu_train"
+        tools:layout="@layout/fragment_train" >
         <action
-            android:id="@+id/action_Trainservices_to_modulefragment"
+            android:id="@+id/action_nav_train_to_nav_module"
+            app:destination="@id/nav_module" />
+        <action
+            android:id="@+id/action_nav_train_to_nav_map"
+            app:destination="@id/nav_map" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment"
+        android:label="@string/menu_map"
+        tools:layout="@layout/fragment_module" />
+
+    <fragment
+        android:id="@+id/nav_trainmap"
+        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Trainmap.TrainMapFragment"
+        android:label="@string/menu_map"
+        tools:layout="@layout/fragment_trainmap" >
+        <argument
+            android:name="Trainservice"
+            app:argType="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService" />
+        <action
+            android:id="@+id/action_nav_trainmap_to_nav_train"
             app:destination="@id/nav_train" />
     </fragment>
 
-<!--    <fragment-->
-<!--        android:id="@+id/nav_train"-->
-<!--        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainFragment"-->
-<!--        android:label="@string/menu_train"-->
-<!--        tools:layout="@layout/fragment_train" />-->
-<!--    <action-->
-<!--        android:id="@+id/action_Trainservices_to_Mapfragment"-->
-<!--        app:destination="@id/nav_map" />-->
+    <fragment
+        android:id="@+id/nav_module"
+        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Map.MapFragment"
+        android:label="@string/menu_module"
+        tools:layout="@layout/fragment_map" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/nav_map"-->
-<!--        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment"-->
-<!--        android:label="@string/menu_map"-->
-<!--        tools:layout="@layout/fragment_module" >-->
-<!--        <action-->
-<!--            android:id="@+id/action_Mapfragment_to_Trainservices"-->
-<!--            app:destination="@id/nav_train" />-->
-<!--        <argument-->
-<!--            android:name="Train"-->
-<!--            app:argType="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService" />-->
-<!--    </fragment>-->
-
-<!--    <fragment-->
-<!--        android:id="@+id/nav_m"-->
-<!--        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Map.MapFragment"-->
-<!--        android:label="@string/menu_module"-->
-<!--        tools:layout="@layout/fragment_map" />-->
+    <action
+        android:id="@+id/action_Trainservices_to_MapTrainfragment"
+        app:destination="@id/nav_trainmap" />
 
 
 </navigation>
