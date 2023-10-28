@@ -34,6 +34,7 @@
             <action
                 android:id="@+id/action_nav_trainmap_to_nav_train"
                 app:destination="@id/nav_train" />
+
             <argument
                 android:name="Trainervices"
                 app:argType="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService" />
