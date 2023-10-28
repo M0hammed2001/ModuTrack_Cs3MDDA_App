@@ -14,7 +14,6 @@ import androidx.navigation.fragment.NavHostFragment;
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentTrainmapBinding;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService;
-//import uk.ac.aston.cs3mdd.mobiledesignproject.ui.train.Trainmap.TrainMapFragmentArgs;
 
 public class TrainMapFragment extends Fragment {
 
@@ -31,6 +30,8 @@ public class TrainMapFragment extends Fragment {
 //        final TextView textView = binding.textTrainmap;
 //        trainMapViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return binding.getRoot();
+
+
     }
 
     @Override
@@ -45,6 +46,8 @@ public class TrainMapFragment extends Fragment {
                         .navigate(R.id.action_nav_trainmap_to_nav_train);
             }
         });
+        binding.textTrainmap.setText(trainService.toString());
+
 
     }
 
