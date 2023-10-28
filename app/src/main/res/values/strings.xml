@@ -12,4 +12,7 @@
     <string name="menu_Setting">Settings</string>
     <string name="menu_train">Train Information</string>
     <string name="Train_service_button">Train Information</string>
+
+
+    <string name="argumentnameTrainMap">TrainServices</string>
 </resources>

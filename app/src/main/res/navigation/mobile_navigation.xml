@@ -10,12 +10,17 @@
         android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainFragment"
         android:label="@string/menu_train"
         tools:layout="@layout/fragment_train" >
+<!--        <action-->
+<!--            android:id="@+id/action_nav_train_to_nav_module"-->
+<!--            app:destination="@id/nav_module" />-->
+<!--        <action-->
+<!--            android:id="@+id/action_nav_train_to_nav_map"-->
+<!--            app:destination="@id/nav_map" />-->
+
         <action
-            android:id="@+id/action_nav_train_to_nav_module"
-            app:destination="@id/nav_module" />
-        <action
-            android:id="@+id/action_nav_train_to_nav_map"
-            app:destination="@id/nav_map" />
+            android:id="@+id/action_nav_train_to_nav_trainmap"
+            app:destination="@id/nav_trainmap" />
+
     </fragment>
 
     <fragment
@@ -29,12 +34,12 @@
         android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Trainmap.TrainMapFragment"
         android:label="@string/menu_map"
         tools:layout="@layout/fragment_trainmap" >
-        <argument
-            android:name="Trainservice"
-            app:argType="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService" />
         <action
             android:id="@+id/action_nav_trainmap_to_nav_train"
             app:destination="@id/nav_train" />
+        <argument
+            android:name="Trainervices"
+            app:argType="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService" />
     </fragment>
 
     <fragment
@@ -43,9 +48,6 @@
         android:label="@string/menu_module"
         tools:layout="@layout/fragment_map" />
 
-    <action
-        android:id="@+id/action_Trainservices_to_MapTrainfragment"
-        app:destination="@id/nav_trainmap" />
-
 
 </navigation>
+

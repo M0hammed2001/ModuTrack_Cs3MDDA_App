@@ -5,11 +5,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
+
+//import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -70,10 +73,9 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
 
             @Override
             public void onClick(View view) {
-//                Log.i("MS", "You Selected " + trainService.toString());
-                TrainFragmentDirections.ActionTrainservicesToMapTrainfragment action =
-                        TrainFragmentDirections.actionTrainservicesToMapTrainfragment(trainService);
-                                Navigation.findNavController(view).navigate(action);
+                Log.i("MS", "You Selected " + trainService.toString());
+                TrainFragmentDirections.ActionNavTrainToNavTrainmap action = TrainFragmentDirections.actionNavTrainToNavTrainmap(trainService);
+                Navigation.findNavController(view).navigate(action);
 
 
             }
