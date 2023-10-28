@@ -1,4 +1,4 @@
-package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Trainmap;
+package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.Trainmap;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

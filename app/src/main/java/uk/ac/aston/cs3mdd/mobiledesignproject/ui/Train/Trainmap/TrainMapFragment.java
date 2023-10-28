@@ -1,10 +1,9 @@
-package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Trainmap;
+package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.Trainmap;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,9 +12,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
-import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentMapBinding;
 import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentTrainmapBinding;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService;
+//import uk.ac.aston.cs3mdd.mobiledesignproject.ui.train.Trainmap.TrainMapFragmentArgs;
 
 public class TrainMapFragment extends Fragment {
 
