@@ -159,7 +159,7 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
         builder.include(birminghamNewStreet);
         builder.include(astonUniversity);
         LatLngBounds bounds = builder.build();
-        int padding = 100; // Padding in pixels
+        int padding = 140; // Padding in pixels
         CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
         mMap.moveCamera(cu);
     }
