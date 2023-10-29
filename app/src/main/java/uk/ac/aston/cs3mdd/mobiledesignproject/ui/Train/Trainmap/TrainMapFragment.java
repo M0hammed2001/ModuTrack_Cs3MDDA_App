@@ -36,62 +36,62 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
     public Destination destination;
 
 
-    private LatLng geocodeLocation(String locationName) {
-        // Implement geocoding logic here to get coordinates from the location name
-        // Example:
-        if (locationName.equals("Wolverhampton")) {
-            return new LatLng(52.5862, -2.1288);
-        } else if (locationName.equals("Telford Central")) {
-            return new LatLng(52.6815, -2.4463);
-        } else if (locationName.equals("Sandwell & Dudley")) {
-            return new LatLng(52.5023, -2.0214);
-        } else if (locationName.equals("Birmingham International")) {
-            return new LatLng(52.4520, -1.7381);
-        } else if (locationName.equals("Birmingham New Street")) {
-            return new LatLng(52.4520, -1.7381);
-        } else if (locationName.equals("Shrewsbury")) {
-            return new LatLng(52.7101, -2.7521);
-        } else if (locationName.equals("Walsall")) {
-            return new LatLng(52.5844, -1.9787);
-        } else if (locationName.equals("Bescot Stadium")) {
-            return new LatLng(52.5640, -1.9913);
-        } else if (locationName.equals("Tame Bridge Parkway")) {
-            return new LatLng(52.5466, -1.9741);
-        } else if (locationName.equals("Hamstead")) {
-            return new LatLng(52.5542, -1.9288);
-        } else if (locationName.equals("Perry Barr")) {
-            return new LatLng(52.5145, -1.8978);
-        } else if (locationName.equals("Witton")) {
-            return new LatLng(52.5093, -1.8849);
-        } else if (locationName.equals("Aston")) {
-            return new LatLng(52.5097, -1.8844);
-        } else {
-            // Shows a toast message advising mentioned location is not on the system yet.
-            Context context = requireContext(); // or use getActivity() if applicable
-            CharSequence text = "Location not found in the system";
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-
-            return new LatLng(0, 0); // Default to (0, 0) if not found
-        }
-    }
+//    private LatLng geocodeLocation(String locationName) {
+//        // Implement geocoding logic here to get coordinates from the location name
+//        // Example:
+//        if (locationName.equals("Wolverhampton")) {
+//            return new LatLng(52.5862, -2.1288);
+//        } else if (locationName.equals("Telford Central")) {
+//            return new LatLng(52.6815, -2.4463);
+//        } else if (locationName.equals("Sandwell & Dudley")) {
+//            return new LatLng(52.5023, -2.0214);
+//        } else if (locationName.equals("Birmingham International")) {
+//            return new LatLng(52.4520, -1.7381);
+//        } else if (locationName.equals("Birmingham New Street")) {
+//            return new LatLng(52.4520, -1.7381);
+//        } else if (locationName.equals("Shrewsbury")) {
+//            return new LatLng(52.7101, -2.7521);
+//        } else if (locationName.equals("Walsall")) {
+//            return new LatLng(52.5844, -1.9787);
+//        } else if (locationName.equals("Bescot Stadium")) {
+//            return new LatLng(52.5640, -1.9913);
+//        } else if (locationName.equals("Tame Bridge Parkway")) {
+//            return new LatLng(52.5466, -1.9741);
+//        } else if (locationName.equals("Hamstead")) {
+//            return new LatLng(52.5542, -1.9288);
+//        } else if (locationName.equals("Perry Barr")) {
+//            return new LatLng(52.5145, -1.8978);
+//        } else if (locationName.equals("Witton")) {
+//            return new LatLng(52.5093, -1.8849);
+//        } else if (locationName.equals("Aston")) {
+//            return new LatLng(52.5097, -1.8844);
+//        } else {
+//            // Shows a toast message advising mentioned location is not on the system yet.
+//            Context context = requireContext(); // or use getActivity() if applicable
+//            CharSequence text = "Location not found in the system";
+//            int duration = Toast.LENGTH_SHORT;
+//            Toast toast = Toast.makeText(context, text, duration);
+//            toast.show();
+//
+//            return new LatLng(0, 0); // Default to (0, 0) if not found
+//        }
+//    }
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
-        mMap = googleMap;
-
-        // Geocode the destination location name to get its coordinates (latitude and longitude)
-        LatLng loc = geocodeLocation(destination.getLocationName());
-
-        // Add a marker at the destination location and move the camera
-        mMap.addMarker(new MarkerOptions()
-                .position(loc)
-                .title("Location of this Station is"));
-
-        // Move the camera to the destination location
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, 10));
-        mMap.getUiSettings().setZoomControlsEnabled(true);
+//        mMap = googleMap;
+//
+//        // Geocode the destination location name to get its coordinates (latitude and longitude)
+//        LatLng loc = geocodeLocation(destination.getLocationName());
+//
+//        // Add a marker at the destination location and move the camera
+//        mMap.addMarker(new MarkerOptions()
+//                .position(loc)
+//                .title("Location of this Station is"));
+//
+//        // Move the camera to the destination location
+//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, 10));
+//        mMap.getUiSettings().setZoomControlsEnabled(true);
     }
 
 
