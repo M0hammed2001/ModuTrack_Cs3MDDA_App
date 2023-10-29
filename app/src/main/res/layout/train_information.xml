@@ -7,7 +7,7 @@
     android:padding="6dp">
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/traininformation"
         android:textColor="@color/black"
         android:background="@color/grey"
         android:layout_width="match_parent"
