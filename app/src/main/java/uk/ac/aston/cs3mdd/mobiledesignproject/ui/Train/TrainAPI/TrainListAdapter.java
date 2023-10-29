@@ -1,6 +1,8 @@
 package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI;
 
 import android.content.Context;
+import android.os.Build;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,14 +41,45 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
             return new TrainViewHolder(mItemView, this);
         }
 
-        @Override
-        public void onBindViewHolder(@NonNull TrainViewHolder holder, int position) {
-            TrainService trainService = mTrainList.get(position);
-            holder.trainService = trainService;
-//            Destination destination =  trainService.getAreServicesAvailable();
-            String displaydestination = trainService.getDestination() + " " + trainService.getOperator()+ " " + trainService.getEtd()+ " " + trainService.getStd() + " " + trainService.getNrccMessages();
-            holder.TraindestinationView.setText(displaydestination);
+//        @Override
+//        public void onBindViewHolder(@NonNull TrainViewHolder holder, int position) {
+//            TrainService trainService = mTrainList.get(position);
+//            holder.trainService = trainService;
+////            Destination destination =  trainService.getAreServicesAvailable();
+//            String displaydestination = trainService.getDestination() + " " + trainService.getOperator()+ " " + trainService.getEtd()+ " " + trainService.getStd() + " " + trainService.getNrccMessages();
+//            holder.TraindestinationView.setText(displaydestination);
+//        }
+
+    public void onBindViewHolder(@NonNull TrainViewHolder holder, int position) {
+        TrainService trainService = mTrainList.get(position);
+        holder.trainService = trainService;
+
+
+        // gets the information from the API
+        String destination = trainService.getDestination().toString();
+        String operator = trainService.getOperator();
+        String etd = trainService.getEtd();
+        String std = trainService.getStd();
+        String nrccMessages = trainService.getNrccMessages();
+
+        // Create the text with line breaks
+        String displayText = "Destination: " + destination + "<br>" +
+                "<br>" +
+                            "Operator: " + operator + "<br>" +
+                "<br>" +
+                            "ETD: " + etd + "<br>" +
+                "<br>" +
+                            "STD: " + std + "<br>" +
+                "<br>" +
+                            "NRCC Messages: " + nrccMessages;
+
+        // Set the text with line breaks in the TextView if the buildversion
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            holder.TraindestinationView.setText(Html.fromHtml(displayText, Html.FROM_HTML_MODE_LEGACY));
+        } else {
+            holder.TraindestinationView.setText(Html.fromHtml(displayText));
         }
+    }
 
         @Override
         public int getItemCount() {
