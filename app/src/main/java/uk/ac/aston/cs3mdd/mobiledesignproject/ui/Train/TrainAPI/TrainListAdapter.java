@@ -62,15 +62,23 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
         String std = trainService.getStd();
         String nrccMessages = trainService.getNrccMessages();
 
+        // will not display null if data is null
+        destination = (destination != null) ? destination : "no destination information";
+        operator = (operator != null) ? operator : "Not available";
+        std = (std != null) ? std : "TBC";
+        etd = (etd != null) ? etd : "no delays";
+        nrccMessages = (nrccMessages != null) ? nrccMessages : "No ongoing issues";
+
+
         // Create the text with line breaks
         String displayText = "Destination: " + destination + "<br>" +
-                "<br>" +
+                            "<br>" +
                             "Operator: " + operator + "<br>" +
-                "<br>" +
-                            "ETD: " + etd + "<br>" +
-                "<br>" +
-                            "STD: " + std + "<br>" +
-                "<br>" +
+                            "<br>" +
+                            "Departure: " + std + "<br>" +
+                            "<br>" +
+                            "Delays: " + etd + "<br>" +
+                            "<br>" +
                             "NRCC Messages: " + nrccMessages;
 
         // Set the text with line breaks in the TextView if the buildversion
