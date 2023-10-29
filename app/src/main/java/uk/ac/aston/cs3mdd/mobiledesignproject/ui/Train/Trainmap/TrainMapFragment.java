@@ -130,11 +130,13 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
 
+        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+
         // Define the coordinates for Birmingham New Street and Aston University
         LatLng birminghamNewStreet = new LatLng(52.477662, -1.898012); // Birmingham New Street coordinates
         LatLng astonUniversity = new LatLng(52.487144, -1.886977); // Aston University coordinates
 
-        // Add markers for Birmingham New Street and Aston University
+        // Added markers for Birmingham New Street and Aston University which you can see by clicking it
         mMap.addMarker(new MarkerOptions()
                 .position(birminghamNewStreet)
                 .title("Birmingham New Street"));
@@ -143,16 +145,16 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
                 .position(astonUniversity)
                 .title("Aston University"));
 
-        // Create a Polyline between Birmingham New Street and Aston University
+        // Create a line between Birmingham New Street and Aston University for quick judgement
         PolylineOptions polylineOptions = new PolylineOptions()
                 .add(birminghamNewStreet, astonUniversity)
                 .width(5) // Line width in pixels
                 .color(Color.BLUE); // Line color
 
-        // Add the Polyline to the map
+        // Add the line to the map
         mMap.addPolyline(polylineOptions);
 
-        // Move the camera to a suitable zoom level to show both markers
+        // set the map view to a good level so you can see both markers
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
         builder.include(birminghamNewStreet);
         builder.include(astonUniversity);
