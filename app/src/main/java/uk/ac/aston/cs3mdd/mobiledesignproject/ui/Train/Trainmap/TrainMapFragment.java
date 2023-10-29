@@ -2,6 +2,7 @@ package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.Trainmap;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,12 +16,15 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentTrainmapBinding;
@@ -77,8 +81,8 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
 //        }
 //    }
 
-    @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
+//    @Override
+//    public void onMapReady(@NonNull GoogleMap googleMap) {
 //        mMap = googleMap;
 //
 //        // Geocode the destination location name to get its coordinates (latitude and longitude)
@@ -92,8 +96,75 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
 //        // Move the camera to the destination location
 //        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, 10));
 //        mMap.getUiSettings().setZoomControlsEnabled(true);
-    }
+//    }
 
+//    public void onMapReady(@NonNull GoogleMap googleMap) {
+//        mMap = googleMap;
+//
+//        // Geocode the destination location name to get its coordinates (latitude and longitude)
+//        LatLng loc = geocodeLocation(destination.getLocationName());
+//
+//        // Add a marker at the destination location
+//        mMap.addMarker(new MarkerOptions()
+//                .position(loc)
+//                .title("Location of this Station is"));
+//
+//        // Move the camera to the destination location
+//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, 10));
+//        mMap.getUiSettings().setZoomControlsEnabled(true);
+//
+//        // Define the coordinates for Aston University and Birmingham New Street
+//        LatLng astonUniversity = new LatLng(52.5097, -1.8844); // Replace with the actual coordinates
+//        LatLng birminghamNewStreet = new LatLng(52.4520, -1.7381); // Replace with the actual coordinates
+//
+//        // Create a PolylineOptions to specify the line's style
+//        PolylineOptions lineOptions = new PolylineOptions()
+//                .add(astonUniversity, birminghamNewStreet) // Add the two LatLng coordinates
+//                .width(5) // Line width in pixels
+//                .color(Color.BLUE); // Line color
+//
+//        // Add the line to the map
+//        mMap.addPolyline(lineOptions);
+//    }
+
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Define the coordinates for Birmingham New Street and Aston University
+        LatLng birminghamNewStreet = new LatLng(52.477662, -1.898012); // Birmingham New Street coordinates
+        LatLng astonUniversity = new LatLng(52.487144, -1.886977); // Aston University coordinates
+
+        // Add markers for Birmingham New Street and Aston University
+        mMap.addMarker(new MarkerOptions()
+                .position(birminghamNewStreet)
+                .title("Birmingham New Street"));
+
+        mMap.addMarker(new MarkerOptions()
+                .position(astonUniversity)
+                .title("Aston University"));
+
+        // Create a Polyline between Birmingham New Street and Aston University
+        PolylineOptions polylineOptions = new PolylineOptions()
+                .add(birminghamNewStreet, astonUniversity)
+                .width(5) // Line width in pixels
+                .color(Color.BLUE); // Line color
+
+        // Add the Polyline to the map
+        mMap.addPolyline(polylineOptions);
+
+        // Move the camera to a suitable zoom level to show both markers
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+        builder.include(birminghamNewStreet);
+        builder.include(astonUniversity);
+        LatLngBounds bounds = builder.build();
+        int padding = 100; // Padding in pixels
+        CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
+        mMap.moveCamera(cu);
+    }
+    private LatLng geocodeLocation(String locationName) {
+
+        return geocodeLocation(locationName);
+    }
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
