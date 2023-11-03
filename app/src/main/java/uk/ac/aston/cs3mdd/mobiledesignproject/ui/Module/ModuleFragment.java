@@ -1,6 +1,8 @@
 package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,16 +40,41 @@ public class ModuleFragment extends Fragment {
         //final TextView textView = binding.textModule;
        // moduleViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         moduleinformation = new ViewModelProvider(requireActivity()).get(ModuleViewModel.class);
-        binding.textviewTitle.setText(moduleinformation.getCurrentModule().getValue().getModuleName());
+        binding.textviewModulename.setText(moduleinformation.getCurrentModule().getValue().getModuleName());
         updateUI();
+
+        binding.editModulename.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Fires right as the text is being changed (even supplies the range of text)
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Fires right before text is changing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Fires right after the text has changed
+                moduleinformation.setCurrentModuleTitle(s.toString());
+            }
+        });
+        moduleinformation.getCurrentModule().observe(getViewLifecycleOwner(), moduleInformation -> {
+            // Update the UI.
+            String modulename = moduleInformation.getModuleCode() + ": " + moduleInformation.getModuleName() + " (" + moduleInformation.getCredits() + " credits)";
+            binding.textviewModulename.setText(modulename);
+        });
     }
 
     private void updateUI() {
         ModuleInformation m = moduleinformation.getCurrentModule().getValue();
-        String title = m.getModuleCode() + ": " + m.getModuleName() + " (" + m.getCredits() + " credits)";
-        binding.textviewTitle.setText(title);
+        String modulename = m.getModuleCode() + ": " + m.getModuleName() + " (" + m.getCredits() + " credits)";
+        binding.textviewModulename.setText(modulename);
         binding.textviewDescription.setText(m.getDescription());
 //        binding.textviewLo.setText(m.getLearningOutcomes());
+
+        binding.editModulename.setText(m.getModuleName());
     }
 
 
