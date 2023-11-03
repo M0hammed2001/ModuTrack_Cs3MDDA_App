@@ -24,7 +24,7 @@ public class ModuleViewModel extends ViewModel {
     }
 
     private void setModuleData() {
-        currentModule.setValue(DataSource.getInstance(MyApplication.getAppContext()).getRealModule());
+//        currentModule.setValue(DataSource.getInstance(MyApplication.getAppContext()).getRealModule());
     }
     public void setCurrentModuleTitle(String newTitle) {
         ModuleInformation m = currentModule.getValue();

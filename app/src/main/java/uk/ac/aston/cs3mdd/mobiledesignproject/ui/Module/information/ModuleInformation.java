@@ -10,6 +10,16 @@ public class ModuleInformation {
     private int credits;//credits
     private String description;//description
 //    private String learningOutcomes;
+
+    private String Exam;
+
+    private String Coursework;
+
+    private String ExamDate;
+
+    private String CourseworkDate;
+
+
     private static int moduleCount;
 
     public String getCourseCode() {
@@ -67,6 +77,39 @@ public class ModuleInformation {
     public void setModuleCode(String moduleCode) {
         ModuleCode = moduleCode;
     }
+
+    public String getExam() {
+        return Exam;
+    }
+
+    public void setExam(String exam) {
+        Exam = exam;
+    }
+
+    public String getCoursework() {
+        return Coursework;
+    }
+
+    public void setCoursework(String coursework) {
+        Coursework = coursework;
+    }
+
+    public String getExamDate() {
+        return ExamDate;
+    }
+
+    public void setExamDate(String examDate) {
+        ExamDate = examDate;
+    }
+
+    public String getCourseworkDate() {
+        return CourseworkDate;
+    }
+
+    public void setCourseworkDate(String courseworkDate) {
+        CourseworkDate = courseworkDate;
+    }
+
 
     private static final Integer lock = 0;
     public ModuleInformation() {
