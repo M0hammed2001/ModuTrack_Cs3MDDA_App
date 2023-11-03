@@ -20,7 +20,7 @@
 
     <fragment
             android:id="@+id/nav_map"
-            android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment"
+            android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Map.MapFragment"
             android:label="@string/menu_map"
             tools:layout="@layout/fragment_module" />
 
@@ -45,7 +45,7 @@
 
     <fragment
             android:id="@+id/nav_module"
-            android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Map.MapFragment"
+            android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment"
             android:label="@string/menu_module"
             tools:layout="@layout/fragment_map" />
 
