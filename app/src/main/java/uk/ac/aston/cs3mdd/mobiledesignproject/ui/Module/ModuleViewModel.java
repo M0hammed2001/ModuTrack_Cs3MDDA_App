@@ -4,16 +4,28 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.information.DataSource;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.information.ModuleInformation;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.information.MyApplication;
+
 public class ModuleViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+
+    private MutableLiveData<ModuleInformation> currentModule;
+
+    public LiveData<ModuleInformation> getCurrentModule() {
+        return currentModule;
+    }
 
     public ModuleViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This Displays Module information, and allows you to track it fragment");
+        super();
+        currentModule = new MutableLiveData<ModuleInformation>();
+        setModuleData(); // only for dummy data
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    private void setModuleData() {
+        currentModule.setValue(DataSource.getInstance(MyApplication.getAppContext()).getRealModule());
     }
+
+
 }
