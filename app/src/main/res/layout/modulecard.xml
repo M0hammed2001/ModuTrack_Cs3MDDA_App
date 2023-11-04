@@ -25,7 +25,7 @@
                     android:id="@+id/ModulenameField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Module name"
+                    android:text="Module name:"
                     android:textColor="@android:color/holo_purple"
                     android:textFontWeight="1000"
                     android:textSize="30dp"/>
@@ -34,7 +34,7 @@
                     android:id="@+id/AssignmentsDueField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Assignment DueDate"
+                    android:text="Assignment:"
                     android:textColor="@android:color/holo_purple"
                     android:textFontWeight="1000"
                     android:textSize="30dp"/>
@@ -43,7 +43,7 @@
                     android:id="@+id/ExamDueField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Exam date"
+                    android:text="Exam:"
                     android:textColor="@android:color/holo_purple"
                     android:textFontWeight="1000"
                     android:textSize="30dp"/>
@@ -52,7 +52,7 @@
                     android:id="@+id/LessonDateTimeField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lesson Day's And time"
+                    android:text="Lesson:"
                     android:textColor="@android:color/holo_purple"
                     android:textFontWeight="1000"
                     android:textSize="30dp"/>

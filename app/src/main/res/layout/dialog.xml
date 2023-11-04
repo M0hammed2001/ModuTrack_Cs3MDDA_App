@@ -14,7 +14,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Module Name"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="1dp"
                 android:textSize="20dp"/>
 
             <EditText
@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Assignment Due Date"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="1dp"
                 android:textSize="20dp"/>
 
             <EditText
@@ -30,17 +30,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Exam Date and time"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="1dp"
                 android:textSize="20dp"/>
+
+            <EditText
+                android:id="@+id/lessonDateTime_Edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lesson Date and time"
+                android:layout_marginBottom="1dp"
+                android:textSize="20dp" />
 
         </LinearLayout>
 
-    <EditText
-        android:id="@+id/lessonDateTime_Edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Lesson Date and time"
-        android:layout_marginBottom="16dp"
-        android:textSize="20dp" />
+
 
 </RelativeLayout>
