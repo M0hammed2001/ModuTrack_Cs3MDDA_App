@@ -1,87 +1,82 @@
 package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-
-import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentModuleBinding;
-import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.information.ModuleInformation;
+import androidx.appcompat.app.AlertDialog;
+import android.content.DialogInterface;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 
 public class ModuleFragment extends Fragment {
-    private ModuleViewModel moduleinformation;
 
-
-    private FragmentModuleBinding binding;
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        ModuleViewModel moduleViewModel =
-                new ViewModelProvider(this).get(ModuleViewModel.class);
-
-        binding = FragmentModuleBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-
-        return root;
-    }
+    private Button add;
+    private AlertDialog dialog;
+    private LinearLayout layout;
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        //final TextView textView = binding.textModule;
-       // moduleViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        moduleinformation = new ViewModelProvider(requireActivity()).get(ModuleViewModel.class);
-        binding.textviewModulename.setText(moduleinformation.getCurrentModule().getValue().getModuleName());
-        updateUI();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_module, container, false);
 
-        binding.editModulename.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Fires right as the text is being changed (even supplies the range of text)
-            }
+        add = rootView.findViewById(R.id.button_addmodule);
+        layout = rootView.findViewById(R.id.container);
 
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Fires right before text is changing
-            }
+        buildDialog();
 
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void afterTextChanged(Editable s) {
-                // Fires right after the text has changed
-                moduleinformation.setCurrentModuleTitle(s.toString());
+            public void onClick(View v) {
+                dialog.show();
             }
         });
-        moduleinformation.getCurrentModule().observe(getViewLifecycleOwner(), moduleInformation -> {
-            // Update the UI.
-            String modulename = moduleInformation.getModuleCode() + ": " + moduleInformation.getModuleName() + " (" + moduleInformation.getCredits() + " credits)";
-            binding.textviewModulename.setText(modulename);
+
+        return rootView;
+    }
+
+    private void buildDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        View view = getLayoutInflater().inflate(R.layout.dialog, null);
+
+        final EditText module = view.findViewById(R.id.module_Edit);
+
+        builder.setView(view);
+        builder.setTitle("Enter Module")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        addCard(module.getText().toString());
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+        dialog = builder.create();
+    }
+
+    private void addCard(String name) {
+        final View view = getLayoutInflater().inflate(R.layout.modulecard, null);
+
+        TextView nameView = view.findViewById(R.id.ModuleField);
+        Button delete = view.findViewById(R.id.button_delete);
+
+        nameView.setText(name);
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                layout.removeView(view);
+            }
         });
-    }
 
-    private void updateUI() {
-        ModuleInformation m = moduleinformation.getCurrentModule().getValue();
-        String modulename = m.getModuleCode() + ": " + m.getModuleName() + " (" + m.getCredits() + " credits)";
-        binding.textviewModulename.setText(modulename);
-        binding.textviewDescription.setText(m.getDescription());
-//        binding.textviewLo.setText(m.getLearningOutcomes());
-
-        binding.editModulename.setText(m.getModuleName());
-    }
-
-
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+        layout.addView(view);
     }
 }
