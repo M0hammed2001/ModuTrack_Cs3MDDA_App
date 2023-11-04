@@ -16,16 +16,43 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp">
+                android:orientation="vertical"> <!-- Set the orientation to vertical -->
 
                 <TextView
-                    android:id="@+id/ModuleField"
+                    android:id="@+id/ModulenameField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Module"
+                    android:text="Module name"
+                    android:textColor="@android:color/holo_purple"
+                    android:textFontWeight="1000"
+                    android:textSize="30dp"/>
+
+                <TextView
+                    android:id="@+id/AssignmentsDueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Assignment DueDate"
+                    android:textColor="@android:color/holo_purple"
+                    android:textFontWeight="1000"
+                    android:textSize="30dp"/>
+
+                <TextView
+                    android:id="@+id/ExamDueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Exam date"
+                    android:textColor="@android:color/holo_purple"
+                    android:textFontWeight="1000"
+                    android:textSize="30dp"/>
+
+                <TextView
+                    android:id="@+id/LessonDateTimeField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lesson Day's And time"
                     android:textColor="@android:color/holo_purple"
                     android:textFontWeight="1000"
                     android:textSize="30dp"/>
@@ -35,9 +62,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="Delete"
-                    android:layout_alignParentRight="true" />
-            </RelativeLayout>
+                    android:layout_alignParentRight="true"
+                    android:text="Delete" />
+            </LinearLayout>
+
 
         </androidx.cardview.widget.CardView>
 
