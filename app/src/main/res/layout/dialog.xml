@@ -6,7 +6,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="10sp"
             android:orientation="vertical"> <!-- Set the orientation to vertical -->
 
             <EditText
@@ -14,32 +14,73 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Module Name"
-                android:layout_marginBottom="1dp"
-                android:textSize="20dp"/>
+                android:layout_marginBottom="1sp"
+                android:textSize="20sp"/>
 
-            <EditText
-                android:id="@+id/assignmentsDue_Edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Assignment Due Date"
-                android:layout_marginBottom="1dp"
-                android:textSize="20dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/examDue_Edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Exam Date and time"
-                android:layout_marginBottom="1dp"
-                android:textSize="20dp"/>
+                <EditText
+                    android:id="@+id/assignmentsName_Edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Assignment"
+                    android:layout_marginBottom="1sp"
+                    android:textSize="20sp"/>
 
-            <EditText
-                android:id="@+id/lessonDateTime_Edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Lesson Date and time"
-                android:layout_marginBottom="1dp"
-                android:textSize="20dp" />
+                <EditText
+                    android:id="@+id/assignmentsDateTime_Edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Date"
+                    android:layout_marginBottom="1sp"
+                    android:textSize="20sp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/examName_Edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Exam Name"
+                    android:layout_marginBottom="1sp"
+                    android:textSize="20sp"/>
+                <EditText
+                    android:id="@+id/examDate_Edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Date:"
+                    android:layout_marginBottom="1sp"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/lessonDateTime_Edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Lesson Date and time"
+                    android:layout_marginBottom="1sp"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/RoomNumber_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Room E.g 'MB'"
+                    android:layout_marginBottom="1sp"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+
 
         </LinearLayout>
 

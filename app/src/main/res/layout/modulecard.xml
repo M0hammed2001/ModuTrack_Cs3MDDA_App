@@ -20,42 +20,98 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"> <!-- Set the orientation to vertical -->
-
-                <TextView
-                    android:id="@+id/ModulenameField"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Module name:"
-                    android:textColor="@android:color/holo_purple"
-                    android:textFontWeight="1000"
-                    android:textSize="30dp"/>
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/AssignmentsDueField"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Assignment:"
-                    android:textColor="@android:color/holo_purple"
-                    android:textFontWeight="1000"
-                    android:textSize="30dp"/>
+                    <TextView
+                        android:id="@+id/ModulenameField"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Module:"
+                        android:textColor="@android:color/holo_purple"
+                        android:textFontWeight="1000"
+                        android:textSize="20dp"/>
 
-                <TextView
-                    android:id="@+id/ExamDueField"
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Exam:"
-                    android:textColor="@android:color/holo_purple"
-                    android:textFontWeight="1000"
-                    android:textSize="30dp"/>
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/LessonDateTimeField"
+                    <TextView
+                        android:id="@+id/AssignmentsNameField"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Assignment:"
+                        android:textColor="@android:color/holo_purple"
+                        android:textFontWeight="1000"
+                        android:textSize="15sp"
+                        android:layout_marginEnd="20sp"/>
+
+                    <TextView
+                        android:id="@+id/AssignmentsDateField"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date:"
+                        android:textColor="@color/red"
+                        android:textFontWeight="1000"
+                        android:textSize="15sp"/>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lesson:"
-                    android:textColor="@android:color/holo_purple"
-                    android:textFontWeight="1000"
-                    android:textSize="30dp"/>
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/ExamNameField"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exam:"
+                        android:textColor="@android:color/holo_purple"
+                        android:textFontWeight="1000"
+                        android:textSize="15sp"
+                        android:layout_marginEnd="20sp"/>
+                    <TextView
+                        android:id="@+id/ExamDateField"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date:"
+                        android:textColor="@color/red"
+                        android:textFontWeight="1000"
+                        android:textSize="15sp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/LessonDateTimeField"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lesson:"
+                        android:textColor="@android:color/holo_purple"
+                        android:textFontWeight="1000"
+                        android:textSize="15sp"
+                        android:layout_marginEnd="20sp"/>
+
+                    <TextView
+                        android:id="@+id/RoomField"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Room:"
+                        android:textColor="@android:color/holo_purple"
+                        android:textFontWeight="1000"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+
 
                 <Button
                     android:id="@+id/button_delete"

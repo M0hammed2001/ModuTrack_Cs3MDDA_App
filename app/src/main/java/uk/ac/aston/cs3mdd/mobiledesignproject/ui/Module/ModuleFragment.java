@@ -50,9 +50,15 @@ public class ModuleFragment extends Fragment {
 
         // Initialize EditText fields for module details
         final EditText modulenameEdit = view.findViewById(R.id.modulename_Edit);
-        final EditText assignmentsDueEdit = view.findViewById(R.id.assignmentsDue_Edit);
-        final EditText examDueEdit = view.findViewById(R.id.examDue_Edit);
+
+        final EditText assignmentsNameEdit = view.findViewById(R.id.assignmentsName_Edit);
+        final EditText assignmentsDateEdit = view.findViewById(R.id.assignmentsDateTime_Edit);
+
+        final EditText examNameEdit = view.findViewById(R.id.examName_Edit);
+        final EditText examDateEdit = view.findViewById(R.id.examDate_Edit);
+
         final EditText lessonDateTimeEdit = view.findViewById(R.id.lessonDateTime_Edit);
+        final EditText lessonRoomEdit = view.findViewById(R.id.RoomNumber_edit);
 
         builder.setView(view);
         builder.setTitle("Enter Module Details")
@@ -61,10 +67,19 @@ public class ModuleFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         // When the "OK" button is clicked, add a new module card with details
                         String moduleName = modulenameEdit.getText().toString();
-                        String assignmentsDue = assignmentsDueEdit.getText().toString();
-                        String examDue = examDueEdit.getText().toString();
+
+                        String assignmentsName = assignmentsNameEdit.getText().toString();
+                        String assignmentsDate = assignmentsDateEdit.getText().toString();
+
+
+                        String examName = examNameEdit.getText().toString();
+                        String examDate = examDateEdit.getText().toString();
+
+
                         String lessonDateTime = lessonDateTimeEdit.getText().toString();
-                        addCard(moduleName, assignmentsDue, examDue, lessonDateTime);
+                        String LessonRoom = lessonRoomEdit.getText().toString();
+
+                        addCard(moduleName,assignmentsName,assignmentsDate,examName,examDate,lessonDateTime,LessonRoom);
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -77,22 +92,35 @@ public class ModuleFragment extends Fragment {
         dialog = builder.create(); // Create the dialog
     }
 
-    private void addCard(String modulename, String assignmentsDue, String examDue, String lessonDateTime) {
+    private void addCard(String moduleName, String assignmentsName,String assignmentsDate , String examName, String examDate, String lessonDateTime, String LessonRoom) {
         // Create a new module card and populate it with the entered details
         final View view = getLayoutInflater().inflate(R.layout.modulecard, null);
 
         // Initialize TextView fields on the module card
         TextView ModulenameView = view.findViewById(R.id.ModulenameField);
-        TextView assignmentsDueView = view.findViewById(R.id.AssignmentsDueField);
-        TextView examDueView = view.findViewById(R.id.ExamDueField);
+
+        TextView assignmentNameView = view.findViewById(R.id.AssignmentsNameField);
+        TextView assignmentsDateView = view.findViewById(R.id.AssignmentsDateField);
+
+
+        TextView examNameView = view.findViewById(R.id.ExamNameField);
+        TextView examDateView = view.findViewById(R.id.ExamDateField);
+
+
         TextView lessonDateTimeView = view.findViewById(R.id.LessonDateTimeField);
+        TextView lessonRoomView = view.findViewById(R.id.RoomField);
+
+
         Button delete = view.findViewById(R.id.button_delete);
 
         // Set the details on the card
-        ModulenameView.setText(modulename);
-        assignmentsDueView.setText("Assignments Due: " + assignmentsDue);
-        examDueView.setText("Exam Due: " + examDue);
-        lessonDateTimeView.setText("Lesson Date and Time: " + lessonDateTime);
+        ModulenameView.setText(moduleName);
+        assignmentNameView.setText("Assignments: " + assignmentsName );
+        assignmentsDateView.setText("Date" + assignmentsDate);
+        examNameView.setText("Exam: " + examName );
+        examDateView.setText("date:" + examDate);
+        lessonDateTimeView.setText("Lesson: " + lessonDateTime);
+        lessonRoomView.setText("Room:" + LessonRoom);
 
         // Set a click listener to remove the card when the "Delete" button is clicked
         delete.setOnClickListener(new View.OnClickListener() {
@@ -105,4 +133,6 @@ public class ModuleFragment extends Fragment {
         // Add the module card to the layout
         layout.addView(view);
     }
+
+
 }
