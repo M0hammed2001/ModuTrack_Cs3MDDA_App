@@ -8,7 +8,6 @@
             android:id="@+id/nav_train"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_train"/>
-<!--            android:background="?attr/colorPrimary"-->
 
         <item
             android:id="@+id/nav_module"
