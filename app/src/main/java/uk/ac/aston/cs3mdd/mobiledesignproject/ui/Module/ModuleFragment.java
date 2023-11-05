@@ -94,6 +94,7 @@ public class ModuleFragment extends Fragment {
 
     private void addCard(String moduleName, String assignmentsName,String assignmentsDate , String examName, String examDate, String lessonDateTime, String LessonRoom) {
         // Create a new module card and populate it with the entered details
+        Module module = new Module(moduleName,assignmentsName,assignmentsDate,examName,examDate,lessonDateTime,LessonRoom);
         final View view = getLayoutInflater().inflate(R.layout.modulecard, null);
 
         // Initialize TextView fields on the module card
