@@ -51,7 +51,7 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
         List<Destination> destinations = trainService.getDestination();
         if (destinations != null) {
             for(Destination destination:destinations) {
-                if ("BHM".equals(destination.getCrs())) {
+                if ("BHM".equals(destination.getCrs()) || "BHI".equals(destination.getCrs()) ) {
                     // Handle the case when data is not null and the CRS is "BHM"
                     String operator = trainService.getOperator();
                     String etd = trainService.getEtd();
