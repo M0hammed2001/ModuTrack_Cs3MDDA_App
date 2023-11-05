@@ -47,22 +47,25 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
         TrainService trainService = mTrainList.get(position);
         holder.trainService = trainService;
 
-        // gets the information from the API
-        String destination = trainService.getDestination().toString();
-        String operator = trainService.getOperator();
-        String etd = trainService.getEtd();
-        String std = trainService.getStd();
-        String nrcMessages = trainService.getNrccMessages();
-        
-        // will not display null if data is null
-        destination = (destination != null) ? destination : "no destination information";
-        operator = (operator != null) ? operator : "Not available";
-        std = (std != null) ? std : "TBC";
-        etd = (etd != null) ? etd : "no delays";
-        nrcMessages = (nrcMessages != null) ? nrcMessages : "No ongoing issues";
+        // Check if the destination is not null
+        List<Destination> destinations = trainService.getDestination();
+        if (destinations != null) {
+            for(Destination destination:destinations) {
+                if ("BHM".equals(destination.getCrs())) {
+                    // Handle the case when data is not null and the CRS is "BHM"
+                    String operator = trainService.getOperator();
+                    String etd = trainService.getEtd();
+                    String std = trainService.getStd();
+                    String nrccMessages = trainService.getNrccMessages();
 
-        // Create the text with line breaks
-        String displayText = "Destination: " + destination + "<br>" +
+                    // Handle null values
+                    operator = (operator != null) ? operator : "Not available";
+                    std = (std != null) ? std : "TBC";
+                    etd = (etd != null) ? etd : "no delays";
+                    nrccMessages = (nrccMessages != null) ? nrccMessages : "No ongoing issues";
+
+                    // Create the text with line breaks
+                    String displayText = "Destination: " + destinations.toString() + "<br>" +
                             "<br>" +
                             "Operator: " + operator + "<br>" +
                             "<br>" +
@@ -70,13 +73,20 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                             "<br>" +
                             "Delays: " + etd + "<br>" +
                             "<br>" +
-                            "NRC Messages: " + nrcMessages;
+                            "NRCC Messages: " + nrccMessages;
 
-        // Set the text with line breaks in the TextView if the build version
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            holder.TraindestinationView.setText(Html.fromHtml(displayText, Html.FROM_HTML_MODE_LEGACY));
-        } else {
-            holder.TraindestinationView.setText(Html.fromHtml(displayText));
+                    // Set the text with line breaks in the TextView if the build version supports it
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        holder.TraindestinationView.setText(Html.fromHtml(displayText, Html.FROM_HTML_MODE_LEGACY));
+                    } else {
+                        holder.TraindestinationView.setText(Html.fromHtml(displayText));
+                    }
+                } else {
+                    // Check if the CRS matches the required value ("BHM")
+                    holder.TraindestinationView.setText("No destination information");
+
+                }
+            }
         }
     }
 
