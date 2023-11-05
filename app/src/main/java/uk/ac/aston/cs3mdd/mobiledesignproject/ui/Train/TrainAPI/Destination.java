@@ -42,17 +42,12 @@ public class Destination implements Serializable {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        String crs = getCrs();
-        if ("BHM".equals(crs)) {
-            sb.append(getLocationName());
-            sb.append(", ");
-            sb.append(crs);
-            sb.append(", ");
-            String via = getVia() != null ? getVia() : "";
-            sb.append(via);
-        }else{
-            return null;
-        }
+        sb.append(getLocationName());
+        sb.append(", ");
+        sb.append(getCrs());
+        sb.append(", ");
+        String via = getVia() != null ? getVia() : "";
+        sb.append(via);
         return sb.toString();
     }
 }
