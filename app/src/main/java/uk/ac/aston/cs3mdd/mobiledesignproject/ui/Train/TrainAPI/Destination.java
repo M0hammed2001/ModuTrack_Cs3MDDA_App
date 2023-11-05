@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public class Destination implements Serializable {
 //    private String destination;
-//    // gets the sub class desination where in the crs, locationname, via is located
+//    // gets the sub class designation where in the crs, locationName, via is located
     private String crs;
     //abbreviation for location name
 
     private String via;
-    // will show via what erea the train will travel
+    // will show via what area the train will travel
 
 
     public String getVia() {
