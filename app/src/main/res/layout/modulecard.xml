@@ -110,16 +110,27 @@
                         android:textSize="15sp"/>
 
                 </LinearLayout>
-
-
-
-                <Button
-                    android:id="@+id/button_delete"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:text="Delete" />
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/button_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:text="Delete"
+                        android:layout_marginEnd="30sp"/>
+                    <Button
+                        android:id="@+id/button_Edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentLeft="true"
+                        android:text="Edit" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
 

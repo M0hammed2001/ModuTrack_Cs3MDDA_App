@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-//import com.squareup.picasso.Picasso;
+
 
 import java.util.List;
 
@@ -41,34 +41,25 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
             return new TrainViewHolder(mItemView, this);
         }
 
-//        @Override
-//        public void onBindViewHolder(@NonNull TrainViewHolder holder, int position) {
-//            TrainService trainService = mTrainList.get(position);
-//            holder.trainService = trainService;
-////            Destination destination =  trainService.getAreServicesAvailable();
-//            String displaydestination = trainService.getDestination() + " " + trainService.getOperator()+ " " + trainService.getEtd()+ " " + trainService.getStd() + " " + trainService.getNrccMessages();
-//            holder.TraindestinationView.setText(displaydestination);
-//        }
+
 
     public void onBindViewHolder(@NonNull TrainViewHolder holder, int position) {
         TrainService trainService = mTrainList.get(position);
         holder.trainService = trainService;
-
 
         // gets the information from the API
         String destination = trainService.getDestination().toString();
         String operator = trainService.getOperator();
         String etd = trainService.getEtd();
         String std = trainService.getStd();
-        String nrccMessages = trainService.getNrccMessages();
-
+        String nrcMessages = trainService.getNrccMessages();
+        
         // will not display null if data is null
         destination = (destination != null) ? destination : "no destination information";
         operator = (operator != null) ? operator : "Not available";
         std = (std != null) ? std : "TBC";
         etd = (etd != null) ? etd : "no delays";
-        nrccMessages = (nrccMessages != null) ? nrccMessages : "No ongoing issues";
-
+        nrcMessages = (nrcMessages != null) ? nrcMessages : "No ongoing issues";
 
         // Create the text with line breaks
         String displayText = "Destination: " + destination + "<br>" +
@@ -79,9 +70,9 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                             "<br>" +
                             "Delays: " + etd + "<br>" +
                             "<br>" +
-                            "NRCC Messages: " + nrccMessages;
+                            "NRC Messages: " + nrcMessages;
 
-        // Set the text with line breaks in the TextView if the buildversion
+        // Set the text with line breaks in the TextView if the build version
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             holder.TraindestinationView.setText(Html.fromHtml(displayText, Html.FROM_HTML_MODE_LEGACY));
         } else {
