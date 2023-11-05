@@ -45,6 +45,10 @@ public class ModuleList {
         }
     }
 
+    public List<Module> getModules() {
+        return modules;
+    }
+
 
 
 }

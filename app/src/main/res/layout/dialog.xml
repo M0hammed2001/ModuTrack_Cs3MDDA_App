@@ -10,7 +10,7 @@
             android:orientation="vertical"> <!-- Set the orientation to vertical -->
 
             <EditText
-                android:id="@+id/modulename_Edit"
+                android:id="@+id/modulename_add"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Module Name"
@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/assignmentsName_Edit"
+                    android:id="@+id/assignmentsName_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Assignment"
@@ -30,7 +30,7 @@
                     android:textSize="20sp"/>
 
                 <EditText
-                    android:id="@+id/assignmentsDateTime_Edit"
+                    android:id="@+id/assignmentsDateTime_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Date"
@@ -43,14 +43,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:id="@+id/examName_Edit"
+                    android:id="@+id/examName_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Exam Name"
                     android:layout_marginBottom="1sp"
                     android:textSize="20sp"/>
                 <EditText
-                    android:id="@+id/examDate_Edit"
+                    android:id="@+id/examDate_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Date:"
@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:id="@+id/lessonDateTime_Edit"
+                    android:id="@+id/lessonDateTime_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Lesson Date and time"
@@ -71,7 +71,7 @@
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/RoomNumber_edit"
+                    android:id="@+id/RoomNumber_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Room E.g 'MB'"

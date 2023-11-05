@@ -2,6 +2,8 @@ package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module;
 
 import androidx.annotation.Nullable;
 
+import java.util.Objects;
+
 public class Module {
     private String moduleName;
     private String assignmentsName;
@@ -89,6 +91,26 @@ public class Module {
         }
         return false;
     }
+
+//    public boolean equals(@Nullable Object another) {
+//        if (this == another) {
+//            return true;
+//        }
+//
+//        if (another == null || getClass() != another.getClass()) {
+//            return false;
+//        }
+//
+//        Module otherModule = (Module) another;
+//
+//        return Objects.equals(moduleName, otherModule.moduleName) &&
+//                Objects.equals(assignmentsName, otherModule.assignmentsName) &&
+//                Objects.equals(assignmentsDate, otherModule.assignmentsDate) &&
+//                Objects.equals(examName, otherModule.examName) &&
+//                Objects.equals(examDate, otherModule.examDate) &&
+//                Objects.equals(lessonDateTime, otherModule.lessonDateTime) &&
+//                Objects.equals(lessonRoom, otherModule.lessonRoom);
+//    }
 
     @Override
     public String toString() {
