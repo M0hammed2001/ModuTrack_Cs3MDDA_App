@@ -7,44 +7,56 @@
     android:orientation="vertical"
     tools:context="ui.Module.ModuleFragment">
 
-    <TextView
-        android:id="@+id/textview"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="100sp"
-        android:gravity="center_horizontal"
-        android:textSize="30sp"
-        tools:text="Here will be our text" />
-
-    <EditText
-        android:id="@+id/testModuleName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/apply_text_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="apply text" />
-
-        <Switch
-            android:id="@+id/switch1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <Button
-            android:id="@+id/save_button"
+            android:id="@+id/addDataButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="save data" />
-
+            android:text="Add Data" />
     </LinearLayout>
+
+<!--    <TextView-->
+<!--        android:id="@+id/textview"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100sp"-->
+<!--        android:gravity="center_horizontal"-->
+<!--        android:textSize="30sp"-->
+<!--        tools:text="Here will be our text" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/testModuleName"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content" />-->
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <Button-->
+<!--            android:id="@+id/apply_text_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:text="apply text" />-->
+
+<!--        <Switch-->
+<!--            android:id="@+id/switch1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/save_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:text="save data" />-->
+
+<!--    </LinearLayout>-->
 
 
 
