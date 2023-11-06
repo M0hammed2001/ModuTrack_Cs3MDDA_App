@@ -7,48 +7,53 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.fragment.app.Fragment;
-
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
+import java.util.ArrayList;
 
 public class ModuleFragment extends Fragment {
     // UI elements
     private LinearLayout itemContainer;
     private Button addItemButton;
+    private ArrayList<String> itemTextList;
 
     // Shared preferences keys
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String ITEM_COUNT = "itemCount";
+    public static final String ITEM_TEXT = "itemText";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the fragment layout
         View view = inflater.inflate(R.layout.testmodule_layout, container, false);
 
         // Initialize UI elements
         itemContainer = view.findViewById(R.id.item_container);
         addItemButton = view.findViewById(R.id.add_item_button);
 
+        // Initialize the ArrayList for item text
+        itemTextList = new ArrayList<>();
+
         // Set click listener for the "Add Item" button
         addItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addItem(); // Call a method to add a new item
+                addItem(); // Add a new item
             }
         });
 
         // Restore previously added items
         int itemCount = loadData(); // Load the number of items from shared preferences
+        loadItemText(); // Load item text
 
         // Add the saved number of items to the UI
         for (int i = 0; i < itemCount; i++) {
             addItem();
+            if (i < itemTextList.size()) {
+                updateItemText(i, itemTextList.get(i));
+            }
         }
 
         return view;
@@ -56,46 +61,54 @@ public class ModuleFragment extends Fragment {
 
     // Method to add a new item to the UI
     private void addItem() {
-        // Inflate the item layout
-        View itemView = getLayoutInflater().inflate(R.layout.testmodule_layout, null);
+        View itemView = getLayoutInflater().inflate(R.layout.modulecard, null);
+
+        // Add the item view to the container
+        itemContainer.addView(itemView);
 
         // Initialize UI elements for the item
-        TextView textView = itemView.findViewById(R.id.textview);
-        EditText editText = itemView.findViewById(R.id.edittext);
-        Button applyTextButton = itemView.findViewById(R.id.apply_text_button);
-        Switch switch1 = itemView.findViewById(R.id.switch1);
+        TextView moduleNameField = itemView.findViewById(R.id.ModulenameField);
+        // Initialize other TextView elements here
 
-        // Set click listener for the "Apply Text" button
-        applyTextButton.setOnClickListener(new View.OnClickListener() {
+        Button buttonDelete = itemView.findViewById(R.id.button_delete);
+        Button buttonEdit = itemView.findViewById(R.id.button_Edit);
+
+        // Set click listener for the "Edit" button
+        buttonEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Update the text view within the item
-                textView.setText(editText.getText().toString());
+                // Handle the edit action
+                handleEditClick(itemContainer.indexOfChild(itemView));
             }
         });
 
-        // Add the item to the container
-        itemContainer.addView(itemView);
+        // Set click listener for the "Delete" button
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Handle the delete action
+                handleDeleteClick(itemContainer.indexOfChild(itemView));
+            }
+        });
     }
 
-    // Method to save the number of added items to shared preferences
-    private void saveData(int itemCount) {
-        Context context = requireContext();
-        SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        // Save the number of items
-        editor.putInt(ITEM_COUNT, itemCount);
-
-        editor.apply();
+    // Handle the edit button click (customize this logic)
+    private void handleEditClick(int itemIndex) {
+        if (itemIndex >= 0) {
+            // Add your custom logic for editing here
+            Toast.makeText(requireContext(), "Edit clicked for item " + itemIndex, Toast.LENGTH_SHORT).show();
+        }
     }
 
-    // Method to load the number of added items from shared preferences
-    private int loadData() {
-        Context context = requireContext();
-        SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
-
-        // Load the number of items (default to 0)
-        return sharedPreferences.getInt(ITEM_COUNT, 0);
+    // Handle the delete button click
+    private void handleDeleteClick(int itemIndex) {
+        if (itemIndex >= 0) {
+            // Remove the item from the container
+            itemContainer.removeViewAt(itemIndex);
+            // Remove the associated item text
+            removeItemText(itemIndex);
+        }
     }
 }
+
+// Method to remove an item's text
