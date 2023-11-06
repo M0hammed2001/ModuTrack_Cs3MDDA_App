@@ -8,177 +8,92 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AlertDialog;
-import android.content.DialogInterface;
+import android.widget.Toast;
 
-import java.util.Objects;
+import androidx.fragment.app.Fragment;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 
 public class ModuleFragment extends Fragment {
+    private TextView textView;
+    private EditText editText;
+    private Button applyTextButton;
+    private Button saveButton;
+    private Switch switch1;
 
-    private Button add; // Button to add a new module card
-    private AlertDialog dialog; // Dialog for entering module details
-    private LinearLayout layout; // Layout for displaying module cards
-    private ModuleList moduleList; // Module list manager
-    private SharedPreferences sharedPreferences; // SharedPreferences for data storage
+    // Define keys for shared preferences
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String TEXT = "text";
+    public static final String SWITCH1 = "switch1";
+
+    private String text;
+    private boolean switchOnOff;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_module, container, false);
-
-        // Initialize SharedPreferences
-        sharedPreferences = requireContext().getSharedPreferences("ModuleData", Context.MODE_PRIVATE);
+        // Inflate the fragment layout
+        View view = inflater.inflate(R.layout.testmodule_layout, container, false);
 
         // Initialize UI elements
-        add = rootView.findViewById(R.id.button_addmodule);
-        layout = rootView.findViewById(R.id.container);
-        moduleList = new ModuleList();
+        textView = view.findViewById(R.id.textview);
+        editText = view.findViewById(R.id.edittext);
+        applyTextButton = view.findViewById(R.id.apply_text_button);
+        saveButton = view.findViewById(R.id.save_button);
+        switch1 = view.findViewById(R.id.switch1);
 
-        // Restore data from SharedPreferences
-        restoreData();
-
-        // Build the dialog for entering module details
-        buildDialog();
-
-        // Set an OnClickListener for the "Add" button
-        add.setOnClickListener(new View.OnClickListener() {
+        // Set click listener for applyTextButton
+        applyTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // Show the dialog when the "Add" button is clicked
-                dialog.show();
+            public void onClick(View view) {
+                // Update the text view with the text from the edit text
+                textView.setText(editText.getText().toString());
             }
         });
 
-        return rootView;
-    }
-
-    private void buildDialog() {
-        // Create a dialog for entering module details
-        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-        View view = getLayoutInflater().inflate(R.layout.dialog, null);
-
-        // Initialize EditText fields for module details
-        final EditText modulename = view.findViewById(R.id.modulename_add);
-        final EditText assignmentsName = view.findViewById(R.id.assignmentsName_add);
-        final EditText assignmentsDate = view.findViewById(R.id.assignmentsDateTime_add);
-        final EditText examName = view.findViewById(R.id.examName_add);
-        final EditText examDate = view.findViewById(R.id.examDate_add);
-        final EditText lessonDateTime = view.findViewById(R.id.lessonDateTime_add);
-        final EditText LessonRoom = view.findViewById(R.id.RoomNumber_add);
-
-        builder.setView(view);
-        builder.setTitle("Enter Module Details");
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        // Set click listener for saveButton
+        saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String moduleName = modulename.getText().toString();
-                String AssignmentsName = assignmentsName.getText().toString();
-                String AssignmentsDate = assignmentsDate.getText().toString();
-                String ExamName = examName.getText().toString();
-                String ExamDate = examDate.getText().toString();
-                String LessonDateTime = lessonDateTime.getText().toString();
-                String lessonRoom = LessonRoom.getText().toString();
-
-                Module module = new Module(moduleName, AssignmentsName, AssignmentsDate, ExamName, ExamDate, LessonDateTime, lessonRoom);
-
-                // Add the module to the ModuleList
-                moduleList.add(module);
-                // Update the UI to display the new module card
-                addCard(module);
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Handle the "Cancel" button click (you can add functionality here)
-            }
-        });
-
-        dialog = builder.create(); // Create the dialog
-    }
-
-    private void addCard(Module module) {
-        // Create a new module card and populate it with the module's details
-        final View view = getLayoutInflater().inflate(R.layout.modulecard, null);
-
-        // Initialize TextView fields on the module card
-        TextView ModulenameView = view.findViewById(R.id.ModulenameField);
-        TextView assignmentNameView = view.findViewById(R.id.AssignmentsNameField);
-        TextView assignmentsDateView = view.findViewById(R.id.AssignmentsDateField);
-        TextView examNameView = view.findViewById(R.id.ExamNameField);
-        TextView examDateView = view.findViewById(R.id.ExamDateField);
-        TextView lessonDateTimeView = view.findViewById(R.id.LessonDateTimeField);
-        TextView lessonRoomView = view.findViewById(R.id.RoomField);
-        Button delete = view.findViewById(R.id.button_delete);
-
-        // Set the details on the card from the module
-        ModulenameView.setText(module.getModuleName());
-        assignmentNameView.setText("Assignments: " + module.getAssignmentsName());
-        assignmentsDateView.setText("Date: " + module.getAssignmentsDate());
-        examNameView.setText("Exam: " + module.getExamName());
-        examDateView.setText("Date: " + module.getExamDate());
-        lessonDateTimeView.setText("Lesson: " + module.getLessonDateTime());
-        lessonRoomView.setText("Room: " + module.getLessonRoom());
-
-        // Set a click listener to remove the card when the "Delete" button is clicked
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout.removeView(view);
-                // Remove the module from the ModuleList
-                moduleList.delete(module);
-                // Update data in SharedPreferences after deletion
+            public void onClick(View view) {
+                // Save data to shared preferences
                 saveData();
             }
         });
 
-        // Add the module card to the layout
-        layout.addView(view);
+        // Load data from shared preferences and update the views
+        loadData();
+        updateViews();
 
-        // Save the added module to SharedPreferences
-        saveData();
+        return view;
     }
 
-    private void saveData() {
-        // Save the data of all modules in SharedPreferences
+    public void saveData() {
+        Context context = requireContext(); // Use the context of the fragment
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        StringBuilder data = new StringBuilder();
 
-        for (Module module : moduleList.getModules()) {
-            data.append(module.getModuleName()).append(",");
-            data.append(module.getAssignmentsName()).append(",");
-            data.append(module.getAssignmentsDate()).append(",");
-            data.append(module.getExamName()).append(",");
-            data.append(module.getExamDate()).append(",");
-            data.append(module.getLessonDateTime()).append(",");
-            data.append(module.getLessonRoom()).append(";");
-        }
+        // Save the text and switch state to shared preferences
+        editor.putString(TEXT, textView.getText().toString());
+        editor.putBoolean(SWITCH1, switch1.isChecked());
 
-        editor.putString("module_data", data.toString());
         editor.apply();
+
+        Toast.makeText(context, "Data saved", Toast.LENGTH_SHORT).show();
     }
 
-    private void restoreData() {
-        // Retrieve data from SharedPreferences and create Module instances
-        String data = sharedPreferences.getString("module_data", "");
+    public void loadData() {
+        Context context = requireContext(); // Use the context of the fragment
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
-        if (!data.isEmpty()) {
-            String[] modulesData = data.split(";");
-            for (String moduleData : modulesData) {
-                String[] moduleDetails = moduleData.split(",");
-                if (moduleDetails.length == 7) {
-                    Module module = new Module(
-                            moduleDetails[0], moduleDetails[1], moduleDetails[2],
-                            moduleDetails[3], moduleDetails[4], moduleDetails[5], moduleDetails[6]
-                    );
-                    moduleList.add(module);
-                    addCard(module);
-                }
-            }
-        }
+        // Load text and switch state from shared preferences
+        text = sharedPreferences.getString(TEXT, "");
+        switchOnOff = sharedPreferences.getBoolean(SWITCH1, false);
+    }
+
+    public void updateViews() {
+        // Update the text view and switch state based on loaded data
+        textView.setText(text);
+        switch1.setChecked(switchOnOff);
     }
 }
