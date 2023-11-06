@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,19 +18,13 @@ import androidx.fragment.app.Fragment;
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 
 public class ModuleFragment extends Fragment {
-    private TextView textView;
-    private EditText editText;
-    private Button applyTextButton;
-    private Button saveButton;
-    private Switch switch1;
+    // UI elements
+    private LinearLayout itemContainer;
+    private Button addItemButton;
 
-    // Define keys for shared preferences
+    // Shared preferences keys
     public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String TEXT = "text";
-    public static final String SWITCH1 = "switch1";
-
-    private String text;
-    private boolean switchOnOff;
+    public static final String ITEM_COUNT = "itemCount";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,63 +32,70 @@ public class ModuleFragment extends Fragment {
         View view = inflater.inflate(R.layout.testmodule_layout, container, false);
 
         // Initialize UI elements
-        textView = view.findViewById(R.id.textview);
-        editText = view.findViewById(R.id.edittext);
-        applyTextButton = view.findViewById(R.id.apply_text_button);
-        saveButton = view.findViewById(R.id.save_button);
-        switch1 = view.findViewById(R.id.switch1);
+        itemContainer = view.findViewById(R.id.item_container);
+        addItemButton = view.findViewById(R.id.add_item_button);
 
-        // Set click listener for applyTextButton
-        applyTextButton.setOnClickListener(new View.OnClickListener() {
+        // Set click listener for the "Add Item" button
+        addItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Update the text view with the text from the edit text
-                textView.setText(editText.getText().toString());
+                addItem(); // Call a method to add a new item
             }
         });
 
-        // Set click listener for saveButton
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Save data to shared preferences
-                saveData();
-            }
-        });
+        // Restore previously added items
+        int itemCount = loadData(); // Load the number of items from shared preferences
 
-        // Load data from shared preferences and update the views
-        loadData();
-        updateViews();
+        // Add the saved number of items to the UI
+        for (int i = 0; i < itemCount; i++) {
+            addItem();
+        }
 
         return view;
     }
 
-    public void saveData() {
-        Context context = requireContext(); // Use the context of the fragment
+    // Method to add a new item to the UI
+    private void addItem() {
+        // Inflate the item layout
+        View itemView = getLayoutInflater().inflate(R.layout.testmodule_layout, null);
+
+        // Initialize UI elements for the item
+        TextView textView = itemView.findViewById(R.id.textview);
+        EditText editText = itemView.findViewById(R.id.edittext);
+        Button applyTextButton = itemView.findViewById(R.id.apply_text_button);
+        Switch switch1 = itemView.findViewById(R.id.switch1);
+
+        // Set click listener for the "Apply Text" button
+        applyTextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Update the text view within the item
+                textView.setText(editText.getText().toString());
+            }
+        });
+
+        // Add the item to the container
+        itemContainer.addView(itemView);
+    }
+
+    // Method to save the number of added items to shared preferences
+    private void saveData(int itemCount) {
+        Context context = requireContext();
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        // Save the text and switch state to shared preferences
-        editor.putString(TEXT, textView.getText().toString());
-        editor.putBoolean(SWITCH1, switch1.isChecked());
+        // Save the number of items
+        editor.putInt(ITEM_COUNT, itemCount);
 
         editor.apply();
-
-        Toast.makeText(context, "Data saved", Toast.LENGTH_SHORT).show();
     }
 
-    public void loadData() {
-        Context context = requireContext(); // Use the context of the fragment
+    // Method to load the number of added items from shared preferences
+    private int loadData() {
+        Context context = requireContext();
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
 
-        // Load text and switch state from shared preferences
-        text = sharedPreferences.getString(TEXT, "");
-        switchOnOff = sharedPreferences.getBoolean(SWITCH1, false);
-    }
-
-    public void updateViews() {
-        // Update the text view and switch state based on loaded data
-        textView.setText(text);
-        switch1.setChecked(switchOnOff);
+        // Load the number of items (default to 0)
+        return sharedPreferences.getInt(ITEM_COUNT, 0);
     }
 }
