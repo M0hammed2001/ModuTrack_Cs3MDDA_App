@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!-- Add input fields for module data -->
+    <EditText
+        android:id="@+id/moduleName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Module Name"/>
+
+    <Button
+        android:id="@+id/addModuleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Module"/>
+
+    <!-- Display the list of modules -->
+    <RecyclerView
+        android:id="@+id/moduleList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
