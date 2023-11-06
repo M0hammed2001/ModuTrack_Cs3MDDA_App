@@ -39,9 +39,15 @@ public class ModuleFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.testmodule_fragment, container, false);
 
         // Initialize UI elements by finding them in the inflated view
+            //textview is what displays it
         textView = rootView.findViewById(R.id.textview);
-        editText = rootView.findViewById(R.id.edittext);
-        applyTextButton = rootView.findViewById(R.id.apply_text_button);
+
+            //edittext is the box
+        editText = rootView.findViewById(R.id.testModuleName);
+
+        // what adds the text to the text view
+
+        //saves the data
         saveButton = rootView.findViewById(R.id.save_button);
         switch1 = rootView.findViewById(R.id.switch1);
 
