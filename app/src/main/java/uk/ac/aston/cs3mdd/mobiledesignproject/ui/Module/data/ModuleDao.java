@@ -19,10 +19,10 @@ public interface ModuleDao {
         @Delete
         public void deleteModule(Module module);
 
-        @Query("select * from Module")
+        @Query("select * from modules")
         public List<Module> getAllModules();
 
-        @Query("select * from Module where Module_id==:Module_id")
+        @Query("select * from modules where Module_id==:Module_id")
         public Module getModule(int Module_id);
 
 

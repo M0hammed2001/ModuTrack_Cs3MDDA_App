@@ -7,7 +7,7 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 
-@Entity(tableName = "Module")
+@Entity(tableName = "modules")
 public class Module {
 
     @ColumnInfo(name = "Module_id")
@@ -15,7 +15,7 @@ public class Module {
     int id;
 
     //module information
-    @ColumnInfo(name = "ModuleName")
+    @ColumnInfo(name = "moduleName")
     String ModuleName;
     @ColumnInfo(name = "ModuleCode")
     String ModuleCode;
@@ -39,25 +39,23 @@ public class Module {
     @ColumnInfo(name = "Examdate")
     String Examdate;
 
-    @Ignore
-    public Module() {
 
-        
-    }
+//    public Module(){
+//
+//
+//    }
 
-    public Module(String moduleName, String moduleCode, String assignmentName, String assignmentdue, String assignmentDate, String examName, String examdue, String examdate) {
-        ModuleName = moduleName;
-        ModuleCode = moduleCode;
-        AssignmentName = assignmentName;
-        Assignmentdue = assignmentdue;
-        AssignmentDate = assignmentDate;
-        ExamName = examName;
-        Examdue = examdue;
-        Examdate = examdate;
+    public Module(String ModuleName, String ModuleCode, String AssignmentName, String Assignmentdue, String AssignmentDate, String ExamName, String Examdue, String Examdate) {
+        this.ModuleName = ModuleName;
+        this.ModuleCode = ModuleCode;
+        this.AssignmentName = AssignmentName;
+        this.Assignmentdue = Assignmentdue;
+        this.AssignmentDate = AssignmentDate;
+        this.ExamName = ExamName;
+        this.Examdue = Examdue;
+        this.Examdate = Examdate;
         this.id = 0;
-
     }
-
     public String getModuleName() {
         return ModuleName;
     }

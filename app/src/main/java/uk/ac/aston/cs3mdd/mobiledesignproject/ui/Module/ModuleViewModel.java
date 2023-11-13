@@ -17,7 +17,7 @@ public class ModuleViewModel extends ViewModel {
 //    }
 //
 //    private void setModuleData() {
-////        currentModule.setValue(DataSource.getInstance(MyApplication.getAppContext()).getRealModule());
+////        currentModule.setValue(ModuleDatabase.getInstance(MyApplication.getAppContext()).getRealModule());
 //    }
 
 
