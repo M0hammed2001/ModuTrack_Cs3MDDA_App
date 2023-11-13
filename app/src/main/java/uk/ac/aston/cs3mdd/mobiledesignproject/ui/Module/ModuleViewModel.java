@@ -10,15 +10,15 @@ public class ModuleViewModel extends ViewModel {
 
 
 
-
-    public ModuleViewModel() {
-        super();
-        setModuleData(); // only for dummy data
-    }
-
-    private void setModuleData() {
-//        currentModule.setValue(DataSource.getInstance(MyApplication.getAppContext()).getRealModule());
-    }
+//
+//    public ModuleViewModel() {
+//        super();
+//        setModuleData(); // only for dummy data
+//    }
+//
+//    private void setModuleData() {
+////        currentModule.setValue(DataSource.getInstance(MyApplication.getAppContext()).getRealModule());
+//    }
 
 
 
