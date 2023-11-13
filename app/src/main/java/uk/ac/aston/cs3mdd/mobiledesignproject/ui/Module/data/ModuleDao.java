@@ -10,15 +10,23 @@ import java.util.List;
 
 @Dao
 public interface ModuleDao {
-    @Insert
-    void insert(Module module);
+        @Insert
+        public void addModule(Module module);
 
-    @Update
-    void update(Module module);
+        @Update
+        public void updateModule(Module module);
 
-    @Delete
-    void delete(Module module);
+        @Delete
+        public void deleteModule(Module module);
 
-    @Query("SELECT * FROM modules")
-    List<Module> getAllModules();
-}
+        @Query("select * from Module")
+        public List<Module> getAllModules();
+
+        @Query("select * from Module where Module_id==:Module_id")
+        public Module getModule(int Module_id);
+
+
+
+    }
+
+
