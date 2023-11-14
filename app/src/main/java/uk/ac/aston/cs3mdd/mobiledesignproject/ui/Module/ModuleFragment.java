@@ -1,6 +1,8 @@
 package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +17,10 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module;
@@ -32,7 +36,7 @@ public class ModuleFragment extends Fragment {
 
     EditText ExamNameEdit;
     EditText ExamdueEdit;
-    EditText ExamDateedit;
+    EditText ExamDateEdit;
 
     Button SaveButton, getDataButton;
 
@@ -57,7 +61,7 @@ public class ModuleFragment extends Fragment {
 
         ExamNameEdit = view.findViewById(R.id.ExamNameEdit);
         ExamdueEdit = view.findViewById(R.id.ExamdueEdit);
-        ExamDateedit = view.findViewById(R.id.ExamDateedit);
+        ExamDateEdit = view.findViewById(R.id.ExamDateEdit);
 
         RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
             @Override
@@ -90,32 +94,83 @@ public class ModuleFragment extends Fragment {
 
                 String examName = ExamNameEdit.getText().toString();
                 String examdue = ExamdueEdit.getText().toString();
-                String examdate = ExamDateedit.getText().toString();
+                String examdate = ExamDateEdit.getText().toString();
 
                 // You can use ModuleName and ModuleCode as needed
 
                 // Create a Module object and save it to the database
                 Module module1 = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate,  examName, examdue, examdate);
-                moduleDB.getModuleDAO().addModule(module1);
+                addModuleInBackground(module1);
             }
         });
 
         getDataButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-           moduleList = moduleDB.getModuleDAO().getAllModules();
 
-           StringBuilder sb = new StringBuilder();
-           for(Module m : moduleList){
+                getModuleListInBackground();
 
-               sb.append(m.getModuleCode()+" : "+m.getModuleName());
-               sb.append("\n");
-           }
-                String finaldata = sb.toString();
-                Toast.makeText(getContext(), "" + finaldata, Toast.LENGTH_SHORT).show();
             }
         });
 
         return view;
     }
+
+    public void addModuleInBackground(Module module){
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                //background task
+                moduleDB.getModuleDAO().addModule(module);
+                //on finish task
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getContext(), "Added to Database", Toast.LENGTH_SHORT).show();
+
+
+                    }
+                });
+            }
+        });
+    }
+
+    public void getModuleListInBackground(){
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                //background task
+
+                moduleList = moduleDB.getModuleDAO().getAllModules();
+
+                //on finish task
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        StringBuilder sb = new StringBuilder();
+                        for(Module m : moduleList){
+
+                            sb.append(m.getModuleCode()+" : "+m.getModuleName());
+                            sb.append("\n");
+                        }
+                        String finaldata = sb.toString();
+                        Toast.makeText(getContext(), "" + finaldata, Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }
+        });
+    }
+
+
 }

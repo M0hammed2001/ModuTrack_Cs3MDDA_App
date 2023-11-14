@@ -96,7 +96,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ExamNameEdit" />
 
     <EditText
-        android:id="@+id/ExamDateedit"
+        android:id="@+id/ExamDateEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:minWidth="48dp"
@@ -115,7 +115,7 @@
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ExamDateedit" />
+        app:layout_constraintTop_toBottomOf="@+id/ExamDateEdit" />
 
     <Button
         android:id="@+id/getDataButton"
