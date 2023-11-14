@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/popupModuleCodeEdit"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:hint="Code"/>
+
+        <EditText
+            android:id="@+id/popupModuleNameEdit"
+            android:layout_width="match_parent"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_height="wrap_content"
+            android:hint="Module Name"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/assignmentDateEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginTop="1dp"
+            android:hint="Date"
+            android:inputType="datetime" />
+        <EditText
+            android:id="@+id/assignmentdueEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginTop="1dp"
+            android:hint="yes/no"/>
+        <EditText
+            android:id="@+id/assignmentNameEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginTop="1dp"
+            android:hint="Assigment Name" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/ExamDateEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginTop="1dp"
+            android:hint="Date"
+            android:inputType="datetime" />
+        <EditText
+            android:id="@+id/ExamdueEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginTop="1dp"
+            android:hint="yes/no"/>
+        <EditText
+            android:id="@+id/ExamNameEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginTop="1dp"
+            android:hint="Assigment Name" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAddModule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Module" />
+</LinearLayout>
+

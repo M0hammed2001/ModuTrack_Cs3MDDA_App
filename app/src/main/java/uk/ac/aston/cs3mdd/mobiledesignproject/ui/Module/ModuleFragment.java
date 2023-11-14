@@ -161,6 +161,7 @@ public class ModuleFragment extends Fragment {
                         for(Module m : moduleList){
 
                             sb.append(m.getModuleCode()+" : "+m.getModuleName());
+                            sb.append(m.getExamName()+" : "+m.getExamdue()+" : "+m.getExamdate());
                             sb.append("\n");
                         }
                         String finaldata = sb.toString();
