@@ -52,7 +52,7 @@
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:layout_marginTop="1dp"
-        android:hint="Please select yes or no"
+        android:hint="is there an assignment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/assignmentNameEdit" />
@@ -126,17 +126,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SaveButton" />
-
-    <!--    <EditText-->
-<!--        android:id="@+id/assignmentName"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="88dp"-->
-<!--        android:hint="Module Name"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
