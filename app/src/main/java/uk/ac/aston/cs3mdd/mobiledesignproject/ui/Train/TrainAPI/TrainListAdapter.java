@@ -47,11 +47,9 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
         TrainService trainService = mTrainList.get(position);
         holder.trainService = trainService;
 
-        // Check if the destination is not null
+
         List<Destination> destinations = trainService.getDestination();
-        if (destinations != null) {
-            for(Destination destination:destinations) {
-                if ("BHM".equals(destination.getCrs()) || "BHI".equals(destination.getCrs()) ) {
+
                     // Handle the case when data is not null and the CRS is "BHM"
                     String operator = trainService.getOperator();
                     String etd = trainService.getEtd();
@@ -81,14 +79,9 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                     } else {
                         holder.TraindestinationView.setText(Html.fromHtml(displayText));
                     }
-                } else {
-                    // Check if the CRS matches the required value ("BHM")
-//                    holder.TraindestinationView.setText("No destination information");
 
-                }
-            }
         }
-    }
+
 
         @Override
         public int getItemCount() {
