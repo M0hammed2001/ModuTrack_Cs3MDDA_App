@@ -83,7 +83,7 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                     }
                 } else {
                     // Check if the CRS matches the required value ("BHM")
-                    holder.TraindestinationView.setText("No destination information");
+//                    holder.TraindestinationView.setText("No destination information");
 
                 }
             }

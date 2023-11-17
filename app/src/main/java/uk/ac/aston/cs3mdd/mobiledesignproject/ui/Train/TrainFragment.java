@@ -13,12 +13,14 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentTrainBinding;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.Destination;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainListAdapter;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainsViewModel;
@@ -59,13 +61,24 @@ public class TrainFragment extends Fragment {
         final Observer<List<TrainService>> TrainListObserver = new Observer<List<TrainService>>() {
             @Override
             public void onChanged(@Nullable final List<TrainService> Trainlist) {
-                // Update the UI, in this case, a Toast.
-//                Toast.makeText(getContext(),
-//                        "We got a list of " + Trainlist.size() + " Trains",
-//                        Toast.LENGTH_LONG).show();
+                List<TrainService> filteredList = new ArrayList<>();
+                // this if and for loop will make sure that if final destination is not BHM or BHI it will not display the item
+                if (Trainlist != null) {
+                    for (TrainService trainService : Trainlist) {
+                        List<Destination> destinations = trainService.getDestination();
+                        for(Destination destination: destinations) {
+                            // Check if the destination's CRS code is "BHM" or "BHI"
+                            if ("BHM".equals(destination.getCrs()) || "BHI".equals(destination.getCrs())) {
+                                filteredList.add(trainService);
+                            }
+                        }
+                    }
+                    // Update your adapter with the filtered list
+                    mAdapter.updateData(filteredList);
+                }
 
-                // Update the UI
-                mAdapter.updateData(Trainlist);
+
+
             }
         };
 
@@ -80,7 +93,6 @@ public class TrainFragment extends Fragment {
 
         binding = FragmentTrainBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
 
 
         return root;
