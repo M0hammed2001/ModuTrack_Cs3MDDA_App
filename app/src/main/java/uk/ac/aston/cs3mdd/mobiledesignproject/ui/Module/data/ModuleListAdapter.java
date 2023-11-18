@@ -20,7 +20,7 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleViewModel;
 
 
 
-public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.ModuleViewHolder>{
+public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.ModuleViewModel>{
 
     private List<Module> mModuleList;
     private final LayoutInflater mInflater;
@@ -33,15 +33,15 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
     @NonNull
     @Override
-    public ModuleListAdapter.ModuleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ModuleListAdapter.ModuleViewModel onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View mItemView = mInflater.inflate(R.layout.module_information,
                 parent, false);
-        return new ModuleListAdapter.ModuleViewHolder(mItemView, this);
+        return new ModuleListAdapter.ModuleViewModel(mItemView, this);
     }
 
 
 
-    public void onBindViewHolder(@NonNull ModuleListAdapter.ModuleViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ModuleListAdapter.ModuleViewModel holder, int position) {
 
 
     }
@@ -57,15 +57,15 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         notifyDataSetChanged();
     }
 
-    class ModuleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class ModuleViewModel extends RecyclerView.ViewHolder implements View.OnClickListener{
         public final TextView ModuleView;
         final ModuleListAdapter mAdapter;
         public Module modules;
 
-        public ModuleViewHolder(@NonNull View itemView, ModuleListAdapter adapter) {
+        public ModuleViewModel(@NonNull View itemView, ModuleListAdapter adapter) {
             super(itemView);
             itemView.setOnClickListener(this);
-            ModuleView = itemView.findViewById(R.id.traininformation);
+            ModuleView = itemView.findViewById(R.id.Moduleinformation);
             this.mAdapter = adapter;
 
         }

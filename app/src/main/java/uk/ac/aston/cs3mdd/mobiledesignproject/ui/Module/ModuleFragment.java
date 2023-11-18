@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -109,7 +110,8 @@ public class ModuleFragment extends Fragment {
         };
 
         moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").addCallback(myCallBack).build();
-        moduleViewModel = new ViewModelProvider(requireActivity()).get(ModuleViewModel.class);
+//        moduleViewModel = new ViewModelProvider(requireActivity()).get(ModuleViewModel.class);
+        moduleViewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
         getModuleListInBackground(moduleViewModel);
         final Observer<List<Module>> moduleObserver = new Observer<List<Module>>() {
 
