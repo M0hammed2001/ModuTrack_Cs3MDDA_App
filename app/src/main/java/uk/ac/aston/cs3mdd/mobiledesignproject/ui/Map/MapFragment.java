@@ -96,6 +96,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 //                .position(birminghamNewStreet)
 //                .title("Birmingham New Street"));
 
+
         mMap.addMarker(new MarkerOptions().position(AstonLibrary).title("Aston Library 'L' "));
 
         mMap.addMarker(new MarkerOptions().position(astonSU).title("Aston Student Union"));
@@ -126,19 +127,19 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
 
 
-      builder.include(Tesco);
-      builder.include(Greggs);
-        builder.include(WokandGo);
-        builder.include(AstonLibrary);
-        builder.include(astonSU);
-        builder.include(MainBuildingMain);
-        builder.include(MainbuildingOOH);
-        builder.include(astonMosque);
+            builder.include(Tesco);
+            builder.include(Greggs);
+            builder.include(WokandGo);
+            builder.include(AstonLibrary);
+            builder.include(astonSU);
+            builder.include(MainBuildingMain);
+            builder.include(MainbuildingOOH);
+            builder.include(astonMosque);
 
-        LatLngBounds bounds = builder.build();
-        int padding = 140; // Padding in pixels
-        CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
-        mMap.moveCamera(cu);
+            LatLngBounds bounds = builder.build();
+            int padding = 140; // Padding in pixels
+            CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
+            mMap.moveCamera(cu);
     }
 
     @Override
