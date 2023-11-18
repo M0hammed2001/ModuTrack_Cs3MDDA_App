@@ -47,7 +47,8 @@ public class ModuleFragment extends Fragment {
     EditText ExamdueEdit;
     EditText ExamDateEdit;
 
-    Button SaveButton, getDataButton;
+//    Button SaveButton, getDataButton;
+    Button SaveButton, addDatabutton;
 
     ModuleDatabase moduleDB;
     List<Module> moduleList;
@@ -77,7 +78,8 @@ private ModuleViewModel viewModel = moduleViewModel;
         ModuleCodeEdit = view.findViewById(R.id.ModuleCodeEdit);
 
         SaveButton = view.findViewById(R.id.SaveButton);
-        getDataButton = view.findViewById(R.id.getDataButton);
+//        getDataButton = view.findViewById(R.id.getDataButton);
+        addDatabutton = view.findViewById(R.id.addDatabutton);
 
         assignmentNameEdit = view.findViewById(R.id.assignmentNameEdit);
         assignmentdueEdit = view.findViewById(R.id.assignmentdueEdit);
@@ -141,7 +143,17 @@ private ModuleViewModel viewModel = moduleViewModel;
             }
         });
 
-        getDataButton.setOnClickListener(new View.OnClickListener() {
+
+
+//        getDataButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//
+//            }
+//        });
+        addDatabutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -149,6 +161,7 @@ private ModuleViewModel viewModel = moduleViewModel;
 
             }
         });
+
 
         return view;
     }

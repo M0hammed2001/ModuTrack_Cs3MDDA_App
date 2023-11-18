@@ -120,11 +120,18 @@
                 android:text="Save"/>
 
             <Button
-                android:id="@+id/getDataButton"
+                android:id="@+id/addDatabutton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Get Data From Database"/>
+                android:layout_marginBottom="10dp"
+                android:text="add Data"/>
+
+<!--            <Button-->
+<!--                android:id="@+id/getDataButton"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:text="Get Data From Database"/>-->
         </LinearLayout>
 
 

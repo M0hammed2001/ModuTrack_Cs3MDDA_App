@@ -39,6 +39,17 @@
                 android:name="Trainervices"
                 app:argType="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService" />
     </fragment>
+    <fragment
+        android:id="@+id/nav_moduleAdd"
+        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata.ModuleAddFragment"
+        android:label="@string/menu_trainmap"
+        tools:layout="@layout/popup_add_module" >
+        <action
+            android:id="@+id/action_moduleadd_to_module"
+            app:destination="@id/nav_module" />
+
+    </fragment>
+
 
 
 
@@ -49,12 +60,12 @@
             android:label="@string/menu_module"
             tools:layout="@layout/fragment_map" />
 
-    <fragment
-        android:id="@+id/nav_testmodule"
-        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.TestModule.TestModuleFragment"
-        android:label="@string/menu_train"
-        tools:layout="@layout/fragment_train" >
-    </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/nav_testmodule"-->
+<!--        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.TestModule.TestModuleFragment"-->
+<!--        android:label="@string/menu_train"-->
+<!--        tools:layout="@layout/fragment_train" >-->
+<!--    </fragment>-->
 
 
 
