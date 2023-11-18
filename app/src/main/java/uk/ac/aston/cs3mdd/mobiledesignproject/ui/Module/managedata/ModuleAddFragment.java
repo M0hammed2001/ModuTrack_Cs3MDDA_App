@@ -37,13 +37,15 @@ public class ModuleAddFragment extends Fragment {
 
 
 
-//        binding.buttonAddModule.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                NavHostFragment.findNavController(ModuleAddFragment.this)
-//                        .navigate(R.id.action_moduleadd_to_module);
-//            }
-//        });
+        binding.buttonAddModule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(ModuleAddFragment.this)
+                        .navigate(R.id.action_moduleadd_to_module);
+            }
+        });
+
+
         binding.buttongoBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
