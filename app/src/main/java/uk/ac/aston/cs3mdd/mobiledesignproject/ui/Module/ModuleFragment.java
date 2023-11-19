@@ -40,19 +40,6 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleListAdapter;
 
 
 public class ModuleFragment extends Fragment {
-//    EditText ModuleNameEdit;
-//    EditText ModuleCodeEdit;
-//
-//    EditText assignmentNameEdit;
-//    EditText assignmentdueEdit;
-//    EditText assignmentDateEdit;
-//
-//    EditText ExamNameEdit;
-//    EditText ExamdueEdit;
-//    EditText ExamDateEdit;
-
-//    Button SaveButton, getDataButton;
-    Button SaveButton, addDatabutton;
 
     ModuleDatabase moduleDB;
     List<Module> moduleList;
@@ -64,7 +51,7 @@ public class ModuleFragment extends Fragment {
     private RecyclerView ModuleRecyclerView;
 
 
-//    private ModuleViewModel viewModel;
+
     private ModuleViewModel viewModel;
 
     private ModuleListAdapter moduleAdapter;
@@ -80,22 +67,6 @@ public class ModuleFragment extends Fragment {
         viewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
         binding = FragmentModuleBinding.inflate(inflater, container, false);
-
-//        ModuleNameEdit = view.findViewById(R.id.ModuleNameEdit);
-//        ModuleCodeEdit = view.findViewById(R.id.ModuleCodeEdit);
-
-//        SaveButton = view.findViewById(R.id.SaveButton);
-////       getDataButton = view.findViewById(R.id.getDataButton);
-
-//        assignmentNameEdit = view.findViewById(R.id.assignmentNameEdit);
-//        assignmentdueEdit = view.findViewById(R.id.assignmentdueEdit);
-//        assignmentDateEdit = view.findViewById(R.id.assignmentDateEdit);
-//
-//        ExamNameEdit = view.findViewById(R.id.ExamNameEdit);
-//        ExamdueEdit = view.findViewById(R.id.ExamdueEdit);
-//        ExamDateEdit = view.findViewById(R.id.ExamDateEdit);
-
-
 
         RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
             @Override
@@ -139,7 +110,6 @@ public class ModuleFragment extends Fragment {
         // Give the RecyclerView a default layout manager.
         ModuleRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-//        viewModel = new ViewModelProvider(requireActivity()).get(ModuleViewModel.class);
 
 
         final Observer<List<Module>> ModuleListObserver = new Observer<List<Module>>() {
@@ -162,13 +132,7 @@ public class ModuleFragment extends Fragment {
         });
 
         moduleViewModel.getAllModules().observe(getViewLifecycleOwner(), ModuleListObserver);
-//        viewModel.getAllModules().observe(getViewLifecycleOwner(), new Observer<List<Module>>() {
-//            @Override
-//            public void onChanged(List<Module> modules) {
-//                Log.i("MS","Modules:" + modules.size());
-//                moduleAdapter.updateData(modules);
-//            }
-//        });
+
 
     }
 
@@ -184,8 +148,7 @@ public class ModuleFragment extends Fragment {
                 //background task
 
                 moduleList = moduleDB.getModuleDAO().getAllModules();
-//                TrainService trainService = mTrainList.get(position);
-//                holder.trainService = trainService;
+
                 //on finish task
                 handler.post(new Runnable() {
                     @Override

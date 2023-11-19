@@ -56,15 +56,15 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 //        nrccMessages = (nrccMessages != null) ? nrccMessages : "No ongoing issues";
 
         // Create the text with line breaks
-        String displayText = "Module: " + module.getModuleCode() + "<br>" ;
+        String displayText = "Module: " + module.getModuleCode() + "<br>" + module.getModuleName() +
+                "<br>" +
+                "Assignment: " + module.getAssignmentName() + "<br>" + module.getAssignmentDate() +
+                "<br>" +
+                "Exam: " + module.getExamName() + "<br>" + module.getExamdate();
+
 //                "<br>" +
-//                "Operator: " + operator + "<br>" +
+//                "Room: " + module. + "<br>" +
 //                "<br>" +
-//                "Departure: " + std + "<br>" +
-//                "<br>" +
-//                "Delays: " + etd + "<br>" +
-//                "<br>" +
-//                "NRCC Messages: " + nrccMessages;
 
         // Set the text with line breaks in the TextView if the build version supports it
 
