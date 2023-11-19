@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -275,7 +276,8 @@ public class ModuleAddFragment extends Fragment {
 //        }
 //    }
     }
-    public void EditModuleInBackground(Module module){
+
+    public void EditModuleInBackground(Module module) {
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
@@ -290,9 +292,10 @@ public class ModuleAddFragment extends Fragment {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-//                        Toast.makeText(getContext(), "Added to Database", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Added to Database", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
         });
+    }
 }
