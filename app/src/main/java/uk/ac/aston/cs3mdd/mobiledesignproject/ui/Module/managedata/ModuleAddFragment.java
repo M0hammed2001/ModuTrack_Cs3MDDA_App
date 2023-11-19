@@ -31,7 +31,7 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleDatabase;
 
 
-public class ModuleAddFragment extends ModuleFragment {
+public class ModuleAddFragment extends Fragment {
 
     EditText popupModuleNameEdit;
     EditText popupModuleCodeEdit;
@@ -117,22 +117,22 @@ public class ModuleAddFragment extends ModuleFragment {
         buttonAddModule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String moduleName = popupModuleNameEdit.getText().toString();
-                String moduleCode = popupModuleCodeEdit.getText().toString();
-
-                String assignmentDate = popupAssignmentDateEdit.getText().toString();
-                String assignmentdue = popupAssignmentdueEdit.getText().toString();
-                String assignmentName = popupAssignmentNameEdit.getText().toString();
-
-                String examdate = popupExamDateEdit.getText().toString();
-                String examdue = popupExamdueEdit.getText().toString();
-                String examName = popupExamNameEdit.getText().toString();
-
-                // You can use ModuleName and ModuleCode as needed
-
-                // Create a Module object and save it to the database
-                Module module1 = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate);
-                addModuleInBackground(module1);
+//                String moduleName = popupModuleNameEdit.getText().toString();
+//                String moduleCode = popupModuleCodeEdit.getText().toString();
+//
+//                String assignmentDate = popupAssignmentDateEdit.getText().toString();
+//                String assignmentdue = popupAssignmentdueEdit.getText().toString();
+//                String assignmentName = popupAssignmentNameEdit.getText().toString();
+//
+//                String examdate = popupExamDateEdit.getText().toString();
+//                String examdue = popupExamdueEdit.getText().toString();
+//                String examName = popupExamNameEdit.getText().toString();
+//
+//                // You can use ModuleName and ModuleCode as needed
+//
+//                // Create a Module object and save it to the database
+//                Module module1 = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate);
+//                ModuleFragment.addModuleInBackground(module1);
             }
         });
 

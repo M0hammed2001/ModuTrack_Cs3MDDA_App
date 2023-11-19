@@ -130,7 +130,8 @@ public class ModuleFragment extends Fragment {
         viewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
          //Get a handle to the RecyclerView.
-        ModuleRecyclerView = binding.MFRecyclerView;
+        ModuleRecyclerView = view.findViewById(R.id.MFRecyclerView);
+
         // Create an adapter and supply the data to be displayed.
         moduleAdapter = new ModuleListAdapter(getContext(), viewModel.getAllModules().getValue());
         // Connect the adapter with the RecyclerView.
@@ -164,7 +165,14 @@ public class ModuleFragment extends Fragment {
             }
         });
 
-        viewModel.getAllModules().observe(getViewLifecycleOwner(), ModuleListObserver);
+//        viewModel.getAllModules().observe(getViewLifecycleOwner(), ModuleListObserver);
+        viewModel.getAllModules().observe(getViewLifecycleOwner(), new Observer<List<Module>>() {
+            @Override
+            public void onChanged(List<Module> modules) {
+                moduleAdapter.updateData(modules);
+            }
+        });
+
     }
 
     public void addModuleInBackground(Module module){
