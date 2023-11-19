@@ -44,29 +44,42 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         holder.modules = module;
 
         // Handle the case when data is not null and the CRS is "BHM"
-//        String moduleCode = module.getModuleCode();
-//        String etd = trainService.getEtd();
-//        String std = trainService.getStd();
-//        String nrccMessages = trainService.getNrccMessages();
+        String moduleCode = module.getModuleCode();
+        String moduleName = module.getModuleName();
+
+        String ExamName = module.getExamName();
+        String ExamDate = module.getExamdate();
+
+        String AssignmentName = module.getAssignmentName();
+        String AssignmentDate = module.getAssignmentDate();
+
 
         // Handle null values
-//        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
-//        std = (std != null) ? std : "TBC";
-//        etd = (etd != null) ? etd : "no delays";
-//        nrccMessages = (nrccMessages != null) ? nrccMessages : "No ongoing issues";
+        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
+        moduleName = (moduleName != null) ? moduleName : "Module Name";
+
+
+        ExamName = (ExamName != null) ? ExamName : "Exam Name";
+        ExamDate = (ExamDate != null) ? ExamDate : "Exam Date";
+
+        AssignmentName = (AssignmentName != null) ? AssignmentName : "Assignment Name";
+        AssignmentDate = (AssignmentDate != null) ? AssignmentDate : "Assignment Date";
+
+
+
 
         // Create the text with line breaks
-        String displayText = "Module: " + module.getModuleCode() + "<br>" + module.getModuleName() +
+        String displayText =
+                "Module: " + moduleCode + "<br>" + moduleName +
                 "<br>" +
-                "Assignment: " + module.getAssignmentName() + "<br>" + module.getAssignmentDate() +
+                "Assignment: " + ExamName + "<br>" + ExamDate +
                 "<br>" +
-                "Exam: " + module.getExamName() + "<br>" + module.getExamdate();
-
+                "Exam: " + AssignmentName + "<br>" + AssignmentDate;
 //                "<br>" +
-//                "Room: " + module. + "<br>" +
-//                "<br>" +
+//                "Room: " + module. ;
 
-        // Set the text with line breaks in the TextView if the build version supports it
+
+
 
             holder.ModuleView.setText(Html.fromHtml(displayText));
 

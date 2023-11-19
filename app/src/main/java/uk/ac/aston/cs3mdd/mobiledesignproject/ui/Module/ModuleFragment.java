@@ -34,6 +34,7 @@ import java.util.concurrent.Executors;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentModuleBinding;
+import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.PopupEditModuleBinding;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleDatabase;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleListAdapter;
@@ -48,9 +49,10 @@ public class ModuleFragment extends Fragment {
     FragmentModuleBinding binding;
 
 
+
     private RecyclerView ModuleRecyclerView;
 
-
+    Button ButtonEdit, ButtonDeleteModule;
 
     private ModuleViewModel viewModel;
 
@@ -98,8 +100,6 @@ public class ModuleFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        viewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
-
          //Get a handle to the RecyclerView.
         ModuleRecyclerView = view.findViewById(R.id.MFRecyclerView);
 
@@ -130,6 +130,15 @@ public class ModuleFragment extends Fragment {
                 Log.i("MS", "ADDED");
             }
         });
+
+//         holder.ButtonEdit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                NavHostFragment.findNavController(ModuleFragment.this).navigate(R.id.action_module_to_moduleEdit);
+//                Log.i("MS", "Edit");
+//            }
+//        });
+
 
         moduleViewModel.getAllModules().observe(getViewLifecycleOwner(), ModuleListObserver);
 
