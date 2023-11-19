@@ -45,13 +45,9 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
         LatLng astonUniversity = new LatLng(52.487144, -1.886977); // Aston University coordinates
 
         // Added markers for Birmingham New Street and Aston University which you can see by clicking it
-        mMap.addMarker(new MarkerOptions()
-                .position(birminghamNewStreet)
-                .title("Birmingham New Street"));
+        mMap.addMarker(new MarkerOptions().position(birminghamNewStreet).title("Birmingham New Street"));
 
-        mMap.addMarker(new MarkerOptions()
-                .position(astonUniversity)
-                .title("Aston University"));
+        mMap.addMarker(new MarkerOptions().position(astonUniversity).title("Aston University"));
 
         // Create a line between Birmingham New Street and Aston University for quick judgement
         PolylineOptions polylineOptions = new PolylineOptions()
@@ -88,15 +84,12 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
-                .findFragmentById(R.id.TrainMap);
-        mapFragment.getMapAsync(this);
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.TrainMap);mapFragment.getMapAsync(this);
 
         binding.buttonTrainmap.setOnClickListener(new View.OnClickListener() {
          @Override
           public void onClick(View view) {
-           NavHostFragment.findNavController(TrainMapFragment.this)
-                   .navigate(R.id.action_nav_trainmap_to_nav_train);
+           NavHostFragment.findNavController(TrainMapFragment.this).navigate(R.id.action_nav_trainmap_to_nav_train);
            }
         });
     binding.textTrainmap.setText(trainService.toString());

@@ -6,9 +6,11 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 
 @Entity(tableName = "modules")
-public class Module {
+public class Module implements Serializable {
 
     @ColumnInfo(name = "Module_id")
     @PrimaryKey(autoGenerate = true)

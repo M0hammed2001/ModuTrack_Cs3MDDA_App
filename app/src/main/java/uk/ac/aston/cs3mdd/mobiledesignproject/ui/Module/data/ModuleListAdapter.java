@@ -16,12 +16,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
+import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentModuleBinding;
+import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentTrainBinding;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleViewModel;
-
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainFragmentDirections;
 
 
 public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.ModuleViewModel>{
-
+    private FragmentModuleBinding binding;
     private List<Module> mModuleList;
     private final LayoutInflater mInflater;
 
@@ -72,7 +74,9 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
         @Override
         public void onClick(View view) {
-
+            Log.i("MS", "You Selected " + modules.toString());
+//            TrainFragmentDirections.ActionNavTrainToNavTrainmap action = TrainFragmentDirections.actionNavTrainToNavTrainmap(modules);
+//            Navigation.findNavController(view).navigate(action);
 
         }
     }

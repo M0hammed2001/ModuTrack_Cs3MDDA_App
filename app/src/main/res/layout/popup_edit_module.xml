@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".ui.Module.managedata.ModuleEditFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/popupModuleCodeEdit"
+            android:id="@+id/popupModuleEditCode"
             android:minWidth="48dp"
             android:minHeight="48dp"
             android:layout_width="70dp"
@@ -92,5 +94,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save Changes" />
+
+    <Button
+        android:id="@+id/ButttonBackEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back" />
 </LinearLayout>
 

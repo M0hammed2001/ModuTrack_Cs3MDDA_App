@@ -58,7 +58,29 @@
             android:id="@+id/nav_module"
             android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment"
             android:label="@string/menu_module"
-            tools:layout="@layout/fragment_map" />
+            tools:layout="@layout/fragment_module" >
+        <action
+            android:id="@+id/action_module_to_moduleadd"
+            app:destination="@id/nav_moduleAdd" />
+        <action
+            android:id="@+id/action_module_to_moduleEdit"
+            app:destination="@id/nav_moduleEdit" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_moduleEdit"
+        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata.ModuleEditFragment"
+        android:label="@string/menu_module"
+        tools:layout="@layout/popup_edit_module" >
+        <action
+            android:id="@+id/action_moduleEdit_to_module"
+            app:destination="@id/nav_module" />
+
+        <argument
+            android:name="Module"
+            app:argType="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module" />
+    </fragment>
 
 <!--    <fragment-->
 <!--        android:id="@+id/nav_testmodule"-->

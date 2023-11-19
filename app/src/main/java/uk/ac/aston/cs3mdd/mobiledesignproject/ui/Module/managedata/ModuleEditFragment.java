@@ -1,0 +1,235 @@
+package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata;
+
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+
+
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import uk.ac.aston.cs3mdd.mobiledesignproject.R;
+import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentModuleBinding;
+import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentTrainmapBinding;
+import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.PopupAddModuleBinding;
+import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.PopupEditModuleBinding;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleViewModel;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleDatabase;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.Trainmap.TrainMapFragment;
+
+
+public class ModuleEditFragment extends ModuleFragment {
+
+//    EditText popupModuleNameEdit;
+    EditText popupModuleEditCode;
+
+//    EditText popupAssignmentDateEdit;
+//    EditText popupAssignmentdueEdit;
+//    EditText popupAssignmentNameEdit;
+//
+//    EditText popupExamDateEdit;
+//    EditText popupExamdueEdit;
+//    EditText popupExamNameEdit;
+
+    Button buttonChangeModule, buttongoBack;
+
+    ModuleDatabase moduleDB;
+    List<Module> moduleList;
+    ModuleViewModel moduleViewModel;
+
+
+    private RecyclerView mRecyclerView;
+
+    private PopupEditModuleBinding binding;
+    private Module module;
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        binding.ButttonBackEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(ModuleEditFragment.this).navigate(R.id.action_moduleEdit_to_module);
+            }
+        });
+        binding.ButttonBackEdit.setText(module.toString());
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.popup_edit_module, container, false);
+
+        module = ModuleEditFragmentArgs.fromBundle(getArguments()).getModule();
+
+        binding = PopupEditModuleBinding.inflate(inflater, container, false);
+
+
+//        popupModuleNameEdit = view.findViewById(R.id.popupModuleNameEdit);
+        popupModuleEditCode = view.findViewById(R.id.popupModuleEditCode);
+
+        buttonChangeModule = view.findViewById(R.id.buttonChangeModule);
+//        buttongoBack = view.findViewById(R.id.buttongoBack);
+
+//        popupAssignmentDateEdit = view.findViewById(R.id.popupAssignmentDateEdit);
+//        popupAssignmentdueEdit = view.findViewById(R.id.popupAssignmentdueEdit);
+//        popupAssignmentNameEdit = view.findViewById(R.id.popupAssignmentNameEdit);
+//
+//        popupExamDateEdit = view.findViewById(R.id.popupExamDateEdit);
+//        popupExamdueEdit = view.findViewById(R.id.popupExamdueEdit);
+//        popupExamNameEdit = view.findViewById(R.id.popupExamNameEdit);
+
+
+        RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
+            @Override
+            public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                super.onCreate(db);
+            }
+
+            @Override
+            public void onDestructiveMigration(@NonNull SupportSQLiteDatabase db) {
+                super.onDestructiveMigration(db);
+            }
+
+            @Override
+            public void onOpen(@NonNull SupportSQLiteDatabase db) {
+                super.onOpen(db);
+            }
+        };
+
+        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").addCallback(myCallBack).build();
+//        moduleViewModel = new ViewModelProvider(requireActivity()).get(ModuleViewModel.class);
+        moduleViewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
+
+        final Observer<List<Module>> moduleObserver = new Observer<List<Module>>() {
+            @Override
+            public void onChanged(List<Module> modules) {
+                Log.i("TAG", "printing Module number " + modules.size());
+
+            }
+        };
+        moduleViewModel.getAllModules().observe(getViewLifecycleOwner(), moduleObserver);
+        buttonChangeModule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                String moduleName = popupModuleNameEdit.getText().toString();
+                String moduleCode = popupModuleEditCode.getText().toString();
+
+//                String assignmentDate = popupAssignmentDateEdit.getText().toString();
+//                String assignmentdue = popupAssignmentdueEdit.getText().toString();
+//                String assignmentName = popupAssignmentNameEdit.getText().toString();
+//
+//                String examdate = popupExamDateEdit.getText().toString();
+//                String examdue = popupExamdueEdit.getText().toString();
+//                String examName = popupExamNameEdit.getText().toString();
+
+                // You can use ModuleName and ModuleCode as needed
+
+//                editModuleInBackground();
+
+
+            }
+        });
+
+//        buttonChangeModule.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//            }
+//        });
+
+        return view;
+
+
+
+
+
+//    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//
+//
+//
+//        binding = PopupAddModuleBinding.inflate(inflater, container, false);
+//
+//        return binding.getRoot();
+//
+//    }
+
+//        @Override
+//        public void onViewCreated (@NonNull View view, @Nullable Bundle savedInstanceState){
+//            super.onViewCreated(view, savedInstanceState);
+//
+//
+//            binding.buttonAddModule.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    NavHostFragment.findNavController(ModuleAddFragment.this)
+//                            .navigate(R.id.action_moduleadd_to_module);
+//                }
+//            });
+//
+//
+//            binding.buttongoBack.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    NavHostFragment.findNavController(ModuleAddFragment.this)
+//                            .navigate(R.id.action_moduleadd_to_module);
+//                }
+//            });
+//        }
+
+//        @Override
+//        public void onDestroyView() {
+//            super.onDestroyView();
+//            binding = null;
+//        }
+    }
+    public void editModuleInBackground(Module module){
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                //background task
+                moduleDB.getModuleDAO().addModule(module);
+                //on finish task
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getContext(), "Data Changed", Toast.LENGTH_SHORT).show();
+
+
+                    }
+                });
+            }
+        });
+    }
+
+
+}
