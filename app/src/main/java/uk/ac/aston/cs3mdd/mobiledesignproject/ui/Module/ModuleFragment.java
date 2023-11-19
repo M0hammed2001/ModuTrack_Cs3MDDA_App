@@ -184,5 +184,26 @@ public class ModuleFragment extends Fragment {
             }
         });
     }
+    public void DeleteModuleInBackground(Module module) {
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                //background task
+                moduleDB.getModuleDAO().deleteModule(module);
+                //on finish task
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getContext(), "Deleted From DataBase", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
+    }
 
 }

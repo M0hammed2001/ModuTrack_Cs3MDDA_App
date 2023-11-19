@@ -69,7 +69,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
 
         // Create the text with line breaks
-        String displayText =
+        String ModuleInformation =
                 "Module: " + moduleCode + "<br>" + moduleName +
                 "<br>" +
                 "Assignment: " + ExamName + "<br>" + ExamDate +
@@ -81,7 +81,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
 
 
-            holder.ModuleView.setText(Html.fromHtml(displayText));
+            holder.ModuleView.setText(Html.fromHtml(ModuleInformation));
 
 
     }
