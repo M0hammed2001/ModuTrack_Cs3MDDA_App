@@ -17,9 +17,9 @@ import java.util.List;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentModuleBinding;
-import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentTrainBinding;
+import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.PopupAddModuleBinding;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleViewModel;
-import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainFragmentDirections;
+
 
 
 public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.ModuleViewModel>{
@@ -44,6 +44,38 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
 
     public void onBindViewHolder(@NonNull ModuleListAdapter.ModuleViewModel holder, int position) {
+        Module module = mModuleList.get(position);
+        holder.modules = module;
+
+        // Handle the case when data is not null and the CRS is "BHM"
+        String moduleCode = module.getModuleCode();
+//        String etd = trainService.getEtd();
+//        String std = trainService.getStd();
+//        String nrccMessages = trainService.getNrccMessages();
+
+        // Handle null values
+        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
+//        std = (std != null) ? std : "TBC";
+//        etd = (etd != null) ? etd : "no delays";
+//        nrccMessages = (nrccMessages != null) ? nrccMessages : "No ongoing issues";
+
+        // Create the text with line breaks
+        String displayText = "Module: " + module.getModuleCode() + "<br>" ;
+//                "<br>" +
+//                "Operator: " + operator + "<br>" +
+//                "<br>" +
+//                "Departure: " + std + "<br>" +
+//                "<br>" +
+//                "Delays: " + etd + "<br>" +
+//                "<br>" +
+//                "NRCC Messages: " + nrccMessages;
+
+        // Set the text with line breaks in the TextView if the build version supports it
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            holder.ModuleView.setText(Html.fromHtml(displayText, Html.FROM_HTML_MODE_LEGACY));
+        } else {
+            holder.ModuleView.setText(Html.fromHtml(displayText));
+        }
 
 
     }
@@ -74,10 +106,13 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
         @Override
         public void onClick(View view) {
-            Log.i("MS", "You Selected " + modules.toString());
-//            TrainFragmentDirections.ActionNavTrainToNavTrainmap action = TrainFragmentDirections.actionNavTrainToNavTrainmap(modules);
+
+//            Log.i("MS", "You Selected " + modules.toString());
+//            PopupAddModuleBinding.action = TrainFragmentDirections.actionNavTrainToNavTrainmap(modules);
 //            Navigation.findNavController(view).navigate(action);
 
         }
     }
+
+
 }

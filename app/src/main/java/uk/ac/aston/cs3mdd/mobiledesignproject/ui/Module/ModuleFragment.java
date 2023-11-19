@@ -1,8 +1,10 @@
 package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +26,7 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 //import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -32,7 +35,9 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleDatabase;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleListAdapter;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.Destination;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainListAdapter;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainsViewModel;
 
 public class ModuleFragment extends Fragment {
@@ -179,6 +184,27 @@ private ModuleViewModel viewModel = moduleViewModel;
         mRecyclerView.setAdapter(mAdapter);
         // Give the RecyclerView a default layout manager.
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+        final Observer<List<Module>> ModuleListObserver = new Observer<List<Module>>() {
+            @Override
+            public void onChanged(@Nullable final List<Module> ModuleList) {
+                List<Module> filteredList = new ArrayList<>();
+                // this if and for loop will make sure that if final destination is not BHM or BHI it will not display the item
+                if (ModuleList != null) {
+                    for (Module moduledisplay : ModuleList) {
+                                filteredList.add(moduledisplay);
+                    }
+                    // Update your adapter with the filtered list
+                    mAdapter.updateData(filteredList);
+                }
+
+
+
+            }
+        };
+
+        viewModel.getAllModules().observe(getViewLifecycleOwner(), ModuleListObserver);
     }
 
     public void addModuleInBackground(Module module){
@@ -196,7 +222,7 @@ private ModuleViewModel viewModel = moduleViewModel;
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getContext(), "Added to Database", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "Added to Database", Toast.LENGTH_SHORT).show();
 
 
                     }
@@ -219,21 +245,28 @@ private ModuleViewModel viewModel = moduleViewModel;
                 //background task
 
                 moduleList = moduleDB.getModuleDAO().getAllModules();
-
+//                TrainService trainService = mTrainList.get(position);
+//                holder.trainService = trainService;
                 //on finish task
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
+
                         StringBuilder sb = new StringBuilder();
-//                        for(Module m : moduleList){
-//
-//                            sb.append(m.getModuleCode()+" : "+m.getModuleName());
-//                            sb.append(m.getExamName()+" : "+m.getExamdue()+" : "+m.getExamdate());
-//                            sb.append("\n");
-//                        }
+                        for(Module m : moduleList){
+
+                            sb.append(m.getModuleCode()+" : "+m.getModuleName());
+                            sb.append(m.getExamName()+" : "+m.getExamdue()+" : "+m.getExamdate());
+                            sb.append("\n");
+                        }
 //                        String finaldata = sb.toString();
 //                        Toast.makeText(getContext(), "" + finaldata, Toast.LENGTH_SHORT).show();
-                        model.updateModule(moduleList);
+//                        model.updateModule(moduleList);
+                        // Create the text with line breaks
+
+
+
+
 
                     }
                 });
