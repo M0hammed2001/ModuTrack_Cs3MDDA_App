@@ -2,6 +2,8 @@ package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata;
 
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,8 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.PopupAddModuleBinding;
@@ -73,7 +77,7 @@ public class ModuleAddFragment extends Fragment {
         popupModuleCodeEdit = view.findViewById(R.id.popupModuleCodeEdit);
 
         buttonAddModule = view.findViewById(R.id.buttonAddModule);
-        buttongoBack = view.findViewById(R.id.buttongoBack);
+
 
         popupAssignmentDateEdit = view.findViewById(R.id.popupAssignmentDateEdit);
         popupAssignmentdueEdit = view.findViewById(R.id.popupAssignmentdueEdit);
@@ -117,22 +121,22 @@ public class ModuleAddFragment extends Fragment {
         buttonAddModule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String moduleName = popupModuleNameEdit.getText().toString();
-//                String moduleCode = popupModuleCodeEdit.getText().toString();
-//
-//                String assignmentDate = popupAssignmentDateEdit.getText().toString();
-//                String assignmentdue = popupAssignmentdueEdit.getText().toString();
-//                String assignmentName = popupAssignmentNameEdit.getText().toString();
-//
-//                String examdate = popupExamDateEdit.getText().toString();
-//                String examdue = popupExamdueEdit.getText().toString();
-//                String examName = popupExamNameEdit.getText().toString();
+                String moduleName = popupModuleNameEdit.getText().toString();
+                String moduleCode = popupModuleCodeEdit.getText().toString();
+
+                String assignmentDate = popupAssignmentDateEdit.getText().toString();
+                String assignmentdue = popupAssignmentdueEdit.getText().toString();
+                String assignmentName = popupAssignmentNameEdit.getText().toString();
+
+                String examdate = popupExamDateEdit.getText().toString();
+                String examdue = popupExamdueEdit.getText().toString();
+                String examName = popupExamNameEdit.getText().toString();
 //
 //                // You can use ModuleName and ModuleCode as needed
 //
 //                // Create a Module object and save it to the database
-//                Module module1 = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate);
-//                ModuleFragment.addModuleInBackground(module1);
+                Module module1 = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate);
+                EditModuleInBackground(module1);
             }
         });
 
@@ -271,4 +275,24 @@ public class ModuleAddFragment extends Fragment {
 //        }
 //    }
     }
+    public void EditModuleInBackground(Module module){
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                //background task
+                moduleDB.getModuleDAO().addModule(module);
+                //on finish task
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+//                        Toast.makeText(getContext(), "Added to Database", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
 }
