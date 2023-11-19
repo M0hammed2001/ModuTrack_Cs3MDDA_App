@@ -44,13 +44,13 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         holder.modules = module;
 
         // Handle the case when data is not null and the CRS is "BHM"
-        String moduleCode = module.getModuleCode();
+//        String moduleCode = module.getModuleCode();
 //        String etd = trainService.getEtd();
 //        String std = trainService.getStd();
 //        String nrccMessages = trainService.getNrccMessages();
 
         // Handle null values
-        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
+//        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
 //        std = (std != null) ? std : "TBC";
 //        etd = (etd != null) ? etd : "no delays";
 //        nrccMessages = (nrccMessages != null) ? nrccMessages : "No ongoing issues";
@@ -67,11 +67,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 //                "NRCC Messages: " + nrccMessages;
 
         // Set the text with line breaks in the TextView if the build version supports it
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            holder.ModuleView.setText(Html.fromHtml(displayText, Html.FROM_HTML_MODE_LEGACY));
-        } else {
+
             holder.ModuleView.setText(Html.fromHtml(displayText));
-        }
 
 
     }

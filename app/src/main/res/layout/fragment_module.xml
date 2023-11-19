@@ -7,21 +7,22 @@
         android:orientation="vertical"
         tools:context=".ui.Module.ModuleFragment">
 
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/MFRecyclerView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
         <Button
             android:id="@+id/addDatabutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="add Data"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/MFRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
 
 
         <!--        <Button-->

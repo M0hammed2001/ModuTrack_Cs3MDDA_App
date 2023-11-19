@@ -132,22 +132,16 @@ public class ModuleAddFragment extends Fragment {
                 String examdate = popupExamDateEdit.getText().toString();
                 String examdue = popupExamdueEdit.getText().toString();
                 String examName = popupExamNameEdit.getText().toString();
+
+
 //
-//                // You can use ModuleName and ModuleCode as needed
-//
-//                // Create a Module object and save it to the database
-                Module module1 = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate);
-                EditModuleInBackground(module1);
+//                // Creates a Module object and save it to the database
+                Module module = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate);
+                AddModuleInBackground(module);
             }
         });
 
-        buttongoBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-
-            }
-        });
 
         return view;
 
@@ -277,7 +271,7 @@ public class ModuleAddFragment extends Fragment {
 //    }
     }
 
-    public void EditModuleInBackground(Module module) {
+    public void AddModuleInBackground(Module module) {
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
@@ -292,7 +286,7 @@ public class ModuleAddFragment extends Fragment {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getContext(), "Added to Database", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Added to DataBase", Toast.LENGTH_LONG).show();
                     }
                 });
             }
