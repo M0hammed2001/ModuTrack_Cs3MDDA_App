@@ -22,7 +22,7 @@
             android:id="@+id/nav_map"
             android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Map.MapFragment"
             android:label="@string/menu_map"
-            tools:layout="@layout/fragment_module" />
+            tools:layout="@layout/fragment_map" />
 
 
 
@@ -42,11 +42,12 @@
     <fragment
         android:id="@+id/nav_moduleAdd"
         android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata.ModuleAddFragment"
-        android:label="@string/menu_trainmap"
+        android:label="Module Add"
         tools:layout="@layout/popup_add_module" >
+
         <action
-            android:id="@+id/action_moduleadd_to_module"
-            app:destination="@id/nav_module" />
+        android:id="@+id/action_moduleadd_to_module"
+        app:destination="@id/nav_module" />
 
     </fragment>
 
@@ -60,7 +61,7 @@
             android:label="@string/menu_module"
             tools:layout="@layout/fragment_module" >
         <action
-            android:id="@+id/action_module_to_moduleadd"
+            android:id="@+id/action_module_to_moduleAdd"
             app:destination="@id/nav_moduleAdd" />
         <action
             android:id="@+id/action_module_to_moduleEdit"

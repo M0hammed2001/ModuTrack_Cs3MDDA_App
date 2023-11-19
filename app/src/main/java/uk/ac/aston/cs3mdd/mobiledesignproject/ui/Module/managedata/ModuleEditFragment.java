@@ -42,18 +42,18 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.Trainmap.TrainMapFragment
 
 public class ModuleEditFragment extends ModuleFragment {
 
-//    EditText popupModuleNameEdit;
+    EditText popupModuleEditName;
     EditText popupModuleEditCode;
 
-//    EditText popupAssignmentDateEdit;
-//    EditText popupAssignmentdueEdit;
-//    EditText popupAssignmentNameEdit;
-//
-//    EditText popupExamDateEdit;
-//    EditText popupExamdueEdit;
-//    EditText popupExamNameEdit;
+    EditText popupAssignmentEditDate;
+    EditText popupAssignmentEditdue;
+    EditText popupAssignmentEditName;
 
-    Button buttonChangeModule, buttongoBack;
+    EditText popupExamEditDate;
+    EditText popupExamEditdue;
+    EditText popupExamEditName;
+
+    Button buttonChangeModule, ButttonEditBack;
 
     ModuleDatabase moduleDB;
     List<Module> moduleList;
@@ -69,13 +69,13 @@ public class ModuleEditFragment extends ModuleFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.ButttonBackEdit.setOnClickListener(new View.OnClickListener() {
+        binding.ButttonEditBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(ModuleEditFragment.this).navigate(R.id.action_moduleEdit_to_module);
             }
         });
-        binding.ButttonBackEdit.setText(module.toString());
+        binding.ButttonEditBack.setText(module.toString());
     }
 
     @Override
@@ -88,19 +88,19 @@ public class ModuleEditFragment extends ModuleFragment {
         binding = PopupEditModuleBinding.inflate(inflater, container, false);
 
 
-//        popupModuleNameEdit = view.findViewById(R.id.popupModuleNameEdit);
+        popupModuleEditName = view.findViewById(R.id.popupModuleEditName);
         popupModuleEditCode = view.findViewById(R.id.popupModuleEditCode);
 
         buttonChangeModule = view.findViewById(R.id.buttonChangeModule);
-//        buttongoBack = view.findViewById(R.id.buttongoBack);
+        ButttonEditBack = view.findViewById(R.id.ButttonEditBack);
 
-//        popupAssignmentDateEdit = view.findViewById(R.id.popupAssignmentDateEdit);
-//        popupAssignmentdueEdit = view.findViewById(R.id.popupAssignmentdueEdit);
-//        popupAssignmentNameEdit = view.findViewById(R.id.popupAssignmentNameEdit);
-//
-//        popupExamDateEdit = view.findViewById(R.id.popupExamDateEdit);
-//        popupExamdueEdit = view.findViewById(R.id.popupExamdueEdit);
-//        popupExamNameEdit = view.findViewById(R.id.popupExamNameEdit);
+        popupAssignmentEditDate = view.findViewById(R.id.popupAssignmentEditDate);
+        popupAssignmentEditdue = view.findViewById(R.id.popupAssignmentEditdue);
+        popupAssignmentEditName = view.findViewById(R.id.popupAssignmentEditName);
+
+        popupExamEditDate = view.findViewById(R.id.popupExamEditDate);
+        popupExamEditdue = view.findViewById(R.id.popupExamEditdue);
+        popupExamEditName = view.findViewById(R.id.popupExamEditName);
 
 
         RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
@@ -137,7 +137,7 @@ public class ModuleEditFragment extends ModuleFragment {
             public void onClick(View v) {
 //                String moduleName = popupModuleNameEdit.getText().toString();
                 String moduleCode = popupModuleEditCode.getText().toString();
-
+//
 //                String assignmentDate = popupAssignmentDateEdit.getText().toString();
 //                String assignmentdue = popupAssignmentdueEdit.getText().toString();
 //                String assignmentName = popupAssignmentNameEdit.getText().toString();
@@ -164,48 +164,6 @@ public class ModuleEditFragment extends ModuleFragment {
 
         return view;
 
-
-
-
-
-//    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//
-//
-//
-//        binding = PopupAddModuleBinding.inflate(inflater, container, false);
-//
-//        return binding.getRoot();
-//
-//    }
-
-//        @Override
-//        public void onViewCreated (@NonNull View view, @Nullable Bundle savedInstanceState){
-//            super.onViewCreated(view, savedInstanceState);
-//
-//
-//            binding.buttonAddModule.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    NavHostFragment.findNavController(ModuleAddFragment.this)
-//                            .navigate(R.id.action_moduleadd_to_module);
-//                }
-//            });
-//
-//
-//            binding.buttongoBack.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    NavHostFragment.findNavController(ModuleAddFragment.this)
-//                            .navigate(R.id.action_moduleadd_to_module);
-//                }
-//            });
-//        }
-
-//        @Override
-//        public void onDestroyView() {
-//            super.onDestroyView();
-//            binding = null;
-//        }
     }
     public void editModuleInBackground(Module module){
 

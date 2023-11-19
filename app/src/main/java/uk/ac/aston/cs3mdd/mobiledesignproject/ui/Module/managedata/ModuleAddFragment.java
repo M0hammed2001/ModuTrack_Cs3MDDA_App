@@ -147,43 +147,128 @@ public class ModuleAddFragment extends ModuleFragment {
         return view;
 
 
-//    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        public View onCreateView (@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 //
 //
+//            binding = PopupAddModuleBinding.inflate(inflater, container, false);
 //
-//        binding = PopupAddModuleBinding.inflate(inflater, container, false);
+//            return binding.getRoot();
 //
-//        return binding.getRoot();
-//
-//    }
-
-//        @Override
-//        public void onViewCreated (@NonNull View view, @Nullable Bundle savedInstanceState){
-//            super.onViewCreated(view, savedInstanceState);
-//
-//
-//            binding.buttonAddModule.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    NavHostFragment.findNavController(ModuleAddFragment.this)
-//                            .navigate(R.id.action_moduleadd_to_module);
-//                }
-//            });
-//
-//
-//            binding.buttongoBack.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    NavHostFragment.findNavController(ModuleAddFragment.this)
-//                            .navigate(R.id.action_moduleadd_to_module);
-//                }
-//            });
 //        }
 
+//    @Override
+//    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        // Inflate the layout for this fragment
+//        View view = inflater.inflate(R.layout.fragment_module, container, false);
+//
+////        // Get a handle to the RecyclerView.
+////        mRecyclerView = view.findViewById(R.id.MFrecyclerview);
+////        // Create an adapter and supply the data to be displayed.
+////        mAdapter = new TrainListAdapter(getContext(), viewModel.getAllTrains().getValue());
+////        // Connect the adapter with the RecyclerView.
+////        mRecyclerView.setAdapter(mAdapter);
+////        // Give the RecyclerView a default layout manager.
+////        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//
+//        ModuleNameEdit = view.findViewById(R.id.ModuleNameEdit);
+//        ModuleCodeEdit = view.findViewById(R.id.ModuleCodeEdit);
+//
+//        SaveButton = view.findViewById(R.id.SaveButton);
+//        getDataButton = view.findViewById(R.id.getDataButton);
+//
+//        assignmentNameEdit = view.findViewById(R.id.assignmentNameEdit);
+//        assignmentdueEdit = view.findViewById(R.id.assignmentdueEdit);
+//        assignmentDateEdit = view.findViewById(R.id.assignmentDateEdit);
+//
+//        ExamNameEdit = view.findViewById(R.id.ExamNameEdit);
+//        ExamdueEdit = view.findViewById(R.id.ExamdueEdit);
+//        ExamDateEdit = view.findViewById(R.id.ExamDateEdit);
+//
+//
+//
+//        RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
+//            @Override
+//            public void onCreate(@NonNull SupportSQLiteDatabase db) {
+//                super.onCreate(db);
+//            }
+//
+//            @Override
+//            public void onDestructiveMigration(@NonNull SupportSQLiteDatabase db) {
+//                super.onDestructiveMigration(db);
+//            }
+//
+//            @Override
+//            public void onOpen(@NonNull SupportSQLiteDatabase db) {
+//                super.onOpen(db);
+//            }
+//        };
+//
+//        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").addCallback(myCallBack).build();
+////        moduleViewModel = new ViewModelProvider(requireActivity()).get(ModuleViewModel.class);
+//        moduleViewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
+//        getModuleListInBackground(moduleViewModel);
+////        final Observer<List<Module>> moduleObserver = new Observer<List<Module>>() {
+////
+////            @Override
+////            public void onChanged(List<Module> modules) {
+////                Log.i("TAG", "printing Module number " + modules.size());
+////
+////            }
+////        };
+//        moduleViewModel.getAllModules().observe(getViewLifecycleOwner(), moduleObserver);
+//        SaveButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String moduleName = ModuleNameEdit.getText().toString();
+//                String moduleCode = ModuleCodeEdit.getText().toString();
+//
+//                String assignmentName = assignmentNameEdit.getText().toString();
+//                String assignmentdue = assignmentdueEdit.getText().toString();
+//                String assignmentDate = assignmentDateEdit.getText().toString();
+//
+//                String examName = ExamNameEdit.getText().toString();
+//                String examdue = ExamdueEdit.getText().toString();
+//                String examdate = ExamDateEdit.getText().toString();
+//
+//                // You can use ModuleName and ModuleCode as needed
+//
+//                // Create a Module object and save it to the database
+//                Module module1 = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate,  examName, examdue, examdate);
+//                addModuleInBackground(module1);
+//            }
+//        });
+//
+//        getDataButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//
+//            }
+//        });
+//
+//        return view;
+//    }
+//
+//
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//        // Get a handle to the RecyclerView.
+//        mRecyclerView = view.findViewById(R.id.MFrecyclerview);
+//        // Create an adapter and supply the data to be displayed.
+//        mAdapter = new ModuleListAdapter(getContext(), viewModel.getAllModules().getValue());
+//        // Connect the adapter with the RecyclerView.
+//        mRecyclerView.setAdapter(mAdapter);
+//        // Give the RecyclerView a default layout manager.
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//    }
+//
 //        @Override
 //        public void onDestroyView() {
 //            super.onDestroyView();
 //            binding = null;
 //        }
+//    }
     }
 }

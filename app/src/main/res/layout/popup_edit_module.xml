@@ -19,7 +19,7 @@
             android:hint="Code"/>
 
         <EditText
-            android:id="@+id/popupModuleNameEdit"
+            android:id="@+id/popupModuleEditName"
             android:layout_width="match_parent"
             android:minWidth="48dp"
             android:minHeight="48dp"
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/popupAssignmentDateEdit"
+            android:id="@+id/popupAssignmentEditDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="48dp"
@@ -40,7 +40,7 @@
             android:hint="Date"
             android:inputType="datetime" />
         <EditText
-            android:id="@+id/popupAssignmentdueEdit"
+            android:id="@+id/popupAssignmentEditdue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="48dp"
@@ -48,7 +48,7 @@
             android:layout_marginTop="1dp"
             android:hint="yes/no"/>
         <EditText
-            android:id="@+id/popupAssignmentNameEdit"
+            android:id="@+id/popupAssignmentEditName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minWidth="48dp"
@@ -62,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/popupExamDateEdit"
+            android:id="@+id/popupExamEditDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="48dp"
@@ -71,7 +71,7 @@
             android:hint="Date"
             android:inputType="datetime" />
         <EditText
-            android:id="@+id/popupExamdueEdit"
+            android:id="@+id/popupExamEditdue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="48dp"
@@ -79,7 +79,7 @@
             android:layout_marginTop="1dp"
             android:hint="yes/no"/>
         <EditText
-            android:id="@+id/popupExamNameEdit"
+            android:id="@+id/popupExamEditName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minWidth="48dp"
@@ -96,7 +96,7 @@
         android:text="Save Changes" />
 
     <Button
-        android:id="@+id/ButttonBackEdit"
+        android:id="@+id/ButttonEditBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back" />

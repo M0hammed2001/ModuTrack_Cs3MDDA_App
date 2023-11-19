@@ -6,146 +6,144 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".ui.Module.ModuleFragment">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/MFrecyclerview"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:id="@+id/MFRecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/your_image_view_id"
+            app:layout_constraintTop_toBottomOf="@+id/your_Module_view_id"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="test"/>
-
         <Button
-            android:id="@+id/ButtonEdit"
-            android:layout_width="wrap_content"
+            android:id="@+id/addDatabutton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Edit"/>
+            android:layout_marginBottom="10dp"
+            android:text="add Data"/>
 
 
-    </FrameLayout>
+<!--        <Button-->
+<!--            android:id="@+id/ButtonEdit"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Edit" />-->
 
 
-    <Button
-        android:id="@+id/ButtonDeleteModule"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="add Data" />
+<!--        <Button-->
+<!--            android:id="@+id/ButtonDeleteModule"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:text="add Data" />-->
 
-    <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/ModuleCodeEdit"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Code"/>
+<!--    <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
+<!--                <EditText-->
+<!--                    android:id="@+id/ModuleCodeEdit"-->
+<!--                    android:minWidth="48dp"-->
+<!--                    android:minHeight="48dp"-->
+<!--                    android:layout_width="70dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:hint="Code"/>-->
 
-                <EditText
-                    android:id="@+id/ModuleNameEdit"
-                    android:layout_width="match_parent"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Module Name"/>
+<!--                <EditText-->
+<!--                    android:id="@+id/ModuleNameEdit"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:minWidth="48dp"-->
+<!--                    android:minHeight="48dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:hint="Module Name"/>-->
 
 
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/assignmentDateEdit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:layout_marginTop="1dp"
-                    android:hint="Date"
-                    android:inputType="datetime" />
-                <EditText
-                    android:id="@+id/assignmentdueEdit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:layout_marginTop="1dp"
-                    android:hint="yes/no"/>
-                <EditText
-                    android:id="@+id/assignmentNameEdit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:layout_marginTop="1dp"
-                    android:hint="Assigment Name" />
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
+<!--                <EditText-->
+<!--                    android:id="@+id/assignmentDateEdit"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:minWidth="48dp"-->
+<!--                    android:minHeight="48dp"-->
+<!--                    android:layout_marginTop="1dp"-->
+<!--                    android:hint="Date"-->
+<!--                    android:inputType="datetime" />-->
+<!--                <EditText-->
+<!--                    android:id="@+id/assignmentdueEdit"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:minWidth="48dp"-->
+<!--                    android:minHeight="48dp"-->
+<!--                    android:layout_marginTop="1dp"-->
+<!--                    android:hint="yes/no"/>-->
+<!--                <EditText-->
+<!--                    android:id="@+id/assignmentNameEdit"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:minWidth="48dp"-->
+<!--                    android:minHeight="48dp"-->
+<!--                    android:layout_marginTop="1dp"-->
+<!--                    android:hint="Assigment Name" />-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/ExamDateEdit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:layout_marginTop="1dp"
-                    android:hint="Date"
-                    android:inputType="datetime" />
-                <EditText
-                    android:id="@+id/ExamdueEdit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:layout_marginTop="1dp"
-                    android:hint="yes/no"/>
-                <EditText
-                    android:id="@+id/ExamNameEdit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:layout_marginTop="1dp"
-                    android:hint="Assigment Name" />
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
+<!--                <EditText-->
+<!--                    android:id="@+id/ExamDateEdit"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:minWidth="48dp"-->
+<!--                    android:minHeight="48dp"-->
+<!--                    android:layout_marginTop="1dp"-->
+<!--                    android:hint="Date"-->
+<!--                    android:inputType="datetime" />-->
+<!--                <EditText-->
+<!--                    android:id="@+id/ExamdueEdit"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:minWidth="48dp"-->
+<!--                    android:minHeight="48dp"-->
+<!--                    android:layout_marginTop="1dp"-->
+<!--                    android:hint="yes/no"/>-->
+<!--                <EditText-->
+<!--                    android:id="@+id/ExamNameEdit"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:minWidth="48dp"-->
+<!--                    android:minHeight="48dp"-->
+<!--                    android:layout_marginTop="1dp"-->
+<!--                    android:hint="Assigment Name" />-->
 
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/SaveButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Save"/>
-
-            <Button
-                android:id="@+id/addDatabutton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="add Data"/>
+<!--            </LinearLayout>-->
 
 <!--            <Button-->
-<!--                android:id="@+id/getDataButton"-->
+<!--                android:id="@+id/SaveButton"-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:text="Get Data From Database"/>-->
-        </LinearLayout>
+<!--                android:text="Save"/>-->
+
+<!--            <Button-->
+<!--                android:id="@+id/addDatabutton"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:text="add Data"/>-->
+
+<!--&lt;!&ndash;            <Button&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/getDataButton"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginTop="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="Get Data From Database"/>&ndash;&gt;-->
+<!--        </LinearLayout>-->
 
 
 
@@ -291,4 +289,4 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toBottomOf="@+id/SaveButton" />-->
 
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+</LinearLayout>

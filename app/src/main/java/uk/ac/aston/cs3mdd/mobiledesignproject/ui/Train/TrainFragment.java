@@ -76,6 +76,7 @@ public class TrainFragment extends Fragment {
                     // Update your adapter with the filtered list
                     mAdapter.updateData(filteredList);
                 }
+//                    mAdapter.updateData(Trainlist);
 
 
 
