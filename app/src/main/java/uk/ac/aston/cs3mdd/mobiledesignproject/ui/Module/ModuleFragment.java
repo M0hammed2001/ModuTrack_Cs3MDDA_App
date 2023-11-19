@@ -63,8 +63,6 @@ public class ModuleFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {        // Inflate the layout for this fragment
-//        View view = inflater.inflate(R.layout.fragment_module, container, false);
-
         // Initialize viewModel using ViewModelProvider
         viewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
@@ -101,6 +99,7 @@ public class ModuleFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
          //Get a handle to the RecyclerView.
+
         ModuleRecyclerView = view.findViewById(R.id.MFRecyclerView);
 
         // Create an adapter and supply the data to be displayed.
@@ -131,7 +130,7 @@ public class ModuleFragment extends Fragment {
             }
         });
 
-//         holder.ButtonEdit.setOnClickListener(new View.OnClickListener() {
+//        binding.ButtonEdit.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //                NavHostFragment.findNavController(ModuleFragment.this).navigate(R.id.action_module_to_moduleEdit);
