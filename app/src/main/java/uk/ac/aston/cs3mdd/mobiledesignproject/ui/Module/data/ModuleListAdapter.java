@@ -6,6 +6,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -72,9 +73,9 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         String ModuleInformation =
                 "Module: " + moduleCode + "<br>" + moduleName +
                 "<br>" +
-                "Assignment: " + ExamName + "<br>" + ExamDate +
+                 "Exam: " + AssignmentName + "<br>" + AssignmentDate +
                 "<br>" +
-                "Exam: " + AssignmentName + "<br>" + AssignmentDate;
+                "Assignment: " + ExamName + "<br>" + ExamDate ;
 //                "<br>" +
 //                "Room: " + module. ;
 
@@ -99,7 +100,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
     class ModuleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView ModuleView;
-
+//        Button ButtonDeleteModule;
         final ModuleListAdapter mAdapter;
         public Module modules;
 
@@ -107,6 +108,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             super(itemView);
             itemView.setOnClickListener(this);
             ModuleView = itemView.findViewById(R.id.Moduleinformation);
+//            ButtonDeleteModule = itemView.findViewById(R.id.ButtonDeleteModule);
+
             this.mAdapter = adapter;
 
         }

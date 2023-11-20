@@ -136,11 +136,10 @@ public class ModuleFragment extends Fragment {
             }
         });
 
-//        binding.ButtonEdit.setOnClickListener(new View.OnClickListener() {
+//        ButtonDeleteModule.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                NavHostFragment.findNavController(ModuleFragment.this).navigate(R.id.action_module_to_moduleEdit);
-//                Log.i("MS", "Edit");
+//                Log.i("MS", "Deleted");
 //            }
 //        });
 
