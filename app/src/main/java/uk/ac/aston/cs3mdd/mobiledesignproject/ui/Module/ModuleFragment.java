@@ -63,6 +63,10 @@ public class ModuleFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.popup_edit_module, container, false);
+
+//        ButtonEdit = view.findViewById(R.id.ButtonEdit);
+        
         // Initialize viewModel using ViewModelProvider
         viewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
@@ -99,6 +103,8 @@ public class ModuleFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
          //Get a handle to the RecyclerView.
+
+
 
         ModuleRecyclerView = view.findViewById(R.id.MFRecyclerView);
 
@@ -162,19 +168,21 @@ public class ModuleFragment extends Fragment {
                     @Override
                     public void run() {
 
-                        StringBuilder sb = new StringBuilder();
-                        for(Module m : moduleList){
+//                        StringBuilder sb = new StringBuilder();
+//                        for(Module m : moduleList){
+//
+//                            sb.append(m.getModuleCode()+" : "+m.getModuleName());
+//                            sb.append(m.getExamName()+" : "+m.getExamdue()+" : "+m.getExamdate());
+//                            sb.append("\n");
+//                        }
+//                        String finaldata = sb.toString();
+//                        Toast.makeText(getContext(), "" + finaldata, Toast.LENGTH_LONG).show();
 
-                            sb.append(m.getModuleCode()+" : "+m.getModuleName());
-                            sb.append(m.getExamName()+" : "+m.getExamdue()+" : "+m.getExamdate());
-                            sb.append("\n");
-                        }
-                        String finaldata = sb.toString();
-                        Toast.makeText(getContext(), "" + finaldata, Toast.LENGTH_LONG).show();
+
                         model.updateModule(moduleList);
-//                         Create the text with line breaks
+////                         Create the text with line breaks
 
-
+//                        Toast.makeText("ms", "Number of Modules" + moduleList.size());
 
 
 
@@ -198,7 +206,9 @@ public class ModuleFragment extends Fragment {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
+
                         Toast.makeText(getContext(), "Deleted From DataBase", Toast.LENGTH_LONG).show();
+
                     }
                 });
             }
