@@ -50,7 +50,11 @@ public class ModuleFragment extends Fragment {
 
 
 
+
+
     private RecyclerView ModuleRecyclerView;
+//    public final Button buttonDeleteModule;
+
 
     Button ButtonEdit, ButtonDeleteModule;
 
@@ -104,8 +108,6 @@ public class ModuleFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
          //Get a handle to the RecyclerView.
 
-
-
         ModuleRecyclerView = view.findViewById(R.id.MFRecyclerView);
 
         // Create an adapter and supply the data to be displayed.
@@ -123,8 +125,6 @@ public class ModuleFragment extends Fragment {
                     // Update your adapter with the filtered list
                     moduleAdapter.updateData(ModuleList);
                 Log.i("MS","Modules:" + moduleList.size());
-
-
             }
         };
 
@@ -136,12 +136,6 @@ public class ModuleFragment extends Fragment {
             }
         });
 
-//        ButtonDeleteModule.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.i("MS", "Deleted");
-//            }
-//        });
 
 
         moduleViewModel.getAllModules().observe(getViewLifecycleOwner(), ModuleListObserver);
