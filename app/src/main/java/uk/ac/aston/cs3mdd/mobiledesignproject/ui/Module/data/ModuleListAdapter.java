@@ -125,6 +125,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             ButtonDeleteModule.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+//                    DeleteModuleInBackground(modules);
+
                     Log.i("MS", "Deleted");
                 }
             });
@@ -140,29 +142,29 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
         }
 
-//        public void DeleteModuleInBackground(Module module) {
-//
-//            ExecutorService executorService = Executors.newSingleThreadExecutor();
-//
-//            Handler handler = new Handler(Looper.getMainLooper());
-//
-//            executorService.execute(new Runnable() {
-//                @Override
-//                public void run() {
-//                    //background task
-//                    moduleDB.getModuleDAO().deleteModule(module);
-//                    //on finish task
-//                    handler.post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//
-//                            Toast.makeText(ButtonDeleteModule.getContext(), "Deleted From DataBase", Toast.LENGTH_LONG).show();
-//
-//                        }
-//                    });
-//                }
-//            });
-//        }
+        public void DeleteModuleInBackground(Module module) {
+
+            ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+            Handler handler = new Handler(Looper.getMainLooper());
+
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    //background task
+                    moduleDB.getModuleDAO().deleteModule(module);
+                    //on finish task
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            Toast.makeText(ButtonDeleteModule.getContext(), "Deleted From DataBase", Toast.LENGTH_LONG).show();
+
+                        }
+                    });
+                }
+            });
+        }
 
 
         @Override

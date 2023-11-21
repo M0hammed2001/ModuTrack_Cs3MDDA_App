@@ -67,7 +67,6 @@ public class ModuleAddFragment extends Fragment {
 
         buttonAddModule = view.findViewById(R.id.buttonAddModule);
 
-
         popupAssignmentDateEdit = view.findViewById(R.id.popupAssignmentDateEdit);
         popupAssignmentdueEdit = view.findViewById(R.id.popupAssignmentdueEdit);
         popupAssignmentNameEdit = view.findViewById(R.id.popupAssignmentNameEdit);
@@ -95,7 +94,6 @@ public class ModuleAddFragment extends Fragment {
         };
 
         moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").addCallback(myCallBack).build();
-//        moduleViewModel = new ViewModelProvider(requireActivity()).get(ModuleViewModel.class);
         moduleViewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
         final Observer<List<Module>> moduleObserver = new Observer<List<Module>>() {
@@ -126,26 +124,6 @@ public class ModuleAddFragment extends Fragment {
                     AddModuleInBackground(module);
                 }
             });
-
-//        buttonAddModule.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String moduleName = popupModuleNameEdit.getText().toString();
-//                String moduleCode = popupModuleCodeEdit.getText().toString();
-//
-//                String assignmentDate = popupAssignmentDateEdit.getText().toString();
-//                String assignmentdue = popupAssignmentdueEdit.getText().toString();
-//                String assignmentName = popupAssignmentNameEdit.getText().toString();
-//
-//                String examdate = popupExamDateEdit.getText().toString();
-//                String examdue = popupExamdueEdit.getText().toString();
-//                String examName = popupExamNameEdit.getText().toString();
-//
-//                // Creates a Module object and save it to the database
-//                Module module = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate);
-//                AddModuleInBackground(module);
-//            }
-//        });
 
         return view;
     }
