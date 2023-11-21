@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -32,8 +34,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     private TrainService trainService;
 
-//    private MapViewModel mapViewModel;
-
+    private FusedLocationProviderClient fusedLocationClient;
 
     private GoogleMap mMap;
 
@@ -51,6 +52,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.AstonMap);
         mapFragment.getMapAsync(this);
 
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
+
 
     }
 
@@ -59,19 +62,20 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
+
         // Define the coordinates for all the location i want to show on the map
 
         // the food places
-        LatLng Greggs = new LatLng(52.48582884188431, -1.8910272846843958); // Birmingham New Street coordinates
-        LatLng Tesco = new LatLng(52.48551440801394, -1.8904186776985403); // Birmingham New Street coordinates
-        LatLng WokandGo = new LatLng(52.48554522703285, -1.8910799271371763); // Birmingham New Street coordinates
+        LatLng Greggs = new LatLng(52.48582884188431, -1.8910272846843958);
+        LatLng Tesco = new LatLng(52.48551440801394, -1.8904186776985403);
+        LatLng WokAndGo = new LatLng(52.48554522703285, -1.8910799271371763);
 
         // aston locations
-        LatLng astonMosque = new LatLng(52.484103960792446, -1.8887222355078963); // Aston University coordinates
-        LatLng AstonLibrary = new LatLng(52.485762, -1.888777); // Birmingham New Street coordinates
-        LatLng astonSU = new LatLng(52.484441, -1.889462); // Aston University coordinates
-        LatLng MainBuildingMain = new LatLng(52.486505, -1.889672); // Birmingham New Street coordinates
-        LatLng MainbuildingOOH = new LatLng(52.486307, -1.890072); // Aston University coordinates
+        LatLng astonMosque = new LatLng(52.484103960792446, -1.8887222355078963);
+        LatLng AstonLibrary = new LatLng(52.485762, -1.888777);
+        LatLng astonSU = new LatLng(52.484441, -1.889462);
+        LatLng MainBuildingMain = new LatLng(52.486505, -1.889672);
+        LatLng MainBuildingOOH = new LatLng(52.486307, -1.890072);
 
 
 
@@ -79,9 +83,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         mMap.addMarker(new MarkerOptions().position(astonSU).title("Aston Student Union"));
 
-        mMap.addMarker(new MarkerOptions().position(MainBuildingMain).title("Aston Main Building 'MB' Main Entrace "));
+        mMap.addMarker(new MarkerOptions().position(MainBuildingMain).title("Aston Main Building 'MB' Main Entrance "));
 
-        mMap.addMarker(new MarkerOptions().position(MainbuildingOOH).title("Aston Main Building 'MB' OOH Entrace "));
+        mMap.addMarker(new MarkerOptions().position(MainBuildingOOH).title("Aston Main Building 'MB' OOH Entrance "));
 
         mMap.addMarker(new MarkerOptions().position(astonMosque).title("Aston Mosque"));
 
@@ -89,7 +93,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         mMap.addMarker(new MarkerOptions().position(Greggs).title("Greggs"));
 
-        mMap.addMarker(new MarkerOptions().position(WokandGo).title("Wok and Go"));
+        mMap.addMarker(new MarkerOptions().position(WokAndGo).title("Wok and Go"));
 
 
         // set the map view to a good level so you can see both markers
@@ -97,12 +101,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             //shops
             builder.include(Tesco);
             builder.include(Greggs);
-            builder.include(WokandGo);
+            builder.include(WokAndGo);
             //uni
             builder.include(AstonLibrary);
             builder.include(astonSU);
             builder.include(MainBuildingMain);
-            builder.include(MainbuildingOOH);
+            builder.include(MainBuildingOOH);
             builder.include(astonMosque);
 
             LatLngBounds bounds = builder.build();
