@@ -9,24 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-//import androidx.navigation.fragment.NavHostFragment;
-//
-//import com.google.android.gms.maps.CameraUpdateFactory;
-//import com.google.android.gms.maps.GoogleMap;
-//import com.google.android.gms.maps.OnMapReadyCallback;
-//import com.google.android.gms.maps.SupportMapFragment;
-//import com.google.android.gms.maps.model.LatLng;
-//import com.google.android.gms.maps.model.MarkerOptions;
-//import android.os.Bundle;
-//import android.view.LayoutInflater;
-//import android.view.View;
-//import android.view.ViewGroup;
-//import android.widget.TextView;
-//
-//import androidx.annotation.NonNull;
-//import androidx.fragment.app.Fragment;
+
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -36,10 +20,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolylineOptions;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentMapBinding;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Map.Data.LocationViewModel;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
@@ -50,14 +34,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
 //    private MapViewModel mapViewModel;
 
+
     private GoogleMap mMap;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        MapViewModel mapViewModel = new ViewModelProvider(this).get(MapViewModel.class);
 
         binding = FragmentMapBinding.inflate(inflater, container, false);
-
 
         return binding.getRoot();
     }
@@ -65,10 +48,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.AstonMap);
         mapFragment.getMapAsync(this);
+
 
     }
 
@@ -91,10 +73,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         LatLng MainBuildingMain = new LatLng(52.486505, -1.889672); // Birmingham New Street coordinates
         LatLng MainbuildingOOH = new LatLng(52.486307, -1.890072); // Aston University coordinates
 
-        // Added markers for Birmingham New Street and Aston University which you can see by clicking it
-//        mMap.addMarker(new MarkerOptions()
-//                .position(birminghamNewStreet)
-//                .title("Birmingham New Street"));
 
 
         mMap.addMarker(new MarkerOptions().position(AstonLibrary).title("Aston Library 'L' "));
@@ -107,29 +85,20 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         mMap.addMarker(new MarkerOptions().position(astonMosque).title("Aston Mosque"));
 
-
         mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco"));
 
         mMap.addMarker(new MarkerOptions().position(Greggs).title("Greggs"));
 
         mMap.addMarker(new MarkerOptions().position(WokandGo).title("Wok and Go"));
 
-        // Create a line between Birmingham New Street and Aston University for quick judgement
-//        PolylineOptions polylineOptions = new PolylineOptions()
-//                .add(birminghamNewStreet, astonUniversity,Mainbuilding)
-//                .width(5) // Line width in pixels
-//                .color(Color.BLUE); // Line color
-//
-////         Add the line to the map
-//        mMap.addPolyline(polylineOptions);
 
         // set the map view to a good level so you can see both markers
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
-
-
+            //shops
             builder.include(Tesco);
             builder.include(Greggs);
             builder.include(WokandGo);
+            //uni
             builder.include(AstonLibrary);
             builder.include(astonSU);
             builder.include(MainBuildingMain);
