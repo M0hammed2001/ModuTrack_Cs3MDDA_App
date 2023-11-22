@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainFragmentDirections;
 
 public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.TrainViewHolder> {
@@ -97,20 +99,40 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
             public final TextView TraindestinationView;
             final TrainListAdapter mAdapter;
             public TrainService trainService;
+            Button ButtonTrainInformation;
+
 
             public TrainViewHolder(@NonNull View itemView, TrainListAdapter adapter) {
                 super(itemView);
                 itemView.setOnClickListener(this);
                 TraindestinationView = itemView.findViewById(R.id.traininformation);
+                ButtonTrainInformation = itemView.findViewById(R.id.ButtonTrainInformation);
+
                 this.mAdapter = adapter;
+
+                ButtonTrainInformation.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.i("MS", "You Selected " + trainService.toString());
+                        TrainFragmentDirections.ActionNavTrainToNavTrainmap action = TrainFragmentDirections.actionNavTrainToNavTrainmap(trainService);
+                        Navigation.findNavController(v).navigate(action);
+
+                        Log.i("MS", "Module Clicked");
+                    }
+                });
 
             }
 
+
+
+
             @Override
             public void onClick(View view) {
-                Log.i("MS", "You Selected " + trainService.toString());
-                TrainFragmentDirections.ActionNavTrainToNavTrainmap action = TrainFragmentDirections.actionNavTrainToNavTrainmap(trainService);
-                Navigation.findNavController(view).navigate(action);
+                // this will make it so on click of the text it will display the text
+
+                    // Log.i("MS", "You Selected " + trainService.toString());
+                    // TrainFragmentDirections.ActionNavTrainToNavTrainmap action = TrainFragmentDirections.actionNavTrainToNavTrainmap(trainService);
+                    // Navigation.findNavController(view).navigate(action);
 
 
             }
