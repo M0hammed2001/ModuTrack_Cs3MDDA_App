@@ -6,8 +6,32 @@
     android:orientation="vertical"
     android:weightSum="3"
     android:padding="6dp">
-<!--    tools:context=".ui.Module.ModuleFragment">-->
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_marginRight="1dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/ButtonEdit"
+                android:layout_marginTop="1dp"
+                android:layout_width="34dp"
+                android:background="@drawable/edit_24"
+                android:layout_height="34dp" />
+
+            <Button
+                android:id="@+id/ButtonDeleteModule"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="@drawable/delete_24"
+                android:layout_marginBottom="10dp" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/Moduleinformation"
@@ -21,23 +45,9 @@
         android:textStyle="bold"/>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/ButtonEdit"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="Edit" />
 
-        <Button
-            android:id="@+id/ButtonDeleteModule"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="Delete" />
 
-    </LinearLayout>
+
 
 
 </LinearLayout>

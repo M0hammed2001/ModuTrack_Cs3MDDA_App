@@ -83,7 +83,13 @@
             app:argType="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module" />
     </fragment>
 
-<!--    <fragment-->
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="layout/fragment_settings"/>
+
+    <!--    <fragment-->
 <!--        android:id="@+id/nav_testmodule"-->
 <!--        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.TestModule.TestModuleFragment"-->
 <!--        android:label="@string/menu_train"-->
