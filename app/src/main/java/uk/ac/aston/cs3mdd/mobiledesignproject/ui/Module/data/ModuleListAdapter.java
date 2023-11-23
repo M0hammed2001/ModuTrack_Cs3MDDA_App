@@ -87,11 +87,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 //                "<br>" +
 //                "Room: " + module. ;
 
-
-
-
             holder.ModuleView.setText(Html.fromHtml(ModuleInformation));
-
 
     }
 
