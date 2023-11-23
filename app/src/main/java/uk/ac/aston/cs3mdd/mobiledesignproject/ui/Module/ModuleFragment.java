@@ -48,15 +48,8 @@ public class ModuleFragment extends Fragment {
 
     FragmentModuleBinding binding;
 
-
-
-
-
     private RecyclerView ModuleRecyclerView;
 //    public final Button buttonDeleteModule;
-
-
-    Button ButtonEdit, ButtonDeleteModule;
 
     private ModuleViewModel viewModel;
 
