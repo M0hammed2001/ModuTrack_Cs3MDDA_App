@@ -33,8 +33,7 @@ public interface ModuleDao {
 
 
 
-//        @Query("delete from modules where Module_id==:Module_id")
-//        public List<Module> getAllModulesdeleted();
+
 
 
 
