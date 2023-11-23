@@ -14,23 +14,23 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
+    <Button
+        android:id="@+id/ButtonDeleteModule"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/delete_24"
+        android:contentDescription="Delete Module button" />
 
     <Button
         android:id="@+id/ButtonEdit"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/ButtonDeleteModule"
         android:background="@drawable/edit_24"
         android:contentDescription="edit Module button" />
 
-    <Button
-        android:id="@+id/ButtonDeleteModule"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_toLeftOf="@id/ButtonEdit"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/delete_24"
-        android:contentDescription="Delete Module button" />
+
 
 </RelativeLayout>
