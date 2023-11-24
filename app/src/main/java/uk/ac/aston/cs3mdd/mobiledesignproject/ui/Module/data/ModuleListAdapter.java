@@ -57,11 +57,11 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         String moduleCode = module.getModuleCode();
         String moduleName = module.getModuleName();
 
-        String ExamName = module.getExamName();
-        String ExamDate = module.getExamdate();
-
         String AssignmentName = module.getAssignmentName();
         String AssignmentDate = module.getAssignmentDate();
+
+        String ExamName = module.getExamName();
+        String ExamDate = module.getExamdate();
 
 
         // Handle null values
@@ -76,7 +76,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         AssignmentDate = (AssignmentDate != null) ? AssignmentDate : "Assignment Date";
 
 
-//        moduleCode =
+//
         String ModuleCodeText = "Module:" + moduleCode + "<br>";
         String ModuleNameText = moduleName;
 
