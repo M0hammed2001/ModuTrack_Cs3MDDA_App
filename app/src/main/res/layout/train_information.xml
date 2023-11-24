@@ -8,25 +8,148 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
+
         <Button
             android:id="@+id/ButtonTrainInformation"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-4dp"
+            android:layout_marginRight="-1dp"
             android:background="@drawable/baseline_info_24"
             android:contentDescription="More information about the Train" />
 
+
+        <!--        this is related to the Module-->
         <TextView
-            android:id="@+id/traininformation"
-            android:layout_width="match_parent"
+            android:id="@+id/DestinationLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ButtonTrainInformation"
-            android:hint="Module Information item"
+            android:text="Destination: "
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:layout_marginTop="45dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/DestinationText"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textSize="12dp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="45dp"
             android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_toRightOf="@id/DestinationLabel"
+            android:layout_height="wrap_content"
+            android:hint="Destination"/>
+        <TextView
+            android:id="@+id/TrainTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time: "
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:layout_marginTop="45dp"
+            android:layout_toRightOf="@id/DestinationText"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/TrainTimeText"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textSize="12dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="45dp"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@id/TrainTimeLabel"
+            android:layout_height="wrap_content"
+            android:hint="Time"/>
+
+
+
+        <!--        this is related to the assignment-->
+        <TextView
+            android:id="@+id/OperatorLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Operator: "
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:layout_below="@id/DestinationLabel"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/OperatorText"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textSize="12dp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="1dp"
+            android:textColor="@color/black"
+            android:layout_below="@id/DestinationLabel"
+            android:layout_toRightOf="@id/OperatorLabel"
+            android:layout_height="wrap_content"
+            android:hint="Operator"
+            android:inputType="time"/>
+
+
+        <!--        this is related to the Exam-->
+
+        <TextView
+            android:id="@+id/DelaysLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date: "
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:layout_marginTop="35dp"
+            android:layout_below="@id/OperatorLabel"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/DelaysText"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textSize="12dp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="1dp"
+            android:textColor="@color/black"
+            android:layout_below="@id/OperatorText"
+            android:layout_toRightOf="@id/DelaysLabel"
+            android:layout_height="wrap_content"
+            android:hint="Exam Date"/>
+
+
+
+
+
+
     </RelativeLayout>
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/white">-->
+<!--        <Button-->
+<!--            android:id="@+id/ButtonTrainInformation"-->
+<!--            android:layout_width="48dp"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:background="@drawable/baseline_info_24"-->
+<!--            android:contentDescription="More information about the Train" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/traininformation"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/ButtonTrainInformation"-->
+<!--            android:hint="Module Information item"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textStyle="bold" />-->
+<!--    </RelativeLayout>-->
 
 
 

@@ -25,9 +25,10 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainFragmentDirections;
 
 public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.TrainViewHolder> {
 
-
-        private List<TrainService> mTrainList;
+    private List<TrainService> mTrainList;
         private final LayoutInflater mInflater;
+
+
 
         public TrainListAdapter(Context context, List<TrainService> TrainList) {
             mInflater = LayoutInflater.from(context);
@@ -64,22 +65,41 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                     etd = (etd != null) ? etd : "no delays";
                     nrccMessages = (nrccMessages != null) ? nrccMessages : "No ongoing issues";
 
-                    // Create the text with line breaks
-                    String displayText = "Destination: " + destinations.toString() + "<br>" +
-                            "<br>" +
-                            "Operator: " + operator + "<br>" +
-                            "<br>" +
-                            "Departure: " + std + "<br>" +
-                            "<br>" +
-                            "Delays: " + etd + "<br>" +
-                            "<br>" +
-                            "NRCC Messages: " + nrccMessages;
+
+
+                    String DestinationText = destinations.toString();
+
+                    String TrainTimeText = std;
+
+                    String OperatorText = operator;
+
+                    String DelaysText = etd;
+
+                holder.DestinationText.setText(Html.fromHtml(DestinationText));
+
+                holder.TrainTimeText.setText(Html.fromHtml(TrainTimeText));
+
+                holder.OperatorText.setText(Html.fromHtml(OperatorText));
+
+                holder.DelaysText.setText(Html.fromHtml(DelaysText));
+
+
+        // Create the text with line breaks
+//                    String displayText = "Destination: " + destinations.toString() + "<br>" +
+//                            "<br>" +
+//                            "Operator: " + operator + "<br>" +
+//                            "<br>" +
+//                            "Departure: " + std + "<br>" +
+//                            "<br>" +
+//                            "Delays: " + etd + "<br>" +
+//                            "<br>" +
+//                            "NRCC Messages: " + nrccMessages;
 
 //                    // Set the text with line breaks in the TextView if the build version supports it
 //                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 //                        holder.TraindestinationView.setText(Html.fromHtml(displayText, Html.FROM_HTML_MODE_LEGACY));
 //                    } else {
-                        holder.TraindestinationView.setText(Html.fromHtml(displayText));
+//                        holder.TraindestinationView.setText(Html.fromHtml(displayText));
 //                    }
 
         }
@@ -96,7 +116,9 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
         }
 
         class TrainViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-            public final TextView TraindestinationView;
+//            public final TextView TraindestinationView;
+            public final TextView  DestinationText, TrainTimeText, OperatorText, DelaysText;
+
             final TrainListAdapter mAdapter;
             public TrainService trainService;
             Button ButtonTrainInformation;
@@ -105,8 +127,16 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
             public TrainViewHolder(@NonNull View itemView, TrainListAdapter adapter) {
                 super(itemView);
                 itemView.setOnClickListener(this);
-                TraindestinationView = itemView.findViewById(R.id.traininformation);
+//                TraindestinationView = itemView.findViewById(R.id.traininformation);
                 ButtonTrainInformation = itemView.findViewById(R.id.ButtonTrainInformation);
+
+                DestinationText = itemView.findViewById(R.id.DestinationText);
+
+                TrainTimeText = itemView.findViewById(R.id.TrainTimeText);
+
+                OperatorText = itemView.findViewById(R.id.OperatorText);
+
+                DelaysText = itemView.findViewById(R.id.DelaysText);
 
                 this.mAdapter = adapter;
 
