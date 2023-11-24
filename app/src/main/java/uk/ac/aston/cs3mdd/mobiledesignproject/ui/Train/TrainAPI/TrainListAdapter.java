@@ -75,12 +75,12 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                             "<br>" +
                             "NRCC Messages: " + nrccMessages;
 
-                    // Set the text with line breaks in the TextView if the build version supports it
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        holder.TraindestinationView.setText(Html.fromHtml(displayText, Html.FROM_HTML_MODE_LEGACY));
-                    } else {
+//                    // Set the text with line breaks in the TextView if the build version supports it
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                        holder.TraindestinationView.setText(Html.fromHtml(displayText, Html.FROM_HTML_MODE_LEGACY));
+//                    } else {
                         holder.TraindestinationView.setText(Html.fromHtml(displayText));
-                    }
+//                    }
 
         }
 
