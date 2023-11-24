@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -75,19 +76,42 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         AssignmentDate = (AssignmentDate != null) ? AssignmentDate : "Assignment Date";
 
 
+//        moduleCode =
+        String ModuleCodeText = "Module:" + moduleCode + "<br>";
+        String ModuleNameText = moduleName;
 
 
-        // Create the text with line breaks
-        String ModuleInformation =
-                "Module: " + moduleCode + "<br>" + moduleName +
-                "<br>" +
-                 "Exam: " + AssignmentName + "<br>" + AssignmentDate +
-                "<br>" +
-                "Assignment: " + ExamName + "<br>" + ExamDate ;
+
+       String AssignmentDateText ="Assignment:" +  AssignmentDate + "<br>";
+       String AssignmentNameText = AssignmentName;
+
+       String ExamDateText ="Exam:" +  ExamDate + "<br>";
+       String ExamNameText = ExamName;
+
+//        // Create the text with line breaks
+//        String ModuleInformation =
+//                "Module: " + moduleCode + "<br>" + moduleName +
 //                "<br>" +
-//                "Room: " + module. ;
+//                 "Exam: " + AssignmentName + "<br>" + AssignmentDate +
+//                "<br>" +
+//                "Assignment: " + ExamName + "<br>" + ExamDate ;
+////                "<br>" +
+////                "Room: " + module. ;
 
-            holder.ModuleView.setText(Html.fromHtml(ModuleInformation));
+//            holder.ModuleView.setText(Html.fromHtml(ModuleInformation));
+        holder.ModuleNameText.setText(Html.fromHtml(ModuleNameText));
+        holder.ModuleCodeText.setText(Html.fromHtml(ModuleCodeText));
+
+        holder.AssignmentDateText.setText(Html.fromHtml(AssignmentDateText));
+//        holder.AssignmentdueText.setText(Html.fromHtml(AssignmentdueText));
+        holder.AssignmentNameText.setText(Html.fromHtml(AssignmentNameText));
+
+        holder.ExamDateText.setText(Html.fromHtml(ExamDateText));
+//        holder.ExamdueText.setText(Html.fromHtml(ExamdueText));
+        holder.ExamNameText.setText(Html.fromHtml(ExamNameText));
+
+
+        holder.ModuleNameText.setText(Html.fromHtml(ModuleNameText));
 
     }
 
@@ -103,7 +127,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
     }
 
     class ModuleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public final TextView ModuleView;
+        public final TextView  ModuleNameText, ModuleCodeText, AssignmentDateText, AssignmentNameText, ExamDateText, ExamNameText;
+
         final ModuleListAdapter mAdapter;
         public Module modules;
         public final Button ButtonDeleteModule, ButtonEdit ;
@@ -111,7 +136,19 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
         public ModuleViewHolder(@NonNull View itemView, ModuleListAdapter adapter) {
             super(itemView);
-            ModuleView = itemView.findViewById(R.id.Moduleinformation);
+            ModuleNameText = itemView.findViewById(R.id.ModuleNameText);
+            ModuleCodeText = itemView.findViewById(R.id.ModuleCodeText);
+
+            AssignmentDateText = itemView.findViewById(R.id.AssignmentDateText);
+//            AssignmentdueText = itemView.findViewById(R.id.AssignmentdueText);
+            AssignmentNameText = itemView.findViewById(R.id.AssignmentNameText);
+
+            ExamDateText = itemView.findViewById(R.id.ExamDateText);
+//            ExamdueText = itemView.findViewById(R.id.ExamdueText);
+            ExamNameText = itemView.findViewById(R.id.ExamNameText);
+            
+            
+//            ModuleView = itemView.findViewById(R.id.Moduleinformation);
             ButtonDeleteModule = itemView.findViewById(R.id.ButtonDeleteModule);
             ButtonEdit = itemView.findViewById(R.id.ButtonEdit);
 
@@ -229,7 +266,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         public void onClick(View view) {
 
             Log.i("MS", "You Selected " + modules.toString());
-//            PopupAddModuleBinding.action = TrainFragmentDirections.actionNavTrainToNavTrainmap(modules);
+//            AddModuleBinding.action = TrainFragmentDirections.actionNavTrainToNavTrainmap(modules);
 //            Navigation.findNavController(view).navigate(action);
 
         }

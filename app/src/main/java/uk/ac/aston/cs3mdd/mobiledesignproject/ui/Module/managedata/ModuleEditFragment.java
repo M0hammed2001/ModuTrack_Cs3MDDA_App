@@ -175,7 +175,7 @@ public class ModuleEditFragment extends ModuleFragment {
             @Override
             public void run() {
                 //background task
-                moduleDB.getModuleDAO().addModule(module);
+                moduleDB.getModuleDAO().updateModule(module);
                 //on finish task
                 handler.post(new Runnable() {
                     @Override

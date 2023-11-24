@@ -3,33 +3,142 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="6dp">
+    android:padding="10dp">
 
-    <TextView
-        android:id="@+id/Moduleinformation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:hint="Module Information item"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-    <Button
-        android:id="@+id/ButtonDeleteModule"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/delete_24"
-        android:contentDescription="Delete Module button" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+                <Button
+                    android:id="@+id/ButtonDeleteModule"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/delete_24"
+                    android:contentDescription="Delete Module button" />
 
-    <Button
-        android:id="@+id/ButtonEdit"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_toLeftOf="@id/ButtonDeleteModule"
-        android:background="@drawable/edit_24"
-        android:contentDescription="edit Module button" />
+                <Button
+                    android:id="@+id/ButtonEdit"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_toLeftOf="@id/ButtonDeleteModule"
+                    android:background="@drawable/edit_24"
+                    android:contentDescription="edit Module button" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/ModuleCodeText"
+                            android:minWidth="48dp"
+                            android:minHeight="48dp"
+                            android:layout_width="70dp"
+                            android:textColor="@color/black"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_height="wrap_content"
+                            android:hint="Code"/>
+
+                        <TextView
+                            android:id="@+id/ModuleNameText"
+                            android:layout_width="match_parent"
+                            android:minWidth="48dp"
+                            android:minHeight="48dp"
+                            android:textColor="@color/black"
+                            android:layout_toRightOf="@id/ModuleCodeText"
+                            android:layout_height="wrap_content"
+                            android:hint="Module Name"/>
+
+
+
+
+                        <TextView
+                            android:id="@+id/AssignmentDateText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="48dp"
+                            android:minHeight="48dp"
+                            android:textColor="@color/black"
+                            android:layout_below="@id/ModuleCodeText"
+                            android:layout_marginTop="1dp"
+                            android:hint="Date"
+                            android:inputType="datetime" />
+                        <!--        <TextView-->
+                        <!--            android:id="@+id/AssignmentdueText"-->
+                        <!--            android:layout_width="wrap_content"-->
+                        <!--            android:layout_height="wrap_content"-->
+                        <!--            android:minWidth="48dp"-->
+                        <!--            android:minHeight="48dp"-->
+                        <!--            android:layout_toRightOf="@id/AssignmentDateText"-->
+                        <!--            android:layout_below="@id/ModuleCodeText"-->
+                        <!--            android:layout_marginTop="1dp"-->
+                        <!--            android:hint="yes/no"/>-->
+                        <TextView
+                            android:id="@+id/AssignmentNameText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minWidth="48dp"
+                            android:minHeight="48dp"
+                            android:textColor="@color/black"
+                            android:layout_toRightOf="@id/AssignmentDateText"
+                            android:layout_below="@id/ModuleCodeText"
+                            android:layout_marginTop="1dp"
+                            android:hint="Assigment Name" />
+
+
+                        <TextView
+                            android:id="@+id/ExamDateText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="48dp"
+                            android:minHeight="48dp"
+                            android:textColor="@color/black"
+                            android:layout_below="@id/AssignmentDateText"
+                            android:layout_marginTop="1dp"
+                            android:hint="Date"
+                            android:inputType="datetime" />
+                        <!--        <TextView-->
+                        <!--            android:id="@+id/ExamdueText"-->
+                        <!--            android:layout_width="wrap_content"-->
+                        <!--            android:layout_height="wrap_content"-->
+                        <!--            android:minWidth="48dp"-->
+                        <!--            android:minHeight="48dp"-->
+                        <!--            android:layout_toRightOf="@id/ExamDateText"-->
+                        <!--            android:layout_below="@id/AssignmentDateText"-->
+                        <!--            android:layout_marginTop="1dp"-->
+                        <!--            android:hint="yes/no"/>-->
+                        <TextView
+                            android:id="@+id/ExamNameText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minWidth="48dp"
+                            android:minHeight="48dp"
+                            android:textColor="@color/black"
+                            android:layout_toRightOf="@id/ExamDateText"
+                            android:layout_below="@id/AssignmentDateText"
+                            android:layout_marginTop="1dp"
+                            android:hint="Assigment Name" />
+
+
+
+                        <!--    <TextView-->
+                        <!--        android:id="@+id/Moduleinformation"-->
+                        <!--        android:layout_width="match_parent"-->
+                        <!--        android:layout_height="wrap_content"-->
+                        <!--        android:background="@color/white"-->
+                        <!--        android:hint="Module Information item"-->
+                        <!--        android:textColor="@color/black"-->
+                        <!--        android:textSize="18sp"-->
+                        <!--        android:layout_below="@id/ExamDateText"-->
+                        <!--        android:textStyle="bold" />-->
+
+                </RelativeLayout>
+        </RelativeLayout>
+
+
+
+
+
 
 
 
