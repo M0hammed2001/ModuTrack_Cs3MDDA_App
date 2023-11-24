@@ -58,6 +58,15 @@ public class Module implements Serializable {
         this.Examdate = Examdate;
         this.id = 0;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getModuleName() {
         return ModuleName;
     }

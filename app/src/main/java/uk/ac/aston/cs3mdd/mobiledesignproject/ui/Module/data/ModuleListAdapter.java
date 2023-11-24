@@ -28,6 +28,7 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment;
 
 
 public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.ModuleViewHolder>{
+
     ModuleDatabase moduleDB;
     private FragmentModuleBinding binding;
 
@@ -106,6 +107,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
     }
 
 
+
+
     @Override
     public int getItemCount() {
         return this.mModuleList.size();
@@ -144,28 +147,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
             this.mAdapter = adapter;
 
-            ButtonDeleteModule.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //Calling all fields
-                    String moduleName = modules.getModuleName();
-                    String moduleCode = modules.getModuleCode();
 
-                    String assignmentDate = modules.getAssignmentDate();
-                    String assignmentdue = modules.getAssignmentdue();
-                    String assignmentName = modules.getAssignmentName();
-
-                    String examdate = modules.getExamdate();
-                    String examdue = modules.getExamdue();
-                    String examName = modules.getExamName();
-
-                    // Deletes the Module from the database using the delete background task
-                    Module DeleteModule = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate);
-                    DeleteModuleInBackground(DeleteModule);
-
-                    Log.i("MS", "Deleted");
-                }
-            });
 
             ButtonEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -203,7 +185,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                 @Override
                 public void run() {
                     // Check if moduleDB is not null before accessing getModuleDAO()
-//                    if (moduleDB != null) {
+                    if (moduleDB != null) {
                         // Background task
                         moduleDB.getModuleDAO().deleteBymoduleId(module.id);
 
@@ -214,10 +196,10 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                                 Toast.makeText(ButtonDeleteModule.getContext(), "Deleted From DataBase", Toast.LENGTH_LONG).show();
                             }
                         });
-//                    } else {
-//                        // Log an error or handle the situation where moduleDB is null
-//                        Log.e("DeleteModuleInBackground", "ModuleDatabase is null");
-//                    }
+                    } else {
+                        // Log an error or handle the situation where moduleDB is null
+                        Log.e("DeleteModuleInBackground", "ModuleDatabase is null");
+                    }
                 }
             });
         }
@@ -233,7 +215,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                     // Check if moduleDB is not null before accessing getModuleDAO()
                     if (moduleDB != null) {
                         // Background task
-                        moduleDB.getModuleDAO().updateModule(module);
+//                        moduleDB.getModuleDAO().updateModule(module);
 
                         // On finish task
                         handler.post(new Runnable() {

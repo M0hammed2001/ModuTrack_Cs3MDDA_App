@@ -44,26 +44,31 @@ public class ModuleFragment extends Fragment {
 
     ModuleDatabase moduleDB;
     List<Module> moduleList;
+
+    public Module modules;
     ModuleViewModel moduleViewModel;
 
     FragmentModuleBinding binding;
 
     private RecyclerView ModuleRecyclerView;
-//    public final Button buttonDeleteModule;
+    Button ButtonDeleteModule ;
 
     private ModuleViewModel viewModel;
 
     private ModuleListAdapter moduleAdapter;
 
 
-
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.popup_edit_module, container, false);
 
+        View ButtonView = inflater.inflate(R.layout.module_item, container, false);
+        ButtonDeleteModule = ButtonView.findViewById(R.id.ButtonDeleteModule);
+
+
+
 //        ButtonEdit = view.findViewById(R.id.ButtonEdit);
-        
+
         // Initialize viewModel using ViewModelProvider
         viewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
@@ -87,21 +92,22 @@ public class ModuleFragment extends Fragment {
         };
 
         moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").addCallback(myCallBack).build();
-//        moduleViewModel = new ViewModelProvider(requireActivity()).get(ModuleViewModel.class);
         moduleViewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
+
         getModuleListInBackground(moduleViewModel);
 
         return binding.getRoot();
     }
 
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-         //Get a handle to the RecyclerView.
+        //Get a handle to the RecyclerView.
+
 
         ModuleRecyclerView = view.findViewById(R.id.MFRecyclerView);
+
 
         // Create an adapter and supply the data to be displayed.
         moduleAdapter = new ModuleListAdapter(getContext(), viewModel.getAllModules().getValue());
@@ -111,13 +117,12 @@ public class ModuleFragment extends Fragment {
         ModuleRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
-
         final Observer<List<Module>> ModuleListObserver = new Observer<List<Module>>() {
             @Override
             public void onChanged(@Nullable final List<Module> ModuleList) {
-                    // Update your adapter with the filtered list
-                    moduleAdapter.updateData(ModuleList);
-                Log.i("MS","Modules:" + moduleList.size());
+                // Update your adapter with the filtered list
+                moduleAdapter.updateData(ModuleList);
+                Log.i("MS", "Modules:" + moduleList.size());
             }
         };
 
@@ -129,6 +134,32 @@ public class ModuleFragment extends Fragment {
             }
         });
 
+        ButtonDeleteModule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Calling all fields
+                String moduleName = modules.getModuleName();
+                String moduleCode = modules.getModuleCode();
+
+                String assignmentDate = modules.getAssignmentDate();
+                String assignmentDue = modules.getAssignmentdue();
+                String assignmentName = modules.getAssignmentName();
+
+                String examDate = modules.getExamdate();
+                String examDue = modules.getExamdue();
+                String examName = modules.getExamName();
+
+//                    String ModuleID = modules.getId();
+
+                // Deletes the Module from the database using the delete background task
+                Module DeleteModule = new Module(moduleName, moduleCode, assignmentName, assignmentDue, assignmentDate, examName, examDate, examDue);
+                DeleteModuleInBackground(DeleteModule);
+
+                Log.i("MS", "Deleted");
+            }
+        });
+
+
 
 
         moduleViewModel.getAllModules().observe(getViewLifecycleOwner(), ModuleListObserver);
@@ -136,7 +167,7 @@ public class ModuleFragment extends Fragment {
 
     }
 
-    public void getModuleListInBackground(ModuleViewModel model){
+    public void getModuleListInBackground(ModuleViewModel model) {
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
@@ -171,34 +202,38 @@ public class ModuleFragment extends Fragment {
 //                        Toast.makeText("ms", "Number of Modules" + moduleList.size());
 
 
-
                     }
                 });
             }
         });
     }
+
     public void DeleteModuleInBackground(Module module) {
-
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-
         Handler handler = new Handler(Looper.getMainLooper());
 
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                //background task
-                moduleDB.getModuleDAO().deleteModule(module);
-                //on finish task
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
+                // Check if moduleDB is not null before accessing getModuleDAO()
+                if (moduleDB != null) {
+                    // Background task
+                    moduleDB.getModuleDAO().deleteBymoduleId(module.getId());
 
-                        Toast.makeText(getContext(), "Deleted From DataBase", Toast.LENGTH_LONG).show();
-
-                    }
-                });
+                    // On finish task
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(ButtonDeleteModule.getContext(), "Deleted From DataBase", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                } else {
+                    // Log an error or handle the situation where moduleDB is null
+                    Log.e("DeleteModuleInBackground", "ModuleDatabase is null");
+                }
             }
         });
+
     }
 
 }
