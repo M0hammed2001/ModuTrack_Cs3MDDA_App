@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <Button
+            android:id="@+id/ButtonDeleteModule"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-4dp"
+            android:layout_marginRight="-1dp"
+            android:background="@drawable/delete_24"
+            android:contentDescription="Delete Module button" />
+
+        <Button
+            android:id="@+id/ButtonEdit"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_toLeftOf="@id/ButtonDeleteModule"
+            android:background="@drawable/edit_24"
+            android:contentDescription="edit Module button" />
+
+        <!-- Module Code -->
+        <TextView
+            android:id="@+id/ModuleCodeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Code"
+            android:textSize="12dp"
+            android:layout_marginTop="45dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/ModuleCodeText"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textSize="12dp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="45dp"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@id/ModuleCodeLabel"
+            android:layout_height="wrap_content"
+            android:hint="Enter Module Code"/>
+
+        <!-- Module Name -->
+        <TextView
+            android:id="@+id/ModuleNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Module Name"
+            android:textSize="12dp"
+            android:layout_below="@id/ModuleCodeText"
+            android:layout_marginTop="1dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/ModuleNameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            android:layout_below="@id/ModuleCodeText"
+            android:layout_toRightOf="@id/ModuleNameLabel"
+            android:layout_marginTop="1dp"
+            android:hint="Enter Module Name"/>
+
+        <!-- Assignment Date -->
+        <!-- Similarly add labels and TextViews for other fields -->
+
+    </RelativeLayout>
+
+</RelativeLayout>
