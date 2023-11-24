@@ -70,27 +70,27 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
 
         // Handle null values
-        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
-        moduleName = (moduleName != null) ? moduleName : "Module Name";
-
-
-        ExamName = (ExamName != null) ? ExamName : "Exam Name";
-        ExamDate = (ExamDate != null) ? ExamDate : "Exam Date";
-
-        AssignmentName = (AssignmentName != null) ? AssignmentName : "Assignment Name";
-        AssignmentDate = (AssignmentDate != null) ? AssignmentDate : "Assignment Date";
+//        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
+//        moduleName = (moduleName != null) ? moduleName : "Module Name";
+//
+//
+//        ExamName = (ExamName != null) ? ExamName : "Exam Name";
+//        ExamDate = (ExamDate != null) ? ExamDate : "Exam Date";
+//
+//        AssignmentName = (AssignmentName != null) ? AssignmentName : "Assignment Name";
+//        AssignmentDate = (AssignmentDate != null) ? AssignmentDate : "Assignment Date";
 
 
 //
-        String ModuleCodeText = "Module:" + moduleCode + "<br>";
+        String ModuleCodeText = moduleCode;
         String ModuleNameText = moduleName;
 
 
 
-       String AssignmentDateText ="Assignment:" +  AssignmentDate + "<br>";
+       String AssignmentDateText =AssignmentDate;
        String AssignmentNameText = AssignmentName;
 
-       String ExamDateText ="Exam:" +  ExamDate + "<br>";
+       String ExamDateText =ExamDate;
        String ExamNameText = ExamName;
 
 
@@ -154,20 +154,20 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                 @Override
                 public void onClick(View v) {
                     //Calling all fields
-                    String moduleName = modules.getModuleName();
-                    String moduleCode = modules.getModuleCode();
-
-                    String assignmentDate = modules.getAssignmentDate();
-                    String assignmentdue = modules.getAssignmentdue();
-                    String assignmentName = modules.getAssignmentName();
-
-                    String examdate = modules.getExamdate();
-                    String examdue = modules.getExamdue();
-                    String examName = modules.getExamName();
-
-                    // Updates the Module from the database using the UpdateInBackground task
-                    Module updateModule = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate);
-                    UpdateModuleInBackground(updateModule);
+//                    String moduleName = modules.getModuleName();
+//                    String moduleCode = modules.getModuleCode();
+//
+//                    String assignmentDate = modules.getAssignmentDate();
+//                    String assignmentdue = modules.getAssignmentdue();
+//                    String assignmentName = modules.getAssignmentName();
+//
+//                    String examdate = modules.getExamdate();
+//                    String examdue = modules.getExamdue();
+//                    String examName = modules.getExamName();
+//
+//                    // Updates the Module from the database using the UpdateInBackground task
+//                    Module updateModule = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate);
+                    UpdateModuleInBackground(modules);
 
                     Log.i("MS", "Updated");
                 }
@@ -242,7 +242,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                     // Check if moduleDB is not null before accessing getModuleDAO()
                     if (moduleDB != null) {
                         // Background task
-//                        moduleDB.getModuleDAO().updateModule(module);
+                        moduleDB.getModuleDAO().updateModule(module);
 
                         // On finish task
                         handler.post(new Runnable() {

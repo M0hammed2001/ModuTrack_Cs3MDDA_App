@@ -102,10 +102,9 @@ public class ModuleFragment extends Fragment {
 
 
         ModuleRecyclerView = view.findViewById(R.id.MFRecyclerView);
-
-
         // Create an adapter and supply the data to be displayed.
         moduleAdapter = new ModuleListAdapter(getContext(), viewModel.getAllModules().getValue());
+        //calls the moduleDB defined in Module List and uses Line 89 to make sure it is not null
         moduleAdapter.setModuleDB(moduleDB);
         // Connect the adapter with the RecyclerView.
         ModuleRecyclerView.setAdapter(moduleAdapter);

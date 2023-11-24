@@ -87,7 +87,7 @@
             android:minWidth="48dp"
             android:minHeight="48dp"
             android:layout_marginTop="1dp"
-            android:hint="Assigment Name" />
+            android:hint="Exam Name" />
 
     </LinearLayout>
 
