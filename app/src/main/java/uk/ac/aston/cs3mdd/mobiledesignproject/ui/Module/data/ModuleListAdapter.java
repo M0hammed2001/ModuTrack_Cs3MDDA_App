@@ -88,17 +88,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
        String ExamDateText ="Exam:" +  ExamDate + "<br>";
        String ExamNameText = ExamName;
 
-//        // Create the text with line breaks
-//        String ModuleInformation =
-//                "Module: " + moduleCode + "<br>" + moduleName +
-//                "<br>" +
-//                 "Exam: " + AssignmentName + "<br>" + AssignmentDate +
-//                "<br>" +
-//                "Assignment: " + ExamName + "<br>" + ExamDate ;
-////                "<br>" +
-////                "Room: " + module. ;
 
-//            holder.ModuleView.setText(Html.fromHtml(ModuleInformation));
         holder.ModuleNameText.setText(Html.fromHtml(ModuleNameText));
         holder.ModuleCodeText.setText(Html.fromHtml(ModuleCodeText));
 
@@ -148,7 +138,6 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             ExamNameText = itemView.findViewById(R.id.ExamNameText);
             
             
-//            ModuleView = itemView.findViewById(R.id.Moduleinformation);
             ButtonDeleteModule = itemView.findViewById(R.id.ButtonDeleteModule);
             ButtonEdit = itemView.findViewById(R.id.ButtonEdit);
 
