@@ -62,8 +62,6 @@ public class ModuleFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.popup_edit_module, container, false);
 
-
-
         // Initialize viewModel using ViewModelProvider
         viewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
@@ -87,6 +85,7 @@ public class ModuleFragment extends Fragment {
         };
 
         moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").addCallback(myCallBack).build();
+
         moduleViewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
         getModuleListInBackground(moduleViewModel);

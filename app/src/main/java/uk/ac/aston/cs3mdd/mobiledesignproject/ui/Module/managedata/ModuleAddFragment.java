@@ -31,9 +31,12 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.PopupAddModuleBinding;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleViewModel;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleDatabase;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleListAdapter;
 
 
 public class ModuleAddFragment extends Fragment {
+
+    ModuleDatabase moduleDB;
 
     EditText popupModuleNameEdit;
     EditText popupModuleCodeEdit;
@@ -48,14 +51,13 @@ public class ModuleAddFragment extends Fragment {
 
     Button buttonAddModule, ButtonDeleteModule;
 
-    ModuleDatabase moduleDB;
+    private ModuleListAdapter moduleAdapter;
+
     List<Module> moduleList;
     ModuleViewModel moduleViewModel;
 
 
-    private RecyclerView mRecyclerView;
 
-    private PopupAddModuleBinding binding;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -127,6 +129,7 @@ public class ModuleAddFragment extends Fragment {
 
         return view;
     }
+
 
     public void AddModuleInBackground(Module module) {
 

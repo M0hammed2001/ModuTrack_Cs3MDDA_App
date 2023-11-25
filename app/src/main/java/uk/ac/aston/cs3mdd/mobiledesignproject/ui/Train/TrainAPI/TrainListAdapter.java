@@ -58,49 +58,22 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                     String etd = trainService.getEtd();
                     String std = trainService.getStd();
                     String nrccMessages = trainService.getNrccMessages();
+                    String DestinationText = destinations.toString();
 
                     // Handle null values
+                    DestinationText = (DestinationText != null) ? DestinationText : "No Destination";
                     operator = (operator != null) ? operator : "Not available";
                     std = (std != null) ? std : "TBC";
                     etd = (etd != null) ? etd : "no delays";
                     nrccMessages = (nrccMessages != null) ? nrccMessages : "No ongoing issues";
 
-
-
-                    String DestinationText = destinations.toString();
-
-                    String TrainTimeText = std;
-
-                    String OperatorText = operator;
-
-                    String DelaysText = etd;
-
                 holder.DestinationText.setText(Html.fromHtml(DestinationText));
 
-                holder.TrainTimeText.setText(Html.fromHtml(TrainTimeText));
+                holder.TrainTimeText.setText(Html.fromHtml(std));
 
-                holder.OperatorText.setText(Html.fromHtml(OperatorText));
+                holder.OperatorText.setText(Html.fromHtml(operator));
 
-                holder.DelaysText.setText(Html.fromHtml(DelaysText));
-
-
-        // Create the text with line breaks
-//                    String displayText = "Destination: " + destinations.toString() + "<br>" +
-//                            "<br>" +
-//                            "Operator: " + operator + "<br>" +
-//                            "<br>" +
-//                            "Departure: " + std + "<br>" +
-//                            "<br>" +
-//                            "Delays: " + etd + "<br>" +
-//                            "<br>" +
-//                            "NRCC Messages: " + nrccMessages;
-
-//                    // Set the text with line breaks in the TextView if the build version supports it
-//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-//                        holder.TraindestinationView.setText(Html.fromHtml(displayText, Html.FROM_HTML_MODE_LEGACY));
-//                    } else {
-//                        holder.TraindestinationView.setText(Html.fromHtml(displayText));
-//                    }
+                holder.DelaysText.setText(Html.fromHtml(etd));
 
         }
 
