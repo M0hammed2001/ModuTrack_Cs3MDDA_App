@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
@@ -68,11 +69,8 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
 
                     //displays the message in the text field
                     holder.DestinationText.setText(Html.fromHtml(DestinationText));
-
                     holder.TrainTimeText.setText(Html.fromHtml(std));
-
                     holder.OperatorText.setText(Html.fromHtml(operator));
-
                     holder.DelaysText.setText(Html.fromHtml(etd));
         }
 
@@ -101,13 +99,9 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                 itemView.setOnClickListener(this);
 //                TraindestinationView = itemView.findViewById(R.id.traininformation);
                 ButtonTrainInformation = itemView.findViewById(R.id.ButtonTrainInformation);
-
                 DestinationText = itemView.findViewById(R.id.DestinationText);
-
                 TrainTimeText = itemView.findViewById(R.id.TrainTimeText);
-
                 OperatorText = itemView.findViewById(R.id.OperatorText);
-
                 DelaysText = itemView.findViewById(R.id.DelaysText);
 
                 this.mAdapter = adapter;
@@ -124,18 +118,20 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                 });
 
             }
-
-
-
-
             @Override
             public void onClick(View view) {
                 // this will make it so on click of the text it will display the text
 
-                    // Log.i("MS", "You Selected " + trainService.toString());
-                    // TrainFragmentDirections.ActionNavTrainToNavTrainmap action = TrainFragmentDirections.actionNavTrainToNavTrainmap(trainService);
-                    // Navigation.findNavController(view).navigate(action);
+                StringBuilder sb = new StringBuilder();
+                    for(TrainService m : mTrainList){
 
+                        sb.append(m.getDestination()+" : "+m.getEtd());
+                        sb.append("\n");
+                    }
+                String finaldata = sb.toString();
+                Toast.makeText(ButtonTrainInformation.getContext(), "" + finaldata, Toast.LENGTH_LONG).show();
+
+                     Log.i("MS", "You Selected " + trainService.toString());
 
             }
         }
