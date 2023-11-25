@@ -130,7 +130,6 @@
             android:textSize="12dp"
             android:layout_width="match_parent"
             android:layout_marginTop="1dp"
-            android:layout_marginLeft="5dp"
             android:textColor="@color/black"
             android:layout_below="@id/ModuleCodeText"
             android:layout_toRightOf="@id/ModuleNameLabel"
@@ -175,22 +174,21 @@
             android:minHeight="48dp"
             android:layout_marginLeft="10dp"
             android:layout_below="@id/AssignmentDateText"
-            android:layout_toRightOf="@id/AssignmentDateText"
+            android:layout_toRightOf="@id/ExamDateText"
             android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/ExamNameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/AssignmentNameText"
+            android:layout_marginTop="1dp"
+            android:layout_toRightOf="@id/ModuleNameLabel"
+            android:hint="Exam "
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:textSize="12dp"
-            android:layout_width="match_parent"
-            android:layout_marginTop="1dp"
-            android:layout_marginLeft="5dp"
             android:textColor="@color/black"
-            android:layout_below="@id/AssignmentNameText"
-            android:layout_toRightOf="@id/ModuleNameLabel"
-            android:layout_height="wrap_content"
-            android:hint="Exam "/>
+            android:textSize="12dp" />
 
         <!--        Lecture Room-->
 
