@@ -170,10 +170,62 @@
             android:layout_width="match_parent"
             android:layout_marginTop="1dp"
             android:textColor="@color/black"
-            android:layout_below="@id/AssignmentDateText"
+            android:layout_below="@id/AssignmentNameText"
             android:layout_toRightOf="@id/ModuleNameLabel"
             android:layout_height="wrap_content"
             android:hint="Exam "/>
+
+        <!--        Lecture Room-->
+
+        <TextView
+            android:id="@+id/LectureRoomLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lecture Room: "
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/ExamDateText"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/LectureRoomText"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textSize="12dp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:layout_below="@id/ExamDateText"
+            android:layout_toRightOf="@id/LectureRoomLabel"
+            android:layout_height="wrap_content"
+            android:hint="Lecture Room E.g MB"/>
+
+        <!--        Tutorial Room-->
+
+        <TextView
+            android:id="@+id/TutorialRoomLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tutorial Room: "
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/LectureRoomLabel"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/TutorialRoomText"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textSize="12dp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:layout_below="@id/LectureRoomLabel"
+            android:layout_toRightOf="@id/TutorialRoomLabel"
+            android:layout_height="wrap_content"
+            android:hint="Toturorial Room E.g MB"/>
 
 
 

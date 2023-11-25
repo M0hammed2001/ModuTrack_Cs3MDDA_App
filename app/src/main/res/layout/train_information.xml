@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Destination: "
-            android:textSize="12dp"
+            android:textSize="14dp"
             android:textStyle="bold"
             android:layout_marginTop="45dp"
             android:textColor="@color/black"/>
@@ -36,7 +36,7 @@
             android:id="@+id/DestinationText"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:textSize="12dp"
+            android:textSize="14dp"
             android:layout_width="wrap_content"
             android:layout_marginTop="45dp"
             android:textColor="@color/black"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Time: "
-            android:textSize="12dp"
+            android:textSize="14dp"
             android:textStyle="bold"
             android:layout_marginTop="45dp"
             android:layout_toRightOf="@id/DestinationText"
@@ -58,7 +58,7 @@
             android:id="@+id/TrainTimeText"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:textSize="12dp"
+            android:textSize="14dp"
             android:layout_width="match_parent"
             android:layout_marginTop="45dp"
             android:textColor="@color/black"
@@ -67,14 +67,13 @@
             android:hint="Time"/>
 
 
-
-        <!--        this is related to the assignment-->
+        <!--        this is related to the Oprerator-->
         <TextView
             android:id="@+id/OperatorLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Operator: "
-            android:textSize="12dp"
+            android:textSize="14dp"
             android:textStyle="bold"
             android:layout_below="@id/DestinationLabel"
             android:textColor="@color/black"/>
@@ -83,7 +82,7 @@
             android:id="@+id/OperatorText"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:textSize="12dp"
+            android:textSize="14dp"
             android:layout_width="wrap_content"
             android:layout_marginTop="1dp"
             android:textColor="@color/black"
@@ -101,9 +100,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date: "
-            android:textSize="12dp"
+            android:textSize="14dp"
             android:textStyle="bold"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/OperatorLabel"
             android:textColor="@color/black"/>
 
@@ -111,14 +110,16 @@
             android:id="@+id/DelaysText"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:textSize="12dp"
+            android:textSize="14dp"
             android:layout_width="wrap_content"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="-14dp"
             android:textColor="@color/black"
             android:layout_below="@id/OperatorText"
             android:layout_toRightOf="@id/DelaysLabel"
             android:layout_height="wrap_content"
             android:hint="Exam Date"/>
+
+
 
 
 

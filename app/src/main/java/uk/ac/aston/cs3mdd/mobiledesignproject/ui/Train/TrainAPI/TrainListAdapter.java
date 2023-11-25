@@ -124,7 +124,7 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                 //builds the String that will display on the
                 StringBuilder sb = new StringBuilder();
                     for(TrainService m : mTrainList){
-                        sb.append(m.getDestination()+" : "+m.getEtd());
+                        sb.append(m.getDestination()+" : "+m.getStd());
                         sb.append("\n");
                     }
                 String TrainPopup = sb.toString();
