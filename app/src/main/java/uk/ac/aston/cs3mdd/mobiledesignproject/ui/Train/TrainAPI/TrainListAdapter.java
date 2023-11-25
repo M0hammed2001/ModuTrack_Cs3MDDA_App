@@ -50,7 +50,6 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
         TrainService trainService = mTrainList.get(position);
         holder.trainService = trainService;
 
-
         List<Destination> destinations = trainService.getDestination();
 
                     // Handle the case when data is not null and the CRS is "BHM"
@@ -67,14 +66,14 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                     etd = (etd != null) ? etd : "no delays";
                     nrccMessages = (nrccMessages != null) ? nrccMessages : "No ongoing issues";
 
-                holder.DestinationText.setText(Html.fromHtml(DestinationText));
+                    //displays the message in the text field
+                    holder.DestinationText.setText(Html.fromHtml(DestinationText));
 
-                holder.TrainTimeText.setText(Html.fromHtml(std));
+                    holder.TrainTimeText.setText(Html.fromHtml(std));
 
-                holder.OperatorText.setText(Html.fromHtml(operator));
+                    holder.OperatorText.setText(Html.fromHtml(operator));
 
-                holder.DelaysText.setText(Html.fromHtml(etd));
-
+                    holder.DelaysText.setText(Html.fromHtml(etd));
         }
 
 
