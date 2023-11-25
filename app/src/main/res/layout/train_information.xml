@@ -102,7 +102,7 @@
             android:text="Date: "
             android:textSize="14dp"
             android:textStyle="bold"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="7dp"
             android:layout_below="@id/OperatorLabel"
             android:textColor="@color/black"/>
 
@@ -112,9 +112,9 @@
             android:minHeight="48dp"
             android:textSize="14dp"
             android:layout_width="wrap_content"
-            android:layout_marginTop="-14dp"
+            android:layout_marginTop="7dp"
             android:textColor="@color/black"
-            android:layout_below="@id/OperatorText"
+            android:layout_below="@id/OperatorLabel"
             android:layout_toRightOf="@id/DelaysLabel"
             android:layout_height="wrap_content"
             android:hint="Exam Date"/>
