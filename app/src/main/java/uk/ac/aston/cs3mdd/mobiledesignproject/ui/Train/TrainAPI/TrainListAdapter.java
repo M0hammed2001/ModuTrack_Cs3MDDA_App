@@ -88,7 +88,6 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
         }
 
         class TrainViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-//            public final TextView TraindestinationView;
             public final TextView  DestinationText, TrainTimeText, OperatorText, DelaysText, NRCmessageText;
 
             final TrainListAdapter mAdapter;

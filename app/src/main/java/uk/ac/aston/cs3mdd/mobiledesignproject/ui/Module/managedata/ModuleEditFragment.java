@@ -59,9 +59,6 @@ public class ModuleEditFragment extends ModuleFragment {
     List<Module> moduleList;
     ModuleViewModel moduleViewModel;
 
-
-    private RecyclerView mRecyclerView;
-
     private PopupEditModuleBinding binding;
     private Module module;
 
@@ -135,32 +132,32 @@ public class ModuleEditFragment extends ModuleFragment {
         buttonChangeModule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String moduleName = popupModuleNameEdit.getText().toString();
-                String moduleCode = popupModuleEditCode.getText().toString();
+//                String moduleName = popupModuleEditName.getText().toString();
+//                String moduleCode = popupModuleEditCode.getText().toString();
 //
-//                String assignmentDate = popupAssignmentDateEdit.getText().toString();
-//                String assignmentdue = popupAssignmentdueEdit.getText().toString();
-//                String assignmentName = popupAssignmentNameEdit.getText().toString();
+//                String assignmentDate = popupAssignmentEditDate.getText().toString();
+//                String assignmentdue = popupAssignmentEditdue.getText().toString();
+//                String assignmentName = popupAssignmentEditName.getText().toString();
 //
-//                String examdate = popupExamDateEdit.getText().toString();
-//                String examdue = popupExamdueEdit.getText().toString();
-//                String examName = popupExamNameEdit.getText().toString();
+//                String examdate = popupExamEditDate.getText().toString();
+//                String examdue = popupExamEditdue.getText().toString();
+//                String examName = popupExamEditName.getText().toString();
 
                 // You can use ModuleName and ModuleCode as needed
 
-//                editModuleInBackground();
+                editModuleInBackground(module);
 
 
             }
         });
 
-//        buttonChangeModule.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//
-//            }
-//        });
+        buttonChangeModule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
 
         return view;
 

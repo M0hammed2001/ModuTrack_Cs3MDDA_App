@@ -25,6 +25,8 @@
             android:id="@+id/ButtonEdit"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:layout_toLeftOf="@id/ButtonDeleteModule"
             android:background="@drawable/edit_24"
             android:contentDescription="edit Module button" />
@@ -36,6 +38,8 @@
             android:layout_height="wrap_content"
             android:text="Code: "
             android:textSize="12dp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:textStyle="bold"
             android:layout_marginTop="45dp"
             android:textColor="@color/black"/>
@@ -57,7 +61,10 @@
             android:layout_height="wrap_content"
             android:text="Name: "
             android:textSize="12dp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:textStyle="bold"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="45dp"
             android:layout_toRightOf="@id/ModuleCodeText"
             android:textColor="@color/black"/>
@@ -83,6 +90,8 @@
             android:layout_height="wrap_content"
             android:text="Date: "
             android:textSize="12dp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:textStyle="bold"
             android:layout_below="@id/ModuleCodeText"
             android:textColor="@color/black"/>
@@ -98,7 +107,7 @@
             android:layout_below="@id/ModuleCodeText"
             android:layout_toRightOf="@id/AssignmentDateLabel"
             android:layout_height="wrap_content"
-            android:hint="Assigment Date"
+            android:hint="Ass Date"
             android:inputType="datetime"/>
         <TextView
             android:id="@+id/AssignmentNameLabel"
@@ -107,6 +116,9 @@
             android:text=" Name: "
             android:textSize="12dp"
             android:textStyle="bold"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginLeft="10dp"
             android:layout_below="@id/ModuleCodeText"
             android:layout_toRightOf="@id/AssignmentDateText"
             android:textColor="@color/black"/>
@@ -118,6 +130,7 @@
             android:textSize="12dp"
             android:layout_width="match_parent"
             android:layout_marginTop="1dp"
+            android:layout_marginLeft="5dp"
             android:textColor="@color/black"
             android:layout_below="@id/ModuleCodeText"
             android:layout_toRightOf="@id/ModuleNameLabel"
@@ -133,8 +146,9 @@
             android:layout_height="wrap_content"
             android:text="Date: "
             android:textSize="12dp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:textStyle="bold"
-            android:layout_marginTop="35dp"
             android:layout_below="@id/AssignmentDateLabel"
             android:textColor="@color/black"/>
 
@@ -143,7 +157,6 @@
             android:minWidth="48dp"
             android:minHeight="48dp"
             android:textSize="12dp"
-
             android:layout_width="wrap_content"
             android:layout_marginTop="1dp"
             android:textColor="@color/black"
@@ -158,6 +171,9 @@
             android:text="Name: "
             android:textSize="12dp"
             android:textStyle="bold"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginLeft="10dp"
             android:layout_below="@id/AssignmentDateText"
             android:layout_toRightOf="@id/AssignmentDateText"
             android:textColor="@color/black"/>
@@ -169,6 +185,7 @@
             android:textSize="12dp"
             android:layout_width="match_parent"
             android:layout_marginTop="1dp"
+            android:layout_marginLeft="5dp"
             android:textColor="@color/black"
             android:layout_below="@id/AssignmentNameText"
             android:layout_toRightOf="@id/ModuleNameLabel"
@@ -184,7 +201,6 @@
             android:text="Lecture Room: "
             android:textSize="12dp"
             android:textStyle="bold"
-            android:layout_marginTop="10dp"
             android:layout_below="@id/ExamDateText"
             android:textColor="@color/black"/>
 
@@ -194,7 +210,6 @@
             android:minHeight="48dp"
             android:textSize="12dp"
             android:layout_width="wrap_content"
-            android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:layout_below="@id/ExamDateText"
             android:layout_toRightOf="@id/LectureRoomLabel"
