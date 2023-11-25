@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAnchorView(R.id.fab)
-//                        .setAction("Action", null).show();
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAnchorView(R.id.fab)
+                        .setAction("Action", null).show();
             }
         });
         DrawerLayout drawer = binding.drawerLayout;

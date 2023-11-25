@@ -17,6 +17,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -120,16 +121,15 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
             }
             @Override
             public void onClick(View view) {
-                // this will make it so on click of the text it will display the text
-
+                //builds the String that will display on the
                 StringBuilder sb = new StringBuilder();
                     for(TrainService m : mTrainList){
-
                         sb.append(m.getDestination()+" : "+m.getEtd());
                         sb.append("\n");
                     }
-                String finaldata = sb.toString();
-                Toast.makeText(ButtonTrainInformation.getContext(), "" + finaldata, Toast.LENGTH_LONG).show();
+                String TrainPopup = sb.toString();
+                    //will display the Finaldata Sring in a format
+                Snackbar.make(view, TrainPopup, Snackbar.LENGTH_LONG).setAction("Action", null).show();
 
                      Log.i("MS", "You Selected " + trainService.toString());
 
