@@ -21,7 +21,7 @@
             android:contentDescription="More information about the Train" />
 
 
-        <!--        this is related to the Module-->
+        <!--        this is related to the Destination-->
         <TextView
             android:id="@+id/DestinationLabel"
             android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
             android:inputType="time"/>
 
 
-        <!--        this is related to the Exam-->
+        <!--        this is related to the Delays-->
 
         <TextView
             android:id="@+id/DelaysLabel"
@@ -121,36 +121,33 @@
 
 
 
+        <!--        this is related to the NRC Message-->
 
+        <TextView
+            android:id="@+id/NRCmessageLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NRC Message: "
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:layout_marginTop="7dp"
+            android:layout_below="@id/DelaysLabel"
+            android:textColor="@color/black"/>
 
-
-
+        <TextView
+            android:id="@+id/NRCmessageText"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textSize="14dp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textColor="@color/black"
+            android:layout_below="@id/DelaysLabel"
+            android:layout_toRightOf="@id/NRCmessageLabel"
+            android:layout_height="wrap_content"
+            android:hint="NRC Message"/>
 
     </RelativeLayout>
-
-<!--    <RelativeLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/white">-->
-<!--        <Button-->
-<!--            android:id="@+id/ButtonTrainInformation"-->
-<!--            android:layout_width="48dp"-->
-<!--            android:layout_height="48dp"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:background="@drawable/baseline_info_24"-->
-<!--            android:contentDescription="More information about the Train" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/traininformation"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@id/ButtonTrainInformation"-->
-<!--            android:hint="Module Information item"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textSize="18sp"-->
-<!--            android:textStyle="bold" />-->
-<!--    </RelativeLayout>-->
 
 
 

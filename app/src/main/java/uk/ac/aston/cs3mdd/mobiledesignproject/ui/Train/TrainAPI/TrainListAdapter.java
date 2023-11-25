@@ -73,6 +73,7 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                     holder.TrainTimeText.setText(Html.fromHtml(std));
                     holder.OperatorText.setText(Html.fromHtml(operator));
                     holder.DelaysText.setText(Html.fromHtml(etd));
+                    holder.NRCmessageText.setText(Html.fromHtml(nrccMessages));
         }
 
 
@@ -88,7 +89,7 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
 
         class TrainViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 //            public final TextView TraindestinationView;
-            public final TextView  DestinationText, TrainTimeText, OperatorText, DelaysText;
+            public final TextView  DestinationText, TrainTimeText, OperatorText, DelaysText, NRCmessageText;
 
             final TrainListAdapter mAdapter;
             public TrainService trainService;
@@ -104,6 +105,7 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                 TrainTimeText = itemView.findViewById(R.id.TrainTimeText);
                 OperatorText = itemView.findViewById(R.id.OperatorText);
                 DelaysText = itemView.findViewById(R.id.DelaysText);
+                NRCmessageText = itemView.findViewById(R.id.NRCmessageText);
 
                 this.mAdapter = adapter;
 
