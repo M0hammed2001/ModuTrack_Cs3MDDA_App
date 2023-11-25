@@ -99,7 +99,6 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
             public TrainViewHolder(@NonNull View itemView, TrainListAdapter adapter) {
                 super(itemView);
                 itemView.setOnClickListener(this);
-//                TraindestinationView = itemView.findViewById(R.id.traininformation);
                 ButtonTrainInformation = itemView.findViewById(R.id.ButtonTrainInformation);
                 DestinationText = itemView.findViewById(R.id.DestinationText);
                 TrainTimeText = itemView.findViewById(R.id.TrainTimeText);
