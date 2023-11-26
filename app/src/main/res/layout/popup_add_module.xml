@@ -90,6 +90,38 @@
             android:hint="Exam Name" />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <EditText
+            android:id="@+id/TutorialRoomEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginTop="1dp"
+            android:hint="Tutorial Room has 1 or 2 letters e.g 'MB' 206  " />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <EditText
+            android:id="@+id/LectureRoomEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginTop="1dp"
+            android:hint="Lecture Room has 1 or 2 letters e.g 'MB' 206  " />
+
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/buttonAddModule"

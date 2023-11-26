@@ -38,16 +38,7 @@ public class ModuleAddFragment extends Fragment {
 
     ModuleDatabase moduleDB;
 
-    EditText popupModuleNameEdit;
-    EditText popupModuleCodeEdit;
-
-    EditText popupAssignmentDateEdit;
-    EditText popupAssignmentdueEdit;
-    EditText popupAssignmentNameEdit;
-
-    EditText popupExamDateEdit;
-    EditText popupExamdueEdit;
-    EditText popupExamNameEdit;
+    EditText popupModuleNameEdit, popupModuleCodeEdit, popupAssignmentDateEdit, popupAssignmentdueEdit,  popupAssignmentNameEdit, popupExamDateEdit, popupExamdueEdit, popupExamNameEdit, TutorialRoomEdit, LectureRoomEdit;
 
     Button buttonAddModule, ButtonDeleteModule;
 
@@ -76,6 +67,9 @@ public class ModuleAddFragment extends Fragment {
         popupExamDateEdit = view.findViewById(R.id.popupExamDateEdit);
         popupExamdueEdit = view.findViewById(R.id.popupExamdueEdit);
         popupExamNameEdit = view.findViewById(R.id.popupExamNameEdit);
+
+        TutorialRoomEdit = view.findViewById(R.id.TutorialRoomEdit);
+        LectureRoomEdit = view.findViewById(R.id.LectureRoomEdit);
 
 
         RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
@@ -121,8 +115,11 @@ public class ModuleAddFragment extends Fragment {
                     String examdue = popupExamdueEdit.getText().toString();
                     String examName = popupExamNameEdit.getText().toString();
 
+                    String tutorialRoom = TutorialRoomEdit.getText().toString();
+                    String lectureRoom = LectureRoomEdit.getText().toString();
+
                     // Creates a Module object and save it to the database
-                    Module module = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate);
+                    Module module = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate, tutorialRoom, lectureRoom);
                     AddModuleInBackground(module);
                 }
             });

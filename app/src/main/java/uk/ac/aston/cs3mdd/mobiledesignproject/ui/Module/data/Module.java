@@ -41,13 +41,15 @@ public class Module implements Serializable {
     @ColumnInfo(name = "Examdate")
     String Examdate;
 
+    @ColumnInfo(name = "LectureRoom")
+    String lectureRoom;
 
-//    public Module(){
-//
-//
-//    }
+    @ColumnInfo(name = "TutorialRoom")
+    String tutorialRoom;
 
-    public Module(String ModuleName, String ModuleCode, String AssignmentName, String Assignmentdue, String AssignmentDate, String ExamName, String Examdue, String Examdate) {
+
+
+    public Module(String ModuleName, String ModuleCode, String AssignmentName, String Assignmentdue, String AssignmentDate, String ExamName, String Examdue, String Examdate, String tutorialRoom, String lectureRoom) {
         this.ModuleName = ModuleName;
         this.ModuleCode = ModuleCode;
         this.AssignmentName = AssignmentName;
@@ -56,8 +58,26 @@ public class Module implements Serializable {
         this.ExamName = ExamName;
         this.Examdue = Examdue;
         this.Examdate = Examdate;
+        this.tutorialRoom = tutorialRoom;
+        this.lectureRoom = lectureRoom;
         this.id = 0;
     }
+    public String getLectureRoom() {
+        return lectureRoom;
+    }
+
+    public void setLectureRoom(String lectureRoom) {
+        this.lectureRoom = lectureRoom;
+    }
+
+    public String getTutorialRoom() {
+        return tutorialRoom;
+    }
+
+    public void setTutorialRoom(String tutorialRoom) {
+        this.tutorialRoom = tutorialRoom;
+    }
+
 
     public int getId() {
         return id;

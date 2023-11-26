@@ -68,6 +68,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         String ExamName = module.getExamName();
         String ExamDate = module.getExamdate();
 
+        String lectureRoom = module.getLectureRoom();
+        String tutorialRoom = module.getTutorialRoom();
 
         // Handle null values
 //        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
@@ -79,6 +81,9 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 //
 //        AssignmentName = (AssignmentName != null) ? AssignmentName : "Assignment Name";
 //        AssignmentDate = (AssignmentDate != null) ? AssignmentDate : "Assignment Date";
+//
+//        lectureRoom = (lectureRoom != null) ? lectureRoom : "Room details Unavailable";
+//        tutorialRoom = (tutorialRoom != null) ? tutorialRoom : "Room details Unavailable";
 
 
 //
@@ -93,6 +98,9 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
        String ExamDateText =ExamDate;
        String ExamNameText = ExamName;
 
+        String LectureRoomText =lectureRoom;
+        String TutorialRoomText = tutorialRoom;
+
 
         holder.ModuleNameText.setText(Html.fromHtml(ModuleNameText));
         holder.ModuleCodeText.setText(Html.fromHtml(ModuleCodeText));
@@ -104,6 +112,10 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         holder.ExamDateText.setText(Html.fromHtml(ExamDateText));
 //        holder.ExamdueText.setText(Html.fromHtml(ExamdueText));
         holder.ExamNameText.setText(Html.fromHtml(ExamNameText));
+
+        holder.LectureRoomText.setText(Html.fromHtml(LectureRoomText));
+        holder.TutorialRoomText.setText(Html.fromHtml(TutorialRoomText));
+
 
 
         holder.ModuleNameText.setText(Html.fromHtml(ModuleNameText));
@@ -121,7 +133,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
     }
 
     class ModuleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public final TextView  ModuleNameText, ModuleCodeText, AssignmentDateText, AssignmentNameText, ExamDateText, ExamNameText;
+        public final TextView  ModuleNameText, ModuleCodeText, AssignmentDateText, AssignmentNameText, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
 
         final ModuleListAdapter mAdapter;
         public Module modules;
@@ -140,6 +152,9 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             ExamDateText = itemView.findViewById(R.id.ExamDateText);
 //            ExamdueText = itemView.findViewById(R.id.ExamdueText);
             ExamNameText = itemView.findViewById(R.id.ExamNameText);
+
+            LectureRoomText = itemView.findViewById(R.id.LectureRoomText);
+            TutorialRoomText = itemView.findViewById(R.id.TutorialRoomText);
             
             
             ButtonDeleteModule = itemView.findViewById(R.id.ButtonDeleteModule);

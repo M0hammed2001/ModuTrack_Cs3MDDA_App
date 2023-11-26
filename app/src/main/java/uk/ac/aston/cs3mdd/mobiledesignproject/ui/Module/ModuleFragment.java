@@ -83,6 +83,8 @@ public class ModuleFragment extends Fragment {
                 super.onOpen(db);
             }
         };
+            // this will clear the Database encase i want to add something new
+//        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").fallbackToDestructiveMigration().build();
 
         moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").addCallback(myCallBack).build();
 
@@ -116,7 +118,7 @@ public class ModuleFragment extends Fragment {
             public void onChanged(@Nullable final List<Module> ModuleList) {
                 // Update your adapter with the filtered list
                 moduleAdapter.updateData(ModuleList);
-                Log.i("MS", "Modules:" + moduleList.size());
+//                Log.i("MS", "Modules:" + moduleList.size());
             }
         };
 
