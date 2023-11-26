@@ -40,7 +40,7 @@ public class ModuleAddFragment extends Fragment {
 
     EditText popupModuleNameEdit, popupModuleCodeEdit, popupAssignmentDateEdit, popupAssignmentdueEdit,  popupAssignmentNameEdit, popupExamDateEdit, popupExamdueEdit, popupExamNameEdit, TutorialRoomEdit, LectureRoomEdit;
 
-    Button buttonAddModule, ButtonDeleteModule;
+    Button buttonAddModule;
 
     private ModuleListAdapter moduleAdapter;
 
@@ -119,8 +119,8 @@ public class ModuleAddFragment extends Fragment {
                     String lectureRoom = LectureRoomEdit.getText().toString();
 
                     // Creates a Module object and save it to the database
-                    Module module = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate, tutorialRoom, lectureRoom);
-                    AddModuleInBackground(module);
+                    Module moduleAdd = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate, tutorialRoom, lectureRoom);
+                    AddModuleInBackground(moduleAdd);
                 }
             });
 

@@ -42,9 +42,9 @@ public class Destination implements Serializable {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(getLocationName());
-        sb.append(", ");
         sb.append(getCrs());
+        sb.append(", ");
+        sb.append(getLocationName());
         sb.append(", ");
         String via = getVia() != null ? getVia() : "";
         sb.append(via);
