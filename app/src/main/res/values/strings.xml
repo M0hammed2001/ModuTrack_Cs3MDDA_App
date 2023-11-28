@@ -27,4 +27,19 @@
 
 
     <string name="argumentnameTrainMap">TrainServices</string>
+    <string name="toturorial_room">Toturorial Room E.g MB</string>
+    <string name="tutorial_room_label">Tutorial Room:</string>
+    <string name="lecture_room">Lecture Room E.g MB</string>
+    <string name="lecture_room_label">Lecture Room:</string>
+    <string name="exam">Exam</string>
+    <string name="nameLabel">Name:</string>
+    <string name="date">Date:</string>
+    <string name="Module">Module:</string>
+    <string name="ModuleCode">Code</string>
+    <string name="exam_date">Ex Date</string>
+    <string name="assignment_date">As Date</string>
+    <string name="delete_module_button">Delete Module button</string>
+    <string name="edit_module_button">edit Module button</string>
+    <string name="module_code">Module Code</string>
+    <string name="assigment">Assigment</string>
 </resources>
