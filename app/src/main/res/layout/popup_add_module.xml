@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="5"
+    android:layout_margin="10dp"
     tools:context=".ui.Module.managedata.ModuleAddFragment">
 
     <RelativeLayout
@@ -19,7 +20,7 @@
             android:layout_height="48sp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="-4sp"
+            android:layout_marginTop="14sp"
             android:layout_marginEnd="-1sp"
             android:background="@drawable/baseline_add_circle_outline_24"
             android:contentDescription="@string/delete_module_button" />
@@ -33,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:text="@string/Module"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:layout_marginTop="57sp"
             android:textColor="@color/black"/>
@@ -42,8 +43,7 @@
             android:id="@+id/popupModuleCodeEdit"
             android:minWidth="48sp"
             android:minHeight="48sp"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_marginTop="45sp"
             android:textColor="@color/black"
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="module "
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:layout_marginStart="4sp"
             android:textStyle="bold"
             android:layout_marginTop="57sp"
@@ -66,11 +66,10 @@
             android:id="@+id/popupModuleNameEdit"
             android:minWidth="48sp"
             android:minHeight="48sp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:layout_width="match_parent"
             android:layout_marginTop="45sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/grey"
             android:layout_toEndOf="@id/ModuleNameLabel"
             android:layout_height="wrap_content"
             android:hint="Module Name"/>
@@ -86,6 +85,7 @@
             android:textSize="15sp"
             android:minHeight="48sp"
             android:textStyle="bold"
+            android:layout_marginTop="14sp"
             android:layout_below="@id/popupModuleCodeEdit"
             android:textColor="@color/black"/>
 
@@ -109,6 +109,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:minHeight="48sp"
+            android:layout_marginTop="14sp"
             android:layout_below="@id/popupModuleCodeEdit"
             android:layout_toEndOf="@id/popupAssignmentDateEdit"
             android:textColor="@color/black"/>
@@ -161,6 +162,7 @@
             android:textStyle="bold"
             android:minHeight="48sp"
             android:layout_marginStart="4sp"
+            android:layout_marginTop="14sp"
             android:layout_below="@id/popupAssignmentDateEdit"
             android:layout_toEndOf="@id/popupExamDateEdit"
             android:textColor="@color/black"/>
@@ -187,6 +189,8 @@
             android:text="@string/lecture_room_label"
             android:textSize="15sp"
             android:textStyle="bold"
+            android:layout_marginTop="14sp"
+
             android:layout_below="@id/popupExamDateEdit"
             android:textColor="@color/black"/>
 
@@ -210,7 +214,7 @@
             android:text="@string/tutorial_room_label"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_marginTop="10sp"
+            android:layout_marginTop="14sp"
             android:layout_below="@id/LectureRoomLabel"
             android:textColor="@color/black"/>
 
@@ -219,7 +223,6 @@
             android:minWidth="48sp"
             android:textSize="15sp"
             android:layout_width="wrap_content"
-            android:layout_marginTop="10sp"
             android:textColor="@color/black"
             android:layout_below="@id/LectureRoomLabel"
             android:layout_toEndOf="@id/TutorialRoomLabel"
