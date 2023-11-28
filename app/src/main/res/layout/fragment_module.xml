@@ -14,6 +14,13 @@
             android:layout_marginBottom="10dp"
             android:text="add Data"/>
 
+        <Button
+            android:id="@+id/FilterModule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Filter Module"/>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/MFRecyclerView"
