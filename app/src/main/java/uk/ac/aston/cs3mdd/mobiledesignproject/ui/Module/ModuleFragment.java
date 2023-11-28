@@ -84,9 +84,9 @@ public class ModuleFragment extends Fragment {
             }
         };
             // this will clear the Database encase i want to add something new
-//        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").fallbackToDestructiveMigration().build();
+        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").fallbackToDestructiveMigration().build();
 
-        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").addCallback(myCallBack).build();
+//        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").addCallback(myCallBack).build();
 
         moduleViewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 

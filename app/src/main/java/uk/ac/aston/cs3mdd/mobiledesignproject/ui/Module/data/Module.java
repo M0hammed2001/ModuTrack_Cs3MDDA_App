@@ -27,8 +27,8 @@ public class Module implements Serializable {
     @ColumnInfo(name = "AssignmentName")
     String AssignmentName;
 
-    @ColumnInfo(name = "Assignmentdue")
-    String Assignmentdue;// is it due yes or no option to decide if this requires a to be displayed
+//    @ColumnInfo(name = "Assignmentdue")
+//    String Assignmentdue;// is it due yes or no option to decide if this requires a to be displayed
     @ColumnInfo(name = "AssignmentDate")
     String AssignmentDate;
 
@@ -36,8 +36,8 @@ public class Module implements Serializable {
     //module exam information
     @ColumnInfo(name = "ExamName")
     String ExamName;
-    @ColumnInfo(name = "Examdue")
-    String Examdue;// is it due yes or no option to decide if this requires a to be displayed
+//    @ColumnInfo(name = "Examdue")
+//    String Examdue;// is it due yes or no option to decide if this requires a to be displayed
     @ColumnInfo(name = "Examdate")
     String Examdate;
 
@@ -49,14 +49,14 @@ public class Module implements Serializable {
 
 
 
-    public Module(String ModuleName, String ModuleCode, String AssignmentName, String Assignmentdue, String AssignmentDate, String ExamName, String Examdue, String Examdate, String tutorialRoom, String lectureRoom) {
+    public Module(String ModuleName, String ModuleCode, String AssignmentName, String AssignmentDate, String ExamName, String Examdate, String tutorialRoom, String lectureRoom) {
         this.ModuleName = ModuleName;
         this.ModuleCode = ModuleCode;
         this.AssignmentName = AssignmentName;
-        this.Assignmentdue = Assignmentdue;
+//        this.Assignmentdue = Assignmentdue;
         this.AssignmentDate = AssignmentDate;
         this.ExamName = ExamName;
-        this.Examdue = Examdue;
+//        this.Examdue = Examdue;
         this.Examdate = Examdate;
         this.tutorialRoom = tutorialRoom;
         this.lectureRoom = lectureRoom;
@@ -111,13 +111,13 @@ public class Module implements Serializable {
         AssignmentName = assignmentName;
     }
 
-    public String getAssignmentdue() {
-        return Assignmentdue;
-    }
-
-    public void setAssignmentdue(String assignmentdue) {
-        Assignmentdue = assignmentdue;
-    }
+//    public String getAssignmentdue() {
+//        return Assignmentdue;
+//    }
+//
+//    public void setAssignmentdue(String assignmentdue) {
+//        Assignmentdue = assignmentdue;
+//    }
 
     public String getAssignmentDate() {
         return AssignmentDate;
@@ -135,13 +135,13 @@ public class Module implements Serializable {
         ExamName = examName;
     }
 
-    public String getExamdue() {
-        return Examdue;
-    }
-
-    public void setExamdue(String examdue) {
-        Examdue = examdue;
-    }
+//    public String getExamdue() {
+//        return Examdue;
+//    }
+//
+//    public void setExamdue(String examdue) {
+//        Examdue = examdue;
+//    }
 
     public String getExamdate() {
         return Examdate;

@@ -29,18 +29,11 @@ public interface ModuleDao {
         abstract void deleteBymoduleId(long Module_id);
 
 
-
         @Insert
         void InsertAll(Module Module);
 
         @Delete
         void DeleteAll(Module Module);
-
-
-
-
-
-
 
 
 
