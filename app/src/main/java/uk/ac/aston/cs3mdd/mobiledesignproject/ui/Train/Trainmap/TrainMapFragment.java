@@ -92,7 +92,12 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
            NavHostFragment.findNavController(TrainMapFragment.this).navigate(R.id.action_nav_trainmap_to_nav_train);
            }
         });
-    binding.textTrainmap.setText(trainService.toString());
+//    binding.DestinationText.setText(trainService.getDestination());
+    binding.TrainTimeText.setText(trainService.getStd());
+    binding.OperatorText.setText(trainService.getOperator());
+    binding.DelaysText.setText(trainService.getEtd());
+    binding.NRCmessageText.setText(trainService.getNrccMessages());
+
     }
 
     @Override

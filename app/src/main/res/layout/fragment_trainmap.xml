@@ -22,24 +22,159 @@
             android:layout_height="match_parent" />
     </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
+        <Button
+            android:id="@+id/ButtonTrainInformation"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-4dp"
+            android:layout_marginRight="-1dp"
+            android:background="@drawable/baseline_info_24"
+            android:contentDescription="More information about the Train" />
+
+
+        <!--        this is related to the Destination-->
         <TextView
-            android:id="@+id/text_trainmap"
+            android:id="@+id/DestinationLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22sp" />
+            android:text="Destination: "
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:layout_marginTop="45dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/DestinationText"
+            android:minWidth="48dp"
+            android:textSize="14dp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="45dp"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@id/DestinationLabel"
+            android:layout_height="wrap_content"
+            android:hint="Destination"/>
+        <TextView
+            android:id="@+id/TrainTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:background="@drawable/baseline_timer_24"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="20sp"
+            android:layout_toRightOf="@id/DestinationText"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/TrainTimeText"
+            android:minWidth="48dp"
+            android:textSize="14dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="45dp"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@id/TrainTimeLabel"
+            android:layout_height="wrap_content"
+            android:hint="Time"/>
+
+
+        <!--        this is related to the Oprerator-->
+        <TextView
+            android:id="@+id/OperatorLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/baseline_tram_black_24"
+            android:textStyle="bold"
+            android:layout_below="@id/DestinationLabel"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/OperatorText"
+            android:minWidth="48dp"
+            android:textSize="14dp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="1dp"
+            android:textColor="@color/black"
+            android:layout_below="@id/DestinationLabel"
+            android:layout_toRightOf="@id/OperatorLabel"
+            android:layout_height="wrap_content"
+            android:hint="Operator"
+            android:inputType="time"/>
+
+
+        <!--        this is related to the Delays-->
+
+        <TextView
+            android:id="@+id/DelaysLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delays: "
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:layout_marginTop="7dp"
+            android:layout_below="@id/OperatorLabel"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/DelaysText"
+            android:minWidth="48dp"
+            android:textSize="14dp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textColor="@color/black"
+            android:layout_below="@id/OperatorLabel"
+            android:layout_toRightOf="@id/DelaysLabel"
+            android:layout_height="wrap_content"
+            android:hint="Delays Text"/>
+
+
+
+        <!--        this is related to the NRC Message-->
+
+        <TextView
+            android:id="@+id/NRCmessageLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NRC Message: "
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:layout_marginTop="7dp"
+            android:layout_below="@id/DelaysLabel"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/NRCmessageText"
+            android:minWidth="48dp"
+            android:textSize="14dp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textColor="@color/black"
+            android:layout_below="@id/DelaysLabel"
+            android:layout_toRightOf="@id/NRCmessageLabel"
+            android:layout_height="wrap_content"
+            android:hint="NRC Message"/>
+
+    </RelativeLayout>
+
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/text_trainmap"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="22sp" />-->
 
         <Button
             android:id="@+id/button_trainmap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/menu_train" />
-    </LinearLayout>
+
 
 
 </LinearLayout>
