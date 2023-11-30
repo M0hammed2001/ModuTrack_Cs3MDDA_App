@@ -100,13 +100,14 @@
             android:minWidth="48sp"
             android:minHeight="48sp"
             android:textSize="15sp"
+            android:layout_marginStart="5sp"
             android:layout_width="wrap_content"
             android:layout_marginTop="1sp"
             android:textColor="@color/black"
             android:layout_below="@id/ModuleCodeText"
             android:layout_toEndOf="@id/AssignmentDateLabel"
             android:layout_height="wrap_content"
-            android:hint="@string/assignment_date"/>
+            android:hint="@string/pickdate"/>
         <TextView
             android:id="@+id/AssignmentNameLabel"
             android:layout_width="wrap_content"
@@ -115,6 +116,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:minHeight="48sp"
+            android:layout_marginStart="20sp"
             android:layout_below="@id/ModuleCodeText"
             android:layout_toEndOf="@id/AssignmentDateText"
             android:textColor="@color/black"/>
@@ -124,6 +126,7 @@
             android:minWidth="48sp"
             android:minHeight="48sp"
             android:textSize="15sp"
+            android:layout_marginStart="5sp"
             android:layout_width="match_parent"
             android:layout_marginTop="1sp"
             android:textColor="@color/black"
@@ -151,13 +154,15 @@
             android:minWidth="48sp"
             android:minHeight="48sp"
             android:textSize="15sp"
+            android:layout_marginStart="5sp"
             android:layout_width="wrap_content"
             android:layout_marginTop="1sp"
+
             android:textColor="@color/black"
             android:layout_below="@id/AssignmentDateText"
             android:layout_toEndOf="@id/ExamDateLabel"
             android:layout_height="wrap_content"
-            android:hint="@string/exam_date"/>
+            android:hint="@string/pickdate"/>
         <TextView
             android:id="@+id/ExamNameLabel"
             android:layout_width="wrap_content"
@@ -166,7 +171,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:minHeight="48sp"
-            android:layout_marginStart="4sp"
+            android:layout_marginStart="20sp"
             android:layout_below="@id/AssignmentDateText"
             android:layout_toEndOf="@id/ExamDateText"
             android:textColor="@color/black"/>
@@ -180,6 +185,7 @@
             android:layout_toEndOf="@id/ExamNameLabel"
             android:hint="@string/exam"
             android:minWidth="48sp"
+            android:layout_marginStart="5sp"
             android:minHeight="48sp"
             android:textColor="@color/black"
             android:textSize="15sp" />
@@ -202,6 +208,7 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:textColor="@color/black"
+            android:layout_marginStart="5sp"
             android:layout_below="@id/ExamDateText"
             android:layout_toEndOf="@id/LectureRoomLabel"
             android:layout_height="wrap_content"
@@ -226,6 +233,7 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_marginTop="10sp"
+            android:layout_marginStart="5sp"
             android:textColor="@color/black"
             android:layout_below="@id/LectureRoomLabel"
             android:layout_toEndOf="@id/TutorialRoomLabel"
