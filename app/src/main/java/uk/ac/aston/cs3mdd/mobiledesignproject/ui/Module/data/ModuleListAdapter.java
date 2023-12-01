@@ -27,6 +27,7 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentModuleBinding;
 import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.PopupAddModuleBinding;
 import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.PopupEditModuleBinding;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService;
 
 
 public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.ModuleViewHolder>{
@@ -106,11 +107,9 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         holder.ModuleCodeText.setText(Html.fromHtml(ModuleCodeText));
 
         holder.AssignmentDateText.setText(Html.fromHtml(AssignmentDateText));
-//        holder.AssignmentdueText.setText(Html.fromHtml(AssignmentdueText));
         holder.AssignmentNameText.setText(Html.fromHtml(AssignmentNameText));
 
         holder.ExamDateText.setText(Html.fromHtml(ExamDateText));
-//        holder.ExamdueText.setText(Html.fromHtml(ExamdueText));
         holder.ExamNameText.setText(Html.fromHtml(ExamNameText));
 
         holder.LectureRoomText.setText(Html.fromHtml(LectureRoomText));
@@ -167,20 +166,9 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                 @Override
                 public void onClick(View v) {
                     //Calling all fields
-//                    String moduleName = modules.getModuleName();
-//                    String moduleCode = modules.getModuleCode();
-//
-//                    String assignmentDate = modules.getAssignmentDate();
-//                    String assignmentdue = modules.getAssignmentdue();
-//                    String assignmentName = modules.getAssignmentName();
-//
-//                    String examdate = modules.getExamdate();
-//                    String examdue = modules.getExamdue();
-//                    String examName = modules.getExamName();
-//
-//                    // Updates the Module from the database using the UpdateInBackground task
-//                    Module updateModule = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate);
-//                    UpdateModuleInBackground(modules);
+
+
+                    UpdateModuleInBackground(modules);
 
                     Log.i("MS", "Updated");
                 }
@@ -195,10 +183,6 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                     Log.i("MS", "Deleted");
                 }
             });
-
-
-
-
 
 
 
