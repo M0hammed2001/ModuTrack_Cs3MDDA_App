@@ -78,6 +78,10 @@
             android:id="@+id/action_moduleEdit_to_module"
             app:destination="@id/nav_module" />
 
+        <action
+            android:id="@+id/action_module_to_moduleEdit"
+            app:destination="@id/nav_moduleEdit" />
+
         <argument
             android:name="Module"
             app:argType="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module" />

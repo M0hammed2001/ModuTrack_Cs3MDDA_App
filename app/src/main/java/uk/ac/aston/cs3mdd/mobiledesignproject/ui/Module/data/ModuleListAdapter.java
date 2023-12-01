@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -23,11 +23,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
-import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentModuleBinding;
-import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.PopupAddModuleBinding;
-import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.PopupEditModuleBinding;
-import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment;
-import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService;
+
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata.ModuleEditFragmentDirections;
+
 
 
 public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.ModuleViewHolder>{
@@ -73,18 +71,18 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         String tutorialRoom = module.getTutorialRoom();
 
         // Handle null values
-//        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
-//        moduleName = (moduleName != null) ? moduleName : "Module Name";
-//
-//
+        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
+        moduleName = (moduleName != null) ? moduleName : "Module Name";
+
+
 //        ExamName = (ExamName != null) ? ExamName : "Exam Name";
 //        ExamDate = (ExamDate != null) ? ExamDate : "Exam Date";
 //
 //        AssignmentName = (AssignmentName != null) ? AssignmentName : "Assignment Name";
 //        AssignmentDate = (AssignmentDate != null) ? AssignmentDate : "Assignment Date";
-//
-//        lectureRoom = (lectureRoom != null) ? lectureRoom : "Room details Unavailable";
-//        tutorialRoom = (tutorialRoom != null) ? tutorialRoom : "Room details Unavailable";
+
+        lectureRoom = (lectureRoom != null) ? lectureRoom : "Room details Unavailable";
+        tutorialRoom = (tutorialRoom != null) ? tutorialRoom : "Room details Unavailable";
 
 
 //
@@ -166,6 +164,11 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                 @Override
                 public void onClick(View v) {
                     //Calling all fields
+//
+//                    ModuleEditFragmentDirections.actionModuleToModuleEdit action = ModuleEditFragmentDirections.actionModuleToModuleEdit(modules);
+//                    Navigation.findNavController(v).navigate(action);
+
+                    Log.i("MS", "Module Clicked");
 
 
                     UpdateModuleInBackground(modules);

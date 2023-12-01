@@ -22,7 +22,6 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
-import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainFragmentDirections;
 
 public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.TrainViewHolder> {
