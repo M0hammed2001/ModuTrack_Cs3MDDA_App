@@ -24,6 +24,9 @@ import java.util.concurrent.Executors;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragmentDirections;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleViewModel;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata.ModuleEditFragment;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata.ModuleEditFragmentDirections;
 
 
@@ -162,18 +165,16 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
             ButtonEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View view) {
                     //Calling all fields
-//
-//                    ModuleEditFragmentDirections.actionModuleToModuleEdit action = ModuleEditFragmentDirections.actionModuleToModuleEdit(modules);
-//                    Navigation.findNavController(v).navigate(action);
+                    ModuleFragmentDirections.ActionModuleToModuleEdit action = ModuleFragmentDirections.actionModuleToModuleEdit(modules);
+                    Navigation.findNavController(view).navigate(action);
+
+
 
                     Log.i("MS", "Module Clicked");
+//                    UpdateModuleInBackground(modules);
 
-
-                    UpdateModuleInBackground(modules);
-
-                    Log.i("MS", "Updated");
                 }
             });
 
@@ -186,8 +187,6 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                     Log.i("MS", "Deleted");
                 }
             });
-
-
 
 
         }

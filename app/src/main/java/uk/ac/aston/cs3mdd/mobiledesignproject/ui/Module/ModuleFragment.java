@@ -84,9 +84,9 @@ public class ModuleFragment extends Fragment {
             }
         };
             // this will clear the Database encase i want to add something new
-        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").fallbackToDestructiveMigration().build();
+//        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").fallbackToDestructiveMigration().build();
 
-//        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").addCallback(myCallBack).build();
+        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").addCallback(myCallBack).build();
 
         moduleViewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
@@ -126,7 +126,7 @@ public class ModuleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 NavHostFragment.findNavController(ModuleFragment.this).navigate(R.id.action_module_to_moduleAdd);
-                Log.i("MS", "ADDED");
+                Log.i("MS", "Navigating to Add Module Page");
             }
         });
 

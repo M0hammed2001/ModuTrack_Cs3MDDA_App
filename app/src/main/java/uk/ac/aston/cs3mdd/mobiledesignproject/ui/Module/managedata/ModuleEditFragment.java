@@ -4,6 +4,7 @@ package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,21 +38,23 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleViewModel;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleDatabase;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.Destination;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.Trainmap.TrainMapFragment;
 
 
-public class ModuleEditFragment extends ModuleFragment {
+public class ModuleEditFragment extends Fragment {
 
     EditText popupModuleEditName;
     EditText popupModuleEditCode;
 
     EditText popupAssignmentEditDate;
-    EditText popupAssignmentEditdue;
     EditText popupAssignmentEditName;
 
     EditText popupExamEditDate;
-    EditText popupExamEditdue;
     EditText popupExamEditName;
+
+    EditText LectureEditRoom;
+    EditText TutorialEditRoom;
 
     Button buttonChangeModule, ButttonEditBack;
 
@@ -66,10 +69,49 @@ public class ModuleEditFragment extends ModuleFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        String moduleCode = module.getModuleCode();
+        String moduleName = module.getModuleName();
+
+        String AssignmentName = module.getAssignmentName();
+        String AssignmentDate = module.getAssignmentDate();
+
+        String ExamName = module.getExamName();
+        String ExamDate = module.getExamdate();
+
+        String lectureRoom = module.getLectureRoom();
+        String tutorialRoom = module.getTutorialRoom();
+
+        // Handle null values
+        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
+        moduleName = (moduleName != null) ? moduleName : "Module Name";
+
+//        ExamName = (ExamName != null) ? ExamName : "Exam Name";
+//        ExamDate = (ExamDate != null) ? ExamDate : "Exam Date";
+//
+//        AssignmentName = (AssignmentName != null) ? AssignmentName : "Assignment Name";
+//        AssignmentDate = (AssignmentDate != null) ? AssignmentDate : "Assignment Date";
+
+        lectureRoom = (lectureRoom != null) ? lectureRoom : "Room details Unavailable";
+        tutorialRoom = (tutorialRoom != null) ? tutorialRoom : "Room details Unavailable";
+
+
+        String ModuleCodeText = moduleCode;
+        String ModuleNameText = moduleName;
+
+        String AssignmentDateText =AssignmentDate;
+        String AssignmentNameText = AssignmentName;
+
+        String ExamDateText =ExamDate;
+        String ExamNameText = ExamName;
+
+        String LectureRoomText =lectureRoom;
+        String TutorialRoomText = tutorialRoom;
+
+
         binding.ButttonEditBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(ModuleEditFragment.this).navigate(R.id.action_moduleEdit_to_module);
+                NavHostFragment.findNavController(ModuleEditFragment.this).navigate(R.id.action_module_to_moduleEdit);
             }
         });
         binding.ButttonEditBack.setText(module.toString());
@@ -80,7 +122,7 @@ public class ModuleEditFragment extends ModuleFragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.popup_edit_module, container, false);
 
-        module = ModuleEditFragmentArgs.fromBundle(getArguments()).getModule();
+        module = ModuleEditFragmentArgs.fromBundle(getArguments()).getCurrentModules();
 
         binding = PopupEditModuleBinding.inflate(inflater, container, false);
 
@@ -92,12 +134,15 @@ public class ModuleEditFragment extends ModuleFragment {
         ButttonEditBack = view.findViewById(R.id.ButttonEditBack);
 
         popupAssignmentEditDate = view.findViewById(R.id.popupAssignmentEditDate);
-        popupAssignmentEditdue = view.findViewById(R.id.popupAssignmentEditdue);
         popupAssignmentEditName = view.findViewById(R.id.popupAssignmentEditName);
 
         popupExamEditDate = view.findViewById(R.id.popupExamEditDate);
-        popupExamEditdue = view.findViewById(R.id.popupExamEditdue);
         popupExamEditName = view.findViewById(R.id.popupExamEditName);
+
+        LectureEditRoom = view.findViewById(R.id.LectureEditRoom);
+        TutorialEditRoom = view.findViewById(R.id.TutorialEditRoom);
+
+
 
 
         RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
@@ -118,7 +163,6 @@ public class ModuleEditFragment extends ModuleFragment {
         };
 
         moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").addCallback(myCallBack).build();
-//        moduleViewModel = new ViewModelProvider(requireActivity()).get(ModuleViewModel.class);
         moduleViewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
         final Observer<List<Module>> moduleObserver = new Observer<List<Module>>() {
@@ -177,7 +221,7 @@ public class ModuleEditFragment extends ModuleFragment {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getContext(), "Data Changed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Module amended", Toast.LENGTH_SHORT).show();
 
 
                     }

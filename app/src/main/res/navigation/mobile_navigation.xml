@@ -74,17 +74,14 @@
         android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata.ModuleEditFragment"
         android:label="@string/menu_module"
         tools:layout="@layout/popup_edit_module" >
-        <action
-            android:id="@+id/action_moduleEdit_to_module"
-            app:destination="@id/nav_module" />
-
-        <action
-            android:id="@+id/action_module_to_moduleEdit"
-            app:destination="@id/nav_moduleEdit" />
 
         <argument
-            android:name="Module"
+            android:name="CurrentModules"
             app:argType="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module" />
+
+        <action
+            android:id="@+id/action_nav_moduleEdit_to_nav_module"
+            app:destination="@id/nav_module" />
     </fragment>
 
     <fragment
