@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Destination: "
-            android:textSize="14dp"
+            android:textSize="17sp"
             android:textStyle="bold"
             android:layout_marginTop="20dp"
             android:textColor="@color/black"/>
@@ -42,7 +42,7 @@
         <TextView
             android:id="@+id/DestinationText"
             android:minWidth="48dp"
-            android:textSize="14dp"
+            android:textSize="17sp"
             android:layout_width="wrap_content"
             android:layout_marginTop="20dp"
             android:textColor="@color/black"
@@ -63,7 +63,7 @@
         <TextView
             android:id="@+id/TrainTimeText"
             android:minWidth="48dp"
-            android:textSize="14dp"
+            android:textSize="17sp"
             android:layout_width="match_parent"
             android:layout_marginTop="20dp"
             android:textColor="@color/black"
@@ -85,7 +85,7 @@
         <TextView
             android:id="@+id/OperatorText"
             android:minWidth="48dp"
-            android:textSize="14dp"
+            android:textSize="17sp"
             android:layout_width="wrap_content"
             android:layout_marginTop="1dp"
             android:textColor="@color/black"
@@ -103,7 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Delays: "
-            android:textSize="14dp"
+            android:textSize="17sp"
             android:textStyle="bold"
             android:layout_marginTop="7dp"
             android:layout_below="@id/OperatorLabel"
@@ -112,7 +112,7 @@
         <TextView
             android:id="@+id/DelaysText"
             android:minWidth="48dp"
-            android:textSize="14dp"
+            android:textSize="17sp"
             android:layout_width="wrap_content"
             android:layout_marginTop="7dp"
             android:textColor="@color/black"
@@ -130,7 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NRC Message: "
-            android:textSize="14dp"
+            android:textSize="17sp"
             android:textStyle="bold"
             android:layout_marginTop="7dp"
             android:layout_below="@id/DelaysLabel"
@@ -139,7 +139,7 @@
         <TextView
             android:id="@+id/NRCmessageText"
             android:minWidth="48dp"
-            android:textSize="14dp"
+            android:textSize="17sp"
             android:layout_width="wrap_content"
             android:layout_marginTop="7dp"
             android:textColor="@color/black"
