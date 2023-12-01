@@ -27,6 +27,7 @@
             android:layout_height="48sp"
             android:minWidth="48sp"
             android:minHeight="48sp"
+            android:layout_marginRight="20dp"
             android:layout_toStartOf="@id/ButtonDeleteModule"
             android:background="@drawable/edit_24"
             android:contentDescription="@string/edit_module_button" />

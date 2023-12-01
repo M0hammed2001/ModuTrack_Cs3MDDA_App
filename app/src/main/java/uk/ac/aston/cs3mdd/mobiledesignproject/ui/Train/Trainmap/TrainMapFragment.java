@@ -3,6 +3,7 @@ package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.Trainmap;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,8 +23,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import java.util.List;
+
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentTrainmapBinding;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.Destination;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService;
 
 public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
@@ -92,11 +96,33 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
            NavHostFragment.findNavController(TrainMapFragment.this).navigate(R.id.action_nav_trainmap_to_nav_train);
            }
         });
-//    binding.DestinationText.setText(trainService.getDestination());
-    binding.TrainTimeText.setText(trainService.getStd());
-    binding.OperatorText.setText(trainService.getOperator());
-    binding.DelaysText.setText(trainService.getEtd());
-    binding.NRCmessageText.setText(trainService.getNrccMessages());
+
+        List<Destination> destinations = trainService.getDestination();
+
+        // Handle the case when data is not null and the CRS is "BHM"
+        String operator = trainService.getOperator();
+        String Delays = trainService.getEtd();
+        String TrainTime = trainService.getStd();
+        String nrccMessages = trainService.getNrccMessages();
+        String Destination = destinations.toString();
+        String EreaService = trainService.getAreServicesAvailable();
+
+        // Handle null values
+        Destination = (Destination != null) ? Destination : "No Destination";
+        operator = (operator != null) ? operator : "Not available";
+        TrainTime = (TrainTime != null) ? TrainTime : "TBC";
+        Delays = (Delays != null) ? Delays : "no delays";
+        nrccMessages = (nrccMessages != null) ? nrccMessages : "No ongoing issues";
+        EreaService = (EreaService != null) ? EreaService : "No ongoing issues";
+
+
+        binding.DestinationText.setText(Destination);
+        binding.TrainTimeText.setText(TrainTime);
+        binding.OperatorText.setText(operator);
+        binding.DelaysText.setText(Delays);
+        binding.NRCmessageText.setText(nrccMessages);
+//        binding.ServiceText.setText(EreaService);
+
 
     }
 

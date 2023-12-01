@@ -148,6 +148,31 @@
             android:layout_height="wrap_content"
             android:hint="NRC Message"/>
 
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/ServiceLabel"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Service: "-->
+<!--            android:textSize="17sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:layout_marginTop="7dp"-->
+<!--            android:layout_below="@id/NRCmessageLabel"-->
+<!--            android:textColor="@color/black"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/ServiceText"-->
+<!--            android:minWidth="48dp"-->
+<!--            android:textSize="17sp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_marginTop="7dp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_below="@id/NRCmessageText"-->
+<!--            android:layout_toRightOf="@id/NRCmessageLabel"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="NRC Message"/>-->
+
     </RelativeLayout>
 
 
