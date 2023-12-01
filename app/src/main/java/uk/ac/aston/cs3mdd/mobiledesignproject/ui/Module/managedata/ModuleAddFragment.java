@@ -61,11 +61,9 @@ public class ModuleAddFragment extends Fragment {
         buttonAddModule = view.findViewById(R.id.buttonAddModule);
 
         popupAssignmentDateEdit = view.findViewById(R.id.popupAssignmentDateEdit);
-//        popupAssignmentdueEdit = view.findViewById(R.id.popupAssignmentdueEdit);
         popupAssignmentNameEdit = view.findViewById(R.id.popupAssignmentNameEdit);
 
         popupExamDateEdit = view.findViewById(R.id.popupExamDateEdit);
-//        popupExamdueEdit = view.findViewById(R.id.popupExamdueEdit);
         popupExamNameEdit = view.findViewById(R.id.popupExamNameEdit);
 
         TutorialRoomEdit = view.findViewById(R.id.TutorialRoomEdit);
@@ -108,19 +106,16 @@ public class ModuleAddFragment extends Fragment {
                     String moduleCode = popupModuleCodeEdit.getText().toString();
 
                     String assignmentDate = popupAssignmentDateEdit.getText().toString();
-//                    String assignmentdue = popupAssignmentdueEdit.getText().toString();
                     String assignmentName = popupAssignmentNameEdit.getText().toString();
 
-                    String examdate = popupExamDateEdit.getText().toString();
-//                    String examdue = popupExamdueEdit.getText().toString();
-                    String examName = popupExamNameEdit.getText().toString();
+                    String ExamDate = popupExamDateEdit.getText().toString();
+                    String ExamName = popupExamNameEdit.getText().toString();
 
                     String tutorialRoom = TutorialRoomEdit.getText().toString();
                     String lectureRoom = LectureRoomEdit.getText().toString();
 
                     // Creates a Module object and save it to the database
-//                    Module moduleAdd = new Module(moduleName, moduleCode, assignmentName, assignmentdue, assignmentDate, examName, examdue, examdate, tutorialRoom, lectureRoom);
-                    Module moduleAdd = new Module(moduleName, moduleCode, assignmentName, assignmentDate, examName, examdate, tutorialRoom, lectureRoom);
+                    Module moduleAdd = new Module(moduleName, moduleCode, assignmentName, assignmentDate, ExamName, ExamDate, tutorialRoom, lectureRoom);
 
                     AddModuleInBackground(moduleAdd);
                 }

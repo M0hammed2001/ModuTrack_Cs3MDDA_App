@@ -30,12 +30,22 @@
 
         <!--        this is related to the Destination-->
         <TextView
+            android:id="@+id/MoreInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="the above map displays navigation between aston university and new street"
+            android:textSize="17sp"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"/>
+        <TextView
             android:id="@+id/DestinationLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Destination: "
             android:textSize="17sp"
             android:textStyle="bold"
+            android:layout_below="@id/MoreInformation"
             android:layout_marginTop="20dp"
             android:textColor="@color/black"/>
 
@@ -46,6 +56,8 @@
             android:layout_width="wrap_content"
             android:layout_marginTop="20dp"
             android:textColor="@color/black"
+            android:layout_below="@id/MoreInformation"
+
             android:layout_toRightOf="@id/DestinationLabel"
             android:layout_height="wrap_content"
             android:hint="Destination"/>
@@ -58,6 +70,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20sp"
             android:layout_toRightOf="@id/DestinationText"
+            android:layout_below="@id/MoreInformation"
             android:textColor="@color/black"/>
 
         <TextView
@@ -69,6 +82,8 @@
             android:textColor="@color/black"
             android:layout_toRightOf="@id/TrainTimeLabel"
             android:layout_height="wrap_content"
+            android:layout_below="@id/MoreInformation"
+
             android:hint="Time"/>
 
 
@@ -87,7 +102,7 @@
             android:minWidth="48dp"
             android:textSize="17sp"
             android:layout_width="wrap_content"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="2dp"
             android:textColor="@color/black"
             android:layout_below="@id/DestinationLabel"
             android:layout_toRightOf="@id/OperatorLabel"
@@ -146,6 +161,7 @@
             android:layout_below="@id/DelaysLabel"
             android:layout_toRightOf="@id/NRCmessageLabel"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:hint="NRC Message"/>
 
 

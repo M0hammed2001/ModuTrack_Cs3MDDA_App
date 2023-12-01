@@ -146,11 +146,9 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             ModuleCodeText = itemView.findViewById(R.id.ModuleCodeText);
 
             AssignmentDateText = itemView.findViewById(R.id.AssignmentDateText);
-//            AssignmentdueText = itemView.findViewById(R.id.AssignmentdueText);
             AssignmentNameText = itemView.findViewById(R.id.AssignmentNameText);
 
             ExamDateText = itemView.findViewById(R.id.ExamDateText);
-//            ExamdueText = itemView.findViewById(R.id.ExamdueText);
             ExamNameText = itemView.findViewById(R.id.ExamNameText);
 
             LectureRoomText = itemView.findViewById(R.id.LectureRoomText);
@@ -197,6 +195,10 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                     Log.i("MS", "Deleted");
                 }
             });
+
+
+
+
 
 
 
