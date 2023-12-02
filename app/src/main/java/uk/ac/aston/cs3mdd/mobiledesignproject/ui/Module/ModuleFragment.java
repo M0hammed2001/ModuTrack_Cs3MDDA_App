@@ -90,7 +90,7 @@ public class ModuleFragment extends Fragment {
 
         moduleViewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
-        getModuleListInBackground(moduleViewModel);
+//        getModuleListInBackground(moduleViewModel);
 
         return binding.getRoot();
     }
@@ -136,6 +136,7 @@ public class ModuleFragment extends Fragment {
 
         moduleViewModel.getAllModules().observe(getViewLifecycleOwner(), ModuleListObserver);
 
+        getModuleListInBackground(moduleViewModel);
 
     }
 

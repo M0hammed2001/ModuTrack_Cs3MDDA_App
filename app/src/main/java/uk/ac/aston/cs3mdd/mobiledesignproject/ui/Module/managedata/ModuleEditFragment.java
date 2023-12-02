@@ -22,6 +22,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.Update;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 
@@ -69,51 +70,55 @@ public class ModuleEditFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String moduleCode = module.getModuleCode();
-        String moduleName = module.getModuleName();
-
-        String AssignmentName = module.getAssignmentName();
-        String AssignmentDate = module.getAssignmentDate();
-
-        String ExamName = module.getExamName();
-        String ExamDate = module.getExamdate();
-
-        String lectureRoom = module.getLectureRoom();
-        String tutorialRoom = module.getTutorialRoom();
-
-        // Handle null values
-        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
-        moduleName = (moduleName != null) ? moduleName : "Module Name";
-
-//        ExamName = (ExamName != null) ? ExamName : "Exam Name";
-//        ExamDate = (ExamDate != null) ? ExamDate : "Exam Date";
+//        String moduleCode = module.getModuleCode();
+//        String moduleName = module.getModuleName();
 //
-//        AssignmentName = (AssignmentName != null) ? AssignmentName : "Assignment Name";
-//        AssignmentDate = (AssignmentDate != null) ? AssignmentDate : "Assignment Date";
+//        String AssignmentName = module.getAssignmentName();
+//        String AssignmentDate = module.getAssignmentDate();
+//
+//        String ExamName = module.getExamName();
+//        String ExamDate = module.getExamdate();
+//
+//        String lectureRoom = module.getLectureRoom();
+//        String tutorialRoom = module.getTutorialRoom();
+//
+//        // Handle null values
+//        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
+//        moduleName = (moduleName != null) ? moduleName : "Module Name";
+//
+////        ExamName = (ExamName != null) ? ExamName : "Exam Name";
+////        ExamDate = (ExamDate != null) ? ExamDate : "Exam Date";
+////
+////        AssignmentName = (AssignmentName != null) ? AssignmentName : "Assignment Name";
+////        AssignmentDate = (AssignmentDate != null) ? AssignmentDate : "Assignment Date";
+//
+//        lectureRoom = (lectureRoom != null) ? lectureRoom : "Room details Unavailable";
+//        tutorialRoom = (tutorialRoom != null) ? tutorialRoom : "Room details Unavailable";
+//
+//
+//        String ModuleCodeText = moduleCode;
+//        String ModuleNameText = moduleName;
+//
+//        String AssignmentDateText =AssignmentDate;
+//        String AssignmentNameText = AssignmentName;
+//
+//        String ExamDateText =ExamDate;
+//        String ExamNameText = ExamName;
+//
+//        String LectureRoomText =lectureRoom;
+//        String TutorialRoomText = tutorialRoom;
 
-        lectureRoom = (lectureRoom != null) ? lectureRoom : "Room details Unavailable";
-        tutorialRoom = (tutorialRoom != null) ? tutorialRoom : "Room details Unavailable";
 
 
-        String ModuleCodeText = moduleCode;
-        String ModuleNameText = moduleName;
-
-        String AssignmentDateText =AssignmentDate;
-        String AssignmentNameText = AssignmentName;
-
-        String ExamDateText =ExamDate;
-        String ExamNameText = ExamName;
-
-        String LectureRoomText =lectureRoom;
-        String TutorialRoomText = tutorialRoom;
+        // Initialize module properly from arguments or other sources
+        module = ModuleEditFragmentArgs.fromBundle(getArguments()).getCurrentModules();
+        if (module == null) {
+            // Handle the case where module is null
+            return;
+        }
 
 
-        binding.ButttonEditBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(ModuleEditFragment.this).navigate(R.id.action_module_to_moduleEdit);
-            }
-        });
+
         binding.ButttonEditBack.setText(module.toString());
     }
 
@@ -185,33 +190,27 @@ public class ModuleEditFragment extends Fragment {
             }
         };
         moduleViewModel.getAllModules().observe(getViewLifecycleOwner(), moduleObserver);
-        buttonChangeModule.setOnClickListener(new View.OnClickListener() {
+        binding.buttonChangeModule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String moduleName = popupModuleEditName.getText().toString();
-//                String moduleCode = popupModuleEditCode.getText().toString();
-//
-//                String assignmentDate = popupAssignmentEditDate.getText().toString();
-//                String assignmentdue = popupAssignmentEditdue.getText().toString();
-//                String assignmentName = popupAssignmentEditName.getText().toString();
-//
-//                String examdate = popupExamEditDate.getText().toString();
-//                String examdue = popupExamEditdue.getText().toString();
-//                String examName = popupExamEditName.getText().toString();
 
-                // You can use ModuleName and ModuleCode as needed
 
+//                Module moduleUpdate = new Module(module.getModuleName(), module.getModuleCode(), module.getAssignmentName(), module.getAssignmentDate(), module.getExamdate(), module.getExamName(), module.getLectureRoom(), module.getTutorialRoom());
                 editModuleInBackground(module);
+
+                Log.i("MS","changing the module");
+
 
 
             }
         });
 
-        buttonChangeModule.setOnClickListener(new View.OnClickListener() {
+        binding.ButttonEditBack.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                NavHostFragment.findNavController(ModuleEditFragment.this).navigate(R.id.action_module_to_moduleEdit);
 
-
+                Log.i("MS","Canceling Edit");
             }
         });
 
@@ -227,7 +226,8 @@ public class ModuleEditFragment extends Fragment {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                //background task
+                if(moduleDB != null) {
+                    //background task
                 moduleDB.getModuleDAO().updateModule(module);
                 //on finish task
                 handler.post(new Runnable() {
@@ -235,9 +235,11 @@ public class ModuleEditFragment extends Fragment {
                     public void run() {
                         Toast.makeText(getContext(), "Module amended", Toast.LENGTH_SHORT).show();
 
-
                     }
                 });
+                }else {
+                    Log.i( "ms","empty");
+                }
             }
         });
     }

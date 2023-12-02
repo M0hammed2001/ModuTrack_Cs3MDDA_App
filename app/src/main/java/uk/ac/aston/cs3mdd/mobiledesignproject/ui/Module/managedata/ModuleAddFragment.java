@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -40,7 +41,7 @@ public class ModuleAddFragment extends Fragment {
 
     EditText popupModuleNameEdit, popupModuleCodeEdit, popupAssignmentDateEdit,  popupAssignmentNameEdit, popupExamDateEdit, popupExamNameEdit, TutorialRoomEdit, LectureRoomEdit;
 
-    Button buttonAddModule;
+    Button buttonAddModule, buttonChangeModule, ButttonEditBack;
 
     private ModuleListAdapter moduleAdapter;
 
@@ -120,6 +121,7 @@ public class ModuleAddFragment extends Fragment {
                     AddModuleInBackground(moduleAdd);
                 }
             });
+
 
         return view;
     }

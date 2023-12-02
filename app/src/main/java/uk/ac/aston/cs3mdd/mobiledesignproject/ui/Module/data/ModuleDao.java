@@ -29,6 +29,10 @@ public interface ModuleDao {
         abstract void deleteBymoduleId(long Module_id);
 
 
+        @Query("DELETE FROM modules WHERE Module_id = :Module_id")
+        abstract void updateByModuleId(long Module_id);
+
+
         @Insert
         void InsertAll(Module Module);
 

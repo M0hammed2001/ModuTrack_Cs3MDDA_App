@@ -15,9 +15,9 @@
 
 
         <Button
-            android:id="@+id/ButttonEditBack"
-            android:layout_width="48sp"
-            android:layout_height="48sp"
+            android:id="@+id/buttonChangeModule"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="5sp"
@@ -26,12 +26,12 @@
             android:contentDescription="@string/delete_module_button" />
 
         <Button
-            android:id="@+id/buttonChangeModule"
-            android:layout_width="48sp"
-            android:layout_height="48sp"
-            android:layout_toLeftOf="@id/ButttonEditBack"
+            android:id="@+id/ButttonEditBack"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_toLeftOf="@id/buttonChangeModule"
             android:layout_marginTop="5sp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="15sp"
             android:background="@drawable/cancel_24"
             android:contentDescription="@string/delete_module_button" />
 
