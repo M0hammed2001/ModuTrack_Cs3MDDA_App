@@ -142,6 +142,18 @@ public class ModuleEditFragment extends Fragment {
         LectureEditRoom = view.findViewById(R.id.LectureEditRoom);
         TutorialEditRoom = view.findViewById(R.id.TutorialEditRoom);
 
+        popupModuleEditName.setText(module.getModuleName());
+        popupModuleEditCode.setText(module.getModuleCode());
+
+        popupAssignmentEditDate.setText(module.getAssignmentDate());
+        popupAssignmentEditName.setText(module.getAssignmentName());
+
+        popupExamEditDate.setText(module.getExamdate());
+        popupExamEditName.setText(module.getExamName());
+
+        LectureEditRoom.setText(module.getLectureRoom());
+        TutorialEditRoom.setText(module.getTutorialRoom());
+
 
 
 
