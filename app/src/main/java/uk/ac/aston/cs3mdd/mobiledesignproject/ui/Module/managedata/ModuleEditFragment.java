@@ -57,7 +57,7 @@ public class ModuleEditFragment extends Fragment {
     EditText LectureEditRoom;
     EditText TutorialEditRoom;
 
-    Button buttonChangeModule, ButttonEditBack;
+    Button buttonChangeModule, ButttonEditCancel;
 
     ModuleDatabase moduleDB;
     List<Module> moduleList;
@@ -119,7 +119,7 @@ public class ModuleEditFragment extends Fragment {
 
 
 
-        binding.ButttonEditBack.setText(module.toString());
+        binding.ButttonEditCancel.setText(module.toString());
     }
 
     @Override
@@ -136,7 +136,7 @@ public class ModuleEditFragment extends Fragment {
         popupModuleEditCode = view.findViewById(R.id.popupModuleEditCode);
 
         buttonChangeModule = view.findViewById(R.id.buttonChangeModule);
-        ButttonEditBack = view.findViewById(R.id.ButttonEditBack);
+        ButttonEditCancel = view.findViewById(R.id.ButttonEditCancel);
 
         popupAssignmentEditDate = view.findViewById(R.id.popupAssignmentEditDate);
         popupAssignmentEditName = view.findViewById(R.id.popupAssignmentEditName);
@@ -190,25 +190,28 @@ public class ModuleEditFragment extends Fragment {
             }
         };
         moduleViewModel.getAllModules().observe(getViewLifecycleOwner(), moduleObserver);
-        binding.buttonChangeModule.setOnClickListener(new View.OnClickListener() {
+        buttonChangeModule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
 //                Module moduleUpdate = new Module(module.getModuleName(), module.getModuleCode(), module.getAssignmentName(), module.getAssignmentDate(), module.getExamdate(), module.getExamName(), module.getLectureRoom(), module.getTutorialRoom());
-                editModuleInBackground(module);
+                EditModuleInBackground(module);
 
                 Log.i("MS","changing the module");
+                // after it edited the module it will send you back to the main Screen
+                NavHostFragment.findNavController(ModuleEditFragment.this).navigate(R.id.action_nav_moduleEdit_to_nav_module);
+
 
 
 
             }
         });
 
-        binding.ButttonEditBack.setOnClickListener(new View.OnClickListener() {
+        ButttonEditCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(ModuleEditFragment.this).navigate(R.id.action_module_to_moduleEdit);
+                NavHostFragment.findNavController(ModuleEditFragment.this).navigate(R.id.action_nav_moduleEdit_to_nav_module);
 
                 Log.i("MS","Canceling Edit");
             }
@@ -217,7 +220,7 @@ public class ModuleEditFragment extends Fragment {
         return view;
 
     }
-    public void editModuleInBackground(Module module){
+    public void EditModuleInBackground(Module module){
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
@@ -236,7 +239,7 @@ public class ModuleEditFragment extends Fragment {
                         Toast.makeText(getContext(), "Module amended", Toast.LENGTH_SHORT).show();
 
                     }
-                });
+                 });
                 }else {
                     Log.i( "ms","empty");
                 }

@@ -119,6 +119,9 @@ public class ModuleAddFragment extends Fragment {
                     Module moduleAdd = new Module(moduleName, moduleCode, assignmentName, assignmentDate, ExamName, ExamDate, tutorialRoom, lectureRoom);
 
                     AddModuleInBackground(moduleAdd);
+
+                    NavHostFragment.findNavController(ModuleAddFragment.this).navigate(R.id.action_moduleadd_to_module);
+
                 }
             });
 

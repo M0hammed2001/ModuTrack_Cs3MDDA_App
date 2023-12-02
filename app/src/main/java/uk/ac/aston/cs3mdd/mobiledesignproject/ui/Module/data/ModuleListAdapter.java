@@ -203,17 +203,17 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                     // Background task
                     moduleDB.getModuleDAO().deleteModule(module);
 
-                    // On finish task
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(ButtonDeleteModule.getContext(), "Deleted From DataBase", Toast.LENGTH_LONG).show();
-                        }
-                    });
-                } else {
-                    // Log an error or handle the situation where moduleDB is null
-                    Log.e("DeleteModuleInBackground", "ModuleDatabase is null");
-                }
+                        // On finish task
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(ButtonDeleteModule.getContext(), "Deleted From DataBase", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        } else {
+                        // Log an error or handle the situation where moduleDB is null
+                        Log.e("DeleteModuleInBackground", "ModuleDatabase is null");
+                    }
                 }
             });
 
