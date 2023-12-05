@@ -118,7 +118,11 @@ public class ModuleFragment extends Fragment {
             public void onChanged(@Nullable final List<Module> ModuleList) {
                 // Update your adapter with the filtered list
                 moduleAdapter.updateData(ModuleList);
-//                Log.i("MS", "Modules:" + moduleList.size());
+                if (ModuleList != null) {
+                    Log.i("MS", "Modules: " + ModuleList.size());
+                } else {
+                    Log.i("MS", "Modules: 0");
+                }
             }
         };
 
@@ -150,13 +154,13 @@ public class ModuleFragment extends Fragment {
             @Override
             public void run() {
                 //background task
+                if(moduleList == null) {
+                    moduleList = moduleDB.getModuleDAO().getAllModules();
 
-                moduleList = moduleDB.getModuleDAO().getAllModules();
-
-                //on finish task
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
+                    //on finish task
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
 
 //                        StringBuilder sb = new StringBuilder();
 //                        for(Module m : moduleList){
@@ -169,14 +173,17 @@ public class ModuleFragment extends Fragment {
 //                        Toast.makeText(getContext(), "" + finaldata, Toast.LENGTH_LONG).show();
 
 
-                        model.updateModule(moduleList);
+                            model.updateModule(moduleList);
 ////                         Create the text with line breaks
 
 //                        Toast.makeText("ms", "Number of Modules" + moduleList.size());
 
 
-                    }
-                });
+                        }
+                    });
+                }else{
+                    Log.i("Error", "Module List already displaying");
+                }
             }
         });
     }

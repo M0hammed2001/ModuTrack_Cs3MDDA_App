@@ -74,8 +74,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         String tutorialRoom = module.getTutorialRoom();
 
         // Handle null values
-        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
-        moduleName = (moduleName != null) ? moduleName : "Module Name";
+//        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
+//        moduleName = (moduleName != null) ? moduleName : "Module Name";
 
 
 //        ExamName = (ExamName != null) ? ExamName : "Exam Name";
@@ -88,37 +88,18 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         tutorialRoom = (tutorialRoom != null) ? tutorialRoom : "Room details Unavailable";
 
 
-//
-        String ModuleCodeText = moduleCode;
-        String ModuleNameText = moduleName;
+        holder.ModuleNameText.setText(Html.fromHtml(moduleName));
+        holder.ModuleCodeText.setText(Html.fromHtml(moduleCode));
 
+        holder.AssignmentDateText.setText(Html.fromHtml(AssignmentDate));
+        holder.AssignmentNameText.setText(Html.fromHtml(AssignmentName));
 
+        holder.ExamDateText.setText(Html.fromHtml(ExamDate));
+        holder.ExamNameText.setText(Html.fromHtml(ExamName));
 
-       String AssignmentDateText =AssignmentDate;
-       String AssignmentNameText = AssignmentName;
+        holder.LectureRoomText.setText(Html.fromHtml(lectureRoom));
+        holder.TutorialRoomText.setText(Html.fromHtml(tutorialRoom));
 
-       String ExamDateText =ExamDate;
-       String ExamNameText = ExamName;
-
-        String LectureRoomText =lectureRoom;
-        String TutorialRoomText = tutorialRoom;
-
-
-        holder.ModuleNameText.setText(Html.fromHtml(ModuleNameText));
-        holder.ModuleCodeText.setText(Html.fromHtml(ModuleCodeText));
-
-        holder.AssignmentDateText.setText(Html.fromHtml(AssignmentDateText));
-        holder.AssignmentNameText.setText(Html.fromHtml(AssignmentNameText));
-
-        holder.ExamDateText.setText(Html.fromHtml(ExamDateText));
-        holder.ExamNameText.setText(Html.fromHtml(ExamNameText));
-
-        holder.LectureRoomText.setText(Html.fromHtml(LectureRoomText));
-        holder.TutorialRoomText.setText(Html.fromHtml(TutorialRoomText));
-
-
-
-        holder.ModuleNameText.setText(Html.fromHtml(ModuleNameText));
 
     }
 
