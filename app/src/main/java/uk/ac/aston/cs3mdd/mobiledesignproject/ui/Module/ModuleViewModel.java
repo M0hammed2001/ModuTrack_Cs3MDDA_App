@@ -26,17 +26,4 @@ public class ModuleViewModel extends ViewModel {
         this.AllModules.setValue(this.AllModules.getValue());
     }
 
-//    public void deleteModule(List<Module> modules) {
-//        this.AllModules.getValue().remove(modules);
-//        this.AllModules.setValue(this.AllModules.getValue());
-//    }
-
-
-
-
-
-
-
-
-
 }

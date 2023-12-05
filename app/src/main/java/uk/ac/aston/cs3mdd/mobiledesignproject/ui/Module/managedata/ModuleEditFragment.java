@@ -231,7 +231,7 @@ public class ModuleEditFragment extends Fragment {
             public void run() {
                 if(moduleDB != null) {
                     //background task
-                moduleDB.getModuleDAO().updateModule(module);
+//                moduleDB.getModuleDAO().updateModule(module);
                 //on finish task
                 handler.post(new Runnable() {
                     @Override

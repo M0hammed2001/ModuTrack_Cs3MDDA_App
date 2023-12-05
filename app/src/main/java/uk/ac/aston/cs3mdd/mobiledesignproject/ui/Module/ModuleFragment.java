@@ -28,7 +28,9 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 //import java.util.ArrayList;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -41,6 +43,8 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleListAdapter;
 
 
 public class ModuleFragment extends Fragment {
+
+    private ModuleFragment moduleFragment;
 
     ModuleDatabase moduleDB;
     List<Module> moduleList;
@@ -90,7 +94,6 @@ public class ModuleFragment extends Fragment {
 
         moduleViewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
-//        getModuleListInBackground(moduleViewModel);
 
         return binding.getRoot();
     }
@@ -100,8 +103,6 @@ public class ModuleFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //Get a handle to the RecyclerView.
-
-
         ModuleRecyclerView = view.findViewById(R.id.MFRecyclerView);
         // Create an adapter and supply the data to be displayed.
         moduleAdapter = new ModuleListAdapter(getContext(), viewModel.getAllModules().getValue());
@@ -111,7 +112,6 @@ public class ModuleFragment extends Fragment {
         ModuleRecyclerView.setAdapter(moduleAdapter);
         // Give the RecyclerView a default layout manager.
         ModuleRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
 
         final Observer<List<Module>> ModuleListObserver = new Observer<List<Module>>() {
             @Override
@@ -134,46 +134,81 @@ public class ModuleFragment extends Fragment {
             }
         });
 
-
-
-
-
         moduleViewModel.getAllModules().observe(getViewLifecycleOwner(), ModuleListObserver);
-
         getModuleListInBackground(moduleViewModel);
 
     }
 
     public void getModuleListInBackground(ModuleViewModel model) {
-
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-
         Handler handler = new Handler(Looper.getMainLooper());
 
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                //background task
-                if(moduleList == null) {
+                // background task
+                if (moduleList == null) {
+                    // this is the background task
                     moduleList = moduleDB.getModuleDAO().getAllModules();
 
-                    //on finish task
+                    // remove duplicates based on some identifier (e.g., module ID)
+                    Set<String> displayedModuleIds = new HashSet<>();
+                    List<Module> filteredModules = new ArrayList<>();
+
+                    for (Module module : moduleList) {
+                        if (!displayedModuleIds.contains(module.getId())) {
+                            // module not yet displayed
+                            filteredModules.add(module);
+                            displayedModuleIds.add(String.valueOf(module.getId()));
+                        }
+                    }
+
+                    moduleList = filteredModules;
+
+                    // on finish task
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-
                             model.updateModule(moduleList);
                             // Create the text with line breaks
                             Toast.makeText(getContext(), "My Modules: " + moduleList.size(), Toast.LENGTH_LONG).show();
                         }
                     });
-                }else{
+                } else {
                     Log.i("MS", "Module List already displaying");
                 }
             }
         });
     }
 
-
-
+//    public void getModuleListInBackground(ModuleViewModel model) {
+//
+//        ExecutorService executorService = Executors.newSingleThreadExecutor();
+//
+//        Handler handler = new Handler(Looper.getMainLooper());
+//
+//        executorService.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//                //background task
+//                if(moduleList == null) {
+//                    //this is the background Task
+//                    moduleList = moduleDB.getModuleDAO().getAllModules();
+//
+//                    //on finish task
+//                    handler.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//
+//                            model.updateModule(moduleList);
+//                            // Create the text with line breaks
+//                            Toast.makeText(getContext(), "My Modules: " + moduleList.size(), Toast.LENGTH_LONG).show();
+//                        }
+//                    });
+//                }else{
+//                    Log.i("MS", "Module List already displaying");
+//                }
+//            }
+//        });
+//    }
 }

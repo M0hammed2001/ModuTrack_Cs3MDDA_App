@@ -165,6 +165,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                     //used the delete method i created to delete the specified module from the database
                     DeleteModuleInBackground(modules);
 
+
                     Log.i("MS", "Deleted");
                 }
             });
@@ -199,34 +200,6 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             });
 
         }
-
-
-//        public void UpdateModuleInBackground(Module module) {
-//            ExecutorService executorService = Executors.newSingleThreadExecutor();
-//            Handler handler = new Handler(Looper.getMainLooper());
-//
-//            executorService.execute(new Runnable() {
-//                @Override
-//                public void run() {
-//                    // Check if moduleDB is not null before accessing getModuleDAO()
-//                    if (moduleDB != null) {
-//                        // Background task
-//                        moduleDB.getModuleDAO().updateModule(module);
-//
-//                        // On finish task
-//                        handler.post(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                Toast.makeText(ButtonEdit.getContext(), "updated In DataBase", Toast.LENGTH_LONG).show();
-//                            }
-//                        });
-//                    } else {
-//                        // Log an error or handle the situation where moduleDB is null
-//                        Log.e("UpdateModuleInBackground", "ModuleDatabase is null");
-//                    }
-//                }
-//            });
-//        }
 
 
         @Override
