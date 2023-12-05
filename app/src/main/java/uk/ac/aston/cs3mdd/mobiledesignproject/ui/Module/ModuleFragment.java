@@ -162,27 +162,13 @@ public class ModuleFragment extends Fragment {
                         @Override
                         public void run() {
 
-//                        StringBuilder sb = new StringBuilder();
-//                        for(Module m : moduleList){
-//
-//                            sb.append(m.getModuleCode()+" : "+m.getModuleName());
-//                            sb.append(m.getExamName()+" : "+m.getExamdue()+" : "+m.getExamdate());
-//                            sb.append("\n");
-//                        }
-//                        String finaldata = sb.toString();
-//                        Toast.makeText(getContext(), "" + finaldata, Toast.LENGTH_LONG).show();
-
-
                             model.updateModule(moduleList);
-////                         Create the text with line breaks
-
-//                        Toast.makeText("ms", "Number of Modules" + moduleList.size());
-
-
+                            // Create the text with line breaks
+                            Toast.makeText(getContext(), "My Modules: " + moduleList.size(), Toast.LENGTH_LONG).show();
                         }
                     });
                 }else{
-                    Log.i("Error", "Module List already displaying");
+                    Log.i("MS", "Module List already displaying");
                 }
             }
         });
