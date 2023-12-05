@@ -126,6 +126,7 @@ public class ModuleFragment extends Fragment {
             }
         };
 
+
         binding.addDatabutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

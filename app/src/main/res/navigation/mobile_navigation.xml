@@ -90,6 +90,12 @@
         android:label="SettingsFragment"
         tools:layout="layout/fragment_settings"/>
 
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.MainActivity"
+        android:label="app_bar_main"
+        tools:layout="@layout/app_bar_main" />
+
     <!--    <fragment-->
 <!--        android:id="@+id/nav_testmodule"-->
 <!--        android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.TestModule.TestModuleFragment"-->
