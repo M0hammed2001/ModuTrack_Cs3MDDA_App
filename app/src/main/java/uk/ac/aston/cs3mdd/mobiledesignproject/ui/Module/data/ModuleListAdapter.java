@@ -18,7 +18,10 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -185,11 +188,13 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                     // Background task
                     moduleDB.getModuleDAO().deleteModule(module);
 
+
                         // On finish task
                             handler.post(new Runnable() {
                                 @Override
                                 public void run() {
                                     Toast.makeText(ButtonDeleteModule.getContext(), "Deleted From DataBase", Toast.LENGTH_LONG).show();
+
                                 }
                             });
                         } else {
@@ -199,6 +204,56 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                 }
             });
 
+        }
+
+        public void getModuleListInBackground(ModuleViewModel model) {
+            ExecutorService executorService = Executors.newSingleThreadExecutor();
+            Handler handler = new Handler(Looper.getMainLooper());
+
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    // background task
+                    if (mModuleList == null) {
+                        // this is the background task
+                        mModuleList = moduleDB.getModuleDAO().getAllModules();
+
+                        // remove duplicates based on some identifier (e.g., module ID)
+                        Set<String> displayedModuleIds = new HashSet<>();
+                        List<Module> filteredModules = new ArrayList<>();
+
+                        for (Module module : mModuleList) {
+                            if (!displayedModuleIds.contains(module.getId())) {
+                                // module not yet displayed
+                                filteredModules.add(module);
+                                displayedModuleIds.add(String.valueOf(module.getId()));
+                            }
+                        }
+
+                        mModuleList = filteredModules;
+
+                        // on finish task
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                model.updateModule(mModuleList);
+                                // Create the text with line breaks
+                                if(ButtonDeleteModule.callOnClick()){
+                                    Toast.makeText(ButtonDeleteModule.getContext(), "My Modules: " + mModuleList.size(), Toast.LENGTH_LONG).show();
+
+                                } else if (ButtonDeleteModule.callOnClick()) {
+                                    Toast.makeText(ButtonDeleteModule.getContext(), "My Modules: " + mModuleList.size(), Toast.LENGTH_LONG).show();
+
+                                }else{
+                                    Log.i("MS", "no button clicked");
+                                }
+                            }
+                        });
+                    } else {
+                        Log.i("MS", "Module List already displaying");
+                    }
+                }
+            });
         }
 
 

@@ -24,8 +24,6 @@
             android:label="@string/menu_map"
             tools:layout="@layout/fragment_map" />
 
-
-
     <fragment
             android:id="@+id/nav_trainmap"
             android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.Trainmap.TrainMapFragment"
@@ -51,10 +49,6 @@
 
     </fragment>
 
-
-
-
-
     <fragment
             android:id="@+id/nav_module"
             android:name="uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment"
@@ -66,7 +60,6 @@
         <action
             android:id="@+id/action_module_to_moduleEdit"
             app:destination="@id/nav_moduleEdit" />
-
     </fragment>
 
     <fragment

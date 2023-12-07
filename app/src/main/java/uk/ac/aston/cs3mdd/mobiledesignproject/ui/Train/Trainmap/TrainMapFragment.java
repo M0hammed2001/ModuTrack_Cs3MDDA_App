@@ -53,6 +53,8 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
 
         mMap.addMarker(new MarkerOptions().position(astonUniversity).title("Aston University"));
 
+
+
         // Create a line between Birmingham New Street and Aston University for quick judgement
         PolylineOptions polylineOptions = new PolylineOptions()
                 .add(birminghamNewStreet, astonUniversity)
