@@ -16,10 +16,12 @@
 
 
 <!--    aston map buttons-->
-    <string name="AstonMBMain">Main Build - Entrance</string>
+    <string name="AstonMBMain">Main Entrance</string>
     <string name="AstonMBOOH">Main Build - OOH</string>
     <string name="AstonLibrary">Aston Library</string>
     <string name="AstonSU">Student union</string>
+    <string name="ResetMarkers">Reset Markers</string>
+
 
 
 

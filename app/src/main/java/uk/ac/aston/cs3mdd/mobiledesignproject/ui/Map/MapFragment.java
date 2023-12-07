@@ -35,7 +35,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     private FragmentMapBinding binding;
 
-    Button MainentranceMB, button_AstonMBOOH, button_AstonLibrary, button_AstonSU;
+    Button MainentranceMB, button_AstonMBOOH, button_AstonLibrary, button_AstonSU, AddBackAllMarkers;
 
     private TrainService trainService;
 
@@ -63,6 +63,34 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
+    private void addMarkers() {
+
+        mMap.addMarker(new MarkerOptions().position(AstonLibrary).title("Aston Library 'L' "));
+        mMap.addMarker(new MarkerOptions().position(astonSU).title("Aston Student Union"));
+        mMap.addMarker(new MarkerOptions().position(MainBuildingMain).title("Aston Main Building 'MB' Main Entrance "));
+        mMap.addMarker(new MarkerOptions().position(MainBuildingOOH).title("Aston Main Building 'MB' OOH Entrance "));
+        mMap.addMarker(new MarkerOptions().position(astonMosque).title("Aston Mosque"));
+
+
+//             mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco").icon(BitmapDescriptorFactory.fromAsset("tesco_logo")));
+        mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        mMap.addMarker(new MarkerOptions().position(Greggs).title("Greggs").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        mMap.addMarker(new MarkerOptions().position(WokAndGo).title("Wok and Go").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+
+
+        //shops
+        builder.include(Tesco);
+        builder.include(Greggs);
+        builder.include(WokAndGo);
+        //uni
+        builder.include(AstonLibrary);
+        builder.include(astonSU);
+        builder.include(MainBuildingMain);
+        builder.include(MainBuildingOOH);
+        builder.include(astonMosque);
+
+    }
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -81,6 +109,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         button_AstonMBOOH = view.findViewById(R.id.button_AstonMBOOH);
         button_AstonLibrary = view.findViewById(R.id.button_AstonLibrary);
         button_AstonSU = view.findViewById(R.id.button_AstonSU);
+        AddBackAllMarkers = view.findViewById(R.id.AddBackAllMarkers);
+
+        AddBackAllMarkers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //clears all the markers off the map
+                addMarkers();
+                Log.i("MAP", "all Markers added back");
+            }
+        });
 
         button_AstonLibrary.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,6 +180,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
             mMap.addMarker(new MarkerOptions().position(Greggs).title("Greggs").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
             mMap.addMarker(new MarkerOptions().position(WokAndGo).title("Wok and Go").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+
 
             //shops
             builder.include(Tesco);

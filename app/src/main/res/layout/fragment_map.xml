@@ -24,7 +24,7 @@
 
     </FrameLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="3"
@@ -41,19 +41,34 @@
             android:id="@+id/button_AstonMBOOH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/AstonMBOOH" />
+            android:text="@string/AstonMBOOH"
+            android:drawableLeft="@drawable/ooh_24"
+            android:layout_toRightOf="@+id/button_AstonMBMain"/>
         <Button
             android:id="@+id/button_AstonLibrary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/AstonLibrary" />
+            android:text="@string/AstonLibrary"
+            android:layout_below="@+id/button_AstonMBMain"/>
 
         <Button
             android:id="@+id/button_AstonSU"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/AstonSU" />
-    </LinearLayout>
+            android:text="@string/AstonSU"
+            android:layout_below="@+id/button_AstonMBOOH"
+            android:layout_toRightOf="@+id/button_AstonLibrary"
+            android:layout_marginLeft="2sp"/>
+
+        <Button
+            android:id="@+id/AddBackAllMarkers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ResetMarkers"
+            android:drawableLeft="@drawable/cancel_24"
+            android:layout_below="@+id/button_AstonSU"
+            android:layout_marginLeft="2sp"/>
+    </RelativeLayout>
 
 
 </LinearLayout>
