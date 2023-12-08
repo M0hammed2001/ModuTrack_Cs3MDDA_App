@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +28,7 @@ import java.util.concurrent.Executors;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragmentDirections;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleViewModel;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata.ModuleEditFragment;
@@ -41,6 +43,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
     private List<Module> mModuleList;
     private final LayoutInflater mInflater;
+
+
 
 
     public ModuleListAdapter(Context context, List<Module> ModuleList) {
@@ -117,13 +121,12 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
     class ModuleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView  ModuleNameText, ModuleCodeText, AssignmentDateText, AssignmentNameText, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
 
-//        EditText FilterModule;
+        EditText FilterModule;
 
         final ModuleListAdapter mAdapter;
         public Module modules;
-//        public final Button ButtonDeleteModule, ButtonEdit, FilterModuleConfirm;
+        public final Button FilterModuleConfirm;
         public final Button ButtonDeleteModule, ButtonEdit;
-
 
 
         public ModuleViewHolder(@NonNull View itemView, ModuleListAdapter adapter) {
@@ -144,9 +147,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             ButtonDeleteModule = itemView.findViewById(R.id.ButtonDeleteModule);
             ButtonEdit = itemView.findViewById(R.id.ButtonEdit);
 
-//            FilterModule = itemView.findViewById(R.id.FilterModule);
-//            FilterModuleConfirm = itemView.findViewById(R.id.FilterModuleConfirm);
-
+            FilterModule = itemView.findViewById(R.id.FilterModule);
+            FilterModuleConfirm = itemView.findViewById(R.id.FilterModuleConfirm);
 
             this.mAdapter = adapter;
 
@@ -158,8 +160,6 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                     //Calling all fields
                     ModuleFragmentDirections.ActionModuleToModuleEdit action = ModuleFragmentDirections.actionModuleToModuleEdit(modules);
                     Navigation.findNavController(view).navigate(action);
-
-
 
                     Log.i("MS", "Module Clicked");
 //                    UpdateModuleInBackground(modules);
@@ -178,17 +178,17 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                 }
             });
 
-//            FilterModuleConfirm.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
+            FilterModuleConfirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
 //                    if(FilterModuleConfirm.isPressed()){
 //
 //                    }else{
 //
 //                    }
-//                }
-//            });
+                }
+            });
 
 
 

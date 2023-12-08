@@ -56,6 +56,7 @@ public class ModuleFragment extends Fragment {
 
     private RecyclerView ModuleRecyclerView;
 
+
     private ModuleViewModel viewModel;
 
     private ModuleListAdapter moduleAdapter;
