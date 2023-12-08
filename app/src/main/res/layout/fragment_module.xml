@@ -13,20 +13,25 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="add Data"
-            android:layout_toRightOf="@+id/FilterModule"/>
+            android:layout_below="@+id/FilterModule"/>
 
-        <Button
+        <EditText
             android:id="@+id/FilterModule"
-            android:layout_width="wrap_content"
+            android:minHeight="48sp"
+            android:minWidth="48sp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="20sp"
-            android:text="Filter Module" />
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:hint="Looking for something?" />
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/MFRecyclerView"
-            android:layout_below="@+id/FilterModule"
+            android:layout_below="@+id/addDatabutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
