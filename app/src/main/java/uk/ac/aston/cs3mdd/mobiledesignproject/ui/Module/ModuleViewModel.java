@@ -22,7 +22,14 @@ public class ModuleViewModel extends ViewModel {
     public LiveData<List<Module>> getAllModules() {return AllModules;}
 
     public void updateModule(List<Module> modules) {
+        this.AllModules.getValue().clear();
         this.AllModules.getValue().addAll(modules);
+        this.AllModules.setValue(this.AllModules.getValue());
+    }
+
+    public void editModule(List<Module> modules) {
+        this.AllModules.getValue().clear();
+        this.AllModules.getValue().replaceAll(module -> module);
         this.AllModules.setValue(this.AllModules.getValue());
     }
 
