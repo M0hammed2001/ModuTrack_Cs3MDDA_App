@@ -19,14 +19,21 @@
             android:id="@+id/FilterModule"
             android:minHeight="48sp"
             android:minWidth="48sp"
-            android:layout_width="match_parent"
+            android:layout_width="300sp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:background="@color/white"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:drawableRight="@drawable/search_24"
             android:hint="Looking for something?" />
+        <Button
+            android:id="@+id/FilterModuleConfirm"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="0sp"
+            android:minHeight="50sp"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/search_24"
+            android:layout_toEndOf="@+id/FilterModule"/>
 
 
         <androidx.recyclerview.widget.RecyclerView
