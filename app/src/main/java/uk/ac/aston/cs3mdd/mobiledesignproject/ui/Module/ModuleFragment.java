@@ -148,8 +148,7 @@ public class ModuleFragment extends Fragment {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                int size = moduleDB.getModuleDAO().getAllModules().size();
-//                int moduleListSize = moduleList.size();
+                int ModuleSize = moduleDB.getModuleDAO().getAllModules().size();
 
                 // background task
                     moduleList = moduleDB.getModuleDAO().getAllModules();
@@ -160,8 +159,8 @@ public class ModuleFragment extends Fragment {
                         public void run() {
                             model.updateModule(moduleList);
                             // Create the text with line breaks
-//                            Toast.makeText(getContext(), "My Modules: " + moduleListSize, Toast.LENGTH_LONG).show();
-//                            Log.i("MS", + size + " :Modules DOA " + moduleListSize + " :moduleLis");
+                            Toast.makeText(getContext(), "My Modules: " + ModuleSize, Toast.LENGTH_LONG).show();
+
                         }
                     });
             }
