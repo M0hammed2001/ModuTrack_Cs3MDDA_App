@@ -102,8 +102,6 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
         holder.LectureRoomText.setText(Html.fromHtml(lectureRoom));
         holder.TutorialRoomText.setText(Html.fromHtml(tutorialRoom));
-
-
     }
 
     @Override
