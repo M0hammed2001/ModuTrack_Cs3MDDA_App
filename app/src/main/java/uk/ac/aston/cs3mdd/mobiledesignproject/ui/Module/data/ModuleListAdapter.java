@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,12 +45,12 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
     private List<Module> mModuleList;
     private final LayoutInflater mInflater;
 
+    private OnDeleteClickListener listener;
 
-
-
-    public ModuleListAdapter(Context context, List<Module> ModuleList) {
+    public ModuleListAdapter(Context context, List<Module> ModuleList, OnDeleteClickListener listener) {
         mInflater = LayoutInflater.from(context);
         this.mModuleList = ModuleList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -120,12 +121,10 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
     class ModuleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView  ModuleNameText, ModuleCodeText, AssignmentDateText, AssignmentNameText, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
-
         EditText FilterModule;
-
         final ModuleListAdapter mAdapter;
         public Module modules;
-        public final Button FilterModuleConfirm;
+        public final Button FilterModuleButton;
         public final Button ButtonDeleteModule, ButtonEdit;
 
 
@@ -148,11 +147,9 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             ButtonEdit = itemView.findViewById(R.id.ButtonEdit);
 
             FilterModule = itemView.findViewById(R.id.FilterModule);
-            FilterModuleConfirm = itemView.findViewById(R.id.FilterModuleConfirm);
+            FilterModuleButton = itemView.findViewById(R.id.FilterModuleButton);
 
             this.mAdapter = adapter;
-
-
 
             ButtonEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -171,59 +168,29 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                 @Override
                 public void onClick(View v) {
                     //used the delete method i created to delete the specified module from the database
-                    DeleteModuleInBackground(modules);
-
-
+                    //DeleteModuleInBackground(modules);
+                    listener.onDeleteClick(modules);
                     Log.i("MS", "Deleted");
                 }
             });
 
-            FilterModuleConfirm.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-//                    if(FilterModuleConfirm.isPressed()){
-//
-//                    }else{
-//
-//                    }
-                }
-            });
+//            FilterModuleButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v2) {
+////                    FilterModule =
+//                    Log.i("MS", "Data Filtered");
+//                }
+//            });
 
 
 
 
-        }
-
-        public void DeleteModuleInBackground(Module module) {
-            ExecutorService executorService = Executors.newSingleThreadExecutor();
-            Handler handler = new Handler(Looper.getMainLooper());
-
-            executorService.execute(new Runnable() {
-                @Override
-                public void run() {
-                    // Check if moduleDB is not null before accessing getModuleDAO()
-//                if (moduleDB != null) {
-                    // Background task
-                    moduleDB.getModuleDAO().deleteModule(module);
 
 
-                        // On finish task
-                            handler.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(ButtonDeleteModule.getContext(), "Deleted From DataBase", Toast.LENGTH_LONG).show();
-
-                                }
-                            });
-//                        } else {
-//                        // Log an error or handle the situation where moduleDB is null
-//                        Log.e("DeleteModuleInBackground", "ModuleDatabase is null");
-//                    }
-                }
-            });
 
         }
+
 
 
 

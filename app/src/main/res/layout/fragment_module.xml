@@ -27,7 +27,7 @@
             android:textColorHint="@color/black"
             android:hint="Looking for something?" />
         <Button
-            android:id="@+id/FilterModuleConfirm"
+            android:id="@+id/FilterModuleButton"
             android:layout_width="wrap_content"
             android:layout_marginTop="0sp"
             android:minHeight="50sp"

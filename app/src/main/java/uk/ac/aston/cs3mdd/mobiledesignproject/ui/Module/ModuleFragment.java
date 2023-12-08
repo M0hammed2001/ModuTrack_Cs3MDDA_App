@@ -40,9 +40,10 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.PopupEditModuleBinding
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleDatabase;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleListAdapter;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.OnDeleteClickListener;
 
 
-public class ModuleFragment extends Fragment {
+public class ModuleFragment extends Fragment implements OnDeleteClickListener {
 
     private ModuleFragment moduleFragment;
 
@@ -105,7 +106,7 @@ public class ModuleFragment extends Fragment {
         //Get a handle to the RecyclerView.
         ModuleRecyclerView = view.findViewById(R.id.MFRecyclerView);
         // Create an adapter and supply the data to be displayed.
-        moduleAdapter = new ModuleListAdapter(getContext(), viewModel.getAllModules().getValue());
+        moduleAdapter = new ModuleListAdapter(getContext(), viewModel.getAllModules().getValue(),this);
         //calls the moduleDB defined in Module List and uses Line 89 to make sure it is not null
         moduleAdapter.setModuleDB(moduleDB);
         // Connect the adapter with the RecyclerView.
@@ -142,6 +143,36 @@ public class ModuleFragment extends Fragment {
 
     }
 
+    public void DeleteModuleInBackground(Module module) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                // Check if moduleDB is not null before accessing getModuleDAO()
+//                if (moduleDB != null) {
+                // Background task
+                moduleDB.getModuleDAO().deleteModule(module);
+
+
+                // On finish task
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getContext(), "Deleted From DataBase", Toast.LENGTH_LONG).show();
+                    }
+                });
+//                        } else {
+//                        // Log an error or handle the situation where moduleDB is null
+//                        Log.e("DeleteModuleInBackground", "ModuleDatabase is null");
+//                    }
+            }
+        });
+
+    }
+
+
     public void getModuleListInBackground(ModuleViewModel model) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
@@ -166,5 +197,12 @@ public class ModuleFragment extends Fragment {
                     });
             }
         });
+    }
+
+    // allows me to delete the data and from database and reloads the data.
+    @Override
+    public void onDeleteClick(Module module) {
+        DeleteModuleInBackground(module);
+        getModuleListInBackground(moduleViewModel);
     }
 }

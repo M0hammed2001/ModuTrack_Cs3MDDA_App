@@ -33,4 +33,9 @@ public class ModuleViewModel extends ViewModel {
         this.AllModules.setValue(this.AllModules.getValue());
     }
 
+    public void getModuleFilter(List<Module> modules) {
+        this.AllModules.getValue().clear();
+        this.AllModules.getValue().addAll(modules);
+    }
+
 }

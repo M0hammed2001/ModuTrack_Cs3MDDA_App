@@ -115,7 +115,6 @@ public class ModuleAddFragment extends Fragment {
 
                     // Creates a Module object and save it to the database
                     Module moduleAdd = new Module(moduleName, moduleCode, assignmentName, assignmentDate, ExamName, ExamDate, tutorialRoom, lectureRoom);
-
                     AddModuleInBackground(moduleAdd);
 
                     NavHostFragment.findNavController(ModuleAddFragment.this).navigate(R.id.action_moduleadd_to_module);
