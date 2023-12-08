@@ -71,8 +71,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         mMap.addMarker(new MarkerOptions().position(MainBuildingOOH).title("Aston Main Building 'MB' OOH Entrance "));
         mMap.addMarker(new MarkerOptions().position(astonMosque).title("Aston Mosque"));
 
-
-//             mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco").icon(BitmapDescriptorFactory.fromAsset("tesco_logo")));
+//        mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco").icon(BitmapDescriptorFactory.fromAsset("tesco_logo")));
         mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
         mMap.addMarker(new MarkerOptions().position(Greggs).title("Greggs").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
         mMap.addMarker(new MarkerOptions().position(WokAndGo).title("Wok and Go").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
@@ -127,7 +126,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 mMap.clear();
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(AstonLibrary).title("Aston Library 'L' "));
-                builder.include(AstonLibrary);
+//                builder.include(AstonLibrary);
                 Log.i("MAP", "Aston Library Pressed");
             }
         });
@@ -139,7 +138,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 mMap.clear();
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(MainBuildingOOH).title("Aston Main Building 'MB' OOH Entrance "));
-                builder.include(MainBuildingOOH);
+//                builder.include(MainBuildingOOH);
 
                 Log.i("MAP", "Aston OOH Pressed");
             }
@@ -152,7 +151,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 mMap.clear();
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(MainBuildingMain).title("Aston Main Building 'MB' Main Entrance "));
-//                builder.include(MainBuildingMain);
                 Log.i("MAP", "Aston Main building Pressed");
             }
         });
@@ -169,29 +167,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
 //        mMap.getMyLocation();
 
-            mMap.addMarker(new MarkerOptions().position(AstonLibrary).title("Aston Library 'L' "));
-            mMap.addMarker(new MarkerOptions().position(astonSU).title("Aston Student Union"));
-            mMap.addMarker(new MarkerOptions().position(MainBuildingMain).title("Aston Main Building 'MB' Main Entrance "));
-            mMap.addMarker(new MarkerOptions().position(MainBuildingOOH).title("Aston Main Building 'MB' OOH Entrance "));
-            mMap.addMarker(new MarkerOptions().position(astonMosque).title("Aston Mosque"));
 
 
-//             mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco").icon(BitmapDescriptorFactory.fromAsset("tesco_logo")));
-            mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
-            mMap.addMarker(new MarkerOptions().position(Greggs).title("Greggs").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
-            mMap.addMarker(new MarkerOptions().position(WokAndGo).title("Wok and Go").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        //adds all the markers stored in the the add marker method
+         addMarkers();
 
-
-            //shops
-            builder.include(Tesco);
-            builder.include(Greggs);
-            builder.include(WokAndGo);
-            //uni
-            builder.include(AstonLibrary);
-            builder.include(astonSU);
-            builder.include(MainBuildingMain);
-            builder.include(MainBuildingOOH);
-            builder.include(astonMosque);
 
             LatLngBounds bounds = builder.build();
             int padding = 140; // Padding in pixels
