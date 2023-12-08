@@ -119,9 +119,13 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
     class ModuleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView  ModuleNameText, ModuleCodeText, AssignmentDateText, AssignmentNameText, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
 
+//        EditText FilterModule;
+
         final ModuleListAdapter mAdapter;
         public Module modules;
-        public final Button ButtonDeleteModule, ButtonEdit ;
+//        public final Button ButtonDeleteModule, ButtonEdit, FilterModuleConfirm;
+        public final Button ButtonDeleteModule, ButtonEdit;
+
 
 
         public ModuleViewHolder(@NonNull View itemView, ModuleListAdapter adapter) {
@@ -141,6 +145,9 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             
             ButtonDeleteModule = itemView.findViewById(R.id.ButtonDeleteModule);
             ButtonEdit = itemView.findViewById(R.id.ButtonEdit);
+
+//            FilterModule = itemView.findViewById(R.id.FilterModule);
+//            FilterModuleConfirm = itemView.findViewById(R.id.FilterModuleConfirm);
 
 
             this.mAdapter = adapter;
@@ -173,6 +180,20 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                 }
             });
 
+//            FilterModuleConfirm.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                    if(FilterModuleConfirm.isPressed()){
+//
+//                    }else{
+//
+//                    }
+//                }
+//            });
+
+
+
 
         }
 
@@ -184,7 +205,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                 @Override
                 public void run() {
                     // Check if moduleDB is not null before accessing getModuleDAO()
-                if (moduleDB != null) {
+//                if (moduleDB != null) {
                     // Background task
                     moduleDB.getModuleDAO().deleteModule(module);
 
@@ -197,63 +218,13 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
                                 }
                             });
-                        } else {
-                        // Log an error or handle the situation where moduleDB is null
-                        Log.e("DeleteModuleInBackground", "ModuleDatabase is null");
-                    }
+//                        } else {
+//                        // Log an error or handle the situation where moduleDB is null
+//                        Log.e("DeleteModuleInBackground", "ModuleDatabase is null");
+//                    }
                 }
             });
 
-        }
-
-        public void getModuleListInBackground(ModuleViewModel model) {
-            ExecutorService executorService = Executors.newSingleThreadExecutor();
-            Handler handler = new Handler(Looper.getMainLooper());
-
-            executorService.execute(new Runnable() {
-                @Override
-                public void run() {
-                    // background task
-                    if (mModuleList == null) {
-                        // this is the background task
-                        mModuleList = moduleDB.getModuleDAO().getAllModules();
-
-                        // remove duplicates based on some identifier (e.g., module ID)
-                        Set<String> displayedModuleIds = new HashSet<>();
-                        List<Module> filteredModules = new ArrayList<>();
-
-                        for (Module module : mModuleList) {
-                            if (!displayedModuleIds.contains(module.getId())) {
-                                // module not yet displayed
-                                filteredModules.add(module);
-                                displayedModuleIds.add(String.valueOf(module.getId()));
-                            }
-                        }
-
-                        mModuleList = filteredModules;
-
-                        // on finish task
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                model.updateModule(mModuleList);
-                                // Create the text with line breaks
-                                if(ButtonDeleteModule.callOnClick()){
-                                    Toast.makeText(ButtonDeleteModule.getContext(), "My Modules: " + mModuleList.size(), Toast.LENGTH_LONG).show();
-
-                                } else if (ButtonDeleteModule.callOnClick()) {
-                                    Toast.makeText(ButtonDeleteModule.getContext(), "My Modules: " + mModuleList.size(), Toast.LENGTH_LONG).show();
-
-                                }else{
-                                    Log.i("MS", "no button clicked");
-                                }
-                            }
-                        });
-                    } else {
-                        Log.i("MS", "Module List already displaying");
-                    }
-                }
-            });
         }
 
 

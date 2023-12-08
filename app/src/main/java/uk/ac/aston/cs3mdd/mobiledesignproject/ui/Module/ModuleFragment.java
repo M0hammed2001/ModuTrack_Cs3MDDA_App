@@ -55,7 +55,6 @@ public class ModuleFragment extends Fragment {
     FragmentModuleBinding binding;
 
     private RecyclerView ModuleRecyclerView;
-//    Button ButtonDeleteModule ;
 
     private ModuleViewModel viewModel;
 
@@ -147,24 +146,11 @@ public class ModuleFragment extends Fragment {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
+                int size = moduleDB.getModuleDAO().getAllModules().size();
+//                int moduleListSize = moduleList.size();
+
                 // background task
-                if (moduleList == null) {
-                    // this is the background task
                     moduleList = moduleDB.getModuleDAO().getAllModules();
-
-                    // remove duplicates based on some identifier (e.g., module ID)
-                    Set<String> displayedModuleIds = new HashSet<>();
-                    List<Module> filteredModules = new ArrayList<>();
-
-                    for (Module module : moduleList) {
-                        if (!displayedModuleIds.contains(module.getId())) {
-                            // module not yet displayed
-                            filteredModules.add(module);
-                            displayedModuleIds.add(String.valueOf(module.getId()));
-                        }
-                    }
-
-                    moduleList = filteredModules;
 
                     // on finish task
                     handler.post(new Runnable() {
@@ -172,44 +158,11 @@ public class ModuleFragment extends Fragment {
                         public void run() {
                             model.updateModule(moduleList);
                             // Create the text with line breaks
-                            Toast.makeText(getContext(), "My Modules: " + moduleList.size(), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getContext(), "My Modules: " + moduleListSize, Toast.LENGTH_LONG).show();
+//                            Log.i("MS", + size + " :Modules DOA " + moduleListSize + " :moduleLis");
                         }
                     });
-                } else {
-                    Log.i("MS", "Module List already displaying");
-                }
             }
         });
     }
-
-//    public void getModuleListInBackground(ModuleViewModel model) {
-//
-//        ExecutorService executorService = Executors.newSingleThreadExecutor();
-//
-//        Handler handler = new Handler(Looper.getMainLooper());
-//
-//        executorService.execute(new Runnable() {
-//            @Override
-//            public void run() {
-//                //background task
-//                if(moduleList == null) {
-//                    //this is the background Task
-//                    moduleList = moduleDB.getModuleDAO().getAllModules();
-//
-//                    //on finish task
-//                    handler.post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//
-//                            model.updateModule(moduleList);
-//                            // Create the text with line breaks
-//                            Toast.makeText(getContext(), "My Modules: " + moduleList.size(), Toast.LENGTH_LONG).show();
-//                        }
-//                    });
-//                }else{
-//                    Log.i("MS", "Module List already displaying");
-//                }
-//            }
-//        });
-//    }
 }

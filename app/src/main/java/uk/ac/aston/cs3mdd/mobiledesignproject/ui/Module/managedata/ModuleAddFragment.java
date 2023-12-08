@@ -41,11 +41,10 @@ public class ModuleAddFragment extends Fragment {
 
     EditText popupModuleNameEdit, popupModuleCodeEdit, popupAssignmentDateEdit,  popupAssignmentNameEdit, popupExamDateEdit, popupExamNameEdit, TutorialRoomEdit, LectureRoomEdit;
 
-    Button buttonAddModule, buttonChangeModule, ButttonEditBack;
+    Button buttonAddModule;
 
-    private ModuleListAdapter moduleAdapter;
 
-    List<Module> moduleList;
+
     ModuleViewModel moduleViewModel;
 
 

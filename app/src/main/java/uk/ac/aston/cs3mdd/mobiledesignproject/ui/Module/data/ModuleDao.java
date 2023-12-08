@@ -16,6 +16,9 @@ public interface ModuleDao {
         @Update
         public void updateModule(Module module);
 
+        @Update
+        public void editModule(Module module);
+
         @Delete
         public void deleteModule(Module module);
 

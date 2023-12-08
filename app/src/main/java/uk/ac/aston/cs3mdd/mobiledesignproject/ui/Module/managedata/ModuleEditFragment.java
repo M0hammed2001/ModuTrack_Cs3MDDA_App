@@ -220,7 +220,8 @@ public class ModuleEditFragment extends Fragment {
         return view;
 
     }
-    public void EditModuleInBackground(Module module){
+
+    public void EditModuleInBackground(Module module) {
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
@@ -229,20 +230,17 @@ public class ModuleEditFragment extends Fragment {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                if(moduleDB != null) {
-                    //background task
-//                moduleDB.getModuleDAO().updateModule(module);
+                //background task
+                moduleDB.getModuleDAO().editModule(module);
+
+
                 //on finish task
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getContext(), "Module amended", Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(getContext(), "updated in DataBase", Toast.LENGTH_LONG).show();
                     }
-                 });
-                }else {
-                    Log.i( "ms","empty");
-                }
+                });
             }
         });
     }

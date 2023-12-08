@@ -18,6 +18,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.LatLng;
@@ -50,6 +51,7 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
 
         // Added markers for Birmingham New Street and Aston University which you can see by clicking it
         mMap.addMarker(new MarkerOptions().position(birminghamNewStreet).title("Birmingham New Street"));
+//        mMap.addMarker(new MarkerOptions().position(birminghamNewStreet).title("Birmingham New Street").icon(BitmapDescriptorFactory.fromResource(R.drawable.baseline_tram_black_24)));
 
         mMap.addMarker(new MarkerOptions().position(astonUniversity).title("Aston University"));
 
