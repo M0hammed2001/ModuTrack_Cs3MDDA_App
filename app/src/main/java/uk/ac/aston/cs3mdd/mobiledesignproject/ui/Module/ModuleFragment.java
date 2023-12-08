@@ -109,6 +109,8 @@ public class ModuleFragment extends Fragment {
         moduleAdapter.setModuleDB(moduleDB);
         // Connect the adapter with the RecyclerView.
         ModuleRecyclerView.setAdapter(moduleAdapter);
+
+
         // Give the RecyclerView a default layout manager.
         ModuleRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

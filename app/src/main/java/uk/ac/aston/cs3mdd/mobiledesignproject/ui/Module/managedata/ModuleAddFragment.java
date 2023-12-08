@@ -69,7 +69,6 @@ public class ModuleAddFragment extends Fragment {
         TutorialRoomEdit = view.findViewById(R.id.TutorialRoomEdit);
         LectureRoomEdit = view.findViewById(R.id.LectureRoomEdit);
 
-
         RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
             @Override
             public void onCreate(@NonNull SupportSQLiteDatabase db) {

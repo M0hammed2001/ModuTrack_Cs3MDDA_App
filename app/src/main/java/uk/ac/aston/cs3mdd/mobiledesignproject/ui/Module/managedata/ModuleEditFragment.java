@@ -45,17 +45,7 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.Trainmap.TrainMapFragment
 
 public class ModuleEditFragment extends Fragment {
 
-    EditText popupModuleEditName;
-    EditText popupModuleEditCode;
-
-    EditText popupAssignmentEditDate;
-    EditText popupAssignmentEditName;
-
-    EditText popupExamEditDate;
-    EditText popupExamEditName;
-
-    EditText LectureEditRoom;
-    EditText TutorialEditRoom;
+    EditText popupModuleEditName, popupModuleEditCode, popupAssignmentEditDate,  popupAssignmentEditName, popupExamEditDate,  popupExamEditName, LectureEditRoom, TutorialEditRoom;
 
     Button buttonChangeModule, ButttonEditCancel;
 
@@ -69,45 +59,6 @@ public class ModuleEditFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-//        String moduleCode = module.getModuleCode();
-//        String moduleName = module.getModuleName();
-//
-//        String AssignmentName = module.getAssignmentName();
-//        String AssignmentDate = module.getAssignmentDate();
-//
-//        String ExamName = module.getExamName();
-//        String ExamDate = module.getExamdate();
-//
-//        String lectureRoom = module.getLectureRoom();
-//        String tutorialRoom = module.getTutorialRoom();
-//
-//        // Handle null values
-//        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
-//        moduleName = (moduleName != null) ? moduleName : "Module Name";
-//
-////        ExamName = (ExamName != null) ? ExamName : "Exam Name";
-////        ExamDate = (ExamDate != null) ? ExamDate : "Exam Date";
-////
-////        AssignmentName = (AssignmentName != null) ? AssignmentName : "Assignment Name";
-////        AssignmentDate = (AssignmentDate != null) ? AssignmentDate : "Assignment Date";
-//
-//        lectureRoom = (lectureRoom != null) ? lectureRoom : "Room details Unavailable";
-//        tutorialRoom = (tutorialRoom != null) ? tutorialRoom : "Room details Unavailable";
-//
-//
-//        String ModuleCodeText = moduleCode;
-//        String ModuleNameText = moduleName;
-//
-//        String AssignmentDateText =AssignmentDate;
-//        String AssignmentNameText = AssignmentName;
-//
-//        String ExamDateText =ExamDate;
-//        String ExamNameText = ExamName;
-//
-//        String LectureRoomText =lectureRoom;
-//        String TutorialRoomText = tutorialRoom;
-
 
 
         // Initialize module properly from arguments or other sources
@@ -194,15 +145,25 @@ public class ModuleEditFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                // will set once the button is clicked it will save the data to be set to what ever the data is set.
+                module.setModuleCode(popupModuleEditCode.getText().toString());
+                module.setModuleName(popupModuleEditName.getText().toString());
 
-//                Module moduleUpdate = new Module(module.getModuleName(), module.getModuleCode(), module.getAssignmentName(), module.getAssignmentDate(), module.getExamdate(), module.getExamName(), module.getLectureRoom(), module.getTutorialRoom());
+                module.setAssignmentDate(popupAssignmentEditDate.getText().toString());
+                module.setAssignmentDate(popupAssignmentEditName.getText().toString());
+
+                module.setExamdate(popupExamEditDate.getText().toString());
+                module.setExamName(popupExamEditName.getText().toString());
+
+                module.setTutorialRoom(TutorialEditRoom.getText().toString());
+                module.setLectureRoom(LectureEditRoom.getText().toString());
+
+
                 EditModuleInBackground(module);
 
                 Log.i("MS","changing the module");
                 // after it edited the module it will send you back to the main Screen
                 NavHostFragment.findNavController(ModuleEditFragment.this).navigate(R.id.action_nav_moduleEdit_to_nav_module);
-
-
 
 
             }
@@ -221,26 +182,28 @@ public class ModuleEditFragment extends Fragment {
 
     }
 
-    public void EditModuleInBackground(Module module) {
+    public void EditModuleInBackground(Module model) {
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
         Handler handler = new Handler(Looper.getMainLooper());
 
         executorService.execute(new Runnable() {
+
             @Override
             public void run() {
-                //background task
-                moduleDB.getModuleDAO().editModule(module);
+                    //background task
+                    moduleDB.getModuleDAO().editModule(module);
 
+                    //on finish task
+                    handler.post(new Runnable() {
 
-                //on finish task
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getContext(), "updated in DataBase", Toast.LENGTH_LONG).show();
-                    }
-                });
+                        @Override
+                        public void run() {
+                            Toast.makeText(getContext(), "updated in DataBase", Toast.LENGTH_LONG).show();
+                        }
+                    });
+
             }
         });
     }

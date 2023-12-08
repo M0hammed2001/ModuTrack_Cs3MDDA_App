@@ -228,6 +228,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         }
 
 
+
         @Override
         public void onClick(View view) {
 
