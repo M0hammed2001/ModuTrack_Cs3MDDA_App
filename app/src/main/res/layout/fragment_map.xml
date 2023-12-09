@@ -81,6 +81,16 @@
                     android:layout_below="@+id/button_AstonMBOOH"
                     android:layout_toRightOf="@+id/button_AstonLibrary" />
 
+                <Button
+                    android:id="@+id/button_Mosque"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AstonMosque"
+                    android:layout_marginLeft="5sp"
+                    android:layout_below="@+id/button_AstonMBOOH"
+                    android:layout_toRightOf="@+id/button_AstonLibrary" />
+
+
             </LinearLayout>
         </HorizontalScrollView>
         <TextView

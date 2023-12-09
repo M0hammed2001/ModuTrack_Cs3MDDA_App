@@ -35,7 +35,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     private FragmentMapBinding binding;
 
-    Button MainentranceMB, button_AstonMBOOH, button_AstonLibrary, button_AstonSU, AddBackAllMarkers, button_shop, button_Aston;
+    Button MainentranceMB, button_AstonMBOOH, button_AstonLibrary, button_AstonSU, AddBackAllMarkers, button_shop, button_Aston, button_Mosque;
 
     private TrainService trainService;
 
@@ -142,6 +142,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         button_shop = view.findViewById(R.id.button_shop);
         button_Aston = view.findViewById(R.id.button_Aston);
+        button_Mosque= view.findViewById(R.id.button_Mosque);
 
         AddBackAllMarkers.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,6 +188,19 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             }
         });
 
+        MainentranceMB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //clears all the markers off the map
+                mMap.clear();
+                //adds the marker i want back the the map
+                mMap.addMarker(new MarkerOptions().position(MainBuildingMain).title("Aston Main Building 'MB' Main Entrance "));
+//                builder.include(MainBuildingOOH);
+
+                Log.i("MAP", "Aston OOH Pressed");
+            }
+        });
+
         button_AstonMBOOH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -200,17 +214,27 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             }
         });
 
-        MainentranceMB.setOnClickListener(new View.OnClickListener() {
+        button_AstonSU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //clears all the markers off the map
                 mMap.clear();
                 //adds the marker i want back the the map
-                mMap.addMarker(new MarkerOptions().position(MainBuildingMain).title("Aston Main Building 'MB' Main Entrance "));
-                Log.i("MAP", "Aston Main building Pressed");
+                mMap.addMarker(new MarkerOptions().position(astonSU).title("Aston Student Union"));
+                Log.i("MAP", "Aston SU Pressed");
             }
         });
 
+        button_Mosque.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //clears all the markers off the map
+                mMap.clear();
+                //adds the marker i want back the the map
+                mMap.addMarker(new MarkerOptions().position(astonMosque).title("Aston Mosque"));
+                Log.i("MAP", "Aston Mosque Pressed");
+            }
+        });
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
 
 
