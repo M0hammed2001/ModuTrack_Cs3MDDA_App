@@ -35,7 +35,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     private FragmentMapBinding binding;
 
-    Button MainentranceMB, button_AstonMBOOH, button_AstonLibrary, button_AstonSU, AddBackAllMarkers;
+    Button MainentranceMB, button_AstonMBOOH, button_AstonLibrary, button_AstonSU, AddBackAllMarkers, button_shop, button_Aston;
 
     private TrainService trainService;
 
@@ -90,6 +90,36 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     }
 
+    private void addShops() {
+
+//        mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco").icon(BitmapDescriptorFactory.fromAsset("tesco_logo")));
+        mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        mMap.addMarker(new MarkerOptions().position(Greggs).title("Greggs").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        mMap.addMarker(new MarkerOptions().position(WokAndGo).title("Wok and Go").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+
+        //shops
+        builder.include(Tesco);
+        builder.include(Greggs);
+        builder.include(WokAndGo);
+
+    }
+
+    private void addUniMarkers() {
+
+        mMap.addMarker(new MarkerOptions().position(AstonLibrary).title("Aston Library 'L' "));
+        mMap.addMarker(new MarkerOptions().position(astonSU).title("Aston Student Union"));
+        mMap.addMarker(new MarkerOptions().position(MainBuildingMain).title("Aston Main Building 'MB' Main Entrance "));
+        mMap.addMarker(new MarkerOptions().position(MainBuildingOOH).title("Aston Main Building 'MB' OOH Entrance "));
+        mMap.addMarker(new MarkerOptions().position(astonMosque).title("Aston Mosque"));
+        //uni
+        builder.include(AstonLibrary);
+        builder.include(astonSU);
+        builder.include(MainBuildingMain);
+        builder.include(MainBuildingOOH);
+        builder.include(astonMosque);
+
+    }
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -110,6 +140,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         button_AstonSU = view.findViewById(R.id.button_AstonSU);
         AddBackAllMarkers = view.findViewById(R.id.AddBackAllMarkers);
 
+        button_shop = view.findViewById(R.id.button_shop);
+        button_Aston = view.findViewById(R.id.button_Aston);
+
         AddBackAllMarkers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,6 +151,29 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 Log.i("MAP", "all Markers added back");
             }
         });
+
+        button_shop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //clears all the markers off the map
+                mMap.clear();
+                //adds all Shop makers to map
+                addShops();
+                Log.i("MAP", "all Shop Markers added back");
+            }
+        });
+
+        button_Aston.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //clears all the markers off the map
+                mMap.clear();
+                //adds all uni makers to map
+                addUniMarkers();
+                Log.i("MAP", "all University Markers added back");
+            }
+        });
+
 
         button_AstonLibrary.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -121,10 +121,10 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
     class ModuleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView  ModuleNameText, ModuleCodeText, AssignmentDateText, AssignmentNameText, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
-        EditText FilterModule;
+//        EditText FilterModule;
         final ModuleListAdapter mAdapter;
         public Module modules;
-        public final Button FilterModuleButton;
+//        public final Button FilterModuleButton;
         public final Button ButtonDeleteModule, ButtonEdit;
 
 
@@ -146,8 +146,10 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             ButtonDeleteModule = itemView.findViewById(R.id.ButtonDeleteModule);
             ButtonEdit = itemView.findViewById(R.id.ButtonEdit);
 
-            FilterModule = itemView.findViewById(R.id.FilterModule);
-            FilterModuleButton = itemView.findViewById(R.id.FilterModuleButton);
+
+
+//            FilterModule = itemView.findViewById(R.id.FilterModule);
+//            FilterModuleButton = itemView.findViewById(R.id.FilterModuleButton);
 
             this.mAdapter = adapter;
 
@@ -174,14 +176,6 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                 }
             });
 
-
-//            FilterModuleButton.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v2) {
-////                    FilterModule =
-//                    Log.i("MS", "Data Filtered");
-//                }
-//            });
 
 
 

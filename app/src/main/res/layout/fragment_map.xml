@@ -11,7 +11,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="400sp"
         android:layout_weight="2">
 
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -24,41 +24,111 @@
 
     </FrameLayout>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
 
-
-        <Button
-            android:id="@+id/button_AstonMBMain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/AstonMBMain" />
-
-        <Button
-            android:id="@+id/button_AstonMBOOH"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/AstonMBOOH"
-            android:drawableLeft="@drawable/ooh_24"
-            android:layout_toRightOf="@+id/button_AstonMBMain"/>
-        <Button
-            android:id="@+id/button_AstonLibrary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/AstonLibrary"
-            android:layout_below="@+id/button_AstonMBMain"/>
-
-        <Button
-            android:id="@+id/button_AstonSU"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/AstonSU"
-            android:layout_below="@+id/button_AstonMBOOH"
-            android:layout_toRightOf="@+id/button_AstonLibrary"
-            android:layout_marginLeft="2sp"/>
+            android:text="Map Locations:"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20sp"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Your Buttons Here -->
+                <Button
+                    android:id="@+id/button_AstonMBMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AstonMBMain" />
+
+                <Button
+                    android:id="@+id/button_AstonMBOOH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AstonMBOOH"
+                    android:layout_marginLeft="5sp"
+                    android:drawableLeft="@drawable/ooh_24"
+                    android:layout_toRightOf="@+id/button_AstonMBMain"/>
+
+                <Button
+                    android:id="@+id/button_AstonLibrary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AstonLibrary"
+                    android:layout_marginLeft="5sp"
+                    android:layout_below="@+id/button_AstonMBMain"/>
+
+                <Button
+                    android:id="@+id/button_AstonSU"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AstonSU"
+                    android:layout_marginLeft="5sp"
+                    android:layout_below="@+id/button_AstonMBOOH"
+                    android:layout_toRightOf="@+id/button_AstonLibrary" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Map Type:"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginTop="20sp"
+            android:textStyle="bold"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <!-- Your Buttons Here -->
+                <Button
+                    android:id="@+id/button_shop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/astonshop" />
+
+                <Button
+                    android:id="@+id/button_Aston"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/astonCampus"
+                    android:layout_marginLeft="5sp"
+                    android:drawableLeft="@drawable/ooh_24"
+                    android:layout_toRightOf="@+id/button_shop"/>
+
+
+            </LinearLayout>
+        </HorizontalScrollView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reset the Map to Default state:"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20sp"/>
 
         <Button
             android:id="@+id/AddBackAllMarkers"
@@ -68,7 +138,58 @@
             android:drawableLeft="@drawable/cancel_24"
             android:layout_below="@+id/button_AstonSU"
             android:layout_marginLeft="2sp"/>
-    </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+
+    <!--    <RelativeLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="3"-->
+<!--        android:orientation="vertical">-->
+
+
+<!--        <Button-->
+<!--            android:id="@+id/button_AstonMBMain"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/AstonMBMain" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/button_AstonMBOOH"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/AstonMBOOH"-->
+<!--            android:drawableLeft="@drawable/ooh_24"-->
+<!--            android:layout_toRightOf="@+id/button_AstonMBMain"/>-->
+<!--        <Button-->
+<!--            android:id="@+id/button_AstonLibrary"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/AstonLibrary"-->
+<!--            android:layout_below="@+id/button_AstonMBMain"/>-->
+
+<!--        <Button-->
+<!--            android:id="@+id/button_AstonSU"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/AstonSU"-->
+<!--            android:layout_below="@+id/button_AstonMBOOH"-->
+<!--            android:layout_toRightOf="@+id/button_AstonLibrary"-->
+<!--            android:layout_marginLeft="2sp"/>-->
+
+<!--        <Button-->
+<!--            android:id="@+id/AddBackAllMarkers"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/ResetMarkers"-->
+<!--            android:drawableLeft="@drawable/cancel_24"-->
+<!--            android:layout_below="@+id/button_AstonSU"-->
+<!--            android:layout_marginLeft="2sp"/>-->
+<!--    </RelativeLayout>-->
 
 
 </LinearLayout>

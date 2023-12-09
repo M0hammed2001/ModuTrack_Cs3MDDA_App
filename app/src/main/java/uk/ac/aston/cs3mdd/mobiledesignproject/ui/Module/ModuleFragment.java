@@ -61,11 +61,15 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
     private ModuleViewModel viewModel;
 
     private ModuleListAdapter moduleAdapter;
+    EditText FilterModule;
+
+    Button FilterModuleButton;
+
 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.popup_edit_module, container, false);
+//        View view = inflater.inflate(R.layout.fragment_module, container, false);
 
         // Initialize viewModel using ViewModelProvider
         viewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
@@ -96,6 +100,14 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
         moduleViewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
 
+
+//        FilterModuleButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v2) {
+//                Log.i("MS", "Data Filtered");
+//            }
+//        });
+
         return binding.getRoot();
     }
 
@@ -103,6 +115,9 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        FilterModule = view.findViewById(R.id.FilterModule);
+
         //Get a handle to the RecyclerView.
         ModuleRecyclerView = view.findViewById(R.id.MFRecyclerView);
         // Create an adapter and supply the data to be displayed.
@@ -151,22 +166,22 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
             @Override
             public void run() {
                 // Check if moduleDB is not null before accessing getModuleDAO()
-//                if (moduleDB != null) {
-                // Background task
-                moduleDB.getModuleDAO().deleteModule(module);
+                if (moduleDB != null) {
+                    // Background task
+                    moduleDB.getModuleDAO().deleteModule(module);
 
 
-                // On finish task
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getContext(), "Deleted From DataBase", Toast.LENGTH_LONG).show();
-                    }
-                });
-//                        } else {
-//                        // Log an error or handle the situation where moduleDB is null
-//                        Log.e("DeleteModuleInBackground", "ModuleDatabase is null");
-//                    }
+                    // On finish task
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getContext(), "Deleted From DataBase", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                } else {
+                // Log an error or handle the situation where moduleDB is null
+                Log.e("DeleteModuleInBackground", "ModuleDatabase is null");
+            }
             }
         });
 
@@ -183,6 +198,7 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
                 int ModuleSize = moduleDB.getModuleDAO().getAllModules().size();
 
                 // background task
+//                if()
                     moduleList = moduleDB.getModuleDAO().getAllModules();
 
                     // on finish task

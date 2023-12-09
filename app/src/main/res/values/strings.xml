@@ -20,7 +20,10 @@
     <string name="AstonMBOOH">Main Build - OOH</string>
     <string name="AstonLibrary">Aston Library</string>
     <string name="AstonSU">Student union</string>
-    <string name="ResetMarkers">Reset Markers</string>
+    <string name="ResetMarkers">set map to default</string>
+
+    <string name="astonshop">Aston Shops</string>
+    <string name="astonCampus">Aston Campus</string>
 
 
 
