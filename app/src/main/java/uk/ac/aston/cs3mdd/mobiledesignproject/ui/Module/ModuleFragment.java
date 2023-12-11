@@ -154,15 +154,32 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
                 if (moduleList != null) {
                     for (Module module1 : moduleList) {
                             // Check if the  what is added matched modulename, code or lectureroom
-                            if (FilterModule.equals(module1.getModuleCode()) || FilterModule.equals(module1.getModuleName()) || FilterModule.equals(module1.getLectureRoom())) {
+                            if (FilterModule.equals(module1.getModuleCode())) {
                                 filteredModuleList.add(modules);
                                 Log.i("ms", "filtered Size:" + filteredModuleList.size());
-                        }else {
+                                Log.i("MS", " filtered ModuleCode");
+
+                                } else if (FilterModule.equals(module1.getModuleName())) {
+                                Log.i("MS", " filtered ModuleName");
+                                Log.i("ms", "filtered Size:" + filteredModuleList.size());
+
+                                 } else if (FilterModule.equals(module1.getLectureRoom())) {
+                                Log.i("MS", " filtered LectureRoom");
+                                Log.i("ms", "filtered Size:" + filteredModuleList.size());
+
+                                } else if (FilterModule.equals(module1.getTutorialRoom())) {
+                                Log.i("MS", " filtered Tutorial Room");
+                                Log.i("ms", "filtered Size:" + filteredModuleList.size());
+
+                                } else {
                                 Log.i("MS", "Data filtered");
-                            }
+                                }
                     }
                     // Update your adapter with the filtered list
-                    moduleAdapter.updateData(filteredModuleList);
+//                    moduleAdapter.updateData(filteredModuleList);
+
+                    moduleViewModel.getAllModules().observe(getViewLifecycleOwner(), ModuleListObserver);
+                    getModuleListInBackground(moduleViewModel);
                 }
             }
         });
