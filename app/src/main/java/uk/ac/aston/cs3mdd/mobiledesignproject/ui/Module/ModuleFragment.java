@@ -153,8 +153,8 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
                 List<Module> filteredModuleList = new ArrayList<>();
                 if (moduleList != null) {
                     for (Module module1 : moduleList) {
-                            // Check if the destination's CRS code is "BHM" or "BHI"
-                            if (FilterModule.equals(module1.getModuleName()) || FilterModule.equals(module1.getModuleName())) {
+                            // Check if the  CRS code is "BHM" or "BHI"
+                            if (FilterModule.equals(module1.getModuleName()) || FilterModule.equals(module1.getModuleName()) || FilterModule.equals(module1.getLectureRoom())) {
                                 filteredModuleList.add(modules);
 
                         }
