@@ -41,6 +41,7 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleDatabase;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleListAdapter;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.OnDeleteClickListener;
+import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService;
 
 
 public class ModuleFragment extends Fragment implements OnDeleteClickListener {
@@ -100,14 +101,6 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
         moduleViewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
 
-
-//        FilterModuleButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v2) {
-//                Log.i("MS", "Data Filtered");
-//            }
-//        });
-
         return binding.getRoot();
     }
 
@@ -117,6 +110,7 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
         super.onViewCreated(view, savedInstanceState);
 
         FilterModule = view.findViewById(R.id.FilterModule);
+        FilterModuleButton = view.findViewById(R.id.FilterModuleButton);
 
         //Get a handle to the RecyclerView.
         ModuleRecyclerView = view.findViewById(R.id.MFRecyclerView);
@@ -150,6 +144,29 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
             public void onClick(View v) {
                 NavHostFragment.findNavController(ModuleFragment.this).navigate(R.id.action_module_to_moduleAdd);
                 Log.i("MS", "Navigating to Add Module Page");
+            }
+        });
+
+        binding.FilterModuleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<Module> filteredList = new ArrayList<>();
+                if (moduleList != null) {
+                    for (Module module1 : moduleList) {
+                            // Check if the destination's CRS code is "BHM" or "BHI"
+                            if ("BHM".equals(module1.getModuleName()) || "BHI".equals(module1.getModuleName())) {
+                                filteredList.add(modules);
+
+                        }
+                    }
+                    // Update your adapter with the filtered list
+                    moduleAdapter.updateData(filteredList);
+                }
+//                if(FilterModule == modules.getModuleName()){
+//                    getModuleListInBackground(modules);
+//
+//                }
+                Log.i("MS", "Data Filtered");
             }
         });
 
@@ -211,6 +228,33 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
 
                         }
                     });
+            }
+        });
+    }
+
+
+    public void getFilteredListInBackground(ModuleViewModel model) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                int ModuleSize = moduleDB.getModuleDAO().getAllModules().size();
+
+                // background task
+                moduleList = moduleDB.getModuleDAO().getAllModules();
+
+                // on finish task
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        model.updateModule(moduleList);
+                        // Create the text with line breaks
+                        Toast.makeText(getContext(), "My Modules: " + ModuleSize, Toast.LENGTH_LONG).show();
+
+                    }
+                });
             }
         });
     }
