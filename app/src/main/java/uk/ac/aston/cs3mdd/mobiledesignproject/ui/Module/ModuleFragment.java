@@ -156,17 +156,14 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
                             // Check if the  what is added matched modulename, code or lectureroom
                             if (FilterModule.equals(module1.getModuleCode()) || FilterModule.equals(module1.getModuleName()) || FilterModule.equals(module1.getLectureRoom())) {
                                 filteredModuleList.add(modules);
-//                                Log.i("ms", filteredModuleList.size());
-                        }
+                                Log.i("ms", "filtered Size:" + filteredModuleList.size());
+                        }else {
+                                Log.i("MS", "Data filtered");
+                            }
                     }
                     // Update your adapter with the filtered list
                     moduleAdapter.updateData(filteredModuleList);
                 }
-//                if(FilterModule == modules.getModuleName()){
-//                    getModuleListInBackground(modules);
-//
-//                }
-                Log.i("MS", "Data Filtered");
             }
         });
 
