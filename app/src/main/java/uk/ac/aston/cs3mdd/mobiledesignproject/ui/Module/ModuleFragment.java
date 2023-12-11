@@ -152,18 +152,18 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
             public void onClick(View v) {
                 List<Module> filteredModuleList = new ArrayList<>();
                 if (moduleList != null) {
-                    for (Module module1 : moduleList) {
+                    for (Module module : moduleList) {
                             // Check if the  what is added matched moduleName, code or lecturer
-                            if (FilterModule.equals(module1.getModuleCode()) || FilterModule.equals(module1.getModuleName()) || FilterModule.equals(module1.getLectureRoom())|| FilterModule.equals(module1.getTutorialRoom())) {
+                            if (FilterModule.equals(module.getModuleCode()) || FilterModule.equals(module.getModuleName()) || FilterModule.equals(module.getLectureRoom())|| FilterModule.equals(module.getTutorialRoom())) {
                                 filteredModuleList.add(modules);
                                 Log.i("ms", "filtered Size:" + filteredModuleList.size());
                         }else {
-                                Log.i("MS", "Data filtered");
+                                Log.i("MS", "failed to filter");
                             }
                     }
-                    // Update your adapter with the filtered list
-                    moduleAdapter.updateData(filteredModuleList);
                 }
+                // Update your adapter with the filtered list
+                moduleAdapter.updateData(filteredModuleList);
             }
         });
 
