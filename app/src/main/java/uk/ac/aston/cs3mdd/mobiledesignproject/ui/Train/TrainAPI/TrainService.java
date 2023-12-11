@@ -74,8 +74,8 @@ public class TrainService implements Serializable {
         StringBuilder sb = new StringBuilder();
         sb.append(getOperator());
         sb.append(" ");
-        String ArivalTime = getEtd() != null ? getEtd() : "No Arrival Time";
-        sb.append(ArivalTime);
+        String ArrivalTime = getEtd() != null ? getEtd() : "No Arrival Time";
+        sb.append(ArrivalTime);
         sb.append(" ");
         sb.append(getDestination().get(0).toString());
         sb.append(" ");
