@@ -150,17 +150,17 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
         binding.FilterModuleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<Module> filteredList = new ArrayList<>();
+                List<Module> filteredModuleList = new ArrayList<>();
                 if (moduleList != null) {
                     for (Module module1 : moduleList) {
                             // Check if the destination's CRS code is "BHM" or "BHI"
-                            if ("BHM".equals(module1.getModuleName()) || "BHI".equals(module1.getModuleName())) {
-                                filteredList.add(modules);
+                            if (FilterModule.equals(module1.getModuleName()) || FilterModule.equals(module1.getModuleName())) {
+                                filteredModuleList.add(modules);
 
                         }
                     }
                     // Update your adapter with the filtered list
-                    moduleAdapter.updateData(filteredList);
+                    moduleAdapter.updateData(filteredModuleList);
                 }
 //                if(FilterModule == modules.getModuleName()){
 //                    getModuleListInBackground(modules);
