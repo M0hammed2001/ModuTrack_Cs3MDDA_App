@@ -195,8 +195,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 mMap.clear();
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(MainBuildingMain).title("Aston Main Building 'MB' Main Entrance "));
-//                builder.include(MainBuildingOOH);
-
                 Log.i("MAP", "Aston OOH Pressed");
             }
         });
@@ -208,8 +206,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 mMap.clear();
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(MainBuildingOOH).title("Aston Main Building 'MB' OOH Entrance "));
-//                builder.include(MainBuildingOOH);
-
                 Log.i("MAP", "Aston OOH Pressed");
             }
         });
