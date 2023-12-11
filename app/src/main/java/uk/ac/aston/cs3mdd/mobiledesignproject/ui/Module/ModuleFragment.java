@@ -153,7 +153,7 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
                 List<Module> filteredModuleList = new ArrayList<>();
                 if (moduleList != null) {
                     for (Module module1 : moduleList) {
-                            // Check if the  what is added matched modulename, code or lectureroom
+                            // Check if the  what is added matched moduleName, code or lecturer
                             if (FilterModule.equals(module1.getModuleCode()) || FilterModule.equals(module1.getModuleName()) || FilterModule.equals(module1.getLectureRoom())|| FilterModule.equals(module1.getTutorialRoom())) {
                                 filteredModuleList.add(modules);
                                 Log.i("ms", "filtered Size:" + filteredModuleList.size());
