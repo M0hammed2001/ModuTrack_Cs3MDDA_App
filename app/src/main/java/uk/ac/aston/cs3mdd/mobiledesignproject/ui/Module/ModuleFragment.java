@@ -154,11 +154,13 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
                 if (moduleList != null) {
                     for (Module module : moduleList) {
                             // Check if the  what is added matched moduleName, code or lecturer
-                            if (FilterModule.equals(module.getModuleCode()) || FilterModule.equals(module.getModuleName()) || FilterModule.equals(module.getLectureRoom())|| FilterModule.equals(module.getTutorialRoom())) {
-                                filteredModuleList.add(modules);
+                            //if (FilterModule.getText().toString().equals(module.getModuleCode()) || FilterModule.equals(module.getModuleName()) || FilterModule.equals(module.getLectureRoom())|| FilterModule.getText().toString().equals(module.getTutorialRoom().)) {
+                        if (FilterModule.getText().toString().trim().equals(module.getModuleCode().trim())|| FilterModule.getText().toString().trim().equals(module.getModuleName().trim())|| FilterModule.getText().toString().trim().equals(module.getLectureRoom().trim())|| FilterModule.getText().toString().trim().equals(module.getTutorialRoom().trim())) {
+                            filteredModuleList.add(module);
                                 Log.i("ms", "filtered Size:" + filteredModuleList.size());
                         }else {
-                                Log.i("MS", "failed to filter");
+                                String s=FilterModule.getText().toString()+"|"+module.getModuleCode()+"|"+module.getModuleName()+"|"+module.getLectureRoom()+"|"+module.getTutorialRoom();
+                                Log.i("MS", "failed to filter:"+s);
                             }
                     }
                 }
