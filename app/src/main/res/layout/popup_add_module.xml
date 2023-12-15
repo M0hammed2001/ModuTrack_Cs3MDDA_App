@@ -11,8 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorSecondaryVariant">
-
+        android:background="?attr/colorSecondary">
 
         <Button
             android:id="@+id/buttonAddModule"
@@ -33,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="57sp"
             android:text="@string/Module"
+            android:labelFor="@id/ModuleCodeLabel"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />

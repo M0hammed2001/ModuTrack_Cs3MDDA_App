@@ -20,19 +20,20 @@
         android:layout_alignParentRight="true"
         android:layout_toEndOf="@+id/FilterModuleButton"/>
 
-        <EditText
-            android:id="@+id/FilterModule"
-            android:minHeight="48sp"
-            android:minWidth="48sp"
-            android:layout_width="300sp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
-            android:layout_marginLeft="2sp"
-            android:layout_alignParentTop="true"
-            android:background="@color/white"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:hint="Looking for something?" />
+    <EditText
+        android:id="@+id/FilterModule"
+        android:minHeight="48sp"
+        android:minWidth="48sp"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:layout_marginLeft="2sp"
+        android:layout_alignParentTop="true"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/black"
+        android:textColorHint="@color/grey"
+        android:hint="Looking for something?"
+        android:background="@drawable/outline" />
 
 
     <Button
@@ -41,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginTop="13sp"
+
         android:layout_toEndOf="@+id/FilterModule"
         android:drawableEnd="@drawable/search_white_24"
         android:minHeight="60sp" />
