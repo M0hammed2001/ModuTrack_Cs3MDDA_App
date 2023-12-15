@@ -67,9 +67,6 @@ public class ModuleEditFragment extends Fragment {
             // Handle the case where module is null
             return;
         }
-
-
-
         binding.ButttonEditCancel.setText(module.toString());
     }
 
@@ -150,7 +147,7 @@ public class ModuleEditFragment extends Fragment {
                 module.setModuleName(popupModuleEditName.getText().toString());
 
                 module.setAssignmentDate(popupAssignmentEditDate.getText().toString());
-                module.setAssignmentDate(popupAssignmentEditName.getText().toString());
+                module.setAssignmentName(popupAssignmentEditName.getText().toString());
 
                 module.setExamdate(popupExamEditDate.getText().toString());
                 module.setExamName(popupExamEditName.getText().toString());
