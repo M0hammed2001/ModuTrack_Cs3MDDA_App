@@ -71,8 +71,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         mMap.addMarker(new MarkerOptions().position(MainBuildingOOH).title("Aston Main Building 'MB' OOH Entrance "));
         mMap.addMarker(new MarkerOptions().position(astonMosque).title("Aston Mosque"));
 
-         mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco").icon(BitmapDescriptorFactory.fromResource(R.drawable.tescomarker)));
-//        mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+//         mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco").icon(BitmapDescriptorFactory.fromResource(R.drawable.tescomarker)));
+        mMap.addMarker(new MarkerOptions().position(Tesco).title("Tesco").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
         mMap.addMarker(new MarkerOptions().position(Greggs).title("Greggs").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
         mMap.addMarker(new MarkerOptions().position(WokAndGo).title("Wok and Go").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 

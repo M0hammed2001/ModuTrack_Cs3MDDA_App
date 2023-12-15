@@ -47,17 +47,17 @@ public class MainActivity extends AppCompatActivity {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-//                NavController navController = NavHostFragment.findNavController(getSupportFragmentManager().findFragmentById(R.id.nav_module));
-//                navController.navigate(R.id.action_module_to_moduleAdd);
-                Log.i("MS", "Navigating to Add Module Page");
-
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAnchorView(R.id.fab).setAction("Action", null).show();
-            }
-        });
+//        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+////                NavController navController = NavHostFragment.findNavController(getSupportFragmentManager().findFragmentById(R.id.nav_module));
+////                navController.navigate(R.id.action_module_to_moduleAdd);
+//                Log.i("MS", "Navigating to Add Module Page");
+//
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAnchorView(R.id.fab).setAction("Action", null).show();
+//            }
+//        });
 
 
 

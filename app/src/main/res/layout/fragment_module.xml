@@ -7,13 +7,13 @@
         android:orientation="vertical"
         tools:context=".ui.Module.ModuleFragment">
 
-        <Button
-            android:id="@+id/addDatabutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="add Data"
-            android:layout_below="@+id/FilterModule"/>
+<!--        <Button-->
+<!--            android:id="@+id/addDatabutton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:text="add Data"-->
+<!--            android:layout_below="@+id/FilterModule"/>-->
 
         <EditText
             android:id="@+id/FilterModule"
@@ -22,7 +22,8 @@
             android:layout_width="300sp"
             android:layout_height="wrap_content"
             android:layout_marginTop="3sp"
-            android:layout_marginLeft="10sp"
+            android:layout_marginLeft="2sp"
+            android:layout_alignParentTop="true"
             android:background="@color/white"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
@@ -32,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_marginTop="-3sp"
             android:minHeight="60sp"
+            android:layout_alignParentRight="true"
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/search_white_24"
             android:layout_toEndOf="@+id/FilterModule"/>
@@ -39,12 +41,23 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/MFRecyclerView"
-            android:layout_below="@+id/addDatabutton"
+            android:layout_below="@+id/FilterModule"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/addDatabutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="@dimen/fab_margin"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                app:srcCompat="@android:drawable/ic_input_add" />
 
 
 
