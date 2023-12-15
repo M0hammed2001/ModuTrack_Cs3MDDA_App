@@ -64,7 +64,7 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
     private ModuleListAdapter moduleAdapter;
     EditText FilterModule;
 
-    Button FilterModuleButton;
+    Button FilterModuleButton, ClearFilter;
 
 
 
@@ -111,6 +111,7 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
 
         FilterModule = view.findViewById(R.id.FilterModule);
         FilterModuleButton = view.findViewById(R.id.FilterModuleButton);
+        ClearFilter = view.findViewById(R.id.ClearFilter);
 
         //Get a handle to the RecyclerView.
         ModuleRecyclerView = view.findViewById(R.id.MFRecyclerView);
@@ -120,6 +121,10 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
         moduleAdapter.setModuleDB(moduleDB);
         // Connect the adapter with the RecyclerView.
         ModuleRecyclerView.setAdapter(moduleAdapter);
+
+        //clears the Filter text field
+        FilterModule.setText(null);
+
 
 
         // Give the RecyclerView a default layout manager.
@@ -138,7 +143,16 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
             }
         };
 
-
+        binding.ClearFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    //sets the text field for the edit text to null
+                    FilterModule.setText(null);
+                    // gets all the modules from the Database
+                    getModuleListInBackground(moduleViewModel);
+                    Log.i("MS", "Filter Cleared");
+            }
+        });
         binding.addDatabutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
