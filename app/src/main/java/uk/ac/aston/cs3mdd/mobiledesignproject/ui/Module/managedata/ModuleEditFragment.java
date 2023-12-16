@@ -150,7 +150,7 @@ public class ModuleEditFragment extends Fragment {
             public void onClick(View v) {
 
                 // will set once the button is clicked it will save the data to be set to what ever the data is set.
-                module.setModuleCode(ModuleCodeText.getText().toString());
+                module.setModuleCode(ModuleCodeText.getText().toString().trim().toUpperCase());
                 module.setModuleName(ModuleNameText.getText().toString());
 
                 module.setAssignmentDate1(AssignmentDate1Text.getText().toString());
@@ -162,8 +162,8 @@ public class ModuleEditFragment extends Fragment {
                 module.setExamdate(ExamDateText.getText().toString());
                 module.setExamName(ExamNameText.getText().toString());
 
-                module.setTutorialRoom(LectureRoomText.getText().toString());
-                module.setLectureRoom(TutorialRoomText.getText().toString());
+                module.setTutorialRoom(LectureRoomText.getText().toString().trim().toUpperCase());
+                module.setLectureRoom(TutorialRoomText.getText().toString().trim().toUpperCase());
 
 
                 EditModuleInBackground(module);

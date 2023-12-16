@@ -107,7 +107,7 @@ public class ModuleAddFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     String moduleName = ModuleNameText.getText().toString();
-                    String moduleCode = ModuleCodeText.getText().toString();
+                    String moduleCode = ModuleCodeText.getText().toString().trim().toUpperCase();
 
                     String assignmentDate1 = AssignmentDate1Text.getText().toString();
                     String assignmentName1 = AssignmentName1Text.getText().toString();
@@ -118,8 +118,8 @@ public class ModuleAddFragment extends Fragment {
                     String ExamDate = ExamDateText.getText().toString();
                     String ExamName = ExamNameText.getText().toString();
 
-                    String tutorialRoom = TutorialRoomText.getText().toString();
-                    String lectureRoom = LectureRoomText.getText().toString();
+                    String tutorialRoom = TutorialRoomText.getText().toString().trim().toUpperCase();
+                    String lectureRoom = LectureRoomText.getText().toString().trim().toUpperCase();
 
                     // Creates a Module object and save it to the database
                     Module moduleAdd = new Module(moduleName, moduleCode, assignmentName1, assignmentDate1, assignmentName2, assignmentDate2, ExamName, ExamDate, tutorialRoom, lectureRoom);

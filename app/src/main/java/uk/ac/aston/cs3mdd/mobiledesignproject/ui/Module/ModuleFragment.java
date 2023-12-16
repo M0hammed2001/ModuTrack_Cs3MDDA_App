@@ -169,16 +169,17 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
                 List<Module> filteredModuleList = new ArrayList<>();
                 if (moduleList != null) {
                     for (Module module : moduleList) {
-                            // Check if the  what is added matched moduleName, code or lecturer
-                            //if (FilterModule.getText().toString().equals(module.getModuleCode()) || FilterModule.equals(module.getModuleName()) || FilterModule.equals(module.getLectureRoom())|| FilterModule.getText().toString().equals(module.getTutorialRoom().)) {
-                        if (FilterModule.getText().toString().trim().equals(module.getModuleCode().trim())|| FilterModule.getText().toString().trim().equals(module.getModuleName().trim())|| FilterModule.getText().toString().trim().equals(module.getLectureRoom().trim())|| FilterModule.getText().toString().trim().equals(module.getTutorialRoom().trim())) {
+                            //converts the Data typed in into upper case trimmed version so it is not case sensitive
+                            String FilteredModuleData = FilterModule.getText().toString().trim().toUpperCase();
+
+                            // Check if the  what is added matched moduleName, code, tutorial or lecturer and converts it to upper case so it is not case sensitive
+                        if (FilteredModuleData.equals(module.getModuleCode().trim().toUpperCase())|| FilteredModuleData.equals(module.getModuleName().trim().toUpperCase())|| FilteredModuleData.equals(module.getLectureRoom().trim().toUpperCase())|| FilteredModuleData.trim().equals(module.getTutorialRoom().trim().toUpperCase())) {
                             filteredModuleList.add(module);
-                            String filtered = FilterModule.getText().toString();
                             // Log.i("ms", "filtered Size:" + filteredModuleList.size());
-                            Toast.makeText(getContext(), "Modules filtered by: " + filtered, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Modules filtered by: " + FilteredModuleData, Toast.LENGTH_SHORT).show();
 
                         }else {
-                                String s = FilterModule.getText().toString()+"|"+module.getModuleCode()+"|"+module.getModuleName()+"|"+module.getLectureRoom()+"|"+module.getTutorialRoom();
+                                String s = FilteredModuleData +"|"+module.getModuleCode()+"|"+module.getModuleName()+"|"+module.getLectureRoom()+"|"+module.getTutorialRoom();
                                 Log.i("MS", "failed to filter:"+ s);
                             }
                     }
