@@ -91,8 +91,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             holder.AssignmentDate1Label.setVisibility(View.GONE);
             holder.Assingment1.setVisibility(View.GONE);
         }else {
-            holder.AssignmentDate1Text.setText(Html.fromHtml(AssignmentDate2));
-            holder.AssignmentName1Text.setText(Html.fromHtml(AssignmentName2));
+            holder.AssignmentDate1Text.setText(Html.fromHtml(AssignmentDate1));
+            holder.AssignmentName1Text.setText(Html.fromHtml(AssignmentName1));
         }
 
 
