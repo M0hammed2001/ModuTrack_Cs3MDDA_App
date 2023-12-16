@@ -94,9 +94,9 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
             }
         };
             // this will clear the Database encase i want to add something new
-        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").fallbackToDestructiveMigration().build();
+//        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").fallbackToDestructiveMigration().build();
 
-//        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").addCallback(myCallBack).build();
+        moduleDB = Room.databaseBuilder(requireContext(), ModuleDatabase.class, "moduleDB").addCallback(myCallBack).build();
 
         moduleViewModel = new ViewModelProvider(this).get(ModuleViewModel.class);
 
@@ -138,7 +138,7 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
                 if (ModuleList != null) {
                     Log.i("MS", "Modules: " + ModuleList.size());
                 } else {
-                    Log.i("MS", "Modules: 0");
+                    Log.i("MS", "Module Database is empty");
                 }
             }
         };
@@ -146,6 +146,8 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
         binding.ClearFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String filtered = FilterModule.getText().toString();
+                Toast.makeText(getContext(), "Cleared Filter: " + filtered, Toast.LENGTH_SHORT).show();
                     //sets the text field for the edit text to null
                     FilterModule.setText(null);
                     // gets all the modules from the Database
@@ -171,10 +173,13 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
                             //if (FilterModule.getText().toString().equals(module.getModuleCode()) || FilterModule.equals(module.getModuleName()) || FilterModule.equals(module.getLectureRoom())|| FilterModule.getText().toString().equals(module.getTutorialRoom().)) {
                         if (FilterModule.getText().toString().trim().equals(module.getModuleCode().trim())|| FilterModule.getText().toString().trim().equals(module.getModuleName().trim())|| FilterModule.getText().toString().trim().equals(module.getLectureRoom().trim())|| FilterModule.getText().toString().trim().equals(module.getTutorialRoom().trim())) {
                             filteredModuleList.add(module);
-                                Log.i("ms", "filtered Size:" + filteredModuleList.size());
+                            String filtered = FilterModule.getText().toString();
+                            // Log.i("ms", "filtered Size:" + filteredModuleList.size());
+                            Toast.makeText(getContext(), "Modules filtered by: " + filtered, Toast.LENGTH_SHORT).show();
+
                         }else {
-                                String s=FilterModule.getText().toString()+"|"+module.getModuleCode()+"|"+module.getModuleName()+"|"+module.getLectureRoom()+"|"+module.getTutorialRoom();
-                                Log.i("MS", "failed to filter:"+s);
+                                String s = FilterModule.getText().toString()+"|"+module.getModuleCode()+"|"+module.getModuleName()+"|"+module.getLectureRoom()+"|"+module.getTutorialRoom();
+                                Log.i("MS", "failed to filter:"+ s);
                             }
                     }
                 }
@@ -237,37 +242,10 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
                         public void run() {
                             model.updateModule(moduleList);
                             // Create the text with line breaks
-                            Toast.makeText(getContext(), "My Modules: " + ModuleSize, Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getContext(), "My Modules: " + ModuleSize, Toast.LENGTH_LONG).show();
 
                         }
                     });
-            }
-        });
-    }
-
-
-    public void getFilteredListInBackground(ModuleViewModel model) {
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
-        Handler handler = new Handler(Looper.getMainLooper());
-
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                int ModuleSize = moduleDB.getModuleDAO().getAllModules().size();
-
-                // background task
-                moduleList = moduleDB.getModuleDAO().getAllModules();
-
-                // on finish task
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        model.updateModule(moduleList);
-                        // Create the text with line breaks
-                        Toast.makeText(getContext(), "My Modules: " + ModuleSize, Toast.LENGTH_LONG).show();
-
-                    }
-                });
             }
         });
     }
