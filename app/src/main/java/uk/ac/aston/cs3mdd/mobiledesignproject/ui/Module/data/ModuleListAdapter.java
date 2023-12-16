@@ -85,11 +85,29 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         holder.ModuleNameText.setText(Html.fromHtml(moduleName));
         holder.ModuleCodeText.setText(Html.fromHtml(moduleCode));
 
-        holder.AssignmentDate1Text.setText(Html.fromHtml(AssignmentDate1));
-        holder.AssignmentName1Text.setText(Html.fromHtml(AssignmentName1));
+        if(AssignmentDate1.isEmpty() && AssignmentName1.isEmpty()){
+            Log.i("MS","Assignment 1 empty");
+            holder.AssignmentName1Label.setVisibility(View.GONE);
+            holder.AssignmentDate1Label.setVisibility(View.GONE);
+            holder.Assingment1.setVisibility(View.GONE);
+        }else {
+            holder.AssignmentDate1Text.setText(Html.fromHtml(AssignmentDate2));
+            holder.AssignmentName1Text.setText(Html.fromHtml(AssignmentName2));
+        }
 
-        holder.AssignmentDate2Text.setText(Html.fromHtml(AssignmentDate2));
-        holder.AssignmentName2Text.setText(Html.fromHtml(AssignmentName2));
+
+        if(AssignmentDate2.isEmpty() && AssignmentName2.isEmpty()){
+            Log.i("MS","Assignment 2 empty");
+            holder.AssignmentName2Label.setVisibility(View.GONE);
+            holder.AssignmentDate2Label.setVisibility(View.GONE);
+            holder.Assingment2.setVisibility(View.GONE);
+        }else {
+            holder.AssignmentDate2Text.setText(Html.fromHtml(AssignmentDate2));
+            holder.AssignmentName2Text.setText(Html.fromHtml(AssignmentName2));
+        }
+
+
+
 
         holder.ExamDateText.setText(Html.fromHtml(ExamDate));
         holder.ExamNameText.setText(Html.fromHtml(ExamName));
@@ -109,7 +127,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
     }
 
     class ModuleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public final TextView  ModuleNameText, ModuleCodeText, AssignmentDate1Text, AssignmentName1Text, AssignmentDate2Text, AssignmentName2Text, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
+        public final TextView  ModuleNameText, ModuleCodeText, AssignmentDate1Text, AssignmentName1Text, AssignmentDate2Text, AssignmentName2Text, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText, Assingment2,AssignmentDate2Label, AssignmentName2Label, Assingment1,AssignmentDate1Label, AssignmentName1Label;
 //        EditText FilterModule;
         final ModuleListAdapter mAdapter;
         public Module modules;
@@ -128,6 +146,16 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             AssignmentDate2Text = itemView.findViewById(R.id.AssignmentDate2Text);
             AssignmentName2Text = itemView.findViewById(R.id.AssignmentName2Text);
 
+            //assignment 2 Labels
+            Assingment2 = itemView.findViewById(R.id.Assingment2);
+            AssignmentDate2Label = itemView.findViewById(R.id.AssignmentDate2Label);
+            AssignmentName2Label = itemView.findViewById(R.id.AssignmentName2Label);
+
+            //assignment 1 Labels
+            Assingment1 = itemView.findViewById(R.id.Assingment1);
+            AssignmentDate1Label = itemView.findViewById(R.id.AssignmentDate1Label);
+            AssignmentName1Label = itemView.findViewById(R.id.AssignmentName1Label);
+
             ExamDateText = itemView.findViewById(R.id.ExamDateText);
             ExamNameText = itemView.findViewById(R.id.ExamNameText);
 
@@ -137,6 +165,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             
             ButtonDeleteModule = itemView.findViewById(R.id.ButtonDeleteModule);
             ButtonEdit = itemView.findViewById(R.id.ButtonEdit);
+
 
 
 

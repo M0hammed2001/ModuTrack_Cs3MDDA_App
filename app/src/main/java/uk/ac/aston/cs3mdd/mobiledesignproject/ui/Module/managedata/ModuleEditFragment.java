@@ -162,8 +162,8 @@ public class ModuleEditFragment extends Fragment {
                 module.setExamdate(ExamDateText.getText().toString());
                 module.setExamName(ExamNameText.getText().toString());
 
-                module.setTutorialRoom(LectureRoomText.getText().toString().trim().toUpperCase());
-                module.setLectureRoom(TutorialRoomText.getText().toString().trim().toUpperCase());
+                module.setTutorialRoom(TutorialRoomText.getText().toString().trim().toUpperCase());
+                module.setLectureRoom(LectureRoomText.getText().toString().trim().toUpperCase());
 
 
                 EditModuleInBackground(module);
