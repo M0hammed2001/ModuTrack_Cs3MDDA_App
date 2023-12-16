@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -39,7 +40,7 @@ public class ModuleAddFragment extends Fragment {
 
     ModuleDatabase moduleDB;
 
-    EditText popupModuleNameEdit, popupModuleCodeEdit, popupAssignmentDateEdit,  popupAssignmentNameEdit, popupExamDateEdit, popupExamNameEdit, TutorialRoomEdit, LectureRoomEdit;
+    EditText ModuleNameText, ModuleCodeText, AssignmentDate1Text, AssignmentName1Text, AssignmentDate2Text, AssignmentName2Text, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
 
     Button buttonAddModule;
 
@@ -55,19 +56,23 @@ public class ModuleAddFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.popup_add_module, container, false);
 
-        popupModuleNameEdit = view.findViewById(R.id.popupModuleNameEdit);
-        popupModuleCodeEdit = view.findViewById(R.id.popupModuleCodeEdit);
+        ModuleCodeText = view.findViewById(R.id.ModuleCodeText);
+        ModuleNameText = view.findViewById(R.id.ModuleNameText);
 
         buttonAddModule = view.findViewById(R.id.buttonAddModule);
 
-        popupAssignmentDateEdit = view.findViewById(R.id.popupAssignmentDateEdit);
-        popupAssignmentNameEdit = view.findViewById(R.id.popupAssignmentNameEdit);
+        AssignmentDate1Text = view.findViewById(R.id.AssignmentDate1Text);
+        AssignmentName1Text = view.findViewById(R.id.AssignmentName1Text);
 
-        popupExamDateEdit = view.findViewById(R.id.popupExamDateEdit);
-        popupExamNameEdit = view.findViewById(R.id.popupExamNameEdit);
+        AssignmentDate2Text = view.findViewById(R.id.AssignmentDate2Text);
+        AssignmentName2Text = view.findViewById(R.id.AssignmentName2Text);
 
-        TutorialRoomEdit = view.findViewById(R.id.TutorialRoomEdit);
-        LectureRoomEdit = view.findViewById(R.id.LectureRoomEdit);
+
+        ExamDateText = view.findViewById(R.id.ExamDateText);
+        ExamNameText = view.findViewById(R.id.ExamNameText);
+
+        LectureRoomText = view.findViewById(R.id.LectureRoomText);
+        TutorialRoomText = view.findViewById(R.id.TutorialRoomText);
 
         RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
             @Override
@@ -101,20 +106,20 @@ public class ModuleAddFragment extends Fragment {
             buttonAddModule.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String moduleName = popupModuleNameEdit.getText().toString();
-                    String moduleCode = popupModuleCodeEdit.getText().toString();
+                    String moduleName = ModuleNameText.getText().toString();
+                    String moduleCode = ModuleCodeText.getText().toString();
 
-                    String assignmentDate1 = popupAssignmentDateEdit.getText().toString();
-                    String assignmentName1 = popupAssignmentNameEdit.getText().toString();
+                    String assignmentDate1 = AssignmentDate1Text.getText().toString();
+                    String assignmentName1 = AssignmentName1Text.getText().toString();
 
-                    String assignmentDate2 = popupAssignmentDateEdit.getText().toString();
-                    String assignmentName2 = popupAssignmentNameEdit.getText().toString();
+                    String assignmentDate2 = AssignmentDate2Text.getText().toString();
+                    String assignmentName2 = AssignmentName2Text.getText().toString();
 
-                    String ExamDate = popupExamDateEdit.getText().toString();
-                    String ExamName = popupExamNameEdit.getText().toString();
+                    String ExamDate = ExamDateText.getText().toString();
+                    String ExamName = ExamNameText.getText().toString();
 
-                    String tutorialRoom = TutorialRoomEdit.getText().toString();
-                    String lectureRoom = LectureRoomEdit.getText().toString();
+                    String tutorialRoom = TutorialRoomText.getText().toString();
+                    String lectureRoom = LectureRoomText.getText().toString();
 
                     // Creates a Module object and save it to the database
                     Module moduleAdd = new Module(moduleName, moduleCode, assignmentName1, assignmentDate1, assignmentName2, assignmentDate2, ExamName, ExamDate, tutorialRoom, lectureRoom);

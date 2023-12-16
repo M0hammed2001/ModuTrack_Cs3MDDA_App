@@ -52,24 +52,24 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         holder.modules = module;
 
         // Handle the case when data is not null and the CRS is "BHM"
-        String moduleCode = module.getModuleCode();
-        String moduleName = module.getModuleName();
+        String moduleCode = module.getModuleCode().trim();
+        String moduleName = module.getModuleName().trim();
 
-        String AssignmentName1 = module.getAssignmentName1();
-        String AssignmentDate1 = module.getAssignmentDate1();
+        String AssignmentName1 = module.getAssignmentName1().trim();
+        String AssignmentDate1 = module.getAssignmentDate1().trim();
 
-//        String AssignmentName2 = module.getAssignmentName2();
-//        String AssignmentDate2 = module.getAssignmentDate2();
+        String AssignmentName2 = module.getAssignmentName2().trim();
+        String AssignmentDate2 = module.getAssignmentDate2().trim();
 
-        String ExamName = module.getExamName();
+        String ExamName = module.getExamName().trim();
         String ExamDate = module.getExamdate();
 
-        String lectureRoom = module.getLectureRoom();
-        String tutorialRoom = module.getTutorialRoom();
+        String lectureRoom = module.getLectureRoom().trim();
+        String tutorialRoom = module.getTutorialRoom().trim();
 
         // Handle null values
-//        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
-//        moduleName = (moduleName != null) ? moduleName : "Module Name";
+        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
+        moduleName = (moduleName != null) ? moduleName : "Module Name";
 
 
 //        ExamName = (ExamName != null) ? ExamName : "Exam Name";
@@ -85,8 +85,11 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         holder.ModuleNameText.setText(Html.fromHtml(moduleName));
         holder.ModuleCodeText.setText(Html.fromHtml(moduleCode));
 
-        holder.AssignmentDateText.setText(Html.fromHtml(AssignmentDate1));
-        holder.AssignmentNameText.setText(Html.fromHtml(AssignmentName1));
+        holder.AssignmentDate1Text.setText(Html.fromHtml(AssignmentDate1));
+        holder.AssignmentName1Text.setText(Html.fromHtml(AssignmentName1));
+
+        holder.AssignmentDate2Text.setText(Html.fromHtml(AssignmentDate2));
+        holder.AssignmentName2Text.setText(Html.fromHtml(AssignmentName2));
 
         holder.ExamDateText.setText(Html.fromHtml(ExamDate));
         holder.ExamNameText.setText(Html.fromHtml(ExamName));
@@ -106,7 +109,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
     }
 
     class ModuleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public final TextView  ModuleNameText, ModuleCodeText, AssignmentDateText, AssignmentNameText, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
+        public final TextView  ModuleNameText, ModuleCodeText, AssignmentDate1Text, AssignmentName1Text, AssignmentDate2Text, AssignmentName2Text, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
 //        EditText FilterModule;
         final ModuleListAdapter mAdapter;
         public Module modules;
@@ -119,8 +122,11 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             ModuleNameText = itemView.findViewById(R.id.ModuleNameText);
             ModuleCodeText = itemView.findViewById(R.id.ModuleCodeText);
 
-            AssignmentDateText = itemView.findViewById(R.id.AssignmentDate1Text);
-            AssignmentNameText = itemView.findViewById(R.id.AssignmentName1Text);
+            AssignmentDate1Text = itemView.findViewById(R.id.AssignmentDate1Text);
+            AssignmentName1Text = itemView.findViewById(R.id.AssignmentName1Text);
+
+            AssignmentDate2Text = itemView.findViewById(R.id.AssignmentDate2Text);
+            AssignmentName2Text = itemView.findViewById(R.id.AssignmentName2Text);
 
             ExamDateText = itemView.findViewById(R.id.ExamDateText);
             ExamNameText = itemView.findViewById(R.id.ExamNameText);

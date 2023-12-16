@@ -45,7 +45,7 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.Trainmap.TrainMapFragment
 
 public class ModuleEditFragment extends Fragment {
 
-    EditText popupModuleEditName, popupModuleEditCode, popupAssignmentEditDate,  popupAssignmentEditName, popupExamEditDate,  popupExamEditName, LectureEditRoom, TutorialEditRoom;
+    EditText ModuleNameText, ModuleCodeText, AssignmentDate1Text, AssignmentName1Text, AssignmentDate2Text, AssignmentName2Text, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
 
     Button buttonChangeModule, ButttonEditCancel;
 
@@ -80,32 +80,39 @@ public class ModuleEditFragment extends Fragment {
         binding = PopupEditModuleBinding.inflate(inflater, container, false);
 
 
-        popupModuleEditName = view.findViewById(R.id.popupModuleEditName);
-        popupModuleEditCode = view.findViewById(R.id.popupModuleEditCode);
+        ModuleCodeText = view.findViewById(R.id.ModuleCodeText);
+        ModuleNameText = view.findViewById(R.id.ModuleNameText);
+
+        AssignmentDate1Text = view.findViewById(R.id.AssignmentDate1Text);
+        AssignmentName1Text = view.findViewById(R.id.AssignmentName1Text);
+
+        AssignmentDate2Text = view.findViewById(R.id.AssignmentDate2Text);
+        AssignmentName2Text = view.findViewById(R.id.AssignmentName2Text);
+
+
+        ExamDateText = view.findViewById(R.id.ExamDateText);
+        ExamNameText = view.findViewById(R.id.ExamNameText);
+
+        LectureRoomText = view.findViewById(R.id.LectureRoomText);
+        TutorialRoomText = view.findViewById(R.id.TutorialRoomText);
 
         buttonChangeModule = view.findViewById(R.id.buttonChangeModule);
         ButttonEditCancel = view.findViewById(R.id.ButttonEditCancel);
 
-        popupAssignmentEditDate = view.findViewById(R.id.popupAssignmentEditDate);
-        popupAssignmentEditName = view.findViewById(R.id.popupAssignmentEditName);
+        ModuleCodeText.setText(module.getModuleCode());
+        ModuleNameText.setText(module.getModuleName());
 
-        popupExamEditDate = view.findViewById(R.id.popupExamEditDate);
-        popupExamEditName = view.findViewById(R.id.popupExamEditName);
+        AssignmentDate1Text.setText(module.getAssignmentDate1());
+        AssignmentName1Text.setText(module.getAssignmentName1());
 
-        LectureEditRoom = view.findViewById(R.id.LectureEditRoom);
-        TutorialEditRoom = view.findViewById(R.id.TutorialEditRoom);
+        AssignmentDate2Text.setText(module.getAssignmentDate2());
+        AssignmentName2Text.setText(module.getAssignmentName2());
 
-        popupModuleEditName.setText(module.getModuleName());
-        popupModuleEditCode.setText(module.getModuleCode());
+        ExamDateText.setText(module.getExamdate());
+        ExamNameText.setText(module.getExamName());
 
-        popupAssignmentEditDate.setText(module.getAssignmentDate1());
-        popupAssignmentEditName.setText(module.getAssignmentName1());
-
-        popupExamEditDate.setText(module.getExamdate());
-        popupExamEditName.setText(module.getExamName());
-
-        LectureEditRoom.setText(module.getLectureRoom());
-        TutorialEditRoom.setText(module.getTutorialRoom());
+        LectureRoomText.setText(module.getLectureRoom());
+        TutorialRoomText.setText(module.getTutorialRoom());
 
 
 
@@ -143,17 +150,20 @@ public class ModuleEditFragment extends Fragment {
             public void onClick(View v) {
 
                 // will set once the button is clicked it will save the data to be set to what ever the data is set.
-                module.setModuleCode(popupModuleEditCode.getText().toString());
-                module.setModuleName(popupModuleEditName.getText().toString());
+                module.setModuleCode(ModuleCodeText.getText().toString());
+                module.setModuleName(ModuleNameText.getText().toString());
 
-                module.setAssignmentDate1(popupAssignmentEditDate.getText().toString());
-                module.setAssignmentName1(popupAssignmentEditName.getText().toString());
+                module.setAssignmentDate1(AssignmentDate1Text.getText().toString());
+                module.setAssignmentName1(AssignmentName1Text.getText().toString());
 
-                module.setExamdate(popupExamEditDate.getText().toString());
-                module.setExamName(popupExamEditName.getText().toString());
+                module.setAssignmentDate2(AssignmentDate2Text.getText().toString());
+                module.setAssignmentName2(AssignmentName2Text.getText().toString());
 
-                module.setTutorialRoom(TutorialEditRoom.getText().toString());
-                module.setLectureRoom(LectureEditRoom.getText().toString());
+                module.setExamdate(ExamDateText.getText().toString());
+                module.setExamName(ExamNameText.getText().toString());
+
+                module.setTutorialRoom(LectureRoomText.getText().toString());
+                module.setLectureRoom(TutorialRoomText.getText().toString());
 
 
                 EditModuleInBackground(module);

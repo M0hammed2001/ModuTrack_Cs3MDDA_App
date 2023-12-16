@@ -42,6 +42,7 @@
     <string name="nameLabel">Name: </string>
     <string name="date">Date: </string>
     <string name="Module">Module: </string>
+    <string name="ModuleName">Module Name </string>
     <string name="ModuleCode">Code</string>
     <string name="exam_date">Ex Date</string>
     <string name="pickdate">Date</string>

@@ -80,7 +80,7 @@
             android:textColor="@color/black"
             android:layout_toEndOf="@id/ModuleNameLabel"
             android:layout_height="wrap_content"
-            android:hint="@string/module_code"/>
+            android:hint="@string/ModuleName"/>
 
 
         <TextView
@@ -164,6 +164,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/Assingment2"
             android:layout_marginLeft="4dp"
+            android:minHeight="48sp"
             android:text="@string/date"
             android:textColor="@color/black"
             android:textSize="15sp"
@@ -214,7 +215,7 @@
             android:id="@+id/Exam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
+            android:layout_marginTop="10sp"
             android:layout_marginLeft="4dp"
             android:text="@string/Exam"
             android:textSize="15sp"
