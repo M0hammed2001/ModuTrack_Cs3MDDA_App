@@ -45,6 +45,11 @@
     <string name="ModuleCode">Code</string>
     <string name="exam_date">Ex Date</string>
     <string name="pickdate">Date</string>
+    <string name="Assigment1">Assigment 1: </string>
+    <string name="Assigment2">Assigment 2: </string>
+    <string name="Exam">Exam: </string>
+
+
     <string name="delete_module_button">Delete Module button</string>
     <string name="add_module_button">add Module to database button</string>
     <string name="edit_module_button">edit Module button</string>

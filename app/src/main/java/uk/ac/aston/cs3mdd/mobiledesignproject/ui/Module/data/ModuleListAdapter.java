@@ -1,40 +1,23 @@
 package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data;
 
 import android.content.Context;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 
-import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragmentDirections;
-import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleViewModel;
-import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata.ModuleEditFragment;
-import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata.ModuleEditFragmentDirections;
-
 
 
 public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.ModuleViewHolder>{
@@ -72,8 +55,11 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         String moduleCode = module.getModuleCode();
         String moduleName = module.getModuleName();
 
-        String AssignmentName = module.getAssignmentName();
-        String AssignmentDate = module.getAssignmentDate();
+        String AssignmentName1 = module.getAssignmentName1();
+        String AssignmentDate1 = module.getAssignmentDate1();
+
+//        String AssignmentName2 = module.getAssignmentName2();
+//        String AssignmentDate2 = module.getAssignmentDate2();
 
         String ExamName = module.getExamName();
         String ExamDate = module.getExamdate();
@@ -99,8 +85,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         holder.ModuleNameText.setText(Html.fromHtml(moduleName));
         holder.ModuleCodeText.setText(Html.fromHtml(moduleCode));
 
-        holder.AssignmentDateText.setText(Html.fromHtml(AssignmentDate));
-        holder.AssignmentNameText.setText(Html.fromHtml(AssignmentName));
+        holder.AssignmentDateText.setText(Html.fromHtml(AssignmentDate1));
+        holder.AssignmentNameText.setText(Html.fromHtml(AssignmentName1));
 
         holder.ExamDateText.setText(Html.fromHtml(ExamDate));
         holder.ExamNameText.setText(Html.fromHtml(ExamName));
@@ -133,8 +119,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             ModuleNameText = itemView.findViewById(R.id.ModuleNameText);
             ModuleCodeText = itemView.findViewById(R.id.ModuleCodeText);
 
-            AssignmentDateText = itemView.findViewById(R.id.AssignmentDateText);
-            AssignmentNameText = itemView.findViewById(R.id.AssignmentNameText);
+            AssignmentDateText = itemView.findViewById(R.id.AssignmentDate1Text);
+            AssignmentNameText = itemView.findViewById(R.id.AssignmentName1Text);
 
             ExamDateText = itemView.findViewById(R.id.ExamDateText);
             ExamNameText = itemView.findViewById(R.id.ExamNameText);

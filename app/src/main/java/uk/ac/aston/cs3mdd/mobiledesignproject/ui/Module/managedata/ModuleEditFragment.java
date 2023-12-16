@@ -98,8 +98,8 @@ public class ModuleEditFragment extends Fragment {
         popupModuleEditName.setText(module.getModuleName());
         popupModuleEditCode.setText(module.getModuleCode());
 
-        popupAssignmentEditDate.setText(module.getAssignmentDate());
-        popupAssignmentEditName.setText(module.getAssignmentName());
+        popupAssignmentEditDate.setText(module.getAssignmentDate1());
+        popupAssignmentEditName.setText(module.getAssignmentName1());
 
         popupExamEditDate.setText(module.getExamdate());
         popupExamEditName.setText(module.getExamName());
@@ -146,8 +146,8 @@ public class ModuleEditFragment extends Fragment {
                 module.setModuleCode(popupModuleEditCode.getText().toString());
                 module.setModuleName(popupModuleEditName.getText().toString());
 
-                module.setAssignmentDate(popupAssignmentEditDate.getText().toString());
-                module.setAssignmentName(popupAssignmentEditName.getText().toString());
+                module.setAssignmentDate1(popupAssignmentEditDate.getText().toString());
+                module.setAssignmentName1(popupAssignmentEditName.getText().toString());
 
                 module.setExamdate(popupExamEditDate.getText().toString());
                 module.setExamName(popupExamEditName.getText().toString());

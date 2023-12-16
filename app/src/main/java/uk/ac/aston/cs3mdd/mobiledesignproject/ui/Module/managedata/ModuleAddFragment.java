@@ -104,8 +104,11 @@ public class ModuleAddFragment extends Fragment {
                     String moduleName = popupModuleNameEdit.getText().toString();
                     String moduleCode = popupModuleCodeEdit.getText().toString();
 
-                    String assignmentDate = popupAssignmentDateEdit.getText().toString();
-                    String assignmentName = popupAssignmentNameEdit.getText().toString();
+                    String assignmentDate1 = popupAssignmentDateEdit.getText().toString();
+                    String assignmentName1 = popupAssignmentNameEdit.getText().toString();
+
+                    String assignmentDate2 = popupAssignmentDateEdit.getText().toString();
+                    String assignmentName2 = popupAssignmentNameEdit.getText().toString();
 
                     String ExamDate = popupExamDateEdit.getText().toString();
                     String ExamName = popupExamNameEdit.getText().toString();
@@ -114,7 +117,7 @@ public class ModuleAddFragment extends Fragment {
                     String lectureRoom = LectureRoomEdit.getText().toString();
 
                     // Creates a Module object and save it to the database
-                    Module moduleAdd = new Module(moduleName, moduleCode, assignmentName, assignmentDate, ExamName, ExamDate, tutorialRoom, lectureRoom);
+                    Module moduleAdd = new Module(moduleName, moduleCode, assignmentName1, assignmentDate1, assignmentName2, assignmentDate2, ExamName, ExamDate, tutorialRoom, lectureRoom);
                     AddModuleInBackground(moduleAdd);
 
                     NavHostFragment.findNavController(ModuleAddFragment.this).navigate(R.id.action_moduleadd_to_module);

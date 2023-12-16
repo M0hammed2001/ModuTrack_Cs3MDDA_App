@@ -23,20 +23,20 @@ public class Module implements Serializable {
 
 
     //module assignemnt information
-    @ColumnInfo(name = "AssignmentName")
-    String AssignmentName;
+    @ColumnInfo(name = "AssignmentName1")
+    String AssignmentName1;
+    @ColumnInfo(name = "AssignmentDate1")
+    String AssignmentDate1;
 
-//    @ColumnInfo(name = "Assignmentdue")
-//    String Assignmentdue;// is it due yes or no option to decide if this requires a to be displayed
-    @ColumnInfo(name = "AssignmentDate")
-    String AssignmentDate;
-
+    @ColumnInfo(name = "AssignmentName2")
+    String AssignmentName2;
+    @ColumnInfo(name = "AssignmentDate2")
+    String AssignmentDate2;
 
     //module exam information
     @ColumnInfo(name = "ExamName")
     String ExamName;
-//    @ColumnInfo(name = "Examdue")
-//    String Examdue;// is it due yes or no option to decide if this requires a to be displayed
+
     @ColumnInfo(name = "Examdate")
     String Examdate;
 
@@ -48,19 +48,52 @@ public class Module implements Serializable {
 
 
 
-    public Module(String ModuleName, String ModuleCode, String AssignmentName, String AssignmentDate, String ExamName, String Examdate, String tutorialRoom, String lectureRoom) {
+    public Module(String ModuleName, String ModuleCode, String AssignmentName1, String AssignmentDate1, String AssignmentName2, String AssignmentDate2, String ExamName, String Examdate, String tutorialRoom, String lectureRoom) {
         this.ModuleName = ModuleName;
         this.ModuleCode = ModuleCode;
-        this.AssignmentName = AssignmentName;
-//        this.Assignmentdue = Assignmentdue;
-        this.AssignmentDate = AssignmentDate;
+        this.AssignmentName1 = AssignmentName1;
+        this.AssignmentDate1 = AssignmentDate1;
+        this.AssignmentName2 = AssignmentName2;
+        this.AssignmentDate2 = AssignmentDate2;
         this.ExamName = ExamName;
-//        this.Examdue = Examdue;
         this.Examdate = Examdate;
         this.tutorialRoom = tutorialRoom;
         this.lectureRoom = lectureRoom;
         this.id = 0;
     }
+
+    public String getAssignmentName1() {
+        return AssignmentName1;
+    }
+
+    public void setAssignmentName1(String assignmentName1) {
+        AssignmentName1 = assignmentName1;
+    }
+
+    public String getAssignmentDate1() {
+        return AssignmentDate1;
+    }
+
+    public void setAssignmentDate1(String assignmentDate1) {
+        AssignmentDate1 = assignmentDate1;
+    }
+
+    public String getAssignmentName2() {
+        return AssignmentName2;
+    }
+
+    public void setAssignmentName2(String assignmentName2) {
+        AssignmentName2 = assignmentName2;
+    }
+
+    public String getAssignmentDate2() {
+        return AssignmentDate2;
+    }
+
+    public void setAssignmentDate2(String assignmentDate2) {
+        AssignmentDate2 = assignmentDate2;
+    }
+
     public String getLectureRoom() {
         return lectureRoom;
     }
@@ -102,13 +135,13 @@ public class Module implements Serializable {
         ModuleCode = moduleCode;
     }
 
-    public String getAssignmentName() {
-        return AssignmentName;
-    }
-
-    public void setAssignmentName(String assignmentName) {
-        AssignmentName = assignmentName;
-    }
+//    public String getAssignmentName() {
+//        return AssignmentName;
+//    }
+//
+//    public void setAssignmentName(String assignmentName) {
+//        AssignmentName = assignmentName;
+//    }
 
 //    public String getAssignmentdue() {
 //        return Assignmentdue;
@@ -118,13 +151,13 @@ public class Module implements Serializable {
 //        Assignmentdue = assignmentdue;
 //    }
 
-    public String getAssignmentDate() {
-        return AssignmentDate;
-    }
-
-    public void setAssignmentDate(String assignmentDate) {
-        AssignmentDate = assignmentDate;
-    }
+//    public String getAssignmentDate() {
+//        return AssignmentDate;
+//    }
+//
+//    public void setAssignmentDate(String assignmentDate) {
+//        AssignmentDate = assignmentDate;
+//    }
 
     public String getExamName() {
         return ExamName;

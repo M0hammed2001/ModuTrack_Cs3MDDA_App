@@ -83,22 +83,30 @@
             android:hint="@string/module_code"/>
 
 
-
-<!--        this is related to the assignment-->
         <TextView
-            android:id="@+id/AssignmentDateLabel"
+            android:id="@+id/Assingment1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
-            android:text="@string/date"
+            android:text="@string/Assigment1"
             android:textSize="15sp"
-            android:minHeight="48sp"
             android:textStyle="bold"
             android:layout_below="@id/ModuleCodeText"
-            android:textColor="@color/black"/>
+            android:textColor="@color/red"/>
+<!--        this is related to the assignment-->
+        <TextView
+            android:id="@+id/AssignmentDate1Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Assingment1"
+            android:layout_marginLeft="4dp"
+            android:text="@string/date"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/AssignmentDateText"
+            android:id="@+id/AssignmentDate1Text"
             android:minWidth="48sp"
             android:minHeight="48sp"
             android:textSize="15sp"
@@ -106,12 +114,12 @@
             android:layout_width="wrap_content"
             android:layout_marginTop="1sp"
             android:textColor="@color/black"
-            android:layout_below="@id/ModuleCodeText"
-            android:layout_toEndOf="@id/AssignmentDateLabel"
+            android:layout_below="@id/Assingment1"
+            android:layout_toEndOf="@id/AssignmentDate1Label"
             android:layout_height="wrap_content"
             android:hint="@string/pickdate"/>
         <TextView
-            android:id="@+id/AssignmentNameLabel"
+            android:id="@+id/AssignmentName1Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nameLabel"
@@ -119,12 +127,12 @@
             android:textStyle="bold"
             android:minHeight="48sp"
             android:layout_marginStart="20sp"
-            android:layout_below="@id/ModuleCodeText"
-            android:layout_toEndOf="@id/AssignmentDateText"
+            android:layout_below="@id/Assingment1"
+            android:layout_toEndOf="@id/AssignmentDate1Text"
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/AssignmentNameText"
+            android:id="@+id/AssignmentName1Text"
             android:minWidth="48sp"
             android:minHeight="48sp"
             android:textSize="15sp"
@@ -132,13 +140,87 @@
             android:layout_width="match_parent"
             android:layout_marginTop="1sp"
             android:textColor="@color/black"
-            android:layout_below="@id/ModuleCodeText"
-            android:layout_toEndOf="@id/AssignmentNameLabel"
+            android:layout_below="@id/Assingment1"
+            android:layout_toEndOf="@id/AssignmentName1Label"
             android:layout_height="wrap_content"
             android:hint="@string/assigment"/>
 
 
+        <TextView
+            android:id="@+id/Assingment2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="10sp"
+            android:text="@string/Assigment2"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_below="@id/AssignmentDate1Label"
+            android:textColor="@color/red"/>
+
+        <TextView
+            android:id="@+id/AssignmentDate2Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Assingment2"
+            android:layout_marginLeft="4dp"
+            android:text="@string/date"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/AssignmentDate2Text"
+            android:minWidth="48sp"
+            android:minHeight="48sp"
+            android:textSize="15sp"
+            android:layout_marginStart="5sp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="1sp"
+            android:textColor="@color/black"
+            android:layout_below="@id/Assingment2"
+            android:layout_toEndOf="@id/AssignmentDate1Label"
+            android:layout_height="wrap_content"
+            android:hint="@string/pickdate"/>
+        <TextView
+            android:id="@+id/AssignmentName2Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nameLabel"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:minHeight="48sp"
+            android:layout_marginStart="20sp"
+            android:layout_below="@id/Assingment2"
+            android:layout_toEndOf="@id/AssignmentDate1Text"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/AssignmentName2Text"
+            android:minWidth="48sp"
+            android:minHeight="48sp"
+            android:textSize="15sp"
+            android:layout_marginStart="5sp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="1sp"
+            android:textColor="@color/black"
+            android:layout_below="@id/Assingment2"
+            android:layout_toEndOf="@id/AssignmentName1Label"
+            android:layout_height="wrap_content"
+            android:hint="@string/assigment"/>
+
         <!--        this is related to the Exam-->
+        <TextView
+            android:id="@+id/Exam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:layout_marginLeft="4dp"
+            android:text="@string/Exam"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_below="@id/AssignmentDate2Label"
+            android:textColor="@color/red"/>
 
         <TextView
             android:id="@+id/ExamDateLabel"
@@ -149,7 +231,7 @@
             android:textSize="15sp"
             android:minHeight="48sp"
             android:textStyle="bold"
-            android:layout_below="@id/AssignmentDateLabel"
+            android:layout_below="@id/Exam"
             android:textColor="@color/black"/>
 
         <TextView
@@ -160,9 +242,8 @@
             android:layout_marginStart="5sp"
             android:layout_width="wrap_content"
             android:layout_marginTop="1sp"
-
             android:textColor="@color/black"
-            android:layout_below="@id/AssignmentDateText"
+            android:layout_below="@id/Exam"
             android:layout_toEndOf="@id/ExamDateLabel"
             android:layout_height="wrap_content"
             android:hint="@string/pickdate"/>
@@ -175,7 +256,7 @@
             android:textStyle="bold"
             android:minHeight="48sp"
             android:layout_marginStart="20sp"
-            android:layout_below="@id/AssignmentDateText"
+            android:layout_below="@id/Exam"
             android:layout_toEndOf="@id/ExamDateText"
             android:textColor="@color/black"/>
 
@@ -183,7 +264,7 @@
             android:id="@+id/ExamNameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/AssignmentNameText"
+            android:layout_below="@id/Exam"
             android:layout_marginTop="1sp"
             android:layout_toEndOf="@id/ExamNameLabel"
             android:hint="@string/exam"
