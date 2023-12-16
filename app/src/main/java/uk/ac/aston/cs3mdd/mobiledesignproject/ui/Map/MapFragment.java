@@ -24,6 +24,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
@@ -62,6 +63,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
 
     private GoogleMap mMap;
+
 
     private void addMarkers() {
 
@@ -102,6 +104,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         builder.include(Greggs);
         builder.include(WokAndGo);
 
+
+
     }
 
     private void addUniMarkers() {
@@ -119,6 +123,24 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         builder.include(astonMosque);
 
     }
+
+    private void oldCamera() {
+        LatLngBounds bounds = builder.build();
+        int padding = 140; // Padding in pixels
+        CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
+        mMap.moveCamera(cu);
+
+    }
+
+    private void newCamera() {
+        LatLngBounds bounds = builder.build();
+        int padding = 1; // Padding in pixels
+        CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
+        mMap.moveCamera(cu);
+
+    }
+
+
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -144,11 +166,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         button_Aston = view.findViewById(R.id.button_Aston);
         button_Mosque= view.findViewById(R.id.button_Mosque);
 
+
         AddBackAllMarkers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //clears all the markers off the map
                 addMarkers();
+
+                oldCamera();
                 Log.i("MAP", "all Markers added back");
             }
         });
@@ -183,6 +208,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 mMap.clear();
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(AstonLibrary).title("Aston Library 'L' "));
+
+                newCamera();
+
 //                builder.include(AstonLibrary);
                 Log.i("MAP", "Aston Library Pressed");
             }
