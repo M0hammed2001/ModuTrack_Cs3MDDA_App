@@ -173,9 +173,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         button_Aston = view.findViewById(R.id.button_Aston);
         button_Mosque= view.findViewById(R.id.button_Mosque);
 
+
+        //sets the original button Colours
         OGButtonBackgroundColor = Color.BLUE;
         OGButtonTextColor = Color.BLACK;
 
+        // sets them on view created
         ResetButtonColour();
 
 
