@@ -12,6 +12,7 @@
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorSecondaryFixed">#FFFFFF</item>
         <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondaryContainer">#FFFFFF</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->

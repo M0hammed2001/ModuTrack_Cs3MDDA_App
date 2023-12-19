@@ -1,6 +1,7 @@
 package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Map;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +34,8 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Map.Data.LocationViewModel;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
+
+    private int OGButtonBackgroundColor, OGButtonTextColor;
 
     private FragmentMapBinding binding;
 
@@ -108,6 +111,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     }
 
+
     private void addUniMarkers() {
 
         mMap.addMarker(new MarkerOptions().position(AstonLibrary).title("Aston Library 'L' "));
@@ -143,12 +147,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
 
 
+
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentMapBinding.inflate(inflater, container, false);
 
         return binding.getRoot();
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -165,6 +172,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         button_shop = view.findViewById(R.id.button_shop);
         button_Aston = view.findViewById(R.id.button_Aston);
         button_Mosque= view.findViewById(R.id.button_Mosque);
+
+        OGButtonBackgroundColor = Color.BLUE;
+        OGButtonTextColor = Color.BLACK;
+
+        ResetButtonColour();
+
+
+
 
 
         AddBackAllMarkers.setOnClickListener(new View.OnClickListener() {
@@ -211,6 +226,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
                 newCamera();
 
+                //resets the button colour to default
+                ResetButtonColour();
+                //sets the focus colour
+                button_AstonLibrary.setBackgroundColor(Color.WHITE);
+                button_AstonLibrary.setBackgroundColor(Color.RED);
+
 //                builder.include(AstonLibrary);
                 Log.i("MAP", "Aston Library Pressed");
             }
@@ -243,6 +264,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             public void onClick(View v) {
                 //clears all the markers off the map
                 mMap.clear();
+                //resets the button colour to default
+                ResetButtonColour();
+                //sets the focus colour
+                button_AstonSU.setBackgroundColor(Color.WHITE);
+                button_AstonSU.setBackgroundColor(Color.RED);
+
+
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(astonSU).title("Aston Student Union"));
                 Log.i("MAP", "Aston SU Pressed");
@@ -261,6 +289,33 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         });
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity());
 
+
+    }
+
+    private void ResetButtonColour(){
+        MainentranceMB.getBackground();
+        MainentranceMB.getTextColors();
+
+        button_AstonMBOOH.getBackground();
+        button_AstonMBOOH.getTextColors();
+
+        button_AstonLibrary.setBackgroundColor(OGButtonBackgroundColor);
+        button_AstonLibrary.setBackgroundColor(OGButtonTextColor);
+
+        button_AstonSU.setBackgroundColor(OGButtonBackgroundColor);
+        button_AstonSU.setBackgroundColor(OGButtonTextColor);
+
+        AddBackAllMarkers.getBackground();
+        AddBackAllMarkers.getTextColors();
+
+        button_shop.getBackground();
+        button_shop.getTextColors();
+
+        button_Aston.getBackground();
+        button_Aston.getTextColors();
+
+        button_Mosque.getBackground();
+        button_Mosque.getTextColors();
 
     }
 

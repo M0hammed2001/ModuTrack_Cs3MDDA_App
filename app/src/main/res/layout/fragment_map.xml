@@ -70,7 +70,10 @@
                     android:layout_height="wrap_content"
                     android:text="@string/AstonLibrary"
                     android:layout_marginLeft="5sp"
-                    android:layout_below="@+id/button_AstonMBMain"/>
+                    android:layout_below="@+id/button_AstonMBMain"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onButtonAstonLibraryClick"/>
 
                 <Button
                     android:id="@+id/button_AstonSU"
