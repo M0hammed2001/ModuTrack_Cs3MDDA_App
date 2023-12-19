@@ -1,19 +1,14 @@
 package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Map;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.renderscript.Sampler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -25,12 +20,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
 import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentMapBinding;
-import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Map.Data.LocationViewModel;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.TrainService;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
@@ -126,27 +119,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         builder.include(MainBuildingOOH);
         builder.include(astonMosque);
 
+
     }
 
-    private void oldCamera() {
+    private void camera() {
         LatLngBounds bounds = builder.build();
-        int padding = 140; // Padding in pixels
+        int padding = 120; // Padding in pixels
         CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
         mMap.moveCamera(cu);
 
     }
-
-    private void newCamera() {
-        LatLngBounds bounds = builder.build();
-        int padding = 1; // Padding in pixels
-        CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
-        mMap.moveCamera(cu);
-
-    }
-
-
-
-
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -187,6 +169,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 //clears all the markers off the map
                 addMarkers();
 
+                // resets camara View
+                camera();
+
                 //resets the button colour to default or makes sure that other button clicks are reset
                 ResetButtonColour();
 
@@ -194,7 +179,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 AddBackAllMarkers.setTextColor(Color.WHITE);
                 AddBackAllMarkers.setBackgroundColor(Color.rgb(128, 0, 128));
 
-                oldCamera();
+                //resets the camara position
+                camera();
+
+                camera();
                 Log.i("MAP", "all Markers added back");
             }
         });
@@ -211,6 +199,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 //sets the focus colour
                 button_shop.setTextColor(Color.WHITE);
                 button_shop.setBackgroundColor(Color.rgb(128, 0, 128));
+
+                //resets the camara position
+                camera();
 
                 //adds all Shop makers to map
                 addShops();
@@ -231,6 +222,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 button_Aston.setTextColor(Color.WHITE);
                 button_Aston.setBackgroundColor(Color.rgb(128, 0, 128));
 
+                //resets the camara position
+                camera();
+
                 //adds all uni makers to map
                 addUniMarkers();
                 Log.i("MAP", "all University Markers added back");
@@ -246,10 +240,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(AstonLibrary).title("Aston Library 'L' "));
 
-                newCamera();
+
 
                 //resets the button colour to default or makes sure that other button clicks are reset
                 ResetButtonColour();
+
+                //resets the camara position
+                camera();
+//                // sets Camara Possition to Focus on the marker
+//                CameraUpdate cu = CameraUpdateFactory.newLatLng(AstonLibrary);
+//                mMap.moveCamera(cu);
 
                 //sets the focus colour
                 button_AstonLibrary.setTextColor(Color.WHITE);
@@ -268,9 +268,17 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 //resets the button colour to default or makes sure that other button clicks are reset
                 ResetButtonColour();
 
+
+
                 //sets the focus colour
                 MainentranceMB.setTextColor(Color.WHITE);
                 MainentranceMB.setBackgroundColor(Color.rgb(128, 0, 128));
+
+                //resets the camara position
+                camera();
+                // sets Camara Possition to Focus on the marker
+//                CameraUpdate cu = CameraUpdateFactory.newLatLng(MainBuildingMain);
+//                mMap.moveCamera(cu);
 
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(MainBuildingMain).title("Aston Main Building 'MB' Main Entrance "));
@@ -287,9 +295,17 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 //resets the button colour to default or makes sure that other button clicks are reset
                 ResetButtonColour();
 
+
+
                 //sets the focus colour
                 button_AstonMBOOH.setTextColor(Color.WHITE);
                 button_AstonMBOOH.setBackgroundColor(Color.rgb(128, 0, 128));
+
+                //resets the camara position
+                camera();
+                // sets Camara Possition to Focus on the marker
+//                CameraUpdate cu = CameraUpdateFactory.newLatLng(MainBuildingOOH);
+//                mMap.moveCamera(cu);
 
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(MainBuildingOOH).title("Aston Main Building 'MB' OOH Entrance "));
@@ -310,6 +326,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 button_AstonSU.setTextColor(Color.WHITE);
                 button_AstonSU.setBackgroundColor(Color.rgb(128, 0, 128));
 
+                //resets the camara position
+                camera();
+//                // sets Camara Possition to Focus on the marker
+//                CameraUpdate cu = CameraUpdateFactory.newLatLng(astonSU);
+//                mMap.moveCamera(cu);
 
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(astonSU).title("Aston Student Union"));
@@ -329,6 +350,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 //sets the focus colour
                 button_Mosque.setTextColor(Color.WHITE);
                 button_Mosque.setBackgroundColor(Color.rgb(128, 0, 128));
+
+                //resets the camara position
+                camera();
+//                // sets Camara Possition to Focus on the marker
+//                CameraUpdate cu = CameraUpdateFactory.newLatLng(astonMosque);
+//                mMap.moveCamera(cu);
 
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(astonMosque).title("Aston Mosque"));
@@ -379,11 +406,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         //adds all the markers stored in the the add marker method
          addMarkers();
 
-
-            LatLngBounds bounds = builder.build();
-            int padding = 140; // Padding in pixels
-            CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
-            mMap.moveCamera(cu);
+         // will set the bounds to the preset camara settings
+         camera();
     }
 
     @Override
