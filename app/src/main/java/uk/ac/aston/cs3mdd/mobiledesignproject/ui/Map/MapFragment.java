@@ -176,7 +176,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         //sets the original button Colours
         OGButtonBackgroundColor = Color.BLUE;
-        OGButtonTextColor = Color.BLACK;
+        OGButtonTextColor = Color.WHITE;
 
         // sets them on view created
         ResetButtonColour();
@@ -191,6 +191,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 //clears all the markers off the map
                 addMarkers();
 
+                //resets the button colour to default or makes sure that other button clicks are reset
+                ResetButtonColour();
+
+                //sets the focus colour
+                AddBackAllMarkers.setTextColor(Color.WHITE);
+                AddBackAllMarkers.setBackgroundColor(Color.rgb(128, 0, 128));
+
                 oldCamera();
                 Log.i("MAP", "all Markers added back");
             }
@@ -201,6 +208,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             public void onClick(View v) {
                 //clears all the markers off the map
                 mMap.clear();
+
+                //resets the button colour to default or makes sure that other button clicks are reset
+                ResetButtonColour();
+
+                //sets the focus colour
+                button_shop.setTextColor(Color.WHITE);
+                button_shop.setBackgroundColor(Color.rgb(128, 0, 128));
+
                 //adds all Shop makers to map
                 addShops();
                 Log.i("MAP", "all Shop Markers added back");
@@ -212,6 +227,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             public void onClick(View v) {
                 //clears all the markers off the map
                 mMap.clear();
+
+                //resets the button colour to default or makes sure that other button clicks are reset
+                ResetButtonColour();
+
+                //sets the focus colour
+                button_Aston.setTextColor(Color.WHITE);
+                button_Aston.setBackgroundColor(Color.rgb(128, 0, 128));
+
                 //adds all uni makers to map
                 addUniMarkers();
                 Log.i("MAP", "all University Markers added back");
@@ -229,13 +252,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
                 newCamera();
 
-                //resets the button colour to default
+                //resets the button colour to default or makes sure that other button clicks are reset
                 ResetButtonColour();
-                //sets the focus colour
-                button_AstonLibrary.setBackgroundColor(Color.WHITE);
-                button_AstonLibrary.setBackgroundColor(Color.RED);
 
-//                builder.include(AstonLibrary);
+                //sets the focus colour
+                button_AstonLibrary.setTextColor(Color.WHITE);
+                button_AstonLibrary.setBackgroundColor(Color.rgb(128, 0, 128));
+
                 Log.i("MAP", "Aston Library Pressed");
             }
         });
@@ -245,6 +268,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             public void onClick(View v) {
                 //clears all the markers off the map
                 mMap.clear();
+
+                //resets the button colour to default or makes sure that other button clicks are reset
+                ResetButtonColour();
+
+                //sets the focus colour
+                MainentranceMB.setTextColor(Color.WHITE);
+                MainentranceMB.setBackgroundColor(Color.rgb(128, 0, 128));
+
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(MainBuildingMain).title("Aston Main Building 'MB' Main Entrance "));
                 Log.i("MAP", "Aston OOH Pressed");
@@ -256,6 +287,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             public void onClick(View v) {
                 //clears all the markers off the map
                 mMap.clear();
+
+                //resets the button colour to default or makes sure that other button clicks are reset
+                ResetButtonColour();
+
+                //sets the focus colour
+                button_AstonMBOOH.setTextColor(Color.WHITE);
+                button_AstonMBOOH.setBackgroundColor(Color.rgb(128, 0, 128));
+
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(MainBuildingOOH).title("Aston Main Building 'MB' OOH Entrance "));
                 Log.i("MAP", "Aston OOH Pressed");
@@ -267,11 +306,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             public void onClick(View v) {
                 //clears all the markers off the map
                 mMap.clear();
-                //resets the button colour to default
+
+                //resets the button colour to default or makes sure that other button clicks are reset
                 ResetButtonColour();
+
                 //sets the focus colour
-                button_AstonSU.setBackgroundColor(Color.WHITE);
-                button_AstonSU.setBackgroundColor(Color.RED);
+                button_AstonSU.setTextColor(Color.WHITE);
+                button_AstonSU.setBackgroundColor(Color.rgb(128, 0, 128));
 
 
                 //adds the marker i want back the the map
@@ -285,6 +326,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             public void onClick(View v) {
                 //clears all the markers off the map
                 mMap.clear();
+
+                //resets the button colour to default or makes sure that other button clicks are reset
+                ResetButtonColour();
+
+                //sets the focus colour
+                button_Mosque.setTextColor(Color.WHITE);
+                button_Mosque.setBackgroundColor(Color.rgb(128, 0, 128));
+
                 //adds the marker i want back the the map
                 mMap.addMarker(new MarkerOptions().position(astonMosque).title("Aston Mosque"));
                 Log.i("MAP", "Aston Mosque Pressed");
@@ -296,29 +345,29 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void ResetButtonColour(){
-        MainentranceMB.getBackground();
-        MainentranceMB.getTextColors();
+        MainentranceMB.setBackgroundColor(OGButtonBackgroundColor);
+        MainentranceMB.setTextColor(OGButtonTextColor);
 
-        button_AstonMBOOH.getBackground();
-        button_AstonMBOOH.getTextColors();
+        button_AstonMBOOH.setBackgroundColor(OGButtonBackgroundColor);
+        button_AstonMBOOH.setTextColor(OGButtonTextColor);
 
         button_AstonLibrary.setBackgroundColor(OGButtonBackgroundColor);
-        button_AstonLibrary.setBackgroundColor(OGButtonTextColor);
+        button_AstonLibrary.setTextColor(OGButtonTextColor);
 
         button_AstonSU.setBackgroundColor(OGButtonBackgroundColor);
-        button_AstonSU.setBackgroundColor(OGButtonTextColor);
+        button_AstonSU.setTextColor(OGButtonTextColor);
 
-        AddBackAllMarkers.getBackground();
-        AddBackAllMarkers.getTextColors();
+        AddBackAllMarkers.setBackgroundColor(OGButtonBackgroundColor);
+        AddBackAllMarkers.setTextColor(OGButtonTextColor);
 
-        button_shop.getBackground();
-        button_shop.getTextColors();
+        button_shop.setBackgroundColor(OGButtonBackgroundColor);
+        button_shop.setTextColor(OGButtonTextColor);
 
-        button_Aston.getBackground();
-        button_Aston.getTextColors();
+        button_Aston.setBackgroundColor(OGButtonBackgroundColor);
+        button_Aston.setTextColor(OGButtonTextColor);
 
-        button_Mosque.getBackground();
-        button_Mosque.getTextColors();
+        button_Mosque.setBackgroundColor(OGButtonBackgroundColor);
+        button_Mosque.setTextColor(OGButtonTextColor);
 
     }
 
