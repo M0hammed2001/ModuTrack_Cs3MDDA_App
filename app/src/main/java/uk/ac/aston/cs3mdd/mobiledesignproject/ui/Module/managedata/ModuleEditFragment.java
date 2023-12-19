@@ -1,11 +1,13 @@
 package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.Html;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -45,6 +48,8 @@ import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.Trainmap.TrainMapFragment
 
 public class ModuleEditFragment extends Fragment {
 
+    private int OGBackgroundColor, OGTextColor;
+
     EditText ModuleNameText, ModuleCodeText, AssignmentDate1Text, AssignmentName1Text, AssignmentDate2Text, AssignmentName2Text, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
 
     Button buttonChangeModule, ButttonEditCancel;
@@ -69,6 +74,20 @@ public class ModuleEditFragment extends Fragment {
         }
         binding.ButttonEditCancel.setText(module.toString());
     }
+    // will look if the app is in dark mode and will set the default colour for it
+//    private void OGThemeColour() {
+//        int nightMode = AppCompatDelegate.getDefaultNightMode();
+//
+//        if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+//            ExamDateText.setBackgroundColor(Color.RED);
+//        } else if (nightMode == AppCompatDelegate.MODE_NIGHT_NO) {
+//            ExamDateText.setBackgroundColor(Color.GREEN);
+//        } else {
+//            Toast.makeText(getContext(),"failed to find dark", Toast.LENGTH_LONG).show();
+//
+//        }
+//
+//    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -113,6 +132,23 @@ public class ModuleEditFragment extends Fragment {
 
         LectureRoomText.setText(module.getLectureRoom());
         TutorialRoomText.setText(module.getTutorialRoom());
+
+
+
+
+//        ExamDateText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean HasFocus) {
+//                if (HasFocus) {
+//                    // Change the background color when the EditText has been clicked on
+//                    ExamDateText.setBackgroundColor(Color.YELLOW); // Change to your desired color
+//                } else {
+//                    OGThemeColour();
+//                }
+//            }
+//        });
+
+
 
 
 
@@ -186,6 +222,8 @@ public class ModuleEditFragment extends Fragment {
         });
 
         return view;
+
+
 
     }
 
