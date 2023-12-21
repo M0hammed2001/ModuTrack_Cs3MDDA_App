@@ -40,6 +40,8 @@ public class Module implements Serializable {
     @ColumnInfo(name = "Examdate")
     String Examdate;
 
+    //room information
+
     @ColumnInfo(name = "LectureRoom")
     String lectureRoom;
 
