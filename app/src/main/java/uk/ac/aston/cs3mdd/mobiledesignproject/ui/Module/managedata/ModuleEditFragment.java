@@ -1,13 +1,13 @@
 package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata;
 
 
-import android.graphics.Color;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.text.Html;
+
 import android.util.Log;
-import android.util.TypedValue;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,15 +17,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDelegate;
+
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.recyclerview.widget.RecyclerView;
+
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.Update;
+
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 
@@ -34,21 +34,17 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
-import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentModuleBinding;
-import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.FragmentTrainmapBinding;
-import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.PopupAddModuleBinding;
 import uk.ac.aston.cs3mdd.mobiledesignproject.databinding.PopupEditModuleBinding;
-import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragment;
+
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleViewModel;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.Module;
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.data.ModuleDatabase;
-import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.TrainAPI.Destination;
-import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Train.Trainmap.TrainMapFragment;
+
 
 
 public class ModuleEditFragment extends Fragment {
 
-    private int OGBackgroundColor, OGTextColor;
+//    private int OGBackgroundColor, OGTextColor;
 
     EditText ModuleNameText, ModuleCodeText, AssignmentDate1Text, AssignmentName1Text, AssignmentDate2Text, AssignmentName2Text, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
 
@@ -248,7 +244,6 @@ public class ModuleEditFragment extends Fragment {
                             Toast.makeText(getContext(), "updated in DataBase", Toast.LENGTH_LONG).show();
                         }
                     });
-
             }
         });
     }

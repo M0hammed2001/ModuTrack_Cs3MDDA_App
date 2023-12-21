@@ -8,22 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
-
 import uk.ac.aston.cs3mdd.mobiledesignproject.R;
-
 import uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.ModuleFragmentDirections;
 
 
 public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.ModuleViewHolder>{
 
     ModuleDatabase moduleDB;
-//    private PopupEditModuleBinding binding;
 
     private List<Module> mModuleList;
     private final LayoutInflater mInflater;
@@ -67,20 +62,6 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         String lectureRoom = module.getLectureRoom().trim();
         String tutorialRoom = module.getTutorialRoom().trim();
 
-        // Handle null values
-        moduleCode = (moduleCode != null) ? moduleCode : "Module Code";
-        moduleName = (moduleName != null) ? moduleName : "Module Name";
-
-
-//        ExamName = (ExamName != null) ? ExamName : "Exam Name";
-//        ExamDate = (ExamDate != null) ? ExamDate : "Exam Date";
-//
-//        AssignmentName = (AssignmentName != null) ? AssignmentName : "Assignment Name";
-//        AssignmentDate = (AssignmentDate != null) ? AssignmentDate : "Assignment Date";
-
-        lectureRoom = (lectureRoom != null) ? lectureRoom : "Room details Unavailable";
-        tutorialRoom = (tutorialRoom != null) ? tutorialRoom : "Room details Unavailable";
-
 
         holder.ModuleNameText.setText(Html.fromHtml(moduleName));
         holder.ModuleCodeText.setText(Html.fromHtml(moduleCode));
@@ -106,9 +87,6 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             holder.AssignmentName2Text.setText(Html.fromHtml(AssignmentName2));
         }
 
-
-
-
         holder.ExamDateText.setText(Html.fromHtml(ExamDate));
         holder.ExamNameText.setText(Html.fromHtml(ExamName));
 
@@ -128,10 +106,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
 
     class ModuleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView  ModuleNameText, ModuleCodeText, AssignmentDate1Text, AssignmentName1Text, AssignmentDate2Text, AssignmentName2Text, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText, Assingment2,AssignmentDate2Label, AssignmentName2Label, Assingment1,AssignmentDate1Label, AssignmentName1Label;
-//        EditText FilterModule;
         final ModuleListAdapter mAdapter;
         public Module modules;
-//        public final Button FilterModuleButton;
         public final Button ButtonDeleteModule, ButtonEdit;
 
 
@@ -167,22 +143,16 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             ButtonEdit = itemView.findViewById(R.id.ButtonEdit);
 
 
-
-
-//            FilterModule = itemView.findViewById(R.id.FilterModule);
-//            FilterModuleButton = itemView.findViewById(R.id.FilterModuleButton);
-
             this.mAdapter = adapter;
 
             ButtonEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //Calling all fields
+                    //Calling all field in that module view and navigating that information to the new fragment called ModuleEditFragment, similar to my API.
                     ModuleFragmentDirections.ActionModuleToModuleEdit action = ModuleFragmentDirections.actionModuleToModuleEdit(modules);
                     Navigation.findNavController(view).navigate(action);
 
                     Log.i("MS", "Module Clicked");
-//                    UpdateModuleInBackground(modules);
 
                 }
             });
@@ -190,31 +160,18 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             ButtonDeleteModule.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //used the delete method i created to delete the specified module from the database
-                    //DeleteModuleInBackground(modules);
+                    //calls the delete function in the interface
                     listener.onDeleteClick(modules);
                     Log.i("MS", "Deleted");
                 }
             });
 
-
-
-
-
-
-
-
         }
-
-
-
 
         @Override
         public void onClick(View view) {
 
             Log.i("MS", "You Selected " + modules.toString());
-//            AddModuleBinding.action = TrainFragmentDirections.actionNavTrainToNavTrainmap(modules);
-//            Navigation.findNavController(view).navigate(action);
 
         }
     }

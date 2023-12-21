@@ -254,6 +254,7 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
     // allows me to delete the data and from database and reloads the data.
     @Override
     public void onDeleteClick(Module module) {
+        // uses the interface to link this onclick delete with my modulelistadapter
         DeleteModuleInBackground(module);
         getModuleListInBackground(moduleViewModel);
     }
