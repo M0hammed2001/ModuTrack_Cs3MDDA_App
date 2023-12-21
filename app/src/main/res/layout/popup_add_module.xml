@@ -98,18 +98,17 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <EditText
+        <TextView
             android:id="@+id/AssignmentDate1Text"
-            android:minWidth="48sp"
-            android:minHeight="48sp"
-            android:textSize="15sp"
-            android:layout_marginStart="5sp"
+            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_marginTop="1sp"
-            android:textColor="@color/black"
+            android:layout_marginLeft="4dp"
+            android:text="@string/date"
+            android:textSize="15sp"
+            android:minHeight="48sp"
+            android:textStyle="bold"
             android:layout_below="@id/Assingment1"
             android:layout_toEndOf="@id/AssignmentDate1Label"
-            android:layout_height="wrap_content"
             android:hint="@string/pickdate"/>
         <TextView
             android:id="@+id/AssignmentName1Label"
@@ -161,18 +160,17 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <EditText
+        <TextView
             android:id="@+id/AssignmentDate2Text"
-            android:minWidth="48sp"
-            android:minHeight="48sp"
-            android:textSize="15sp"
-            android:layout_marginStart="5sp"
+            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_marginTop="1sp"
-            android:textColor="@color/black"
+            android:layout_marginLeft="4dp"
+            android:text="@string/date"
+            android:textSize="15sp"
+            android:minHeight="48sp"
+            android:textStyle="bold"
             android:layout_below="@id/Assingment2"
             android:layout_toEndOf="@id/AssignmentDate1Label"
-            android:layout_height="wrap_content"
             android:hint="@string/pickdate"/>
         <TextView
             android:id="@+id/AssignmentName2Label"
@@ -226,19 +224,17 @@
             android:layout_below="@id/Exam"
             android:textColor="@color/black"/>
 
-        <EditText
+        <TextView
             android:id="@+id/ExamDateText"
-            android:minWidth="48sp"
-            android:minHeight="48sp"
-            android:textSize="15sp"
-            android:layout_marginStart="5sp"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="1sp"
-            android:textColor="@color/black"
-            android:layout_below="@id/Exam"
-            android:layout_toEndOf="@id/ExamDateLabel"
             android:layout_height="wrap_content"
-            android:hint="@string/pickdate"/>
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:text="@string/date"
+            android:textSize="15sp"
+            android:minHeight="48sp"
+            android:textStyle="bold"
+            android:layout_below="@id/Exam"
+            android:layout_toEndOf="@id/ExamDateLabel" />
         <TextView
             android:id="@+id/ExamNameLabel"
             android:layout_width="wrap_content"
