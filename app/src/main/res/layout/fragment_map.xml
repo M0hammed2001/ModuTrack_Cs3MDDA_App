@@ -120,6 +120,7 @@
                     android:id="@+id/button_shop"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/baseline_shopping_bag_24"
                     android:text="@string/astonshop" />
 
                 <Button
@@ -128,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/astonCampus"
                     android:layout_marginLeft="5sp"
-                    android:drawableLeft="@drawable/ooh_24"
+                    android:drawableLeft="@drawable/baseline_school_24"
                     android:layout_toRightOf="@+id/button_shop"/>
 
 
