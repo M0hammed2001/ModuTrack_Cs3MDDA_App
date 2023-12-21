@@ -13,8 +13,9 @@
         <item name="colorSecondaryVariant">#D0F8A2</item>
         <item name="colorOnSecondary">@color/black</item>
         <item name="colorSecondaryContainer">#F6F6F6</item>
-        <item name="materialButtonOutlinedStyle">@color/black</item>
 
+        <item name="materialButtonOutlinedStyle">@color/black</item>
+        <item name="materialButtonStyle">@color/black</item>
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>

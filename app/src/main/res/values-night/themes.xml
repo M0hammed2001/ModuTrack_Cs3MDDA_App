@@ -15,6 +15,8 @@
         <item name="colorSecondaryContainer">#FFFFFF</item>
         <item name="itemTextColor">#FFFFFF</item>
         <item name="materialButtonOutlinedStyle">@color/white</item>
+        <item name="materialButtonStyle">@color/purple_500</item>
+
 
 
 

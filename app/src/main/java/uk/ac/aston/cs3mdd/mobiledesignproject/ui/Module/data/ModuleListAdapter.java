@@ -97,6 +97,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             holder.Exam.setVisibility(View.GONE);
             holder.ExamNameLabel.setVisibility(View.GONE);
             holder.ExamDateLabel.setVisibility(View.GONE);
+            holder.ExamNameText.setVisibility(View.GONE);
+            holder.ExamDateText.setVisibility(View.GONE);
         }else {
             holder.ExamDateText.setText(Html.fromHtml(ExamDate));
             holder.ExamNameText.setText(Html.fromHtml(ExamName));
