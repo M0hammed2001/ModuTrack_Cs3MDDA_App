@@ -8,7 +8,7 @@
         <item name="colorOnPrimary">@color/white</item>
 
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#EDEDED</item>
+        <item name="colorSecondary">@color/white</item>
         <item name="colorSecondaryFixed">#000000</item>
         <item name="colorSecondaryVariant">#D0F8A2</item>
         <item name="colorOnSecondary">@color/black</item>
