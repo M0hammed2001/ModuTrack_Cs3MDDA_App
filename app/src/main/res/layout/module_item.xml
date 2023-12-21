@@ -118,8 +118,7 @@
             android:textColor="@color/black"
             android:layout_below="@id/Assingment1"
             android:layout_toEndOf="@id/AssignmentDate1Label"
-            android:layout_height="wrap_content"
-            android:hint="@string/pickdate"/>
+            android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/AssignmentName1Label"
             android:layout_width="wrap_content"
@@ -144,8 +143,7 @@
             android:textColor="@color/black"
             android:layout_below="@id/Assingment1"
             android:layout_toEndOf="@id/AssignmentName1Label"
-            android:layout_height="wrap_content"
-            android:hint="@string/assigment"/>
+            android:layout_height="wrap_content" />
 
 
         <TextView
@@ -183,8 +181,7 @@
             android:textColor="@color/black"
             android:layout_below="@id/Assingment2"
             android:layout_toEndOf="@id/AssignmentDate1Label"
-            android:layout_height="wrap_content"
-            android:hint="@string/pickdate"/>
+            android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/AssignmentName2Label"
             android:layout_width="wrap_content"
@@ -209,8 +206,7 @@
             android:textColor="@color/black"
             android:layout_below="@id/Assingment2"
             android:layout_toEndOf="@id/AssignmentName1Label"
-            android:layout_height="wrap_content"
-            android:hint="@string/assigment"/>
+            android:layout_height="wrap_content" />
 
         <!--        this is related to the Exam-->
         <TextView

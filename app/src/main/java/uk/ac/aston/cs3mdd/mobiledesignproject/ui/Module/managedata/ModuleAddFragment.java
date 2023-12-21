@@ -1,6 +1,7 @@
 package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata;
 
 import android.app.DatePickerDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -65,6 +66,41 @@ public class ModuleAddFragment extends Fragment {
         dialog.show();
     }
 
+    private void OGThemeColour() {
+//            ExamNameText.setBackgroundColor(Color.WHITE);
+//            AssignmentName1Text.setBackgroundColor(Color.WHITE);
+//            AssignmentName2Text.setBackgroundColor(Color.WHITE);
+//            ModuleCodeText.setBackgroundColor(Color.WHITE);
+//            ModuleNameText.setBackgroundColor(Color.WHITE);
+//            TutorialRoomText.setBackgroundColor(Color.WHITE);
+//            LectureRoomText.setBackgroundColor(Color.WHITE);
+
+        ExamNameText.setHintTextColor(Color.BLACK);
+        ExamNameText.setTextColor(Color.BLACK);
+
+        AssignmentName1Text.setHintTextColor(Color.BLACK);
+        AssignmentName1Text.setTextColor(Color.BLACK);
+
+        AssignmentName2Text.setHintTextColor(Color.BLACK);
+        AssignmentName2Text.setTextColor(Color.BLACK);
+
+        ModuleCodeText.setHintTextColor(Color.BLACK);
+        ModuleCodeText.setTextColor(Color.BLACK);
+
+
+        ModuleNameText.setHintTextColor(Color.BLACK);
+        ModuleNameText.setTextColor(Color.BLACK);
+
+
+        TutorialRoomText.setHintTextColor(Color.BLACK);
+        TutorialRoomText.setTextColor(Color.BLACK);
+
+
+        LectureRoomText.setHintTextColor(Color.BLACK);
+        LectureRoomText.setTextColor(Color.BLACK);
+
+    }
+
 
 
     @Override
@@ -90,6 +126,8 @@ public class ModuleAddFragment extends Fragment {
         LectureRoomText = view.findViewById(R.id.LectureRoomText);
         TutorialRoomText = view.findViewById(R.id.TutorialRoomText);
 
+        OGThemeColour();
+
         ExamDateText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,6 +152,113 @@ public class ModuleAddFragment extends Fragment {
             }
         });
 
+        ModuleCodeText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean HasFocus) {
+                if (HasFocus) {
+                    // Change the background color when the EditText has been clicked on
+//                    ModuleCodeText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
+                    ModuleCodeText.setHintTextColor(Color.RED); // Changes the text and background colour
+                    ModuleCodeText.setTextColor(Color.RED); // Changes the text and background colour
+
+                } else {
+                    OGThemeColour();
+                }
+            }
+        });
+
+        ModuleNameText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean HasFocus) {
+                if (HasFocus) {
+                    // Change the background color when the EditText has been clicked on
+//                    ModuleNameText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
+                    ModuleNameText.setHintTextColor(Color.RED);// Changes the text and background colour
+                    ModuleNameText.setTextColor(Color.RED); // Changes the text and background colour
+                } else {
+                    OGThemeColour();
+                }
+            }
+        });
+
+
+
+        AssignmentName1Text.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean HasFocus) {
+                if (HasFocus) {
+                    // Change the background color when the EditText has been clicked on
+//                    AssignmentName1Text.setBackgroundColor(Color.BLUE); // Changes the text and background colour
+                    AssignmentName1Text.setHintTextColor(Color.RED); // Changes the text and background colour
+                    AssignmentName1Text.setTextColor(Color.RED); // Changes the text and background colour
+
+                } else {
+                    OGThemeColour();
+                }
+            }
+        });
+
+        AssignmentName2Text.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean HasFocus) {
+                if (HasFocus) {
+                    // Change the background color when the EditText has been clicked on
+//                    AssignmentName2Text.setBackgroundColor(Color.BLUE); // Changes the text and background colour
+                    AssignmentName2Text.setHintTextColor(Color.RED); // Changes the text and background colour
+                    AssignmentName2Text.setTextColor(Color.RED); // Changes the text and background colour
+
+
+                } else {
+                    OGThemeColour();
+                }
+            }
+        });
+        ExamNameText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean HasFocus) {
+                if (HasFocus) {
+                    // Change the background color when the EditText has been clicked on
+//                    ExamNameText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
+                    ExamNameText.setHintTextColor(Color.RED); // Changes the text and background colour
+                    ExamNameText.setTextColor(Color.RED); // Changes the text and background colour
+
+
+                } else {
+                    OGThemeColour();
+                }
+            }
+        });
+
+
+        LectureRoomText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean HasFocus) {
+                if (HasFocus) {
+                    // Change the background color when the EditText has been clicked on
+//                    LectureRoomText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
+                    LectureRoomText.setHintTextColor(Color.RED); // Changes the text and background colour
+                    LectureRoomText.setTextColor(Color.RED); // Changes the text and background colour
+
+                } else {
+                    OGThemeColour();
+                }
+            }
+        });
+
+        TutorialRoomText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean HasFocus) {
+                if (HasFocus) {
+                    // Change the background color when the EditText has been clicked on
+//                    TutorialRoomText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
+                    TutorialRoomText.setHintTextColor(Color.RED); // Changes the text and background colour
+                    TutorialRoomText.setTextColor(Color.RED); // Changes the text and background colour
+
+                } else {
+                    OGThemeColour();
+                }
+            }
+        });
 
 
         RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {

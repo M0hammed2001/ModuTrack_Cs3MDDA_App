@@ -97,13 +97,13 @@ public class ModuleEditFragment extends Fragment {
 
     // will look if the app is in dark mode and will set the default colour for it
     private void OGThemeColour() {
-            ExamNameText.setBackgroundColor(Color.WHITE);
-            AssignmentName1Text.setBackgroundColor(Color.WHITE);
-            AssignmentName2Text.setBackgroundColor(Color.WHITE);
-            ModuleCodeText.setBackgroundColor(Color.WHITE);
-            ModuleNameText.setBackgroundColor(Color.WHITE);
-            TutorialRoomText.setBackgroundColor(Color.WHITE);
-            LectureRoomText.setBackgroundColor(Color.WHITE);
+//            ExamNameText.setBackgroundColor(Color.WHITE);
+//            AssignmentName1Text.setBackgroundColor(Color.WHITE);
+//            AssignmentName2Text.setBackgroundColor(Color.WHITE);
+//            ModuleCodeText.setBackgroundColor(Color.WHITE);
+//            ModuleNameText.setBackgroundColor(Color.WHITE);
+//            TutorialRoomText.setBackgroundColor(Color.WHITE);
+//            LectureRoomText.setBackgroundColor(Color.WHITE);
 
             ExamNameText.setHintTextColor(Color.BLACK);
             ExamNameText.setTextColor(Color.BLACK);
@@ -204,9 +204,9 @@ public class ModuleEditFragment extends Fragment {
             public void onFocusChange(View v, boolean HasFocus) {
                 if (HasFocus) {
                     // Change the background color when the EditText has been clicked on
-                    ModuleCodeText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
-                    ModuleCodeText.setHintTextColor(Color.WHITE); // Changes the text and background colour
-                    ModuleCodeText.setTextColor(Color.WHITE); // Changes the text and background colour
+//                    ModuleCodeText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
+                    ModuleCodeText.setHintTextColor(Color.RED); // Changes the text and background colour
+                    ModuleCodeText.setTextColor(Color.RED); // Changes the text and background colour
 
                 } else {
                     OGThemeColour();
@@ -219,9 +219,9 @@ public class ModuleEditFragment extends Fragment {
             public void onFocusChange(View v, boolean HasFocus) {
                 if (HasFocus) {
                     // Change the background color when the EditText has been clicked on
-                    ModuleNameText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
-                    ModuleNameText.setHintTextColor(Color.WHITE);// Changes the text and background colour
-                    ModuleNameText.setTextColor(Color.WHITE); // Changes the text and background colour
+//                    ModuleNameText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
+                    ModuleNameText.setHintTextColor(Color.RED);// Changes the text and background colour
+                    ModuleNameText.setTextColor(Color.RED); // Changes the text and background colour
                 } else {
                     OGThemeColour();
                 }
@@ -235,9 +235,9 @@ public class ModuleEditFragment extends Fragment {
             public void onFocusChange(View v, boolean HasFocus) {
                 if (HasFocus) {
                     // Change the background color when the EditText has been clicked on
-                    AssignmentName1Text.setBackgroundColor(Color.BLUE); // Changes the text and background colour
-                    AssignmentName1Text.setHintTextColor(Color.WHITE); // Changes the text and background colour
-                    AssignmentName1Text.setTextColor(Color.WHITE); // Changes the text and background colour
+//                    AssignmentName1Text.setBackgroundColor(Color.BLUE); // Changes the text and background colour
+                    AssignmentName1Text.setHintTextColor(Color.RED); // Changes the text and background colour
+                    AssignmentName1Text.setTextColor(Color.RED); // Changes the text and background colour
 
                 } else {
                     OGThemeColour();
@@ -250,9 +250,9 @@ public class ModuleEditFragment extends Fragment {
             public void onFocusChange(View v, boolean HasFocus) {
                 if (HasFocus) {
                     // Change the background color when the EditText has been clicked on
-                    AssignmentName2Text.setBackgroundColor(Color.BLUE); // Changes the text and background colour
-                    AssignmentName2Text.setHintTextColor(Color.WHITE); // Changes the text and background colour
-                    AssignmentName2Text.setTextColor(Color.WHITE); // Changes the text and background colour
+//                    AssignmentName2Text.setBackgroundColor(Color.BLUE); // Changes the text and background colour
+                    AssignmentName2Text.setHintTextColor(Color.RED); // Changes the text and background colour
+                    AssignmentName2Text.setTextColor(Color.RED); // Changes the text and background colour
 
 
                 } else {
@@ -265,9 +265,9 @@ public class ModuleEditFragment extends Fragment {
             public void onFocusChange(View v, boolean HasFocus) {
                 if (HasFocus) {
                     // Change the background color when the EditText has been clicked on
-                    ExamNameText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
-                    ExamNameText.setHintTextColor(Color.WHITE); // Changes the text and background colour
-                    ExamNameText.setTextColor(Color.WHITE); // Changes the text and background colour
+//                    ExamNameText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
+                    ExamNameText.setHintTextColor(Color.RED); // Changes the text and background colour
+                    ExamNameText.setTextColor(Color.RED); // Changes the text and background colour
 
 
                 } else {
@@ -282,9 +282,9 @@ public class ModuleEditFragment extends Fragment {
             public void onFocusChange(View v, boolean HasFocus) {
                 if (HasFocus) {
                     // Change the background color when the EditText has been clicked on
-                    LectureRoomText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
-                    LectureRoomText.setHintTextColor(Color.WHITE); // Changes the text and background colour
-                    LectureRoomText.setTextColor(Color.WHITE); // Changes the text and background colour
+//                    LectureRoomText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
+                    LectureRoomText.setHintTextColor(Color.RED); // Changes the text and background colour
+                    LectureRoomText.setTextColor(Color.RED); // Changes the text and background colour
 
                 } else {
                     OGThemeColour();
@@ -297,9 +297,9 @@ public class ModuleEditFragment extends Fragment {
             public void onFocusChange(View v, boolean HasFocus) {
                 if (HasFocus) {
                     // Change the background color when the EditText has been clicked on
-                    TutorialRoomText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
-                    TutorialRoomText.setHintTextColor(Color.WHITE); // Changes the text and background colour
-                    TutorialRoomText.setTextColor(Color.WHITE); // Changes the text and background colour
+//                    TutorialRoomText.setBackgroundColor(Color.BLUE); // Changes the text and background colour
+                    TutorialRoomText.setHintTextColor(Color.RED); // Changes the text and background colour
+                    TutorialRoomText.setTextColor(Color.RED); // Changes the text and background colour
 
                 } else {
                     OGThemeColour();
