@@ -44,35 +44,22 @@ public class ModuleAddFragment extends Fragment {
     EditText ModuleNameText, ModuleCodeText, AssignmentName1Text, AssignmentName2Text, ExamNameText, LectureRoomText, TutorialRoomText;
     TextView AssignmentDate1Text, AssignmentDate2Text,ExamDateText;
 
-
     Button buttonAddModule;
-
 
 
     ModuleViewModel moduleViewModel;
 
-    private void openDialog() {
+    private void openDialog(final TextView targetTextView) {
         // Assuming you are in a Fragment, use requireActivity() as the context
         DatePickerDialog dialog = new DatePickerDialog(requireActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        if (ExamDateText.isPressed()){
-                            ExamDateText.setText(String.valueOf(dayOfMonth)+"/"+String.valueOf(month)+"/"+String.valueOf(year));
+                        // did month +1 as it thinks january is 00
+                        targetTextView.setText(String.valueOf(dayOfMonth) + "/" + String.valueOf(month + 1) + "/" + String.valueOf(year));
 
-                        } else if (AssignmentDate1Text.isPressed()) {
-                            AssignmentDate1Text.setText(String.valueOf(dayOfMonth)+"/"+String.valueOf(month)+"/"+String.valueOf(year));
-
-
-                        }else if (AssignmentDate2Text.isPressed()) {
-                            AssignmentDate2Text.setText(String.valueOf(dayOfMonth)+"/"+String.valueOf(month)+"/"+String.valueOf(year));
-
-
-                        }else {
-                            Toast.makeText(getContext(),"failed to add Date", Toast.LENGTH_LONG).show();
-                        }
                     }
                 },
-                2023, 12, 29
+                2024, 00, 01
         );
 
         dialog.show();
@@ -106,7 +93,7 @@ public class ModuleAddFragment extends Fragment {
         ExamDateText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            openDialog();
+            openDialog(ExamDateText);
 
             }
         });
@@ -114,7 +101,7 @@ public class ModuleAddFragment extends Fragment {
         AssignmentDate1Text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDialog();
+                openDialog(AssignmentDate1Text);
 
             }
         });
@@ -122,7 +109,7 @@ public class ModuleAddFragment extends Fragment {
         AssignmentDate2Text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDialog();
+                openDialog(AssignmentDate2Text);
 
             }
         });
