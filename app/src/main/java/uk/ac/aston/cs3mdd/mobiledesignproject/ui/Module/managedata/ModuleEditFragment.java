@@ -2,6 +2,7 @@ package uk.ac.aston.cs3mdd.mobiledesignproject.ui.Module.managedata;
 
 
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -12,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -46,8 +49,9 @@ public class ModuleEditFragment extends Fragment {
 
 //    private int OGBackgroundColor, OGTextColor;
 
-    EditText ModuleNameText, ModuleCodeText, AssignmentDate1Text, AssignmentName1Text, AssignmentDate2Text, AssignmentName2Text, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
-
+//    EditText ModuleNameText, ModuleCodeText, AssignmentDate1Text, AssignmentName1Text, AssignmentDate2Text, AssignmentName2Text, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
+    EditText ModuleNameText, ModuleCodeText, AssignmentName1Text, AssignmentName2Text, ExamNameText, LectureRoomText, TutorialRoomText;
+    TextView AssignmentDate1Text, AssignmentDate2Text,ExamDateText;
     Button buttonChangeModule, ButttonEditCancel;
 
     ModuleDatabase moduleDB;
@@ -56,6 +60,22 @@ public class ModuleEditFragment extends Fragment {
 
     private PopupEditModuleBinding binding;
     private Module module;
+    private void openDialog(final TextView targetTextView) {
+        // Assuming you are in a Fragment, use requireActivity() as the context
+        DatePickerDialog dialog = new DatePickerDialog(requireActivity(), new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                // did month +1 as it thinks january is 00
+                targetTextView.setText(String.valueOf(dayOfMonth) + "/" + String.valueOf(month + 1) + "/" + String.valueOf(year));
+
+            }
+        },
+                2024, 00, 01
+        );
+
+        dialog.show();
+    }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -64,12 +84,15 @@ public class ModuleEditFragment extends Fragment {
 
         // Initialize module properly from arguments or other sources
         module = ModuleEditFragmentArgs.fromBundle(getArguments()).getCurrentModules();
-        if (module == null) {
-            // Handle the case where module is null
-            return;
-        }
-        binding.ButttonEditCancel.setText(module.toString());
+//        if (module == null) {
+//            // if module is null it will do this
+//            return;
+//        }
+//        binding.ButttonEditCancel.setText(module.toString());
     }
+
+
+
     // will look if the app is in dark mode and will set the default colour for it
 //    private void OGThemeColour() {
 //        int nightMode = AppCompatDelegate.getDefaultNightMode();
@@ -79,7 +102,7 @@ public class ModuleEditFragment extends Fragment {
 //        } else if (nightMode == AppCompatDelegate.MODE_NIGHT_NO) {
 //            ExamDateText.setBackgroundColor(Color.GREEN);
 //        } else {
-//            Toast.makeText(getContext(),"failed to find dark", Toast.LENGTH_LONG).show();
+//            Toast.makeText(getContext(),"failed to find DarkMode", Toast.LENGTH_LONG).show();
 //
 //        }
 //
@@ -92,7 +115,7 @@ public class ModuleEditFragment extends Fragment {
 
         module = ModuleEditFragmentArgs.fromBundle(getArguments()).getCurrentModules();
 
-        binding = PopupEditModuleBinding.inflate(inflater, container, false);
+//        binding = PopupEditModuleBinding.inflate(inflater, container, false);
 
 
         ModuleCodeText = view.findViewById(R.id.ModuleCodeText);
@@ -129,6 +152,29 @@ public class ModuleEditFragment extends Fragment {
         LectureRoomText.setText(module.getLectureRoom());
         TutorialRoomText.setText(module.getTutorialRoom());
 
+        ExamDateText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog(ExamDateText);
+
+            }
+        });
+
+        AssignmentDate1Text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog(AssignmentDate1Text);
+
+            }
+        });
+
+        AssignmentDate2Text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog(AssignmentDate2Text);
+
+            }
+        });
 
 
 

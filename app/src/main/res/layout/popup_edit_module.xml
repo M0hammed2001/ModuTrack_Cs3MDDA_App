@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:weightSum="5"
     android:layout_margin="10dp"
-    tools:context=".ui.Module.managedata.ModuleAddFragment">
+    tools:context=".ui.Module.managedata.ModuleEditFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -110,7 +110,7 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <EditText
+        <TextView
             android:id="@+id/AssignmentDate1Text"
             android:minWidth="48sp"
             android:minHeight="48sp"
@@ -173,7 +173,7 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <EditText
+        <TextView
             android:id="@+id/AssignmentDate2Text"
             android:minWidth="48sp"
             android:minHeight="48sp"
@@ -238,7 +238,7 @@
             android:layout_below="@id/Exam"
             android:textColor="@color/black"/>
 
-        <EditText
+        <TextView
             android:id="@+id/ExamDateText"
             android:minWidth="48sp"
             android:minHeight="48sp"
