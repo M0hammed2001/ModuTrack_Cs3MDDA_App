@@ -34,7 +34,7 @@
         android:layout_toStartOf="@id/FilterModuleButton"
         android:textColor="?attr/colorSecondaryFixed"
         android:backgroundTint="?attr/materialButtonOutlinedStyle"
-        android:textColorHint="?attr/materialButtonOutlinedStyle"
+        android:textColorHint="?attr/itemTextColor"
         android:hint="Looking for something?"
         android:background="@drawable/outline" />
 

@@ -24,6 +24,13 @@
             android:background="@drawable/clear_calander"
             android:contentDescription="@string/delete_module_button" />
 
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20sp"-->
+<!--            android:layout_toRightOf="@id/clearCalender"-->
+<!--            android:text="Clear Dates"/>-->
+
 
         <Button
             android:id="@+id/buttonChangeModule"
