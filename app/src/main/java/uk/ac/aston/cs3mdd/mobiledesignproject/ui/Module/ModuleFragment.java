@@ -169,7 +169,7 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
                 List<Module> filteredModuleList = new ArrayList<>();
                 if (moduleList != null) {
                     for (Module module : moduleList) {
-                            //converts the Data typed in into upper case trimmed version so it is not case sensitive
+                            //changes the Data typed in into upper case trimmed version so it is not case sensitive
                             String FilteredModuleData = FilterModule.getText().toString().trim().toUpperCase();
 
                             // Check if the  what is added matched moduleName, code, tutorial or lecturer and converts it to upper case so it is not case sensitive
@@ -178,7 +178,13 @@ public class ModuleFragment extends Fragment implements OnDeleteClickListener {
                             // Log.i("ms", "filtered Size:" + filteredModuleList.size());
                             Toast.makeText(getContext(), "Modules filtered by: " + FilteredModuleData, Toast.LENGTH_SHORT).show();
 
-                        }else {
+
+                        } else if (filteredModuleList.isEmpty()) {
+                            //lets user know it is empty
+                            Toast.makeText(getContext(), "Filter is empty", Toast.LENGTH_SHORT).show();
+                            //reloads existing modules encase of a change
+                            getModuleListInBackground(moduleViewModel);
+                        } else {
                                 String s = FilteredModuleData +"|"+module.getModuleCode()+"|"+module.getModuleName()+"|"+module.getLectureRoom()+"|"+module.getTutorialRoom();
                                 Log.i("MS", "failed to filter:"+ s);
                             }

@@ -45,16 +45,13 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
 
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
-        // Define the coordinates for Birmingham New Street and Aston University
+        // sets the lat and lan the cords for Birmingham New Street and Aston University
         LatLng birminghamNewStreet = new LatLng(52.477662, -1.898012); // Birmingham New Street coordinates
         LatLng astonUniversity = new LatLng(52.487144, -1.886977); // Aston University coordinates
 
-        // Added markers for Birmingham New Street and Aston University which you can see by clicking it
+        // adds markers for Birmingham New Street and Aston University with a title which you can see by clicking it
         mMap.addMarker(new MarkerOptions().position(birminghamNewStreet).title("Birmingham New Street"));
-//        mMap.addMarker(new MarkerOptions().position(birminghamNewStreet).title("Birmingham New Street").icon(BitmapDescriptorFactory.fromResource(R.drawable.baseline_tram_black_24)));
-
         mMap.addMarker(new MarkerOptions().position(astonUniversity).title("Aston University"));
-
 
 
         // Create a line between Birmingham New Street and Aston University for quick judgement
@@ -79,7 +76,6 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        TrainMapViewModel trainMapViewModel = new ViewModelProvider(this).get(TrainMapViewModel.class);
 
         trainService = TrainMapFragmentArgs.fromBundle(getArguments()).getTrainervices();
 
@@ -97,6 +93,7 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
         binding.buttonTrainmap.setOnClickListener(new View.OnClickListener() {
          @Override
           public void onClick(View view) {
+             //sends you back to the train information page
            NavHostFragment.findNavController(TrainMapFragment.this).navigate(R.id.action_nav_trainmap_to_nav_train);
            }
         });
@@ -125,7 +122,6 @@ public class TrainMapFragment extends Fragment implements OnMapReadyCallback {
         binding.OperatorText.setText(operator);
         binding.DelaysText.setText(Delays);
         binding.NRCmessageText.setText(nrccMessages);
-//        binding.ServiceText.setText(EreaService);
 
 
     }
