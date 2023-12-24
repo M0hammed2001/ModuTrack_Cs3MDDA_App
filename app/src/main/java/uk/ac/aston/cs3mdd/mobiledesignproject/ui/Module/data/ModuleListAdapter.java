@@ -68,31 +68,32 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         holder.ModuleNameText.setText(Html.fromHtml(moduleName));
         holder.ModuleCodeText.setText(Html.fromHtml(moduleCode));
 
-        if(AssignmentName1.isEmpty()){
+        if(AssignmentName1.isEmpty() && AssignmentDate1.isEmpty()){
             Log.i("MS","Assignment 1 empty");
             holder.AssignmentName1Label.setVisibility(View.GONE);
             holder.AssignmentDate1Label.setVisibility(View.GONE);
+            holder.AssignmentDate1Text.setVisibility(View.GONE);
+            holder.AssignmentName1Text.setVisibility(View.GONE);
             holder.Assingment1.setVisibility(View.GONE);
         }else {
-//            String D1 = AssignmentDate1.toString();
-//            String N1 = AssignmentName1.toString();
-//            Toast.makeText(mInflater.getContext(), "failed Ass 1: "+  D1 +" and " + N1 , Toast.LENGTH_LONG).show();
             holder.AssignmentDate1Text.setText(Html.fromHtml(AssignmentDate1));
             holder.AssignmentName1Text.setText(Html.fromHtml(AssignmentName1));
         }
 
 
-        if(AssignmentName2.isEmpty()){
+        if(AssignmentName2.isEmpty() && AssignmentDate2.isEmpty()){
             Log.i("MS","Assignment 2 empty");
             holder.AssignmentName2Label.setVisibility(View.GONE);
             holder.AssignmentDate2Label.setVisibility(View.GONE);
+            holder.AssignmentDate2Text.setVisibility(View.GONE);
+            holder.AssignmentName2Text.setVisibility(View.GONE);
             holder.Assingment2.setVisibility(View.GONE);
         }else {
             holder.AssignmentDate2Text.setText(Html.fromHtml(AssignmentDate2));
             holder.AssignmentName2Text.setText(Html.fromHtml(AssignmentName2));
         }
 
-        if(ExamName.isEmpty()){
+        if(ExamName.isEmpty() && ExamDate.isEmpty()){
             Log.i("MS","Exam is empty");
             holder.Exam.setVisibility(View.GONE);
             holder.ExamNameLabel.setVisibility(View.GONE);

@@ -250,25 +250,25 @@
             android:background="@drawable/calendar_24"
             android:textSize="15sp"
             android:layout_marginTop="5sp"
-
             android:textStyle="bold"
             android:layout_below="@id/Exam"
             android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/ExamDateText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Exam"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="5sp"
-            android:layout_toEndOf="@id/ExamDateLabel"
-            android:hint="@string/DatePicker"
             android:minWidth="48sp"
             android:minHeight="48sp"
-            android:layout_marginTop="5sp"
+            android:textSize="15sp"
+            android:layout_marginStart="5sp"
+            android:layout_width="wrap_content"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:layout_below="@id/Exam"
+            android:layout_toEndOf="@id/ExamDateLabel"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:hint="@string/DatePicker"/>
+
+
 
         <TextView
             android:id="@+id/ExamNameLabel"
@@ -359,7 +359,19 @@
 
 
 
+
+
     </RelativeLayout>
+    <Button
+        android:id="@+id/clearCalender"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginEnd="15sp"
+        android:background="@drawable/clear_calander"
+        android:contentDescription="@string/delete_module_button" />
 
 </RelativeLayout>
 
