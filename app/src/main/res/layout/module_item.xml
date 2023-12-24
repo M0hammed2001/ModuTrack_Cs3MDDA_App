@@ -35,7 +35,7 @@
 
         <!--        this is related to the Module-->
         <TextView
-            android:id="@+id/ModuleCodeLabel"
+            android:id="@+id/ModuleLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
@@ -56,7 +56,7 @@
             android:layout_marginTop="45sp"
             android:backgroundTint="@color/black"
             android:textColor="@color/black"
-            android:layout_toEndOf="@id/ModuleCodeLabel"
+            android:layout_toEndOf="@id/ModuleLabel"
             android:layout_height="wrap_content"
             android:hint="@string/ModuleCode"/>
         <TextView
