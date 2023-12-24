@@ -245,7 +245,7 @@
             android:layout_below="@id/Exam"
             android:layout_toEndOf="@id/ExamDateLabel"
             android:layout_height="wrap_content"
-            android:hint="@string/pickdate"/>
+            android:hint="@string/DatePicker"/>
         <TextView
             android:id="@+id/ExamNameLabel"
             android:layout_width="wrap_content"

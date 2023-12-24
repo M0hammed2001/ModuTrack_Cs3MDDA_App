@@ -83,28 +83,11 @@ public class ModuleEditFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-        // Initialize module properly from arguments or other sources
         module = ModuleEditFragmentArgs.fromBundle(getArguments()).getCurrentModules();
-//        if (module == null) {
-//            // if module is null it will do this
-//            return;
-//        }
-//        binding.ButttonEditCancel.setText(module.toString());
+
     }
 
-
-
-    // will look if the app is in dark mode and will set the default colour for it
     private void OGThemeColour() {
-//            ExamNameText.setBackgroundColor(Color.WHITE);
-//            AssignmentName1Text.setBackgroundColor(Color.WHITE);
-//            AssignmentName2Text.setBackgroundColor(Color.WHITE);
-//            ModuleCodeText.setBackgroundColor(Color.WHITE);
-//            ModuleNameText.setBackgroundColor(Color.WHITE);
-//            TutorialRoomText.setBackgroundColor(Color.WHITE);
-//            LectureRoomText.setBackgroundColor(Color.WHITE);
-
             ExamNameText.setHintTextColor(Color.BLACK);
             ExamNameText.setTextColor(Color.BLACK);
 
@@ -137,8 +120,6 @@ public class ModuleEditFragment extends Fragment {
         View view = inflater.inflate(R.layout.popup_edit_module, container, false);
 
         module = ModuleEditFragmentArgs.fromBundle(getArguments()).getCurrentModules();
-
-//        binding = PopupEditModuleBinding.inflate(inflater, container, false);
 
 
         ModuleCodeText = view.findViewById(R.id.ModuleCodeText);
@@ -178,6 +159,7 @@ public class ModuleEditFragment extends Fragment {
         ExamDateText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //opens the Date picker dialog with and adds date as a string to the field in brackets
                 openDialog(ExamDateText);
 
             }
@@ -186,6 +168,8 @@ public class ModuleEditFragment extends Fragment {
         AssignmentDate1Text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //opens the Date picker dialog with and adds date as a string to the field in brackets
+
                 openDialog(AssignmentDate1Text);
 
             }
@@ -194,6 +178,7 @@ public class ModuleEditFragment extends Fragment {
         AssignmentDate2Text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //opens the Date picker dialog with and adds date as a string to the field in brackets
                 openDialog(AssignmentDate2Text);
 
             }

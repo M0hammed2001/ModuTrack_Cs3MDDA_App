@@ -45,7 +45,7 @@
     <string name="ModuleName">Module Name </string>
     <string name="ModuleCode">Code</string>
     <string name="exam_date">Ex Date</string>
-    <string name="pickdate">Date</string>
+    <string name="DatePicker">Date</string>
     <string name="Assigment1">Assigment 1: </string>
     <string name="Assigment2">Assigment 2: </string>
     <string name="Exam">Exam: </string>

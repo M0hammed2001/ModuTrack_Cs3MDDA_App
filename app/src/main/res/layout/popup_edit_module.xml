@@ -100,32 +100,32 @@
             android:layout_below="@id/ModuleCodeText"
             android:textColor="@color/red"/>
         <!--        this is related to the assignment-->
-<!--        <TextView-->
-<!--            android:id="@+id/AssignmentDate1Label"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@id/Assingment1"-->
-<!--            android:layout_marginLeft="4dp"-->
-<!--            android:minHeight="32sp"-->
-<!--            android:minWidth="32sp"-->
-<!--            android:background="@drawable/calendar_24"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textSize="15sp"-->
-<!--            android:textStyle="bold" />-->
-
         <TextView
-            android:id="@+id/AssignmentDate1Text"
+            android:id="@+id/AssignmentDate1Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Assingment1"
+            android:layout_marginLeft="4dp"
             android:minHeight="32sp"
             android:minWidth="32sp"
             android:background="@drawable/calendar_24"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/AssignmentDate1Text"
+            android:minWidth="48sp"
+            android:minHeight="48sp"
             android:textSize="15sp"
             android:layout_marginStart="5sp"
             android:layout_width="wrap_content"
             android:layout_marginTop="1sp"
             android:textColor="@color/black"
             android:layout_below="@id/Assingment1"
+            android:layout_toEndOf="@id/AssignmentDate1Label"
             android:layout_height="wrap_content"
-            android:hint="@string/pickdate"/>
+            android:hint="@string/DatePicker"/>
         <TextView
             android:id="@+id/AssignmentName1Label"
             android:layout_width="wrap_content"
@@ -134,7 +134,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:minHeight="48sp"
-            android:layout_marginStart="20sp"
+            android:layout_marginStart="10sp"
             android:layout_below="@id/Assingment1"
             android:layout_toEndOf="@id/AssignmentDate1Text"
             android:textColor="@color/black"/>
@@ -163,7 +163,7 @@
             android:text="@string/Assigment2"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_below="@id/AssignmentName1Label"
+            android:layout_below="@id/AssignmentDate1Label"
             android:textColor="@color/red"/>
 
         <TextView
@@ -191,7 +191,7 @@
             android:layout_below="@id/Assingment2"
             android:layout_toEndOf="@id/AssignmentDate1Label"
             android:layout_height="wrap_content"
-            android:hint="@string/pickdate"/>
+            android:hint="@string/DatePicker"/>
         <TextView
             android:id="@+id/AssignmentName2Label"
             android:layout_width="wrap_content"
@@ -200,7 +200,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:minHeight="48sp"
-            android:layout_marginStart="20sp"
+            android:layout_marginStart="10sp"
             android:layout_below="@id/Assingment2"
             android:layout_toEndOf="@id/AssignmentDate1Text"
             android:textColor="@color/black"/>
@@ -255,12 +255,12 @@
             android:layout_marginStart="5sp"
             android:layout_marginTop="1sp"
             android:layout_toEndOf="@id/ExamDateLabel"
-            android:hint="@string/pickdate"
+            android:hint="@string/DatePicker"
             android:minWidth="48sp"
             android:minHeight="48sp"
-            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="15sp" />
+
         <TextView
             android:id="@+id/ExamNameLabel"
             android:layout_width="wrap_content"
@@ -269,7 +269,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:layout_marginTop="15sp"
-            android:layout_marginStart="20sp"
+            android:layout_marginStart="10sp"
             android:layout_below="@id/Exam"
             android:layout_toEndOf="@id/ExamDateText"
             android:textColor="@color/black"/>
