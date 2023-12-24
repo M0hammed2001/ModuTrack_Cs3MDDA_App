@@ -54,6 +54,8 @@ public class ModuleEditFragment extends Fragment {
 //    EditText ModuleNameText, ModuleCodeText, AssignmentDate1Text, AssignmentName1Text, AssignmentDate2Text, AssignmentName2Text, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
     EditText ModuleNameText, ModuleCodeText, AssignmentName1Text, AssignmentName2Text, ExamNameText, LectureRoomText, TutorialRoomText;
     TextView AssignmentDate1Text, AssignmentDate2Text,ExamDateText;
+
+    TextView AssignmentDate1Label , AssignmentDate2Label, ExamDateLabel;
     Button buttonChangeModule, ButttonEditCancel;
 
     ModuleDatabase moduleDB;
@@ -156,11 +158,35 @@ public class ModuleEditFragment extends Fragment {
         LectureRoomText.setText(module.getLectureRoom());
         TutorialRoomText.setText(module.getTutorialRoom());
 
+        // this is the drawable Date icon
+        AssignmentDate1Label = view.findViewById(R.id.AssignmentDate1Label);
+        AssignmentDate2Label= view.findViewById(R.id.AssignmentDate2Label);
+        ExamDateLabel= view.findViewById(R.id.ExamDateLabel);
+
+        ExamDateLabel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //opens the Date picker dialog with and adds date as a string to the field in brackets
+                openDialog(ExamDateText);
+
+            }
+        });
+
         ExamDateText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //opens the Date picker dialog with and adds date as a string to the field in brackets
                 openDialog(ExamDateText);
+
+            }
+        });
+
+        AssignmentDate1Label.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //opens the Date picker dialog with and adds date as a string to the field in brackets
+
+                openDialog(AssignmentDate1Text);
 
             }
         });
@@ -171,6 +197,15 @@ public class ModuleEditFragment extends Fragment {
                 //opens the Date picker dialog with and adds date as a string to the field in brackets
 
                 openDialog(AssignmentDate1Text);
+
+            }
+        });
+
+        AssignmentDate2Label.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //opens the Date picker dialog with and adds date as a string to the field in brackets
+                openDialog(AssignmentDate2Text);
 
             }
         });

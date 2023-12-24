@@ -43,6 +43,9 @@ public class ModuleAddFragment extends Fragment {
     ModuleDatabase moduleDB;
 
     EditText ModuleNameText, ModuleCodeText, AssignmentName1Text, AssignmentName2Text, ExamNameText, LectureRoomText, TutorialRoomText;
+
+    TextView AssignmentDate1Label , AssignmentDate2Label, ExamDateLabel;
+
     TextView AssignmentDate1Text, AssignmentDate2Text,ExamDateText;
 
     Button buttonAddModule;
@@ -126,7 +129,42 @@ public class ModuleAddFragment extends Fragment {
         LectureRoomText = view.findViewById(R.id.LectureRoomText);
         TutorialRoomText = view.findViewById(R.id.TutorialRoomText);
 
+        // this is the drawable Date icon
+        AssignmentDate1Label = view.findViewById(R.id.AssignmentDate1Label);
+        AssignmentDate2Label= view.findViewById(R.id.AssignmentDate2Label);
+        ExamDateLabel= view.findViewById(R.id.ExamDateLabel);
+
         OGThemeColour();
+
+        ExamDateLabel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //opens the Date picker dialog with and adds date as a string to the field in brackets
+                openDialog(ExamDateText);
+
+            }
+        });
+
+        AssignmentDate1Label.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //opens the Date picker dialog with and adds date as a string to the field in brackets
+
+                openDialog(AssignmentDate1Text);
+
+            }
+        });
+
+        AssignmentDate2Label.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //opens the Date picker dialog with and adds date as a string to the field in brackets
+                openDialog(AssignmentDate2Text);
+
+            }
+        });
+
+
 
         ExamDateText.setOnClickListener(new View.OnClickListener() {
             @Override
