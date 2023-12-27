@@ -58,17 +58,17 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
                     String etd = trainService.getEtd();
                     String std = trainService.getStd();
                     String nrccMessages = trainService.getNrccMessages();
-                    String DestinationText = destinations.toString();
+                    String destinationText = destinations.toString();
 
                     // Handle null values
-                    DestinationText = (DestinationText != null) ? DestinationText : "No Destination";
+                    destinationText = (destinationText != null) ? destinationText : "No Destination";
                     operator = (operator != null) ? operator : "Not available";
                     std = (std != null) ? std : "TBC";
                     etd = (etd != null) ? etd : "no delays";
                     nrccMessages = (nrccMessages != null) ? nrccMessages : "No ongoing issues";
 
                     //displays the message in the text field
-                    holder.DestinationText.setText(Html.fromHtml(DestinationText));
+                    holder.DestinationText.setText(Html.fromHtml(destinationText));
                     holder.TrainTimeText.setText(Html.fromHtml(std));
                     holder.OperatorText.setText(Html.fromHtml(operator));
                     holder.DelaysText.setText(Html.fromHtml(etd));
