@@ -47,7 +47,7 @@
             android:layout_marginTop="55sp"
             android:textColor="@color/black"/>
 
-        <EditText
+        <TextView
             android:id="@+id/ModuleCodeText"
             android:minWidth="48sp"
             android:minHeight="48sp"
@@ -73,7 +73,7 @@
             android:layout_toEndOf="@id/ModuleCodeText"
             android:textColor="@color/black"/>
 
-        <EditText
+        <TextView
             android:id="@+id/ModuleNameText"
             android:minWidth="48sp"
             android:minHeight="48sp"
@@ -137,26 +137,26 @@
             android:textStyle="bold"
             android:minHeight="48sp"
             android:layout_marginStart="10sp"
-            android:layout_marginTop="5sp"
+            android:layout_marginTop="4sp"
             android:layout_below="@id/Assingment1"
             android:layout_toEndOf="@id/AssignmentDate1Text"
             android:textColor="@color/black"/>
 
-        <EditText
+        <TextView
             android:id="@+id/AssignmentName1Text"
             android:minWidth="48sp"
             android:minHeight="48sp"
             android:textSize="15sp"
             android:layout_marginStart="5sp"
             android:layout_width="match_parent"
-            android:layout_marginTop="-5sp"
+            android:layout_marginTop="5sp"
             android:textColor="@color/black"
             android:layout_below="@id/Assingment1"
             android:layout_toEndOf="@id/AssignmentName1Label"
             android:layout_height="wrap_content"
             android:textColorHint="@color/grey"
             android:inputType="textLongMessage"
-            android:hint="@string/assigment"/>
+            android:text="@string/assigment"/>
 
 
         <TextView
@@ -206,26 +206,26 @@
             android:textStyle="bold"
             android:minHeight="48sp"
             android:layout_marginStart="10sp"
-            android:layout_marginTop="5sp"
+            android:layout_marginTop="10sp"
             android:layout_below="@id/Assingment2"
             android:layout_toEndOf="@id/AssignmentDate1Text"
             android:textColor="@color/black"/>
 
-        <EditText
+        <TextView
             android:id="@+id/AssignmentName2Text"
             android:minWidth="48sp"
             android:minHeight="48sp"
             android:textSize="15sp"
             android:layout_marginStart="5sp"
             android:layout_width="match_parent"
-            android:layout_marginTop="-5sp"
+            android:layout_marginTop="10sp"
             android:textColor="@color/black"
             android:layout_below="@id/Assingment2"
             android:layout_toEndOf="@id/AssignmentName1Label"
             android:layout_height="wrap_content"
             android:textColorHint="@color/grey"
             android:inputType="textLongMessage"
-            android:hint="@string/assigment"/>
+            android:text="@string/assigment"/>
 
         <!--        this is related to the Exam-->
         <TextView
@@ -277,20 +277,20 @@
             android:text="@string/nameLabel"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_marginTop="5sp"
+            android:layout_marginTop="-4sp"
             android:layout_marginStart="10sp"
             android:layout_below="@id/Exam"
             android:layout_toEndOf="@id/ExamDateText"
             android:textColor="@color/black"/>
 
-        <EditText
+        <TextView
             android:id="@+id/ExamNameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/Exam"
             android:layout_marginTop="-5sp"
             android:layout_toEndOf="@id/ExamNameLabel"
-            android:hint="@string/exam"
+            android:text="@string/exam"
             android:minWidth="48sp"
             android:layout_marginStart="5sp"
             android:minHeight="48sp"
@@ -305,7 +305,7 @@
             android:id="@+id/LectureRoomLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10sp"
+            android:layout_marginTop="5sp"
             android:layout_marginLeft="4dp"
             android:text="@string/lecture_room_label"
             android:textSize="15sp"
@@ -313,20 +313,20 @@
             android:layout_below="@id/ExamDateText"
             android:textColor="@color/black"/>
 
-        <EditText
+        <TextView
             android:id="@+id/LectureRoomText"
             android:minWidth="48sp"
             android:minHeight="48sp"
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:textColor="@color/black"
-            android:textColorHint="@color/grey"
+            android:layout_marginTop="4sp"
             android:layout_marginStart="5sp"
             android:layout_below="@id/ExamDateText"
             android:layout_toEndOf="@id/LectureRoomLabel"
             android:layout_height="wrap_content"
             android:inputType="textShortMessage"
-            android:hint="@string/lecture_room"/>
+            android:text="@string/lecture_room"/>
 
         <!--        Tutorial Room-->
 
@@ -338,11 +338,11 @@
             android:text="@string/tutorial_room_label"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_marginTop="10sp"
+            android:layout_marginTop="-5sp"
             android:layout_below="@id/LectureRoomText"
             android:textColor="@color/black"/>
 
-        <EditText
+        <TextView
             android:id="@+id/TutorialRoomText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -350,9 +350,10 @@
             android:layout_marginStart="6dp"
             android:layout_toEndOf="@id/TutorialRoomLabel"
             android:textColorHint="@color/grey"
-            android:hint="@string/toturorial_room"
+            android:text="@string/toturorial_room"
             android:minWidth="48sp"
             android:minHeight="48sp"
+            android:layout_marginTop="-4sp"
             android:textColor="@color/black"
             android:inputType="textShortMessage"
             android:textSize="15sp" />
@@ -360,6 +361,6 @@
 
 
 
-        </RelativeLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

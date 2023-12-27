@@ -27,11 +27,16 @@ public class TrainsViewModel extends ViewModel {
     }
 
     public void addAll(TrainList list) {
-        allTrains.getValue().addAll(list.getResults());
-        allTrains.setValue(allTrains.getValue());
-        Log.i("MS", "Printing " + allTrains.getValue().size() + " Trains");
-        for (TrainService train : allTrains.getValue()) {
-            Log.i("MS", train.toString());
+        if(list.getResults()== null){
+           return;
+        }else{
+            allTrains.getValue().addAll(list.getResults());
+            allTrains.setValue(allTrains.getValue());
+            Log.i("MS", "Printing " + allTrains.getValue().size() + " Trains");
+            for (TrainService train : allTrains.getValue()) {
+                Log.i("MS", train.toString());
+            }
+
         }
     }
 
