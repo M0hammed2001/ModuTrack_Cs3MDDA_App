@@ -27,7 +27,7 @@ public class TrainsViewModel extends ViewModel {
     }
 
     public void addAll(TrainList list) {
-        if(list.getResults()== null){
+        if(list.getResults() == null){
            return;
         }else{
             allTrains.getValue().addAll(list.getResults());
