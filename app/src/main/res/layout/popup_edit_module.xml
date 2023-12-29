@@ -145,7 +145,7 @@
             android:layout_below="@id/Assingment1"
             android:layout_toEndOf="@id/AssignmentDate1Label"
             android:layout_height="wrap_content"
-            android:hint="@string/DatePicker"/>
+            android:text="@string/DatePicker"/>
         <TextView
             android:id="@+id/AssignmentName1Label"
             android:layout_width="wrap_content"
@@ -214,7 +214,7 @@
             android:layout_toEndOf="@id/AssignmentDate1Label"
             android:layout_height="wrap_content"
             android:layout_marginTop="5sp"
-            android:hint="@string/DatePicker"/>
+            android:text="@string/DatePicker"/>
         <TextView
             android:id="@+id/AssignmentName2Label"
             android:layout_width="wrap_content"
@@ -284,7 +284,7 @@
             android:layout_toEndOf="@id/ExamDateLabel"
             android:layout_height="wrap_content"
             android:layout_marginTop="5sp"
-            android:hint="@string/DatePicker"/>
+            android:text="@string/DatePicker"/>
 
 
 
@@ -374,6 +374,17 @@
             android:textColor="@color/black"
             android:inputType="textShortMessage"
             android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:textAlignment="center"
+            android:text="Please Select a field you would like edit the information"
+            android:textSize="15sp"
+            android:layout_below="@id/TutorialRoomLabel"
+            android:layout_marginTop="55sp"
+            android:textColor="@color/black"/>
 
 
 
