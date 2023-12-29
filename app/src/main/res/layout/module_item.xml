@@ -232,12 +232,11 @@
             android:id="@+id/Exam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
             android:layout_marginLeft="4dp"
             android:text="@string/Exam"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_below="@id/AssignmentDate2Label"
+            android:layout_below="@id/AssignmentDate2Text"
             android:textColor="@color/red"/>
 
         <TextView

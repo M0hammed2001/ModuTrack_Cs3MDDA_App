@@ -17,6 +17,7 @@
             android:id="@+id/buttonAddModule"
             android:layout_width="48sp"
             android:layout_height="48sp"
+            android:backgroundTint="@color/black"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="5sp"
@@ -47,6 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_marginTop="5sp"
             android:textColor="@color/black"
+            android:backgroundTint="@color/black"
             android:layout_below="@id/ModuleLabel"
             android:layout_height="wrap_content"
             android:textColorHint="@color/black"
@@ -74,6 +76,7 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_below="@+id/ModuleLabel"
+            android:backgroundTint="@color/black"
             android:layout_toEndOf="@id/ModuleNameLabel"
             android:layout_height="wrap_content"
             android:textColorHint="@color/black"
@@ -143,9 +146,10 @@
             android:layout_marginTop="-5sp"
             android:textColor="@color/black"
             android:layout_below="@id/Assingment1"
+            android:backgroundTint="@color/black"
             android:layout_toEndOf="@id/AssignmentName1Label"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/black"
             android:inputType="textLongMessage"
             android:hint="@string/assigment"/>
 
@@ -215,7 +219,8 @@
             android:layout_below="@id/Assingment2"
             android:layout_toEndOf="@id/AssignmentName1Label"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
             android:inputType="textLongMessage"
             android:hint="@string/assigment"/>
 
@@ -287,7 +292,8 @@
             android:layout_marginStart="5sp"
             android:minHeight="48sp"
             android:textColor="@color/black"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
             android:inputType="textLongMessage"
             android:textSize="15sp" />
 
@@ -312,10 +318,11 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:textColor="@color/black"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/black"
             android:layout_marginStart="5sp"
             android:layout_below="@id/ExamDateText"
             android:layout_toEndOf="@id/LectureRoomLabel"
+            android:backgroundTint="@color/black"
             android:layout_height="wrap_content"
             android:inputType="textShortMessage"
             android:hint="@string/lecture_room"/>
@@ -341,11 +348,12 @@
             android:layout_below="@id/LectureRoomText"
             android:layout_marginStart="6dp"
             android:layout_toEndOf="@id/TutorialRoomLabel"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/black"
             android:hint="@string/toturorial_room"
             android:minWidth="48sp"
             android:minHeight="48sp"
             android:textColor="@color/black"
+            android:backgroundTint="@color/black"
             android:inputType="textShortMessage"
             android:textSize="15sp" />
 

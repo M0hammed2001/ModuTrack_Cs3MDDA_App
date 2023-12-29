@@ -77,6 +77,7 @@
             android:layout_below="@id/ModuleLabel"
             android:layout_height="wrap_content"
             android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
             android:hint="@string/ModuleCode"/>
         <TextView
             android:id="@+id/ModuleNameLabel"
@@ -104,6 +105,7 @@
             android:layout_toEndOf="@id/ModuleNameLabel"
             android:layout_height="wrap_content"
             android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
             android:inputType="textLongMessage"
             android:hint="@string/ModuleName"/>
 
@@ -173,6 +175,7 @@
             android:layout_toEndOf="@id/AssignmentName1Label"
             android:layout_height="wrap_content"
             android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
             android:inputType="textLongMessage"
             android:hint="@string/assigment"/>
 
@@ -242,6 +245,7 @@
             android:layout_toEndOf="@id/AssignmentName1Label"
             android:layout_height="wrap_content"
             android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
             android:inputType="textLongMessage"
             android:hint="@string/assigment"/>
 
@@ -250,12 +254,12 @@
             android:id="@+id/Exam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
+            android:layout_marginTop="5sp"
             android:layout_marginLeft="4dp"
             android:text="@string/Exam"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_below="@id/AssignmentDate2Label"
+            android:layout_below="@id/AssignmentDate2Text"
             android:textColor="@color/red"/>
 
         <TextView
@@ -313,6 +317,7 @@
             android:layout_marginStart="5sp"
             android:minHeight="48sp"
             android:textColor="@color/black"
+            android:backgroundTint="@color/black"
             android:textColorHint="@color/black"
             android:inputType="textLongMessage"
             android:textSize="15sp" />
@@ -343,6 +348,7 @@
             android:layout_below="@id/ExamDateText"
             android:layout_toEndOf="@id/LectureRoomLabel"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
             android:inputType="textShortMessage"
             android:hint="@string/lecture_room"/>
 
@@ -372,6 +378,7 @@
             android:minWidth="48sp"
             android:minHeight="48sp"
             android:textColor="@color/black"
+            android:backgroundTint="@color/black"
             android:inputType="textShortMessage"
             android:textSize="15sp" />
 
