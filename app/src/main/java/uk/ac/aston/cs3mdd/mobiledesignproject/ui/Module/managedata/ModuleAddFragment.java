@@ -59,7 +59,7 @@ public class ModuleAddFragment extends Fragment {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         // did month +1 as it thinks january is 00
-                        targetTextView.setText(String.valueOf(dayOfMonth) + "/" + String.valueOf(month + 1) + "/" + String.valueOf(year));
+                        targetTextView.setText(String.valueOf(dayOfMonth) + "/" + String.valueOf(month = 1) + "/" + String.valueOf(year));
 
                     }
                 },
