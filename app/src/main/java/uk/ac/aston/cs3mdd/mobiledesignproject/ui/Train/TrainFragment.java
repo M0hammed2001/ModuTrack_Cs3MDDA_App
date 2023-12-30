@@ -62,13 +62,13 @@ public class TrainFragment extends Fragment {
             @Override
             public void onChanged(@Nullable final List<TrainService> Trainlist) {
                 List<TrainService> filteredList = new ArrayList<>();
-                // this if and for loop will make sure that if final destination is not BHM or BHI it will not display the item
+                // this if and for loop will make sure that if final destination is not "BHM" for new street station it will not display the item
                 if (Trainlist != null) {
                     for (TrainService trainService : Trainlist) {
                         List<Destination> destinations = trainService.getDestination();
                         for(Destination destination: destinations) {
-                            // Check if the destination's CRS code is "BHM" or "BHI"
-                            if ("BHM".equals(destination.getCrs()) || "BHI".equals(destination.getCrs())) {
+                            // Check if the destination's CRS code is "BHM"
+                            if ("BHM".equals(destination.getCrs())) {
                                 filteredList.add(trainService);
                             }
                         }
