@@ -70,14 +70,6 @@ public class ModuleAddFragment extends Fragment {
     }
 
     private void OGThemeColour() {
-//            ExamNameText.setBackgroundColor(Color.WHITE);
-//            AssignmentName1Text.setBackgroundColor(Color.WHITE);
-//            AssignmentName2Text.setBackgroundColor(Color.WHITE);
-//            ModuleCodeText.setBackgroundColor(Color.WHITE);
-//            ModuleNameText.setBackgroundColor(Color.WHITE);
-//            TutorialRoomText.setBackgroundColor(Color.WHITE);
-//            LectureRoomText.setBackgroundColor(Color.WHITE);
-
         ExamNameText.setHintTextColor(Color.BLACK);
         ExamNameText.setTextColor(Color.BLACK);
 
