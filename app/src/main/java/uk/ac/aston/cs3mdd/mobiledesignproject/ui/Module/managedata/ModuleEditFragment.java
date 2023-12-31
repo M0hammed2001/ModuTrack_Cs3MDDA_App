@@ -102,14 +102,11 @@ public class ModuleEditFragment extends Fragment {
             ModuleCodeText.setHintTextColor(Color.BLACK);
             ModuleCodeText.setTextColor(Color.BLACK);
 
-
              ModuleNameText.setHintTextColor(Color.BLACK);
              ModuleNameText.setTextColor(Color.BLACK);
 
-
             TutorialRoomText.setHintTextColor(Color.BLACK);
             TutorialRoomText.setTextColor(Color.BLACK);
-
 
             LectureRoomText.setHintTextColor(Color.BLACK);
             LectureRoomText.setTextColor(Color.BLACK);
