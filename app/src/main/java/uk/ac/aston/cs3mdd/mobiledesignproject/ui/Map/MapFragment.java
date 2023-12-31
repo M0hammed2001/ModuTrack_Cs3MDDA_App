@@ -100,8 +100,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         builder.include(Greggs);
         builder.include(WokAndGo);
 
-
-
     }
 
 
