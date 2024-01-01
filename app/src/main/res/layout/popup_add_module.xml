@@ -111,13 +111,13 @@
 
         <TextView
             android:id="@+id/AssignmentDate1Text"
-            android:minWidth="48sp"
+            android:minWidth="60sp"
             android:minHeight="48sp"
             android:textSize="15sp"
-            android:layout_marginStart="5sp"
             android:layout_width="wrap_content"
             android:layout_marginTop="5sp"
             android:textColor="@color/black"
+            android:textAlignment="center"
             android:layout_below="@id/Assingment1"
             android:layout_toEndOf="@id/AssignmentDate1Label"
             android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:minHeight="48sp"
-            android:layout_marginStart="10sp"
+            android:layout_marginStart="20sp"
             android:layout_marginTop="5sp"
             android:layout_below="@id/Assingment1"
             android:layout_toEndOf="@id/AssignmentDate1Text"
@@ -182,13 +182,13 @@
 
         <TextView
             android:id="@+id/AssignmentDate2Text"
-            android:minWidth="48sp"
+            android:minWidth="60sp"
             android:minHeight="48sp"
             android:textSize="15sp"
-            android:layout_marginStart="5sp"
             android:layout_width="wrap_content"
             android:textColor="@color/black"
             android:layout_below="@id/Assingment2"
+            android:textAlignment="center"
             android:layout_toEndOf="@id/AssignmentDate1Label"
             android:layout_height="wrap_content"
             android:layout_marginTop="5sp"
@@ -201,7 +201,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:minHeight="48sp"
-            android:layout_marginStart="10sp"
+            android:layout_marginStart="20sp"
             android:layout_marginTop="5sp"
             android:layout_below="@id/Assingment2"
             android:layout_toEndOf="@id/AssignmentDate1Text"
@@ -258,12 +258,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/Exam"
             android:layout_centerInParent="true"
-            android:layout_marginStart="5sp"
             android:layout_marginTop="5sp"
             android:layout_toEndOf="@id/ExamDateLabel"
-            android:text="@string/DatePicker"
-            android:minWidth="48sp"
+            android:minWidth="60sp"
             android:minHeight="48sp"
+            android:textAlignment="center"
+            android:text="@string/DatePicker"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
@@ -275,7 +275,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:layout_marginTop="5sp"
-            android:layout_marginStart="10sp"
+            android:layout_marginStart="20sp"
             android:layout_below="@id/Exam"
             android:layout_toEndOf="@id/ExamDateText"
             android:textColor="@color/black"/>
@@ -357,6 +357,8 @@
             android:inputType="textShortMessage"
             android:textSize="15sp" />
 
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -367,6 +369,7 @@
             android:layout_below="@id/TutorialRoomLabel"
             android:layout_marginTop="55sp"
             android:textColor="@color/black"/>
+
 
     </RelativeLayout>
 

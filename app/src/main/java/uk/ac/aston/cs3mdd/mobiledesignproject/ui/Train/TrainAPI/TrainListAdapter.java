@@ -121,16 +121,16 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Trai
             @Override
             public void onClick(View view) {
                 //builds the String that will display on the
-                StringBuilder sb = new StringBuilder();
-                    for(TrainService m : mTrainList){
-                        sb.append(m.getDestination()+" : "+m.getStd());
-                        sb.append("\n");
-                    }
-                String TrainPopup = sb.toString();
-                    //will display the Finaldata Sring in a format
-                Snackbar.make(view, TrainPopup, Snackbar.LENGTH_LONG).setAction("Action", null).show();
-
-                     Log.i("MS", "You Selected " + trainService.toString());
+//                StringBuilder sb = new StringBuilder();
+//                    for(TrainService m : mTrainList){
+//                        sb.append(m.getDestination()+" : "+m.getStd());
+//                        sb.append("\n");
+//                    }
+//                String TrainPopup = sb.toString();
+//                    //will display the Finaldata Sring in a format
+//                Snackbar.make(view, TrainPopup, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+//
+//                     Log.i("MS", "You Selected " + trainService.toString());
 
             }
         }
