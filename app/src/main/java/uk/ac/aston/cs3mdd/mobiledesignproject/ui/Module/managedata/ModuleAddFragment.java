@@ -338,6 +338,7 @@ public class ModuleAddFragment extends Fragment {
                     String tutorialRoom = TutorialRoomText.getText().toString().trim().toUpperCase();
                     String lectureRoom = LectureRoomText.getText().toString().trim().toUpperCase();
 
+
                     // Creates a Module object and save it to the database
                     Module moduleAdd = new Module(moduleName, moduleCode, assignmentName1, assignmentDate1, assignmentName2, assignmentDate2, ExamName, ExamDate, tutorialRoom, lectureRoom);
                     AddModuleInBackground(moduleAdd);

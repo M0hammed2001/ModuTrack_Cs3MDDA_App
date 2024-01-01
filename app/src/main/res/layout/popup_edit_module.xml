@@ -142,12 +142,13 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_marginTop="5sp"
-            android:textAlignment="center"
             android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textAlignment="center"
             android:layout_below="@id/Assingment1"
             android:layout_toEndOf="@id/AssignmentDate1Label"
             android:layout_height="wrap_content"
-            android:text="@string/DatePicker"/>
+            android:hint="@string/DatePicker"/>
         <TextView
             android:id="@+id/AssignmentName1Label"
             android:layout_width="wrap_content"
@@ -213,12 +214,13 @@
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:layout_below="@id/Assingment2"
             android:textAlignment="center"
             android:layout_toEndOf="@id/AssignmentDate1Label"
             android:layout_height="wrap_content"
             android:layout_marginTop="5sp"
-            android:text="@string/DatePicker"/>
+            android:hint="@string/DatePicker"/>
         <TextView
             android:id="@+id/AssignmentName2Label"
             android:layout_width="wrap_content"
@@ -286,10 +288,11 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="5sp"
             android:layout_toEndOf="@id/ExamDateLabel"
+            android:hint="@string/DatePicker"
             android:minWidth="60sp"
             android:minHeight="48sp"
+            android:textColorHint="@color/black"
             android:textAlignment="center"
-            android:text="@string/DatePicker"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
@@ -382,6 +385,7 @@
             android:backgroundTint="@color/black"
             android:inputType="textShortMessage"
             android:textSize="15sp" />
+
 
         <TextView
             android:layout_width="match_parent"

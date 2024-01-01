@@ -126,7 +126,7 @@
             android:layout_below="@id/Assingment1"
             android:layout_toEndOf="@id/AssignmentDate1Label"
             android:layout_height="wrap_content"
-            android:text="@string/DatePicker"/>
+            android:hint="@string/DatePicker"/>
         <TextView
             android:id="@+id/AssignmentName1Label"
             android:layout_width="wrap_content"
@@ -193,7 +193,7 @@
             android:layout_below="@id/Assingment2"
             android:layout_toEndOf="@id/AssignmentDate1Label"
             android:layout_height="wrap_content"
-            android:text="@string/DatePicker"/>
+            android:hint="@string/DatePicker"/>
         <TextView
             android:id="@+id/AssignmentName2Label"
             android:layout_width="wrap_content"
@@ -258,8 +258,8 @@
             android:layout_toEndOf="@id/ExamDateLabel"
             android:minWidth="60sp"
             android:minHeight="48sp"
+            android:hint="@string/DatePicker"
             android:textAlignment="center"
-            android:text="@string/DatePicker"
             android:textColor="@color/black"
             android:textSize="15sp" />
 

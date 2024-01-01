@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
@@ -65,8 +64,8 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         String tutorialRoom = module.getTutorialRoom().trim();
 
 
-        holder.ModuleNameText.setText(Html.fromHtml(moduleName));
-        holder.ModuleCodeText.setText(Html.fromHtml(moduleCode));
+        holder.ModuleNameText.setText(moduleName);
+        holder.ModuleCodeText.setText(moduleCode);
 
         if(AssignmentName1.isEmpty() && AssignmentDate1.isEmpty()){
             Log.i("MS","Assignment 1 empty");
@@ -81,7 +80,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         }
 
 
-        if(AssignmentName2.isEmpty() && AssignmentDate2.isEmpty()){
+        if(AssignmentName2.toString().isEmpty() && AssignmentDate2.toString().isEmpty()){
             Log.i("MS","Assignment 2 empty");
             holder.AssignmentName2Label.setVisibility(View.GONE);
             holder.AssignmentDate2Label.setVisibility(View.GONE);
@@ -89,11 +88,11 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             holder.AssignmentName2Text.setVisibility(View.GONE);
             holder.Assingment2.setVisibility(View.GONE);
         }else {
-            holder.AssignmentDate2Text.setText(Html.fromHtml(AssignmentDate2));
-            holder.AssignmentName2Text.setText(Html.fromHtml(AssignmentName2));
+            holder.AssignmentDate2Text.setText(AssignmentDate2);
+            holder.AssignmentName2Text.setText(AssignmentName2);
         }
 
-        if(ExamName.isEmpty() && ExamDate.isEmpty()){
+        if(ExamName.toString().trim().isEmpty() && ExamDate.toString().trim().isEmpty()){
             Log.i("MS","Exam is empty");
             holder.Exam.setVisibility(View.GONE);
             holder.ExamNameLabel.setVisibility(View.GONE);
@@ -101,14 +100,14 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
             holder.ExamNameText.setVisibility(View.GONE);
             holder.ExamDateText.setVisibility(View.GONE);
         }else {
-            holder.ExamDateText.setText(Html.fromHtml(ExamDate));
-            holder.ExamNameText.setText(Html.fromHtml(ExamName));
+            holder.ExamDateText.setText(ExamDate);
+            holder.ExamNameText.setText(ExamName);
         }
 
 
 
-        holder.LectureRoomText.setText(Html.fromHtml(lectureRoom));
-        holder.TutorialRoomText.setText(Html.fromHtml(tutorialRoom));
+        holder.LectureRoomText.setText(lectureRoom);
+        holder.TutorialRoomText.setText(tutorialRoom);
     }
 
     @Override
@@ -172,7 +171,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
                     ModuleFragmentDirections.ActionModuleToModuleEdit action = ModuleFragmentDirections.actionModuleToModuleEdit(modules);
                     Navigation.findNavController(view).navigate(action);
 
-                    Log.i("MS", "Module Clicked");
+                    Log.i("MS", "Module edit Clicked");
 
                 }
             });
@@ -191,7 +190,7 @@ public class ModuleListAdapter extends RecyclerView.Adapter<ModuleListAdapter.Mo
         @Override
         public void onClick(View view) {
 
-            Log.i("MS", "You Selected " + modules.toString());
+//            Log.i("MS", "You Selected " + modules.toString());
 
         }
     }
