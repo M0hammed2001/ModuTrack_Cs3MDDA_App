@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,7 +57,8 @@ public class ModuleEditFragment extends Fragment {
     TextView AssignmentDate1Text, AssignmentDate2Text,ExamDateText;
 
     TextView AssignmentDate1Label , AssignmentDate2Label, ExamDateLabel;
-    Button buttonChangeModule, ButttonEditCancel, clearCalender;
+    Button buttonChangeModule, ButttonEditCancel;
+    ImageView clearCalender;
 
     ModuleDatabase moduleDB;
     List<Module> moduleList;
@@ -138,7 +140,7 @@ public class ModuleEditFragment extends Fragment {
         TutorialRoomText = view.findViewById(R.id.TutorialRoomText);
 
         buttonChangeModule = view.findViewById(R.id.buttonChangeModule);
-        ButttonEditCancel = view.findViewById(R.id.ButttonEditCancel);
+//        ButttonEditCancel = view.findViewById(R.id.ButttonEditCancel);
         clearCalender = view.findViewById(R.id.clearCalender);
 
         ModuleCodeText.setText(module.getModuleCode());
@@ -400,14 +402,14 @@ public class ModuleEditFragment extends Fragment {
             }
         });
 
-        ButttonEditCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(ModuleEditFragment.this).navigate(R.id.action_nav_moduleEdit_to_nav_module);
-
-                Log.i("MS","Canceling Edit");
-            }
-        });
+//        ButttonEditCancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                NavHostFragment.findNavController(ModuleEditFragment.this).navigate(R.id.action_nav_moduleEdit_to_nav_module);
+//
+//                Log.i("MS","Canceling Edit");
+//            }
+//        });
 
         return view;
 
