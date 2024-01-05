@@ -15,10 +15,10 @@
 
         <ImageView
             android:id="@+id/clearCalender"
-            android:layout_width="40sp"
-            android:layout_height="40sp"
+            android:layout_width="32sp"
+            android:layout_height="32sp"
             android:layout_below="@id/ExamDateText"
-            android:layout_marginEnd="15sp"
+            android:layout_marginLeft="10px"
             android:backgroundTint="@color/white"
             android:contentDescription="clears the dates from all module information"
             android:src="@drawable/clear_calander" />
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:layout_marginTop="12sp"
-            android:layout_marginLeft="-5sp"
+            android:layout_marginLeft="5sp"
             android:layout_below="@id/ExamDateText"
             android:layout_toRightOf="@id/clearCalender"
             android:text="Clear Dates"/>
@@ -271,7 +271,7 @@
             android:id="@+id/ExamDateLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
+            android:layout_marginLeft="3dp"
             android:minHeight="32sp"
             android:minWidth="32sp"
             android:background="@drawable/calendar_24"
