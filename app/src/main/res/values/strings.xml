@@ -56,4 +56,6 @@
     <string name="edit_module_button">edit Module button</string>
     <string name="module_code">Module Code</string>
     <string name="assigment">Assigment</string>
+    <string name="edit_module">Edit Module:</string>
+    <string name="add_module">Add Module:</string>
 </resources>

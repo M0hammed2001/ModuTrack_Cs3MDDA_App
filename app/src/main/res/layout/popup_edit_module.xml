@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
-            android:text="Edit Module"
+            android:text="@string/edit_module"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_marginTop="65sp"
