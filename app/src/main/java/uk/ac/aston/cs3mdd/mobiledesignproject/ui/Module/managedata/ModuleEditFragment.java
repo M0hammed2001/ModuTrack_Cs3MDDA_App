@@ -54,7 +54,7 @@ public class ModuleEditFragment extends Fragment {
 
 //    EditText ModuleNameText, ModuleCodeText, AssignmentDate1Text, AssignmentName1Text, AssignmentDate2Text, AssignmentName2Text, ExamDateText, ExamNameText, LectureRoomText, TutorialRoomText;
     EditText ModuleNameText, ModuleCodeText, AssignmentName1Text, AssignmentName2Text, ExamNameText, LectureRoomText, TutorialRoomText;
-    TextView AssignmentDate1Text, AssignmentDate2Text,ExamDateText;
+    TextView AssignmentDate1Text, AssignmentDate2Text,ExamDateText, clearCalenderLabel;
 
     TextView AssignmentDate1Label , AssignmentDate2Label, ExamDateLabel;
     Button buttonChangeModule, ButttonEditCancel;
@@ -162,6 +162,19 @@ public class ModuleEditFragment extends Fragment {
         AssignmentDate1Label = view.findViewById(R.id.AssignmentDate1Label);
         AssignmentDate2Label= view.findViewById(R.id.AssignmentDate2Label);
         ExamDateLabel= view.findViewById(R.id.ExamDateLabel);
+        clearCalenderLabel = view.findViewById(R.id.clearCalenderLabel);
+
+        clearCalenderLabel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Clears All Dates of the Module
+                ExamDateText.setText(null);
+                AssignmentDate1Text.setText(null);
+                AssignmentDate2Text.setText(null);
+
+            }
+        });
+
 
         clearCalender.setOnClickListener(new View.OnClickListener() {
             @Override
